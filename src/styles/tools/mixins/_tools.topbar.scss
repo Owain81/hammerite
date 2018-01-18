@@ -1,0 +1,120 @@
+﻿////
+/// Topbar Tools
+/// @group TopBar
+////
+
+
+/// Calculates the inner padding for centered topbar
+///
+/// @argument {number} $extra-padding [$topbar-padding-horizontal]
+///   Extra padding added to the calculated padding
+///
+/// @argument {string} $breakpoint [$topbar-centered-from-breakpoint]
+///   Breakpoint name ('medium', 'large' ...) from which the topbar will be centered
+///
+/// @return {Number}
+@function topbar-inner-padding(
+	$extra-padding: $topbar-padding-horizontal,
+	$breakpoint: $topbar-centered-from-breakpoint
+	) {
+
+	$breakpoint-width: screen-size-breakpoint($breakpoint, min);
+	@return calc((100% - #{px-to-rem($breakpoint-width)}) / 2 + #{$extra-padding});
+}
+
+/// Returns the min width for the centered topbar breakpoint
+///
+/// @argument {string} $breakpoint [$topbar-centered-from-breakpoint]
+///   Breakpoint name ('medium', 'large' ...) from which the topbar will be centered
+///
+@function topbar-centered-min-width($breakpoint: $topbar-centered-from-breakpoint) {
+	@return screen-size-breakpoint($breakpoint, min);
+}
+
+/// Adapt topbar for desktop or mobile
+///
+/// @argument {string} $version [desktop]
+///	  Topbar device version (desktop/mobile)
+///
+@mixin topbar-device-version($version: 'desktop') {
+	$screen-size: $topbar-desktop-size;
+	$hide-class: $topbar-mobile-class;
+	$min-or-max: 'min';
+
+	@if ($version != 'desktop') {
+		$screen-size: $topbar-mobile-size;
+		$hide-class: $topbar-desktop-class;
+		$min-or-max: 'max';
+	}
+
+	@media screen and (#{$min-or-max}-width: screen-size-breakpoint($screen-size, $min-or-max)) {
+		background-color: map-get($topbar-background, $version);
+		$color: map-get($topbar-foreground-color, $version);
+
+		&,
+		.#{$topbar-class}__title a {
+			color: $color;
+		}
+
+		.#{$hide-class} {
+			display: none;
+		}
+	}
+}
+
+
+/// Defines the properties of a Topbar icon link
+///
+@mixin topbar-icon-link {
+	display: inline-block;
+	position: relative;
+	height: $topbar-icon-size;
+	padding-left: $topbar-icon-size + $topbar-icon-text-padding;
+	white-space: nowrap;
+
+	.#{$topbar-class}__link-icon {
+		display: block;
+		position: absolute;
+		top: -$topbar-icon-padding;
+		left: -$topbar-icon-padding;
+		width: $topbar-icon-clickarea;
+		height: $topbar-icon-clickarea;
+		padding: $topbar-icon-padding;
+	}
+
+	.#{$topbar-class}__link-title {
+		display: none;
+
+		@media screen and (min-width: screen-size-breakpoint('large', min)) {
+			display: inherit;
+		}
+	}
+
+	@media screen and (min-width: screen-size-breakpoint($topbar-desktop-size, min)) {
+		$item-color: map-get($topbar-icon-color, desktop);
+		$item-hover-color: map-get($topbar-icon-hover-color, desktop);
+		color: $item-color;
+
+		.#{$topbar-class}__link-icon svg {
+			fill: $item-color;
+		}
+
+		&:hover {
+			color: $item-hover-color;
+			text-decoration: none;
+
+			.#{$topbar-class}__link-icon svg {
+				fill: $item-hover-color;
+			}
+		}
+	}
+
+	@media screen and (max-width: screen-size-breakpoint($topbar-mobile-size, max)) {
+		$item-color: map-get($topbar-icon-color, mobile);
+		color: $item-color;
+
+		.#{$topbar-class}__link-icon svg {
+			fill: $item-color;
+		}
+	}
+}

@@ -1,0 +1,412 @@
+// xButton special settings
+////
+/// @group button-special
+////
+
+// Default with Icons
+
+/// Button special background color
+/// @type Color
+
+$btn-special-background-color: $color-white !default;
+
+/// Button special background color hover
+/// @type Color
+
+$btn-special-background-color-hover: $color-lightblue !default;
+
+/// Button special background color selected
+/// @type Color
+
+$btn-special-background-color-selected: $color-lightblueselect !default;
+
+/// Button special background color disabled
+/// @type Color
+
+$btn-special-background-color-disabled: $color-grey-8 !default;
+
+/// Button special border style
+/// @type String
+
+$btn-special-border-style: solid;
+
+/// Button special border width
+/// @type Number
+
+$btn-special-border-width: 1px;
+
+/// Button special border color
+/// @type Color
+
+$btn-special-border-color: $color-grey-65 !default;
+
+/// Button special shadow color
+/// @type Color
+
+$btn-special-shadow-color: $color-blue;
+
+/// Button icon size normal
+/// @type Number
+
+$btn-icon-size-normal: 44px !default;
+
+/// Button special background color rounded
+/// @type Color
+
+$btn-special-background-color-rounded: $color-grey-8 !default;
+
+//Small
+
+/// Button icon size small
+/// @type Number
+
+$btn-icon-size-small: 36px !default;
+
+// Large
+
+/// Button icon size large
+/// @type Number
+
+$btn-icon-size-large: 52px !default;
+
+// XL
+
+/// Button icon size xl
+/// @type Number
+
+$btn-icon-size-xl: 74px !default;
+
+// XXL
+
+/// Button icon size xxl
+/// @type Number
+
+$btn-icon-size-xxl: 90px !default;
+
+// 3XL
+
+/// Button icon size 3xl
+/// @type Number
+
+$btn-icon-size-3xl: 116px !default;
+
+// 4XL
+
+/// Button icon size 4xl
+/// @type Number
+
+$btn-icon-size-4xl: 132px !default;
+
+// Paddings
+
+/// Button special padding default
+/// @type Number
+
+$btn-special-padding-default: set-space(xs) !default;
+
+/// Button special padding large
+/// @type Number
+
+$btn-special-padding-large: set-space(s) !default;
+
+/// Button special padding extralarge
+/// @type Number
+
+$btn-special-padding-extralarge: set-space(m) !default;
+
+// Default with Text
+
+/// Button special text height
+/// @type Number
+
+$btn-special-text-height: 40px !default;
+
+/// Button special text width
+/// @type Number
+$btn-special-text-width: 50px !default;
+
+/// Button special text line height
+/// @type Number
+$btn-special-text-line-height: $btn-special-text-height !default;
+
+/// Button special text font size
+/// @type Number
+$btn-special-text-font-size: px-to-rem(16px) !default;
+
+//Small
+
+/// Button special text height small
+/// @type Number
+$btn-special-text-height-small: 33px !default;
+
+/// Button special text width small
+/// @type Number
+$btn-special-text-width-small: 40px !default;
+
+/// Button special text line height small
+/// @type Number
+$btn-special-text-line-height-small: 35px !default;
+
+/// Button special text font size small
+/// @type Number
+$btn-special-text-font-size-small: px-to-rem(14px) !default;
+
+// Large
+
+/// Button special text height large
+/// @type Number
+$btn-special-text-height-large: 55px !default;
+
+/// Button special text width large
+/// @type Number
+$btn-special-text-width-large: 65px !default;
+
+/// Button special text line height large
+/// @type Number
+$btn-special-text-line-height-large: $btn-special-text-height-large !default;
+
+/// Button special text font size large
+/// @type Number
+$btn-special-text-font-size-large: px-to-rem(18px) !default;
+
+
+/// Padding for icon button
+/// @type Map
+$icon-button-padding: (
+	small: $btn-special-padding-default,
+	normal: $btn-special-padding-default,
+	large: $btn-special-padding-default,
+	xl: $btn-special-padding-large,
+	xxl: $btn-special-padding-large,
+	_3xl: $btn-special-padding-extralarge,
+	_4xl: $btn-special-padding-extralarge
+);
+
+/// Size for icon button
+/// @type Map
+$icon-button-size: (
+	small: $btn-icon-size-small,
+	normal: $btn-icon-size-normal,
+	large: $btn-icon-size-large,
+	xl: $btn-icon-size-xl,
+	xxl: $btn-icon-size-xxl,
+	_3xl: $btn-icon-size-3xl,
+	_4xl: $btn-icon-size-4xl
+);
+
+/// Button special toggle focus box shadow
+/// @type Number
+$btn-special-toggle-focus-box-shadow: 0 0 px-to-rem(6px) $button-shadow-color;
+
+/// Button special grouped rounded radius
+/// @type Number
+$btn-special-grouped-rounded-radius: 30px !default;
+
+// rounded-toggles special settings
+
+/// Button special margin toggle rounded
+/// @type Number
+$btn-special-margin-toggle-rounded: 5px !default;
+
+/// Button special left toggle rounded
+/// @type Number
+$btn-special-left-toggle-rounded: 20px !default;
+
+/// Button special width toggle rounded
+/// @type Number
+$btn-special-width-toggle-rounded: 14px !default;
+
+/// Button special padding left toggle rounded
+/// @type Number
+$btn-special-padding-left-toggle-rounded: 40px !default;
+
+/// Button toggle rounded icon size
+/// @type Number
+$btn-toggle-rounded-icon-size: 16px !default;
+
+/// Button toggle rounded icon check (embed SVG icon)
+/// @type String
+$btn-toggle-rounded-icon-check: url('data:image/svg+xml;charset=utf-8,%3Csvg%20fill%3D%22%234c5358%22%20version%3D%221.1%22%20%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20%0A%09%20x%3D%220px%22%20y%3D%220px%22%20width%3D%2296px%22%20height%3D%2296px%22%20viewBox%3D%220%200%2096%2096%22%20%20%3E%0A%3Cpath%20class%3D%22icon_96x96_check%22%20d%3D%22M36.611%2C80.043L13.499%2C53.977c-2.382-2.679-1.872-6.585%2C1.15-8.702c3.022-2.122%2C7.402-1.663%2C9.792%2C1.021%0A%09L36.16%2C59.518l35.242-43.005c2.263-2.764%2C6.629-3.389%2C9.734-1.366c3.114%2C2.019%2C3.788%2C5.899%2C1.527%2C8.667L36.611%2C80.043L36.611%2C80.043%0A%09z%22%2F%3E%0A%3C%2Fsvg%3E%0A');
+
+
+/// Border-radius grouped-icons rounded increment for first/last childs map
+/// @type Map
+$btn-special-grouped-rounded-width-increment: (
+	small: 3px,
+	normal: 6px,
+	large: 9px,
+);
+
+/// Floating button size
+/// @type Map
+$btn-floating-size: (
+	small: 32px,
+	normal: 42px,
+	large: 52px
+);
+
+/// Button floating corner distance
+/// @type Number
+$btn-floating-corner-distance: 2rem !default;
+
+/// Floating button font size
+/// @type Map
+$btn-floating-font-size: (
+	small: 1rem,
+	normal: 1.5rem,
+	large: 2rem
+);
+
+/// Button floating border color
+/// @type Color
+$btn-floating-border-color: $color-grey !default;
+
+/// Button floating hover background color
+/// @type Color
+$btn-floating-hover-background-color: $color-grey-34 !default;
+
+/// Button floating active background color
+/// @type Color
+$btn-floating-active-background-color: $color-grey-65 !default;
+
+/// Button floating focus border color
+/// @type Color
+$btn-floating-focus-border-color: $color-blue !default;
+
+/// Button floating shadow distance
+/// @type Number
+$btn-floating-shadow-distance: px-to-rem(2px) !default;
+
+/// Button floating shadow blur
+/// @type Number
+$btn-floating-shadow-blur: px-to-rem(4px) !default;
+
+/// Button floating shadow color
+/// @type Color
+$btn-floating-shadow-color: rgba(0, 0, 0, .2) !default;
+
+/// Button floating active scale
+/// @type Number
+$btn-floating-active-scale: .96 !default;
+
+/// Button floating transition curve
+/// @type String
+$btn-floating-transition-curve: elastic !default;
+
+/// Button floating transition duration
+/// @type Number
+$btn-floating-transition-duration: .2s !default;
+// Btn split
+
+/// Button split icon color
+/// @type Color
+$btn-split-icon-color: $color-grey-120 !default;
+
+/// Button split border color
+/// @type Color
+$btn-split-border-color: $color-grey-34 !default;
+
+/// Button split border size
+/// @type Number
+$btn-split-border-size: 1px !default;
+
+/// Button split border type
+/// @type String
+$btn-split-border-type: solid !default;
+
+/// Button split padding small
+/// @type String
+$btn-split-padding-small: px-to-rem(set-space(s)) !default;
+
+/// Button split padding large
+/// @type Number
+$btn-split-padding-large: px-to-rem(set-space(m)) !default;
+
+/// Button split default size
+/// @type String
+$btn-split-default: 44px !default;
+
+/// Button split small size
+/// @type String
+$btn-split-small: 36px !default;
+
+/// Button split large size
+/// @type String
+$btn-split-large: 52px !default;
+
+/// Switch - Class name
+/// @type {string}
+$btn-group-class-name: #{$class-prefix-c}-btn-group !default;
+
+/// Switch - Background color
+/// @type {string}
+$btn-switch-background-color: $color-grey-34 !default;
+
+/// Switch - Width
+/// @type Number
+$btn-switch-width: 42px !default;
+
+/// Switch - Height
+/// @type Number
+$btn-switch-height: 24px !default;
+
+/// Switch - Handle size
+/// @type Number
+$btn-switch-handle-size: 24px !default;
+
+/// Switch - the handle growns when active, amount of grown
+/// @type Number
+$btn-switch-handle-grow-on-active: 4px !default;
+
+/// Switch - handle left when checked
+/// @type Number
+$btn-switch-left-on-check: #{$btn-switch-width - $btn-switch-handle-size};
+
+/// Switch - handle left when checked and active
+/// @type Number
+$btn-switch-left-on-check-active: #{$btn-switch-left-on-check - $btn-switch-handle-grow-on-active};
+
+/// Switch transition curve
+/// @type String
+$btn-switch-transition-curve: elastic !default;
+
+/// Switch transition duration
+/// @type Number
+$btn-switch-transition-duration: .3s !default;
+
+
+/// Switch - active hover color
+/// @type {string}
+$btn-switch-active-hover-color: $color-btn-happy-hover !default;
+
+/// Switch - active background color
+/// @type {string}
+$btn-switch-active-background-color: $color-lightblueselect !default;
+
+/// Switch - Button color
+/// @type {string}
+$btn-switch-button-color: $color-white !default;
+
+/// Switch - Button border color
+/// @type {string}
+$btn-switch-button-border-color: $color-grey-65 !default;
+
+/// Switch - Active color
+/// @type {string}
+$btn-switch-button-active-color: $color-blue !default;
+
+/// Switch - Hover color
+/// @type {string}
+$btn-switch-hover-color: $color-paleblue !default;
+
+/// Switch - Hover border color
+/// @type {string}
+$btn-switch-hover-border-color: $color-grey !default;
+
+/// Switch - Focus outerglow distance
+/// @type {Number}
+$btn-switch-focus-outerglow-distance: 3px !default;
+
+/// Switch - Focus outerglow color
+/// @type {string}
+$btn-switch-focus-outerglow-color:  $color-blue !default;

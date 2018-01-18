@@ -1,0 +1,10 @@
+////
+/// @group elevation
+////
+
+/// Set box-shadow for elevation level
+/// @param {integet} z 	elevation (1 - 4)
+///
+@mixin shadow-for-elevation ($z) {
+	box-shadow: 0 map-get($shadow-offset-y, $z) map-get($shadow-blur, $z) 0 rgba($shadow-color, $shadow-opacity);
+}

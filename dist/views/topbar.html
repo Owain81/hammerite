@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, user-scalable=no" />
+    <title>UI Library - TopBar</title>
+
+    <!-- Some quick angularjs for demo purposes -->
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.js"></script>
+    <script type="text/javascript">
+        var app = angular.module('demoTopBar', []);
+
+        app.controller('demoController', function ($scope, $http) {
+
+            $scope.showLogo = true;
+            $scope.title = '';
+
+            $scope.toolBarItems = [
+                {
+                    title: 'Messages',
+                    icon: 'comment',
+                    badge: 3
+                },
+                {
+                    title: 'Help',
+                    icon: 'info-circle',
+                    badge: 20
+                },
+                {
+                    title: 'Profile',
+                    icon: 'user',
+                    badge: 10
+                },
+            ];
+
+            $scope.addNew = function () {
+                $scope.toolBarItems.push({
+                    title: '',
+                    icon: 'info-circle',
+                    badge: 0
+                });
+            };
+        });
+
+    </script>
+
+    <link rel="stylesheet" href="../css/design-system.css" />
+    <style>
+        body {
+            background-color: #E7ECF0;
+        }
+
+        .demo-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+
+        fieldset {
+            border: 0;
+            background-color: #fff;
+            padding: 1.5rem;
+        }
+
+        input:not([type="checkbox"]) {
+            width: 100%;
+        }
+
+        .delete-item {
+            text-align: right;
+        }
+
+        @media (max-width:640px) {
+            .delete-item {
+                width: 100%;
+            }
+        }
+
+        .css {
+            background-color: #DDDDDD;
+            padding: 1px 5px 1px 5px;
+            border: 1px solid #ccc;
+        }
+
+        pre {
+            margin-left: 2rem;
+            border-left: solid 3px #AFC836;
+            background-color: #FDFDFD;
+            color: #0D78AA;
+            font-size: .85rem;
+            line-height: 1.5rem;
+        }
+
+            pre strong {
+                color: #00648e;
+            }
+
+            pre em {
+                font-family: monospace, monospace;
+                font-style: normal;
+                color: #878C90;
+            }
+    </style>
+</head>
+
+<body ng-app="demoTopBar" ng-controller="demoController">
+
+    <header class="c-topbar">
+        <div class="c-topbar__wrapper">
+            <a href="../index.html" class="c-topbar__link c-topbar__btn--back">
+                <span class="c-topbar__link-icon">
+                    <svg class="o-icon">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#u4-icon-topbar--angle-left"></use>
+                    </svg>
+                </span>
+            </a>
+
+            <h1 class="c-topbar__title">
+                <a href="../index.html">
+                    <img src="../images/unit4-logo.svg" width="102" class="c-topbar__element--show-on-desktop" alt="unit4" />
+                    <img src="../images/unit4-logo-white.svg" width="102" class="c-topbar__element--show-on-mobile" alt="unit4" />
+                </a>
+            </h1>
+
+            <h2 class="c-topbar__subtitle">UI Library - Topbar</h2>
+        </div>
+    </header>
+
+
+    <div class="demo-container">
+        <ul class="c-breadcrumb">
+            <li class="c-breadcrumb__item"><a href="../index.html">UI Library home</a></li>
+            <li class="c-breadcrumb__item"><label class="o-label">Topbar</label></li>
+        </ul>
+
+        <p>
+            Find below a Topbar demo. You can resize the browser window and check how it changes depending on the device with.
+        </p>
+
+    </div>
+
+    <section class="c-topbar c-topbar-demo">
+        <div class="c-topbar__wrapper">
+            <a href="../index.html" class="c-topbar__link c-topbar__btn--back">
+                <span class="c-topbar__link-icon">
+                    <svg class="o-icon">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#u4-icon-topbar--angle-left"></use>
+                    </svg>
+                </span>
+            </a>
+
+            <h1 class="c-topbar__title" ng-show="showLogo">
+                <a href="#">
+                    <img src="../images/unit4-logo.svg" width="102" class="c-topbar__element--show-on-desktop" alt="unit4" />
+                    <img src="../images/unit4-logo-white.svg" width="102" class="c-topbar__element--show-on-mobile" alt="unit4" />
+                </a>
+            </h1>
+
+            <h2 class="c-topbar__subtitle">{{ title }}</h2>
+
+
+            <nav class="c-topbar__toolbar">
+
+                <a href="#" class="c-topbar__link c-topbar__expander">
+                    <span class="c-topbar__link-icon">
+                        <svg class="o-icon">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#u4-icon-topbar--plus"></use>
+                        </svg>
+                    </span>
+                </a>
+
+                <ul>
+                    <li ng-repeat="item in toolBarItems" class="{{item.badge > 0 ? 'c-topbar__item--has-badge': '' }}">
+                        <a href="#" class="c-topbar__link">
+                            <span class="c-topbar__link-icon">
+                                <svg class="o-icon">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{{ '#u4-icon-topbar--' + item.icon }}"></use></svg>
+                                <span class="c-topbar__badge" ng-show="item.badge > 0">{{ item.badge }}</span>
+                            </span>
+                            <span class="c-topbar__link-title">{{ item.title }}</span>
+                        </a>
+                    </li>
+
+                    <li class="c-topbar__search">
+                        <a href="#" class="c-topbar__link">
+                            <span class="c-topbar__link-icon">
+                                <svg class="o-icon">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#u4-icon-topbar--search"></use>
+                                </svg>
+                            </span>
+                        </a>
+                        <input class="o-input" type="text"></input>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </section>
+
+    <div class="demo-container">
+
+        <h4>Toolbar playground</h4>
+        <p>
+            In the form below you can modify the topbar toolbar. For the icon field, please refer to <a href="icons.html">Icons section</a>
+        </p>
+
+        <form class="c-form">
+            <fieldset>
+
+                <h5>Topbar title</h5>
+
+                <div class="l-column-group l-gutters l-push-distribute">
+                    <div class="l-xlarge-25 l-large-25 l-medium-25 l-small-100 l-tiny-100">
+                        <input id="showLogo" type="checkbox" class="o-input--checkbox" ng-model="showLogo" />
+                        <label for="showLogo" class="o-input--label">Show logo on topbar</label>
+                    </div>
+                    <div class="xl-large-50 l-large-50 l-medium-50 l-small-100 l-tiny-100">
+                        <label for="title" class="o-label o-label--block">Title</label>
+                        <input id="title" class="o-input" type="text" placeholder="Enter the topbar title" ng-model="title" />
+                    </div>
+
+                </div>
+
+                <h5>Topbar toolbar items</h5>
+
+                <div class="l-column-group l-gutters l-push-distribute" ng-repeat="item in toolBarItems">
+
+                    <div class="l-xlarge-25 l-large-25 l-medium-25 l-small-100 l-tiny-100">
+                        <label for="title{{ $index }}" class="o-label o-label--block">Title</label>
+                        <input id="title{{ $index }}" class="o-input" type="text" placeholder="Enter the toolbar item title" aria-required="true" ng-model="item.title" />
+                    </div>
+
+                    <div class="l-xlarge-25 l-large-25 l-medium-25 l-small-100 l-tiny-100">
+                        <label for="icon{{ $index }}" class="o-label u4-label--block">Icon</label>
+                        <input id="icon{{ $index }}" class="o-input" type="text" placeholder="Put here the icon name" aria-required="true" ng-model="item.icon" />
+                    </div>
+
+                    <div class="l-xlarge-25 l-large-25 l-medium-25 l-small-100 l-tiny-100">
+                        <label for="badge{{ $index }}" class="o-label u4-label--block">Badge #</label>
+                        <input id="badge{{ $index }}" class="o-input" type="number" placeholder="Set a number for the badge" aria-required="true" min="0" max="999" ng-model="item.badge" />
+                    </div>
+
+                    <div class="delete-item">
+                        <button class="o-btn-icon o-btn-icon--small" ng-click="toolBarItems.splice($index,1);">
+                            <svg class="">
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#u4-icon--close"></use>
+                            </svg>
+                        </button>
+                    </div>
+
+                </div>
+
+                <button class="o-btn o-btn--happy o-btn--small" ng-click="addNew()">Add new</button>
+            </fieldset>
+        </form>
+
+
+        <h4>How to use</h4>
+
+        <h5>Simple topbar</h5>
+        <p>
+            Any element with class <span class="css">c-topbar</span> will receive the topbar style. 
+            Topbar title or logo should be set with <span class="css">c-topbar__title</span> class. 
+            An optional subtitle can be set using <span class="css">c-topbar__subtitle</span>. 
+            Header tags like <span class="css">h1</span> or <span class="css">h2</span> are recommended for these last elements.
+        </p>
+
+        <p>
+            <pre>
+
+        &lt;header class=&quot;<strong>c-topbar</strong>&quot;&gt;
+            &lt;<strong>h1</strong> class=&quot;<strong>c-topbar__title</strong>&quot;&gt;
+                &lt;img src=&quot;<em>mylogo</em>&quot; alt=&quot;<em>My App</em>&quot; /&gt;
+            &lt;<strong>/h1</strong>&gt;
+
+            &lt;<strong>h2</strong> class=&quot;<strong>c-topbar__subtitle</strong>&quot;&gt;<em>Optional subtitle</em>&lt;<strong>/h2</strong>&gt;
+        &lt;/header&gt;
+            </pre>
+        </p>
+
+        <p>
+            An optional <em>back</em> button could be added before the headings, as an archor with the class <span class="css">c-topbar__btn--back</span>.
+            It will appear only for mobile devices.
+        </p>
+
+        <p>
+            <pre>
+
+        &lt;header class=&quot;c-topbar&quot;&gt;
+            &lt;a href=&quot;<em>goBack</em>&quot; class=&quot;c-topbar__link <strong>c-topbar__btn--back</strong>&quot;&gt;
+                &lt;span class=&quot;c-topbar__link-icon&quot;&gt;
+                    &lt;svg class=&quot;o-icon&quot;&gt;
+                        &lt;use xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; xlink:href=&quot;#u4-icon-topbar--angle-left&quot;&gt;&lt;/use&gt;
+                    &lt;/svg&gt;
+                &lt;/span&gt;
+            &lt;/a&gt;
+            &lt;h1 class=&quot;c-topbar__title&quot;&gt;
+                &lt;img src=&quot;<em>mylogo</em>&quot; alt=&quot;<em>My App</em>&quot; /&gt;
+            &lt;/h1&gt;
+        &lt;/header&gt;
+            </pre>
+        </p>
+
+        <h5>Fixed topbar</h5>
+
+        <p>
+            Just add <span class="css">c-topbar--fixed</span>. The topbar will remain in the same position when the page scrolls.
+        </p>
+        <p>
+            <pre>
+
+        &lt;header class=&quot;c-topbar <strong>c-topbar--fixed</strong>&quot;&gt; &hellip;
+            </pre>
+        </p>
+
+        <h5>Topbar with tabs</h5>
+
+        <p>
+            Any <span class="css">c-tabs</span> element just after the <span class="css">c-topbar</span> will be styled as topbar tabs container
+        </p>
+
+        <p>
+            <pre>
+                &lt;header class=&quot;<strong>c-topbar</strong>&quot;&gt;
+                    &hellip;
+                &lt;/header&gt;
+
+                &lt;ul class=&quot;<strong>c-tabs</strong>&quot;&gt;
+                    &lt;li class=&quot;<strong>c-tabs__tab</strong>&quot;&gt;
+                        &lt;a href=&quot;<em>tabLink</em>&quot;&gt;All&lt;/a&gt;
+                    &lt;/li&gt;
+                    &lt;li class=&quot;<strong>c-tabs__tab is-active</strong>&quot;&gt;
+                        &lt;a href=&quot;<em>tabLink</em>&quot;&gt;New&lt;/a&gt;
+                    &lt;/li&gt;
+                    &lt;li class=&quot;<strong>c-tabs__tab</strong>&quot;&gt;
+                        &lt;a href=&quot;<em>tabLink</em>&quot;&gt;Favorites&lt;/a&gt;
+                    &lt;/li&gt;
+                &lt;/ul&gt;
+
+            </pre>
+        </p>
+    </div>
+
+    <section class="c-topbar">
+        <div class="c-topbar__wrapper">
+            <a href="../index.html" class="c-topbar__link c-topbar__btn--back">
+                <span class="c-topbar__link-icon">
+                    <svg class="o-icon">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#u4-icon-topbar--angle-left"></use>
+                    </svg>
+                </span>
+            </a>
+            <h1 class="c-topbar__title" ng-show="showLogo">
+                <a href="#">
+                    <img src="../images/unit4-logo.svg" width="102" class="c-topbar__element--show-on-desktop" alt="unit4" />
+                    <img src="../images/unit4-logo-white.svg" width="102" class="c-topbar__element--show-on-mobile" alt="unit4" />
+                </a>
+            </h1>
+            <h2  class="c-topbar__subtitle">UI Library - Topbar</h2>
+
+            <nav class="c-topbar__toolbar">
+
+                <a href="#" class="c-topbar__link c-topbar__expander">
+                    <span class="c-topbar__link-icon">
+                        <svg class="o-icon">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#u4-icon-topbar--plus"></use>
+                        </svg>
+                    </span>
+                </a>
+
+                <ul>
+                    <li ng-repeat="item in toolBarItems" class="{{item.badge > 0 ? 'c-topbar__item--has-badge': '' }}">
+                        <a href="#" class="c-topbar__link">
+                            <span class="c-topbar__link-icon">
+                                <svg class="o-icon">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{{ '#u4-icon-topbar--' + item.icon }}"></use></svg>
+                                <span class="c-topbar__badge" ng-show="item.badge > 0">{{ item.badge }}</span>
+                            </span>
+                            <span class="c-topbar__link-title">{{ item.title }}</span>
+                        </a>
+                    </li>
+
+                    <li class="c-topbar__search">
+                        <a href="#" class="c-topbar__link">
+                            <span class="c-topbar__link-icon">
+                                <svg class="o-icon">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#u4-icon-topbar--search"></use>
+                                </svg>
+                            </span>
+                        </a>
+                        <input class="o-input" type="text"></input>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </section>
+
+    <ul class="c-tabs">
+        <li class="c-tabs__tab" ng-class="activeTab == 'tab1'?'is-active':''">
+            <a href ng-click="makeActive('tab1')">All</a>
+        </li>
+        <li class="c-tabs__tab" ng-class="activeTab == 'tab2'?'is-active':''">
+            <a href ng-click="makeActive('tab2')">New</a>
+        </li>
+        <li class="c-tabs__tab" ng-class="activeTab == 'tab3'?'is-active':''">
+            <a href ng-click="makeActive('tab3')">Favorites</a>
+        </li>
+    </ul>
+
+
+    <div class="demo-container">
+        <h5>Condensed TopBar</h5>
+        <p>
+            Add the modifier class
+            <span class="css">c-topbar--condensed</span> 
+            to any topbar to display it with a smaller size.
+        </p>
+
+        <p>
+            <pre>
+                &lt;header class=&quot;c-topbar <strong>c-topbar--condensed</strong>&quot;&gt;
+                    &hellip;
+                &lt;/header&gt;
+            </pre>
+        </p>
+
+        <p>A tab panel can be added inside the topbar DOM to create integrated tabs.</p>
+
+
+            <p>
+            <pre>
+                &lt;header class="c-topbar c-topbar--condensed&quot;&gt;
+                
+                    &hellip;
+
+                    &lt;h1 class=&quot;c-topbar__title&quot;&gt;
+                        &hellip;
+                    &lt;/h1&gt;
+
+                    &lt;ul class=&quot;<strong>c-tabs</strong>&quot;&gt;
+                        &hellip;
+                    &lt;/ul&gt;
+
+                    &lt;nav class=&quot;c-topbar__toolbar&quot;&gt;
+                        &hellip;
+                    &lt;/nav&gt;
+                &lt;/header&gt;           
+
+            </pre>
+        </p>
+
+    </div>
+
+
+    <section class="c-topbar c-topbar--condensed">
+        <div class="c-topbar__wrapper">
+            <a href="../index.html" class="c-topbar__link c-topbar__btn--back">
+                <span class="c-topbar__link-icon">
+                    <svg class="o-icon">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#u4-icon-topbar--angle-left"></use>
+                    </svg>
+                </span>
+            </a>
+            <h1 class="c-topbar__title" ng-show="showLogo">
+                <a href="#">
+                    <img src="../images/unit4-logo.svg" width="68" class="c-topbar__element--show-on-desktop" alt="unit4" />
+                    <img src="../images/unit4-logo-white.svg" width="68" class="c-topbar__element--show-on-mobile" alt="unit4" />
+                </a>
+            </h1>
+
+            <h2 class="c-topbar__subtitle">{{ title }}</h2>
+
+            <ul class="c-tabs">
+                <li class="c-tabs__tab" ng-class="activeTab == 'tab1'?'is-active':''">
+                    <a href ng-click="makeActive('tab1')">All</a>
+                </li>
+                <li class="c-tabs__tab" ng-class="activeTab == 'tab2'?'is-active':''">
+                    <a href ng-click="makeActive('tab2')">New</a>
+                </li>
+                <li class="c-tabs__tab" ng-class="activeTab == 'tab3'?'is-active':''">
+                    <a href ng-click="makeActive('tab3')">Favorites</a>
+                </li>
+            </ul>
+
+            <nav class="c-topbar__toolbar">
+
+                <a href="#" class="c-topbar__link c-topbar__expander">
+                    <span class="c-topbar__link-icon">
+                        <svg class="o-icon">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#u4-icon-topbar--plus"></use>
+                        </svg>
+                    </span>
+                </a>
+
+                <ul>
+                    <li ng-repeat="item in toolBarItems" class="{{item.badge > 0 ? 'c-topbar__item--has-badge': '' }}">
+                        <a href="#" class="c-topbar__link">
+                            <span class="c-topbar__link-icon">
+                                <svg class="o-icon">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{{ '#u4-icon-topbar--' + item.icon }}"></use></svg>
+                                <span class="c-topbar__badge" ng-show="item.badge > 0">{{ item.badge }}</span>
+                            </span>
+                            <span class="c-topbar__link-title">{{ item.title }}</span>
+                        </a>
+                    </li>
+
+                    <li class="c-topbar__search">
+                        <a href="#" class="c-topbar__link">
+                            <span class="c-topbar__link-icon">
+                                <svg class="o-icon">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#u4-icon-topbar--search"></use>
+                                </svg>
+                            </span>
+                        </a>
+                        <input class="o-input" type="text"></input>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </section>
+
+    <div class="demo-container">
+        <h5>Toolbar</h5>
+        <p>
+            Use the class <span class="css">c-topbar__toolbar</span> in order to add a toolbar into the application topbar.
+            The toolbar items should be enclosed into an unordened list. Use the class <span class="css">c-topbar__link-icon</span> to wrap the toolbar item icon, 
+            and <span class="css">c-topbar__link-title</span> for the item title.
+        </p>
+
+        <p>
+            <pre>
+
+            &lt;header class=&quot;c-topbar&quot;&gt;
+                &hellip;
+
+                &lt;nav class=&quot;<strong>c-topbar__toolbar</strong>&quot;&gt;
+                    &lt;<strong>ul</strong>&gt;
+                        &lt;<strong>li</strong>&gt;
+                            &lt;a href=&quot;<em>itemLink</em>&quot; class=&quot;<strong>c-topbar__link</strong>&quot;&gt;
+                                &lt;<strong>span</strong> class=&quot;<strong>c-topbar__link-icon</strong>&quot;&gt;
+                                    &lt;svg class=&quot;o-icon&quot;&gt;
+                                        &lt;use xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; xlink:href=&quot;<em>#u4-icon-topbar--user</em>&quot;&gt;&lt;/use&gt;
+                                    &lt;/svg&gt;
+                                &lt;<strong>/span</strong>&gt;
+                                &lt;<strong>span</strong> class=&quot;<strong>c-topbar__link-title</strong>&quot;&gt;<em>Toolbar item title</em>&lt;<strong>/span</strong>&gt;
+                            &lt;/a&gt;
+                        &lt;<strong>/li</strong>&gt;
+                        &hellip;
+                    &lt;<strong>/ul</strong>&gt;
+                &lt;/nav&gt;
+            &lt;/header&gt;
+            </pre>
+        </p>
+
+        <p>
+            An optional item badge can be added to any toolbar item using the classes <span class="css">c-topbar__badge</span> and <span class="css">c-topbar__item--has-badge</span>:
+        </p>
+
+        <pre>
+
+        &lt;li class=&quot;<strong>c-topbar__item--has-badge</strong>&quot;&gt;
+            &lt;a href=&quot;<em>itemLink</em>&quot; class=&quot;c-topbar__link&quot;&gt;
+                &lt;span class=&quot;c-topbar__link-icon&quot;&gt;
+                    &lt;svg &hellip;
+                    &lt;/svg&gt;
+                    &lt;span class=&quot;<strong>c-topbar__badge</strong>&quot;&gt;<em>2</em>&lt;/span&gt;
+                &lt;/span&gt;
+            &lt;/a&gt;
+        &lt;/li&gt;
+        </pre>
+
+        <p>
+            The toolbar won't be visible for small devices. For that cases, an expander handle should be added with the class <span class="css">c-topbar__toolbar__expander</span>
+        </p>
+        <pre>
+
+            &lt;nav class=&quot;c-topbar__toolbar&quot;&gt;
+                &lt;a href=&quot;#&quot; class=&quot;c-topbar__link <strong>c-topbar__expander</strong>&quot;&gt;
+                    &lt;span class=&quot;c-topbar__link-icon&quot;&gt;
+                        &lt;svg class=&quot;o-icon&quot;&gt;
+                            &lt;use xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; xlink:href=&quot;#u4-icon-topbar--plus&quot;&gt;&lt;/use&gt;
+                        &lt;/svg&gt;
+                    &lt;/span&gt;
+                &lt;/a&gt;
+
+                &lt;ul&gt;
+                    &hellip;
+                &lt;/ul&gt;
+            &lt;/nav&gt;
+        </pre>
+    </div>
+
+    <div class="demo-container">
+        <h5>Centered topbar</h5>
+
+         <p>
+            Topbar inner content can be centered beyond <em>&quot;x-large&quot;</em> breakpoint using the modifier class
+          
+            <span class="css">c-topbar--centered</span>.
+            
+        </p>
+
+        <p>
+            It's compatible with all versions (<em>default size</em> and <em>condensed</em>). Topbar tabs will be centered as well.
+        </p>
+
+
+
+    </div>
+
+    
+    <section class="c-topbar c-topbar--centered">
+        <div class="c-topbar__wrapper">
+            <a href="../index.html" class="c-topbar__link c-topbar__btn--back">
+                <span class="c-topbar__link-icon">
+                    <svg class="o-icon">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#u4-icon-topbar--angle-left"></use>
+                    </svg>
+                </span>
+            </a>
+            <h1 class="c-topbar__title" ng-show="showLogo">
+                <a href="#">
+                    <img src="../images/unit4-logo.svg" width="102" class="c-topbar__element--show-on-desktop" alt="unit4" />
+                    <img src="../images/unit4-logo-white.svg" width="102" class="c-topbar__element--show-on-mobile" alt="unit4" />
+                </a>
+            </h1>
+
+            <h2 class="c-topbar__subtitle">{{ title }}</h2>
+
+            <nav class="c-topbar__toolbar">
+
+                <a href="#" class="c-topbar__link c-topbar__expander">
+                    <span class="c-topbar__link-icon">
+                        <svg class="o-icon">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#u4-icon-topbar--plus"></use>
+                        </svg>
+                    </span>
+                </a>
+
+                <ul>
+                    <li ng-repeat="item in toolBarItems" class="{{item.badge > 0 ? 'c-topbar__item--has-badge': '' }}">
+                        <a href="#" class="c-topbar__link">
+                            <span class="c-topbar__link-icon">
+                                <svg class="o-icon">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{{ '#u4-icon-topbar--' + item.icon }}"></use></svg>
+                                <span class="c-topbar__badge" ng-show="item.badge > 0">{{ item.badge }}</span>
+                            </span>
+                            <span class="c-topbar__link-title">{{ item.title }}</span>
+                        </a>
+                    </li>
+
+                    <li class="c-topbar__search">
+                        <a href="#" class="c-topbar__link">
+                            <span class="c-topbar__link-icon">
+                                <svg class="o-icon">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#u4-icon-topbar--search"></use>
+                                </svg>
+                            </span>
+                        </a>
+                        <input class="o-input" type="text"></input>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </section>
+
+    <ul class="c-tabs">
+        <li class="c-tabs__tab">
+            <a href >All</a>
+        </li>
+        <li class="c-tabs__tab">
+            <a href >New</a>
+        </li>
+        <li class="c-tabs__tab">
+            <a href >Favorites</a>
+        </li>
+    </ul>
+
+</body>
+
+<script type="text/javascript" src="../js/DesignSystem-0.1.1.js"></script>
+
+</html>

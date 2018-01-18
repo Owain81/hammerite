@@ -1,0 +1,18 @@
+/**
+ * Ink
+ *
+ * A set of tools for quick development of web interfaces.
+ *
+ * @package   Ink
+ * @author    Sapo Ink Team
+ * @license   http://opensource.org/licenses/MIT MIT
+ * @link      http://ink.sapo.pt
+ * @version   3.1.10
+ */
+
+// IMPORT MIXINS FILES (THESE CONTAIN HELPER FUNCTIONS)
+@import "mixins/flex-grid";
+@import "mixins/flex-utils";
+
+// IMPORT MODULE DEFINITION FILES
+@import "modules/flex-grid";

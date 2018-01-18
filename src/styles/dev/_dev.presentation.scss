@@ -1,0 +1,52 @@
+// This is a dev file, not distributed
+// scss-lint:disable ColorVariable
+
+.#{$class-prefix-l}-presentation {
+	margin-bottom: margin(15px);
+}
+
+body {
+	background-color: #e7ecf0;
+}
+
+.u4-presentation-flex {
+	@include display-flex;
+}
+
+.c-flex-group {
+	@include display-flex;
+	align-items: center;
+	padding-top: 2rem;
+	padding-bottom: 2rem;
+
+
+	button {
+		@include display-flex;
+		@include align-self(flex-end);
+		margin: 0 .4rem;
+
+		&:first-child {
+			margin-left: 0;
+		}
+
+		&:last-child {
+			margin-right: 0;
+		}
+	}
+}
+
+.double-border {
+	border-left: solid 1px $color-grey-120;
+	border-right: solid 1px $color-grey-120;
+	margin: 0 1rem;
+	padding: 2rem 1rem;
+}
+
+.u4-presentation-grouped {
+	//min-height: 141px;
+	margin-bottom: 2rem;
+
+	.u4-btn-group {
+		margin-right: 1rem;
+	}
+}

@@ -1,0 +1,81 @@
+﻿// Default panel
+.#{$class-prefix-c}-panel {
+	@include border($panel-border-style, $panel-border-color, $panel-border-width);
+	position: relative;
+
+	&__action {
+		position: absolute;
+		top: $panel-icon-left;
+		right: $panel-icon-right;
+	}
+
+	&__body {
+		padding: padding($panel-padding);
+		background-color: $panel-background-color;
+
+		p {
+			margin: 0;
+		}
+	}
+
+	&__footer {
+		@include border($panel-border-style, $panel-border-color, $panel-border-width);
+		padding: padding($panel-padding);
+		border-width: 1px 0 0;
+	}
+
+	&__buttongroup {
+		a {
+			&:last-child {
+				margin: 0;
+			}
+		}
+	}
+
+	&__header {
+		width: 100%;
+		padding: padding(0 $panel-padding);
+		background-color: $panel-header-background-color;
+	}
+
+	&__title {
+		margin: 0;
+		padding: 0;
+		padding-right: 10%;
+		overflow: hidden;
+		color: $panel-title-color;
+		line-height: $panel-title-line-height;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+}
+
+// Alternative panel without header background
+.#{$class-prefix-c}-panel--noheader {
+	.#{$class-prefix-c}-panel__header {
+		background: none;
+	}
+
+	.#{$class-prefix-c}-panel__body {
+		padding: padding(0, $panel-padding, $panel-padding);
+	}
+}
+
+// Child panel
+.#{$class-prefix-c}-panel--child {
+	border: 0;
+
+	> .#{$class-prefix-c}-panel__header {
+		padding: 0;
+		background-color: transparent;
+	}
+
+	> .#{$class-prefix-c}-panel__body {
+		padding: padding(0, 0, $panel-padding);
+	}
+
+	.#{$class-prefix-c}-panel__title {
+		line-height: inherit;
+	}
+}
+

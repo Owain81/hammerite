@@ -1,0 +1,26 @@
+﻿////
+/// @group Utilities
+////
+
+/// Provides an easy way to include a clearfix for containing floats.
+///
+/// @link http://goo.gl/yP5hiZ
+///
+/// @example scss - SCSS
+///   .foo {
+///     @include clearfix;
+///   }
+///
+/// @example css - CSS Output
+///   .foo::after {
+///     clear: both;
+///     content: "";
+///     display: block;
+///   }
+@mixin clearfix {
+	&::after {
+		content: '';
+		display: block;
+		clear: both;
+	}
+}

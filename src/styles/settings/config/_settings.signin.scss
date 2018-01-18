@@ -1,0 +1,43 @@
+﻿////
+/// @group Signin
+////
+
+/// Signin - class name
+/// @type String
+$signin-class-name: #{$class-prefix-c}-signin !default;
+
+/// Signin - background color
+/// @type String
+$signin-background-color: $color-white !default;
+
+/// Signin - shadow color
+/// @type Color
+$signin-shadow-color: rgba(0, 0, 0, .26) !default;
+
+$signin-color-bar-height: 4px !default;
+
+/// Signin - horizontal padding
+/// @type String
+$signin-padding-horizontal: px-to-rem(set-space(_3xl)) !default;
+
+///  Color strip bar gradient colors and widths
+/// @type String
+$signin-color-bar-gradient: (
+	blue: $color-scheme-u4blue $signin-padding-horizontal,
+	orange-start: $color-scheme-u4orange $signin-padding-horizontal,
+	orange-end: $color-scheme-u4orange 16%,
+	grey-start: $color-grey-65 16%,
+	grey-end: $color-grey-65 51%,
+	green: $color-scheme-u4darkgreen 51%
+);
+
+/// Margin for logo
+/// @type {string}
+$signin-login-margin: 40px !default;
+
+/// Button login
+$signin-button-margin: 28px !default;
+
+/// Positioning of login on mobile
+/// @type {string}
+$signin-mobile-padding: 34vh !default;

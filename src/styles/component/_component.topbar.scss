@@ -1,0 +1,453 @@
+.#{$topbar-class} {
+	@include topbar-device-version($version: 'desktop');
+	@include topbar-device-version($version: 'mobile');
+
+	display: block;
+	width: 100%;
+	min-height: #{$topbar-height + $topbar-color-bar-height};
+	box-shadow: $topbar-shadow-settings rgba($topbar-shadow-color, $topbar-shadow-alpha);
+
+	// Color strip
+	&::before {
+		content: ' ';
+		display: block;
+		width: 100%;
+		height: $topbar-color-bar-height;
+		background-image: linear-gradient(to right,
+				map-get($topbar-color-bar-gradient, blue-start),
+				map-get($topbar-color-bar-gradient, orange-start),
+				map-get($topbar-color-bar-gradient, orange-end),
+				map-get($topbar-color-bar-gradient, grey-start),
+				map-get($topbar-color-bar-gradient, grey-end),
+				map-get($topbar-color-bar-gradient, green-end)
+		);
+	}
+
+	&__wrapper {
+		@include display-flex;
+		position: relative;
+		min-height: #{$topbar-height};
+		padding: $topbar-padding-vertical map-get($topbar-padding-horizontal, large);
+
+		// Centered logo and title for small mobile version
+		@media screen and (max-width: screen-size-breakpoint(small, max)) {
+			@include display-flex;
+			@include justify-content(center);
+		}
+	}
+
+	// Heading title / logo
+	&__title,
+	&__subtitle {
+		margin: 0;
+		padding: 0;
+		white-space: nowrap;
+	}
+
+	&__title,
+	&__title a,
+	&__subtitle {
+		@include display-flex;
+		@include align-items(center);
+	}
+
+	&__title {
+		margin-right: $topbar-title-spacing;
+		font-size: $topbar-title-font-size;
+		line-height: $topbar-logo-height;
+
+		img {
+			height: $topbar-logo-height;
+		}
+	}
+
+	&__subtitle {
+		font-size: $topbar-title-font-size;
+		line-height: $topbar-title-font-size;
+	}
+
+	// set icons size
+	.#{$topbar-icon-class} {
+		width: $topbar-icon-size;
+		height: $topbar-icon-size;
+	}
+
+	&__expander {
+		@include topbar-icon-link;
+		display: none;
+		position: absolute;
+		top: 0;
+		right: 0;
+
+		@media screen and (max-width: screen-size-breakpoint('small', max)) {
+			display: inherit;
+		}
+	}
+
+	&__badge {
+		@include border-radius($topbar-icon-badge-border-radius);
+		display: block;
+		position: absolute;
+		top: 0;
+		right: - $topbar-icon-badge-offset-right;
+		min-width: $topbar-icon-badge-width;
+		padding: 0 $topbar-icon-badge-padding-top;
+		padding-top: $topbar-icon-badge-padding-top;
+		background-color: $topbar-icon-badge-background-color;
+		color: $topbar-icon-badge-color;
+		font-size: $topbar-icon-badge-font-size;
+		line-height: $topbar-icon-badge-height;
+		text-align: center;
+	}
+
+	// Mobile back button
+	&__btn--back {
+		@include topbar-icon-link;
+		display: none;
+		position: absolute;
+		top: $topbar-mobile-back-button-top;
+		left: map-get($topbar-padding-horizontal, large);
+
+		@media screen and (max-width: screen-size-breakpoint('small', max)) {
+			display: inherit;
+		}
+	}
+
+	// Placeholder for menu toggle
+	&__menu-toggle-placeholder {
+		width: $sidebar-toggle-width;
+
+		@media screen and (min-width: screen-size-breakpoint('large', min)) {
+			display: none;
+		}
+	}
+}
+
+// Fixed topbar
+.#{$topbar-class}--fixed {
+	position: fixed;
+	z-index: 5;
+	top: 0;
+}
+
+.#{$topbar-class}--fixed + * {
+	margin-top: $topbar-height;
+}
+
+
+// Toolbar
+.#{$topbar-toolbar-class} {
+	position: absolute;
+	top: 1.12rem;
+	right: map-get($topbar-padding-horizontal, large);
+	height: $topbar-icon-size;
+
+	> ul {
+		@include display-flex;
+		margin: 0;
+		padding: 0;
+
+		@media screen and (max-width: screen-size-breakpoint('small', max)) {
+			display: none;
+		}
+
+		.#{$topbar-class}__link {
+			@include topbar-icon-link;
+			margin-left: $topbar-icons-spacing;
+		}
+	}
+
+	.#{$topbar-class}__item--has-badge .#{$topbar-class}__link {
+		padding-left: px-to-rem($topbar-icon-size + $topbar-icon-padding + $topbar-icon-badge-offset-right + $topbar-icon-badge-padding-left + $topbar-icon-text-padding);
+	}
+}
+
+// Search
+.#{$topbar-class}__search {
+	@include display-flex;
+
+	.#{$topbar-class}__link {
+		margin-left: $topbar-icons-spacing + $topbar-search-extra-spacing;
+	}
+
+
+	.#{$class-prefix-o}-input__wrap {
+		@include transition-with-curve ($topbar-search-motion-curve, $topbar-search-motion-duration, width, opacity);
+		width: 0;
+		opacity: 0;
+	}
+
+	.#{$class-prefix-o}-input {
+		margin: 0;
+
+		&:focus {
+			transform: none;
+		}
+	}
+}
+
+.#{$topbar-toolbar-class} {
+
+	.#{$topbar-class}__link-title {
+		@include transition-with-curve ($topbar-search-motion-curve, $topbar-search-motion-duration, width, opacity);
+		overflow: hidden;
+		opacity: 1;
+	}
+}
+
+.#{$topbar-toolbar-class}.is--search-expanded {
+
+	.#{$topbar-class}__link-title {
+		// The width is set inline
+		// scss-lint:disable ImportantRule
+		width: 0 !important;
+		opacity: 0;
+	}
+
+	.#{$topbar-class}__search .#{$class-prefix-o}-input__wrap {
+		width: map-get($topbar-search-input-size, 'desktop');
+		opacity: 1;
+
+		@media screen and (max-width: screen-size-breakpoint($topbar-mobile-size, max)) {
+			width: map-get($topbar-search-input-size, 'mobile');
+		}
+	}
+}
+
+.#{$topbar-class}--centered .#{$topbar-class}__wrapper {
+	@media screen and (min-width: topbar-centered-min-width())
+	{
+		// "rem" units are needed for calculation
+		// scss-lint:disable ZeroUnit
+		$topbar-inner-horizontal-padding: topbar-inner-padding($extra-padding: 0rem);
+		padding-right: $topbar-inner-horizontal-padding;
+		padding-left: $topbar-inner-horizontal-padding;
+
+		.#{$topbar-toolbar-class} {
+			right: $topbar-inner-horizontal-padding;
+		}
+	}
+}
+
+// Condensed TopBar
+.#{$topbar-class}--condensed {
+	min-height: $topbar-condensed-height + $topbar-color-bar-height;
+
+	.#{$topbar-class}__wrapper {
+		min-height: $topbar-condensed-height;
+		padding-top: $topbar-condensed-padding;
+		padding-bottom: $topbar-condensed-padding;
+	}
+
+	// Centered - Condensed
+	.#{$topbar-class}--centered .#{$topbar-class}__wrapper {
+		@media screen and (min-width: topbar-centered-min-width())
+		{
+			$topbar-inner-horizontal-padding: topbar-inner-padding($extra-padding: $topbar-condensed-padding);
+			padding-right: $topbar-inner-horizontal-padding;
+			padding-left: $topbar-inner-horizontal-padding;
+		}
+	}
+
+	// Condensed logo
+	.#{$topbar-class}__title,
+	.#{$topbar-class}__subtitle {
+		line-height: $topbar-condensed-logo-size;
+	}
+
+	.#{$topbar-class}__title {
+		img {
+			height: $topbar-condensed-logo-size;
+			vertical-align: middle;
+		}
+	}
+
+	.#{$topbar-class}__subtitle {
+		padding-top: px-to-rem(2px);
+		font-size: $topbar-condensed-subtitle-font-size;
+	}
+
+	.#{$topbar-class}__back-button {
+		top: $topbar-condensed-padding;
+	}
+
+	.#{$topbar-class}__link .#{$topbar-class}__link-icon {
+		top: -$topbar-condensed-icon-padding;
+		left: -$topbar-condensed-icon-padding;
+		width: $topbar-condensed-icon-clickarea;
+		height: $topbar-condensed-icon-clickarea;
+		padding: $topbar-condensed-icon-padding;
+	}
+
+	.#{$topbar-class}__badge {
+		top: $topbar-condensed-icon-padding;
+		right: -$topbar-condensed-icon-padding;
+		min-width: $topbar-condensed-toolbar-badge-size;
+		padding: 0;
+		line-height: $topbar-condensed-toolbar-badge-size;
+	}
+
+	.#{$topbar-icon-class} {
+		width: $topbar-condensed-icon-size;
+		height: $topbar-condensed-icon-size;
+	}
+
+	// Condensed Toolbar
+	.#{$topbar-toolbar-class} {
+		position: absolute;
+		top: $topbar-condensed-padding;
+		height: $topbar-condensed-icon-size;
+		font-size: $topbar-condensed-toolbar-font-size;
+		line-height: $topbar-condensed-toolbar-font-size;
+
+		> ul .#{$topbar-class}__link {
+			height: $topbar-condensed-icon-size;
+		}
+	}
+
+	// Condensed links
+	&,
+	.#{$topbar-toolbar-class} {
+		.#{$topbar-class}__link .#{$topbar-class}__link-icon {
+			top: -$topbar-condensed-icon-padding;
+			left: -$topbar-condensed-icon-padding;
+			width: $topbar-condensed-icon-clickarea;
+			height: $topbar-condensed-icon-clickarea;
+			padding: $topbar-condensed-icon-padding;
+		}
+	}
+
+	// Condensed search input
+	.#{$topbar-toolbar-class} .#{$topbar-class}__search .#{$class-prefix-o}-input {
+		height: $topbar-condensed-search-input-height;
+		min-height: $topbar-condensed-search-input-height;
+	}
+
+	// Back button
+	.#{$topbar-class}__btn--back {
+		top: .5rem;
+	}
+}
+
+
+// Topbar tabs (integrated & separated)
+.#{$topbar-class} + .#{$class-prefix-c}-tabs:not(.#{$class-prefix-c}-tabs--fixed),
+.#{$topbar-class} .#{$class-prefix-c}-tabs {
+	padding-left: map-get($topbar-padding-horizontal, large);
+	background-color: map-get($topbar-background, desktop);
+
+	@media screen and (max-width: screen-size-breakpoint($topbar-mobile-size, max)) {
+		background-color: map-get($topbar-background, mobile);
+
+		.#{$class-prefix-c}-tabs__tab-active-bar {
+			background-color: $topbar-tabs-tab-mobile-active-line-color;
+		}
+	}
+
+}
+
+// Topbar tabs (separated)
+.#{$topbar-class} + .#{$class-prefix-c}-tabs {
+	z-index: 1;
+	box-shadow: $topbar-shadow-settings rgba($topbar-shadow-color, $topbar-shadow-alpha);
+
+	// Mobile version
+	@media screen and (max-width: screen-size-breakpoint($topbar-mobile-size, max)) {
+		@include display-flex;
+		@include justify-content(center);
+		padding: 0;
+		background-color: map-get($topbar-background, mobile);
+		$color: map-get($topbar-foreground-color, mobile);
+
+		.#{$class-prefix-c}-tabs__tab {
+			@include flex(1);
+
+			a {
+				width: 100%;
+				color: $color;
+				text-align: center;
+			}
+
+			&:active a,
+			&.is-active a {
+				color: $color;
+			}
+		}
+	}
+}
+
+// Topbar tabs (separated) - centered topbar
+.#{$topbar-class}.#{$topbar-class}--centered + .#{$class-prefix-c}-tabs {
+	@media screen and (min-width: topbar-centered-min-width())
+	{
+		// Units for zero padding are needed. If not, 'calc' will broke
+		// scss-lint:disable ZeroUnit
+		padding-left: topbar-inner-padding($extra-padding: 0rem);
+	}
+}
+
+// Topbar tabs (integrated)
+.#{$topbar-class} .#{$class-prefix-c}-tabs {
+	@include align-self(flex-end);
+	margin-bottom: - $topbar-padding-vertical;
+
+	@media screen and (max-width: screen-size-breakpoint($topbar-mobile-size, max)) {
+		background-color: map-get($topbar-background, mobile);
+		$color: map-get($topbar-foreground-color, mobile);
+
+		.#{$class-prefix-c}-tabs__tab {
+			a,
+			a:hover,
+			&.is-active a {
+				color: $color;
+			}
+		}
+	}
+}
+
+
+// Condensed Topbar tabs (integrated)
+.#{$topbar-class}--condensed  .#{$class-prefix-c}-tabs {
+	margin-top: -$topbar-condensed-padding;
+	margin-bottom: -$topbar-condensed-padding;
+
+	.#{$class-prefix-c}-tabs__tab {
+		height: $topbar-condensed-height;
+
+		a {
+			padding: $topbar-tabs-condensed-padding-top $topbar-tabs-tab-horizontal-padding 0;
+		}
+	}
+}
+
+// Fixed topbar tabs (separated)
+.#{$topbar-class}--fixed + .#{$class-prefix-c}-tabs {
+	position: fixed;
+	z-index: 6;
+	top: $topbar-height;
+	width: 100%;
+}
+
+// Margins per screen size (large is set by default)
+@each $size in tiny small medium xlarge {
+	@include only-for-screen-type ($size) {
+		$horizontal-margin-size: map-get($topbar-padding-horizontal, $size);
+
+		.#{$topbar-class} .#{$topbar-class}__wrapper {
+			padding: $topbar-padding-vertical $horizontal-margin-size;
+		}
+
+		.#{$topbar-class} .#{$topbar-class}__btn--back {
+			left: $horizontal-margin-size;
+		}
+
+		.#{$topbar-toolbar-class} {
+			right: $horizontal-margin-size;
+		}
+
+		.#{$topbar-class} + .#{$class-prefix-c}-tabs:not(.#{$class-prefix-c}-tabs--fixed),
+		.#{$topbar-class} .#{$class-prefix-c}-tabs {
+			padding-left: $horizontal-margin-size;
+		}
+	}
+}

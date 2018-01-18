@@ -1,0 +1,276 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+         <meta name="viewport" content="width=device-width, user-scalable=no" />
+		<style type="text/css">
+
+		    .sub-title {
+		        display: inline-block;
+                margin-left: 1em;
+            }
+
+
+          .logo img {
+            	width: 150px;
+            }
+
+		    .subtitle {
+		        align-self: flex-end;
+		        margin-left: 1.1em;
+		        min-width: 128px;
+		    }
+
+		    .subtitle span {
+		        color: white;
+		    }
+
+            .header {
+                	height: 50px;
+            }
+
+             .css {
+                background-color: #DDDDDD;
+                padding: 1px 5px 1px 5px;
+                border: 1px solid #ccc;
+                white-space: nowrap;
+            }
+        </style>
+        <link rel="stylesheet" href="../css/design-system.css">
+        <title>Forms</title>
+    </head>
+
+    <body>
+
+    <header class="c-topbar">
+        <div class="c-topbar__wrapper">
+            <a href="../index.html" class="c-topbar__link c-topbar__btn--back">
+                <span class="c-topbar__link-icon">
+                    <svg class="o-icon">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#u4-icon-topbar--angle-left"></use>
+                    </svg>
+                </span>
+            </a>
+
+            <h1 class="c-topbar__title">
+                <a href="../index.html">
+                    <img src="../images/unit4-logo.svg" width="102" class="c-topbar__element--show-on-desktop" alt="unit4" />
+                    <img src="../images/unit4-logo-white.svg" width="102" class="c-topbar__element--show-on-mobile" alt="unit4" />
+                </a>
+            </h1>
+
+            <h2 class="c-topbar__subtitle">UI Library - Forms</h2>
+        </div>
+    </header>
+    <div class="container l-grid">
+        <a href="../index.html" target="_self" title="Homepage">Back</a>
+        <h1>UI Library</h1>
+        <h2>Forms</h2>
+        <h3>Text</h3>
+        <p>Labels should have the class <span class="css">.o-label</span> or <span class="css">.o-label--inline</span> for labels to be placed inline with the input.</p>
+        <p>A description span could be added below the input with &lt;span class="<span class="css">o-input__description</span>"&gt;Description text&lt;/span&gt;.</p>
+        <form class="c-form">
+            <div class="l-column-group l-gutters">
+                <div class="l-tiny-100 l-all-50 l-medium-33">
+                    <label for="text1" class="o-label">Text</label>
+                    <input id="text1" class="o-input" type="text" placeholder="This is a placeholder" aria-required="true" />
+                </div>
+                <div class="l-tiny-100 l-all-50 l-medium-33">
+                    <label for="text2" class="o-label--inline">Text label inline</label>
+                    <input id="text2" type="text" class="o-input" placeholder="This is a placeholder" aria-required="true" />
+                </div>
+                <div class="l-tiny-100 l-all-50 l-medium-33">
+                    <label for="text3" class="o-label">Text with description</label>
+                    <input id="text3" type="text" class="o-input" placeholder="This is a placeholder" aria-required="true" />
+                    <span class="o-input__description">Description</span>
+                </div>
+            </div>
+
+            <div class="l-column-group l-gutters">
+                <div class="l-tiny-100 l-all-50 l-medium-25">
+                    <h3>Password</h3>
+                    <label for="password" class="o-label">Password</label>
+                    <input id="password" class="o-input o-input--password" type="password" />
+                </div>
+
+                <div class="l-tiny-100 l-all-50 l-medium-25">
+                    <h3>Select</h3>
+                    <label for="select" class="o-label">Select</label>
+                    <select id="select" class="o-input--select">
+                        <option value="">Pear</option>
+                        <option value="">Banana</option>
+                        <option value="">Apple</option>
+                    </select>
+                </div>
+
+                <div class="l-tiny-100 l-all-50 l-medium-25">
+                    <h3>Select</h3>
+                    <label for="select1" class="o-label">Select</label>
+                    <select id="select1" multiple="multiple" class="o-input--select">
+                        <option value="">Pear</option>
+                        <option value="">Banana</option>
+                        <option value="">Apple</option>
+                    </select>
+                </div>
+            </div>
+
+            <h3>File upload</h3>
+            <div class="" style="position: relative;">
+                <label for="file1" class="o-input--file__label">File upload</label>
+                <input id="file1" type="file" class="o-input--file" multiple-files="{amount} files selected" multiple />
+                <span class="o-file-input__name">No file selected</span>
+            </div>
+
+            <div class="l-column-group l-vertical-padding l-gutters">
+                <div class="l-tiny-100 l-all-50 l-medium-25">
+                    <h3>Number</h3>
+
+                    <label for="number" class="o-label">Number</label>
+                    <input id="number" class="o-input" type="number" />
+                </div>
+                <div class="l-tiny-100 l-all-50 l-medium-25">
+                    <h3>Textarea</h3>
+                    <p>UI Library adds some functionality to textarea fields.
+                        <br />1. Autoheight adaptation depending on the content.
+                        <br />2. Text counter using the textarea property <span class="css">data-maxchars="200"</span>.
+                    </p>
+                     <div class="">
+                        <label for="textarea1" class="o-label">Textarea</label>
+                        <textarea auto-resize id="textarea1" class="o-input o-input--textarea" data-maxchars="200"></textarea>
+                         <span class="o-text-count l-align-right">0/200 characters</span>
+                    </div>
+                </div>
+                <div class="l-tiny-100 l-all-50 l-medium-25">
+                    <h3>Email</h3>
+                     <div class="">
+                        <label for="email" class="o-label">Email</label>
+                        <input id="email" class="o-input o-input--email" type="email" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="l-column-group l-vertical-padding l-gutters">
+                <div class="l-tiny-100 l-all-50 l-medium-50">
+                   <h3>Radio buttons</h3>
+                   <label class="o-label">Radio</label>
+                    <div class="o-form-input">
+                        <input id="radio" type="radio" name="radio" class="o-input o-input--radio" checked="checked" />
+                        <label for="radio">Text</label>
+                        <input id="radio1" type="radio" name="radio" class="o-input o-input--radio" />
+                        <label for="radio1">Text</label>
+                        <input id="radio2" type="radio" name="radio" class="o-input o-input--radio" />
+                        <label for="radio2">Text</label>
+                        <input id="radio3" type="radio" name="radio_disabled" class="o-input o-input--radio" disabled="disabled" />
+                        <label for="radio3">Disabled</label>
+                        <input id="radio4" type="radio" name="radio_disabled" class="o-input o-input--radio" disabled="disabled" checked="checked" />
+                        <label for="radio4">Disabled and checked</label>
+                    </div>
+                    <div class="o-form-input">
+                        <input id="radio5" type="radio" name="radio" class="o-input o-input--radio" />
+                        <label for="radio5">Text</label>
+                        <input id="radio6" type="radio" name="radio" class="o-input o-input--radio" />
+                        <label for="radio6">Text</label>
+                        <input id="radio7" type="radio" name="radio" class="o-input o-input--radio" />
+                        <label for="radio7">Text</label>
+                        <input id="radio8" type="radio" name="radio_disabled2" class="o-input o-input--radio" disabled="disabled" />
+                        <label for="radio8">Disabled</label>
+                        <input id="radio9" type="radio" name="radio_disabled2" class="o-input o-input--radio" disabled="disabled" checked="checked" />
+                        <label for="radio9">Disabled and checked</label>
+                    </div>
+                </div>
+
+                <div class="l-tiny-100 l-all-50 l-medium-50">
+                    <h3>Checkboxes</h3>
+                    <label class="o-label">Checkbox</label>
+                    <div class="o-form-input">
+                        <input id="checkbox" type="checkbox" class="o-input o-input--checkbox" checked="checked" />
+                        <label for="checkbox">Text</label>
+
+                        <input id="checkbox1" type="checkbox" class="o-input o-input--checkbox" />
+                        <label for="checkbox1">Text</label>
+
+                        <input id="checkbox2" type="checkbox" class="o-input o-input--checkbox" />
+                        <label for="checkbox2">Text</label>
+
+                        <input id="checkbox3" type="checkbox" class="o-input o-input--checkbox" disabled="disabled" />
+                        <label for="checkbox3">Disabled</label>
+
+                        <input id="checkbox4" type="checkbox" class="o-input o-input--checkbox" disabled="disabled" checked="checked" />
+                        <label for="checkbox3">Disabled and checked</label>
+                    </div>
+                    <div class="o-form-input">
+                        <input id="checkbox5" type="checkbox" class="o-input o-input--checkbox" checked="checked" />
+                        <label for="checkbox5">Text</label>
+
+                        <input id="checkbox6" type="checkbox" class="o-input o-input--checkbox" />
+                        <label for="checkbox6">Text</label>
+
+                        <input id="checkbox7" type="checkbox" class="o-input o-input--checkbox" />
+                        <label for="checkbox7">Text</label>
+
+                        <input id="checkbox8" type="checkbox" class="o-input o-input--checkbox" disabled="disabled" />
+                        <label for="checkbox8">Disabled</label>
+
+                        <input id="checkbox9" type="checkbox" class="o-input o-input--checkbox" disabled="disabled" checked="checked"  />
+                        <label for="checkbox9">Disabled and checked</label>
+                    </div>
+                </div>
+
+
+                <div class="all-100">
+                    <h3>Range</h3>
+                    <div class="o-form-input">
+                        <label class="o-label" for="range_01">Range</label>
+                        <input id="range_01" type="range" class="o-input--range" />
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="l-column-group l-vertical-padding l-gutters l-push-bottom" id="validation_demo">
+
+                <div class="l-tiny-100 l-all-50 l-medium-25">
+                    <h3>Input validation <a href="#" class="o-btn o-btn--happy o-btn--small" role="button" onclick="return toggleValidation()">Toggle validation</a></h3>
+
+                    <label for="valtext1" class="o-label is-error">Error</label>
+                    <input id="valtext1" class="o-input is-error" type="text" placeholder="This is a placeholder" aria-required="true" />
+                </div>
+                <div class="l-tiny-100 l-all-50 l-medium-25">
+                    <label for="valtext2" class="o-label is-warning">Warning</label>
+                    <input id="valtext2" class="o-input is-warning" type="text" placeholder="This is a placeholder" aria-required="true" />
+                </div>
+                <div class="l-tiny-100 l-all-50 l-medium-25">
+                    <label for="valtext3" class="o-label is-success">Success</label>
+                    <input id="valtext3" class="o-input is-success" type="text" placeholder="This is a placeholder" aria-required="true" />
+                </div>
+                <div class="l-tiny-100 l-all-50 l-medium-25">
+                    <label for="valtext4" class="o-label is-info">Info</label>
+                    <input id="valtext4" class="o-input is-info" type="text" placeholder="This is a placeholder" aria-required="true" />
+                </div>
+
+            </div>
+        </form>
+    </div>
+    <script type="text/javascript" src="../js/DesignSystem-0.1.1.js"></script>
+    <script type="text/javascript">
+        var demoValidationClasses = ['is-error', 'is-warning', 'is-success', 'is-info'];
+
+        function toggleValidation() {
+            var allInputs = document.querySelectorAll('#validation_demo .o-input');
+
+
+            [].forEach.call(allInputs, function (input, index) {
+                var myClass = demoValidationClasses[index];
+                if (!input.classList.contains(myClass)) {
+                    input.classList.add(myClass);
+                } else {
+                    input.classList.remove(myClass);
+                }
+            });
+
+            return false;
+        }
+
+    </script>
+</body>
+</html>

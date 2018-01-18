@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, user-scalable=no" />
+		<style type="text/css">
+
+		    .sub-title {
+		        display: inline-block;
+                margin-left: 1em;
+            }
+
+		  
+          .logo img {
+            	width: 150px;
+            }
+
+		    .subtitle {
+		        align-self: flex-end;
+		        margin-left: 1.1em;
+		        min-width: 128px;
+		    }
+
+		    .subtitle span {
+		        color: white;
+		    }
+
+            .header {
+                	height: 50px;
+            }
+
+             .css {
+                background-color: #DDDDDD;
+                    padding: 1px 5px 1px 5px;
+                border: 1px solid #ccc;
+            }
+        </style>
+        <link rel="stylesheet" href="../css/design-system.css">
+        <title>Image classes</title>
+    </head>
+
+    <body>
+
+        <header class="c-topbar">
+            <div class="c-topbar__wrapper">
+                <a href="../index.html" class="c-topbar__link c-topbar__btn--back">
+                    <span class="c-topbar__link-icon">
+                        <svg class="o-icon">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#u4-icon-topbar--angle-left"></use>
+                        </svg>
+                    </span>
+                </a>
+
+                <h1 class="c-topbar__title">
+                    <a href="../index.html">
+                        <img src="../images/unit4-logo.svg" width="102" class="c-topbar__element--show-on-desktop" alt="unit4" />
+                        <img src="../images/unit4-logo-white.svg" width="102" class="c-topbar__element--show-on-mobile" alt="unit4" />
+                    </a>
+                </h1>
+
+                <h2 class="c-topbar__subtitle">UI Library - Images</h2>
+            </div>
+        </header>
+
+        <div class="l-grid l-vertical-padding">
+            <div class="body">
+	            <h2>Image Classes</h2>
+                <h3>Responsive images</h3>
+                <div>Images can be made responsive-friendly via the addition of the <span class="css">.h-img-responsive</span> class. This applies <span class="css">max-width: 100%;</span>, <span class="css">height: auto;</span> and <span class="css">display: block;</span> to the image so that it scales nicely to the parent element.</div>
+                <h4>Example</h4>
+                <div class="l-column-group l-gutters l-align-center">
+	               <div class="l-all-100 l-medium-25">
+	                	    <div class="test-image__box">
+	                		    <img class="img-responsive l-push-center test-image__img" src="../images/icons/application/image.svg" />
+	                	    </div>
+                    </div>
+                </div>
+
+                <h3>Retina images</h3>
+                <div>Specify two image paths and the @1x image dimensions, and it will provide an @2x media query. If you have many images to serve, consider writing your retina image CSS manually in a single media query.</div>
+                <h4>Example</h4>
+                <div>
+                    <p>Usage:</p>
+                    <p>.test-image__retina {<br />
+                            @include img-retina("images/demo/1x.png", "images/demo/2x.png", 200px, 200px); <br />
+                        }
+                    </p>
+                </div>
+                <div class="l-column-group l-gutters l-align-center">
+	               <div class="l-all-100 l-medium-25">
+	                	    <div class="test-image__retina">
+	                	    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script type="text/javascript" src="../js/DesignSystem-0.1.1.js"></script>
+
+</html>

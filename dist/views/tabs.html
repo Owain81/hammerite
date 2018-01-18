@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, user-scalable=no" />
+    <title>UI Library - Tabs</title>
+    <link rel="stylesheet" href="../css/design-system.css" />
+    <style>
+        body {
+            background-color: #E7ECF0;
+        }
+
+        .css {
+            background-color: #DDDDDD;
+            padding: 1px 5px 1px 5px;
+            border: 1px solid #ccc;
+        }
+    </style>
+   
+</head>
+<body>
+    <header class="c-topbar">
+        <div class="c-topbar__wrapper">
+            <a href="../index.html" class="c-topbar__link c-topbar__btn--back">
+                <span class="c-topbar__link-icon">
+                    <svg class="o-icon">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#u4-icon-topbar--angle-left"></use>
+                    </svg>
+                </span>
+            </a>
+
+            <h1 class="c-topbar__title">
+                <a href="../index.html">
+                    <img src="../images/unit4-logo.svg" width="102" class="c-topbar__element--show-on-desktop" alt="unit4" />
+                    <img src="../images/unit4-logo-white.svg" width="102" class="c-topbar__element--show-on-mobile" alt="unit4" />
+                </a>
+            </h1>
+
+            <h2 class="c-topbar__subtitle">UI Library - Tabs</h2>
+        </div>
+    </header>
+
+    <nav class="l-horizontal-padding">
+        <ul class="c-breadcrumb">
+            <li class="c-breadcrumb__item">
+                <a href="../index.html">Back</a>
+            </li>
+            <li class="c-breadcrumb__item">
+                <label class="o-label">Tabs</label>
+            </li>
+        </ul>
+    </nav>
+
+    <section class="l-column-group l-padding l-gutters">
+
+        <div class="l-xlarge-50 l-large-50 l-all-100">
+
+            <div class="c-panel is-inside">
+                <header class="c-panel__header">
+                    <h4 class="c-panel__title">Header panel</h4>
+                </header>
+                <nav class="c-panel__menu">
+                    <ul class="c-tabs">
+                        <li class="c-tabs__tab">
+                            <a href>All</a>
+                        </li>
+                        <li class="c-tabs__tab">
+                            <a href>New</a>
+                        </li>
+                        <li class="c-tabs__tab">
+                            <a href>Favorites</a>
+                        </li>
+                    </ul>
+                </nav>
+
+                <div class="c-panel__body">
+                    <p>Header tabs:</p>
+                    <p>
+                        Using <span class="css">c-tabs</span> inside <span class="css">c-panel__menu</span>, 
+                            the tabs will be rendered as panel menu tabs.
+
+                    </p>
+                </div>
+            </div>
+
+        </div>
+        <div class="l-xlarge-50 l-large-50 l-all-100">
+            <div class="c-panel is-inside">
+                <header class="c-panel__header">
+                    <h4 class="c-panel__title">Header panel</h4>
+                </header>
+                <div class="c-panel__body">
+                    <p>Empty panel (for reference).</p>
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="l-xlarge-50 l-large-50 l-all-100">
+            <div class="c-panel is-inside">
+                <nav class="c-panel__menu">
+                    <ul class="c-tabs">
+                        <li class="c-tabs__tab">
+                            <a href>All</a>
+                        </li>
+                        <li class="c-tabs__tab">
+                            <a href>New</a>
+                        </li>
+                        <li class="c-tabs__tab">
+                            <a href>Favorites</a>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="c-panel__body">
+                    <p>Panel tabs without panel header</p>
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="l-xlarge-50 l-large-50 l-all-100">
+            <div class="c-panel is-inside">
+                <ul class="c-tabs">
+                    <li class="c-tabs__tab">
+                        <a href>All</a>
+                    </li>
+                    <li class="c-tabs__tab">
+                        <a href>New</a>
+                    </li>
+                    <li class="c-tabs__tab">
+                        <a href>Favorites</a>
+                    </li>
+                </ul>
+                <div class="c-panel__body">
+                    <p>Standard tabs</p>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <script type="text/javascript" src="../js/DesignSystem-0.1.1.js"></script>
+
+</body>
+</html>

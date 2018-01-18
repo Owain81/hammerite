@@ -1,0 +1,626 @@
+﻿// Wrapper class for radio & checkboxes
+.#{$class-prefix-o}-form-input {
+	margin-bottom: $input-wrapper-bottom-margin;
+
+	&:last-child {
+		margin: 0;
+	}
+}
+
+// Form input styles (excluding input in editable tables)
+.#{$class-prefix-o}-input__wrap {
+	display: inline-block;
+	position: relative;
+	width: 100%;
+	max-width: 100%;
+	height: $input-height;
+	min-height: px-to-rem($input-height);
+	margin-bottom: $input-bottom-margin;
+
+
+	.#{$class-prefix-o}-input__placeholder,
+	.#{$class-prefix-o}-input__validation-icon {
+		position: absolute;
+		pointer-events: none;
+	}
+}
+
+// Form input styles (excluding input in editable tables)
+.#{$class-prefix-o}-input {
+	position: relative;
+	@include x-appearance(none);
+	@include border($input-border-style, transparent, $input-border-width);
+	width: 100%;
+	max-width: 100%;
+	height: $input-height;
+	min-height: $input-height;
+	margin: 0;
+	padding: 0 0 $input-padding-bottom;
+	border-width: 0 0 1px;
+	border-radius: 0;
+	border-color: transparent;
+	background-color: $input-background-color;
+	color: $input-color;
+	font-size: $input-font-size;
+
+	&:last-child {
+		margin: 0;
+	}
+
+	&:focus,
+	&.is-error,
+	&.is-warning,
+	&.is-success,
+	&.is-info {
+		padding: 0 0 px-to-rem($input-padding-bottom);
+		border-width: 0 0 px-to-rem($input-active-border-width);
+		outline: 0;
+		background-repeat: no-repeat;
+		background-position: $input-validation-icon-position;
+		background-size: px-to-rem($input-validation-icon-size);
+	}
+
+	&:focus {
+		&,
+		&.is-error,
+		&.is-warning,
+		&.is-success,
+		&.is-info {
+			border-color: transparent;
+  		}
+	}
+
+	// Description
+	&__description {
+		display: block;
+		font-size: $input-description-font;
+	}
+}
+
+// Input border
+.#{$class-prefix-o}-input__border {
+	position: relative;
+	top: #{ - $input-border-width};
+	width: 100%;
+	height: $input-border-width;
+	background-color: $input-border-color;
+	@include transition-with-curve (smooth, $input-transition-time, background-color, transform);
+}
+
+.#{$class-prefix-o}-input:focus ~ .#{$class-prefix-o}-input__border {
+	transform: scaleY($input-border-scale-on-focus);
+	background-color: $input-active-color;
+}
+
+// Input placeholder
+.#{$class-prefix-o}-input__placeholder {
+	@include transition-with-curve (bounce, $input-transition-time, transform, opacity);
+	top: 0;
+	left: 0;
+	width: 100%;
+	opacity: 1;
+	color: $label-placeholder-color;
+
+	&.is--hidden {
+		transform: translateX($input-placeholder-offset-on-hide);
+		opacity: 0;
+	}
+}
+
+// Input validation
+.#{$class-prefix-o}-input__validation-icon {
+	@include transition-with-curve (bounce, $input-transition-time, transform);
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	transform: translateX($input-validation-icon-offset-on-hide);
+
+	&::before {
+		@include transition-with-curve (bounce, $input-transition-time, transform, opacity);
+		content: '';
+		display: block;
+		position: absolute;
+		top: 1px;
+		right: 0;
+		width: px-to-rem($input-validation-icon-size);
+		height: px-to-rem($input-validation-icon-size);
+		transform: rotate($input-validation-icon-rotate-on-hide);
+		opacity: 0;
+		background-size: px-to-rem($input-validation-icon-size);
+	}
+}
+
+.#{$class-prefix-o}-input {
+	&.is-error,
+	&.is-warning,
+	&.is-success,
+	&.is-info {
+		padding-right: px-to-rem($input-validation-icon-size);
+
+		~ .#{$class-prefix-o}-input__validation-icon {
+			transform: translateX(0);
+
+			&::before {
+				transform: rotate(0);
+				opacity: 1;
+			}
+		}
+
+		&:focus ~ .#{$class-prefix-o}-input__validation-icon {
+			transform: translateX(0);
+		}
+	}
+
+	&.is-error.is-error-just-removed,
+	&.is-warning.is-warning-just-removed,
+	&.is-success.is-success-just-removed,
+	&.is-info.is-info-just-removed {
+
+		~ .#{$class-prefix-o}-input__border {
+			background-color: $input-border-color;
+		}
+
+		&:focus ~ .#{$class-prefix-o}-input__border {
+			background-color: $color-blue;
+		}
+
+		~ .#{$class-prefix-o}-input__validation-icon {
+			transform: translateX($input-validation-icon-offset-on-hide);
+
+			&::before {
+				transform: rotate($input-validation-icon-rotate-on-hide);
+				opacity: 0;
+			}
+		}
+	}
+
+	@each $validation-state in error, warning, success, info {
+
+		&.is-#{$validation-state} {
+			&:not(:focus) ~ .#{$class-prefix-o}-input__border {
+				transform: scaleY($input-validation-border-scale);
+				background-color: map-get($input-validation-colors, $validation-state);
+			}
+
+			~ .#{$class-prefix-o}-input__validation-icon::before {
+				background-image: map-get($input-validation-icons, $validation-state);
+			}
+		}
+	}
+}
+
+
+// Labels
+.#{$label-class-name} {
+	@include transition-with-curve (smooth, $input-transition-time, color);
+	display: block;
+	color: $label-color;
+	font-size: $label-size;
+	line-height: $label-line-height;
+
+	&.is-error,
+	&.is-warning,
+	&.is-success,
+	&.is-info {
+		background-color: transparent;
+	}
+
+	&.is-error {
+		color: $color-alert;
+	}
+}
+
+// Inline labels
+.#{$label-class-name}--inline {
+	@extend .#{$label-class-name};
+	display: inline-block;
+	padding-right: 20px;
+
+	~ .#{$class-prefix-o}-input__wrap {
+		max-width: 70%;
+	}
+
+	~ .#{$class-prefix-o}-input__description {
+		margin-left: 28%;
+	}
+}
+
+// Labels on focus
+.#{$label-class-name}.#{$label-focus-class-name} {
+	color: $label-focus-color;
+}
+
+
+
+// Placeholders. Can't be merged in one rule.
+
+// Vendor prefix needed for placeholder
+// scss-lint:disable VendorPrefix
+@each $vendor-placeholder in -webkit-input-, -moz- {
+	::#{$vendor-placeholder}placeholder {
+		color: $label-placeholder-color;
+	}
+}
+
+:-moz-placeholder { // Firefox 18-
+	color: $label-placeholder-color;
+}
+
+input:not(.#{$table-class-name}--input):-ms-input-placeholder {
+	color: $label-placeholder-color;
+}
+
+input.#{$table-class-name}--input:-ms-input-placeholder {
+	color: $label-placeholder-color;
+}
+
+// Input select
+.#{$input-select-class-name} {
+	@include x-appearance(none);
+	width: 100%;
+	min-width: $input-select-min-width;
+	padding-bottom: $input-select-padding-bottom;
+	border-width: 0 0 1px;
+	border-radius: 0;
+	border-bottom-color: $input-select-border-color;
+	background: $input-select-background-color no-repeat;
+	background-image: $input-select-arrow-icon;
+	background-position: $input-select-arrow-icon-position;
+	background-size: $input-select-arrow-icon-size;
+
+	&:focus {
+		padding-bottom: $input-select-padding-bottom - 1;
+		border-bottom-width: $input-active-border-width;
+		border-bottom-color: $input-active-color;
+		outline: none;
+	}
+
+	&:focus,
+	&:hover {
+		background-image: $input-select-arrow-icon-hover;
+	}
+
+	option {
+		padding: 0;
+	}
+
+	// Hide arrow for IE10-11
+	&::-ms-expand {
+		display: none;
+	}
+
+	// Avoid IE10-11 defaults for select focus
+	&::-ms-value {
+		background: none;
+		color: $input-color;
+	}
+
+	// Remove mozilla dotted outline
+	&:-moz-focusring {
+		color: transparent;
+		text-shadow: 0 0 0 $color-black;
+	}
+
+	&[multiple="multiple"] {
+		min-height: $input-multiple-height;
+	}
+
+}
+
+// Temporaly disabled part: TODO - remove
+// scss-lint:disable Comment
+
+// Number input
+/*.#{$input-number-class} {
+	position: relative;
+	height: auto;
+
+	&::-webkit-outer-spin-button,
+	&::-webkit-inner-spin-button {
+		display: block;
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		border: 6px solid;
+		cursor: pointer;
+		opacity: .4;
+
+		&:active,
+		&:hover {
+			opacity: 1;
+		}
+	}
+}*/
+
+// Radio & Checkbox
+.#{$input-radio-class-name},
+.#{$input-checkbox-class-name} {
+	position: absolute;
+	width: auto;
+	clip: rect(0, 0, 0, 0);
+
+	+ label {
+		@include user-select(none);
+		display: inline-block;
+		position: relative;
+		vertical-align: top;
+	}
+
+	&:focus + label {
+		color: $label-focus-color;
+	}
+}
+
+// Radio
+.#{$input-radio-class-name} {
+	$click-area-size: $input-radio-click-area-size;
+	$inner-area-size: $input-radio-size - $input-radio-border-size;
+	$big-circle: '+ label:before';
+	$small-circle: '+ label:after';
+
+	+ label {
+		height: $click-area-size;
+		margin-right: $input-radio-margin-right;
+		padding-right: $input-radio-text-padding;
+		padding-left: $input-radio-text-left-padding;
+		line-height: $input-radio-text-line-height;
+		@include transition-with-curve ($input-radio-transition-curve, $input-radio-transition-duration, color);
+	}
+
+	&:not(:disabled) {
+		+ label {
+			cursor: pointer;
+		}
+	}
+
+	#{$big-circle},
+	#{$small-circle} {
+		content: '';
+		display: block;
+		position: absolute;
+		top: 50%;
+		left: px-to-rem($input-radio-size / 2);
+		border-radius: 50%;
+		background-color: $input-radio-background;
+	}
+
+	#{$big-circle} {
+		@include input-radio-center-element($input-radio-size);
+		border: $input-radio-border-size $input-radio-border-style $input-radio-border-color;
+		@include transition-with-curve ($input-radio-transition-curve, $input-radio-transition-duration, background-color, border);
+	}
+
+	#{$small-circle} {
+		@include input-radio-center-element($input-radio-size);
+		width: $input-radio-size;
+		height: $input-radio-size;
+		transform: scale(0);
+		@include transition-with-curve ($input-radio-transition-curve, $input-radio-transition-duration, transform);
+	}
+
+	&:hover:not(:disabled) #{$big-circle} {
+		border-color: $input-radio-hover-color;
+	}
+
+	&:active:not(:disabled) #{$big-circle} {
+		border-color: $input-radio-active-color;
+	}
+
+	&:focus #{$big-circle} {
+		border-color: $input-radio-focus-color;
+		box-shadow: 0 0 $input-focus-outerglow-distance $input-focus-outerglow-color;
+	}
+
+	&:checked {
+		#{$small-circle} {
+			transform: scale(.4);
+		}
+
+		#{$big-circle} {
+			border-color: $input-radio-checked-background-color;
+			background-color: $input-radio-checked-background-color;
+		 }
+
+		&:hover {
+			#{$big-circle} {
+				border-color: $input-radio-hover-color;
+				background-color: $input-radio-hover-color;
+			}
+		}
+	}
+
+	&:disabled {
+		#{$big-circle},
+		+ label {
+			opacity: $input-disabled-opacity;
+		}
+	}
+}
+
+// Checkbox
+.#{$input-checkbox-class-name} {
+	$click-area-size: $input-checkbox-click-area-size;
+	$margin: px-to-rem(($input-checkbox-click-area-size - $input-checkbox-size) / 2);
+	$box-selector: '+ label:before';
+	$tick-selector: '+ label:after';
+
+	+ label {
+		height: $click-area-size;
+		margin-right: $input-checkbox-margin-right;
+		padding-right: $input-checkbox-text-right-padding;
+		padding-left: $input-checkbox-text-left-padding;
+		line-height: $input-check-text-line-height;
+	}
+
+	&:not(:disabled) {
+		+ label {
+			cursor: pointer;
+		}
+	}
+
+	#{$box-selector},
+	#{$tick-selector} {
+		content: '';
+		display: block;
+		position: absolute;
+	}
+
+	#{$box-selector} {
+		top: $margin;
+		left: 0;
+		width: px-to-rem($input-checkbox-size);
+		height: px-to-rem($input-checkbox-size);
+		transition: all .3s ease;
+		transition-property: background-color, border-color;
+		border: $input-checkbox-border-size $input-checkbox-border-style $input-checkbox-border-color;
+		background-color: $input-checkbox-background;
+	}
+
+	#{$tick-selector} {
+		top: 16px;
+		left: 5px;
+		width: 16px;
+		height: 8px;
+		transform: rotate(-52deg) rotateY(-24deg) rotateX(14deg);
+		transform-origin: left top;
+		transition: opacity .2s ease;
+		animation: tick-disappear .3s;
+		border: 2.5px solid $color-white;
+		border-top: none;
+		border-right: none;
+		border-top-left-radius: 1px;
+		border-bottom-right-radius: 1px;
+		opacity: 0;
+	}
+
+	&:hover:not(:disabled) #{$box-selector} {
+		border-color: $input-checkbox-hover-color;
+	}
+
+	&:focus #{$box-selector} {
+		border-color: transparent;
+		box-shadow: 0 0 $input-focus-outerglow-distance $input-focus-outerglow-color;
+	}
+
+	&:active:not(:disabled) #{$box-selector} {
+		border-color: $input-checkbox-active-color;
+	}
+
+	&:checked #{$box-selector} {
+		border-color: $input-checkbox-checked-background-color;
+		background-color: $input-checkbox-checked-background-color;
+	}
+
+	&:checked #{$tick-selector} {
+		animation: tick-appear .3s;
+		opacity: 1;
+	}
+
+	&:checked:hover #{$box-selector} {
+		background-color: $input-checkbox-hover-color;
+	}
+
+	&:disabled {
+		#{$box-selector},
+		+ label {
+			opacity: $input-disabled-opacity;
+		}
+	}
+}
+
+@keyframes tick-appear {
+	0% {
+		width: 0;
+		height: 0;
+	}
+
+	25% {
+		width: 0;
+		height: 8px;
+	}
+
+	50% {
+		width: 15px;
+		height: 8px;
+	}
+}
+
+@keyframes tick-disappear {
+	0% {
+		width: 16px;
+		height: 8px;
+	}
+
+	25% {
+		width: 0;
+		height: 8px;
+	}
+
+	50% {
+		width: 0;
+		height: 0;
+	}
+}
+
+// File input
+.#{$input-file-class} {
+	position: absolute;
+	z-index: -1;
+	width: .1px;
+	height: .1px;
+	overflow: hidden;
+	opacity: 0;
+}
+
+.#{$input-file-name-class} {
+	padding: 0 $input-file-name-padding;
+}
+
+.#{$input-file-label-class} {
+	@include button-size(small);
+	@include button-style();
+	cursor: pointer;
+
+	&:focus,
+	&.#{$label-class-name}--focus {
+		outline: none;
+		box-shadow: 0 0 $input-focus-outerglow-distance $color-blue;
+	}
+}
+
+// Textarea
+.#{$input-textarea-class} {
+	width: 100%;
+	padding-bottom: $input-padding-bottom - 2;
+	overflow: auto;
+	resize: none;
+
+	&:focus {
+		padding-bottom: $input-padding-bottom - 3;
+	}
+}
+
+.#{$class-prefix-o}-text-count {
+	display: block;
+	color: $text-counter-color;
+	font-size: $text-counter-size;
+}
+
+.#{$class-prefix-o}-text-count--wrong {
+	display: block;
+	color: $color-alert;
+	font-size: $text-counter-size;
+}
+
+.#{$class-prefix-o}-text-count--warning {
+	display: block;
+	color: $color-warning;
+	font-size: $text-counter-size;
+}
+
+// Form groups - designed to help with the organization and spacing of vertical forms.
+.#{$class-prefix-l}-form-group {
+	margin-bottom: $group-margin-bottom;
+}

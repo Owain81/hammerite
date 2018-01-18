@@ -1,0 +1,290 @@
+////
+/// Topbar settings
+/// @group TopBar
+////
+
+// unit4 should be capitals
+// scss-lint:disable NameFormat
+
+// ***************** General TopBar Settings *****************
+
+///  CSS class to be used as top bar
+///  @type String
+$topbar-class: #{$class-prefix-c}-topbar !default;
+
+///  Bar height in rem
+///  @type Number
+$topbar-height: 60px !default;
+
+///  Topbar vertical inner padding
+///  @type Number
+$topbar-padding-vertical: px-to-rem(set-space(m)) !default;
+
+///  Topbar horizontal inner padding
+///  @type Map
+$topbar-padding-horizontal: (
+	tiny: px-to-rem(set-space(m)),
+	small: px-to-rem(set-space(l)),
+	medium: px-to-rem(set-space(xl)),
+	large: px-to-rem(set-space(xxl)),
+	xlarge: px-to-rem(set-space(_3xl)),
+	xxlarge: px-to-rem(set-space(_4xl))
+);
+
+///  Minimum screen size for desktop version
+///  @type String
+$topbar-desktop-size: large !default;
+
+/// Maximum screen size for 100% width (the topbar content will be centered from this size)
+/// @type String
+$topbar-centered-from-breakpoint: xlarge !default;
+
+///  Maximum screen size for mobile version
+///  @type String
+$topbar-mobile-size: medium !default;
+
+///  Base CSS class name for topbar elements
+///  @type String
+$topbar-element-class: #{$topbar-class}__element !default;
+
+///  CSS class name for topbar inner elements which will show only in
+///  desktop version
+///  @example html
+///  	<figure class="desktop-logo c-topbar__element--show-on-desktop">...
+///  @type String
+$topbar-desktop-class: #{$topbar-element-class}--show-on-desktop !default;
+
+///  CSS class name for topbar inner elements which will show only in
+///  mobile version
+///  @example <figure class="mobile-logo c-topbar__element--show-on-mobile">...
+///  @type String
+$topbar-mobile-class: #{$topbar-element-class}--show-on-mobile !default;
+
+///  Topbar background colors (mobile/desktop)
+///  @type Map
+$topbar-background: (
+	desktop: $color-white,
+	mobile: $color-grey-unit4
+);
+
+///  Topbar foreground colors (mobile/desktop)
+///  @type Map
+$topbar-foreground-color: (
+	desktop: $color-grey-120,
+	mobile: $color-white
+);
+
+///  Topbar shadow color
+///  @type Color
+$topbar-shadow-color: $color-grey-120 !default;
+
+///  Topbar shadow alpha
+///  @type Number
+$topbar-shadow-alpha: .1 !default;
+
+///  Topbar shadow settings (left_offset top_offset blur_distance)
+///  @type String
+$topbar-shadow-settings: 0 4px 6px !default;
+
+///  Height of color strip bar
+///  @type Number
+$topbar-color-bar-height: 4px !default;
+
+///  Color strip bar gradient colors and widths
+///  @type Map
+$topbar-color-bar-gradient: (
+	blue-start: $color-scheme-u4blue set-space(xxl),
+	orange-start: $color-scheme-u4orange set-space(xxl),
+	orange-end: $color-scheme-u4orange 16%,
+	grey-start: $color-grey-65 16%,
+	grey-end: $color-grey-65 51%,
+	green-end: $color-scheme-u4darkgreen 51%
+);
+
+// ***************** Icons and logo *****************
+
+///  Height of topbar logo
+///  @type Number
+$topbar-logo-height: 24px !default;
+
+///  Size of topbar icons
+///  @type Number
+$topbar-icon-size: 24px !default;
+
+///  Size of topbar icons click area
+///  @type Number
+$topbar-icon-clickarea: 40px !default;
+
+///  Icon colors (mobile/desktop)
+///  @type Map
+$topbar-icon-color: (
+	desktop: $color-grey-120,
+	mobile: $color-white
+);
+
+$topbar-icon-hover-color: (
+	desktop: $color-black
+);
+
+///  Title font size
+///  @type Number
+$topbar-title-font-size: px-to-rem(19px) !default; // 19
+
+///  Space between title and subtitle
+///  @type Number
+$topbar-title-spacing: px-to-rem(13px) !default;
+
+///  Subtitle padding top
+///  @type Number
+$topbar-subtitle-padding-top: px-to-rem(set-space(xxs));
+
+///  Top position for mobile back button
+///  @type Number
+$topbar-mobile-back-button-top: 1.1rem !default;
+
+// ***************** Toolbar *****************
+
+///  Toolbar CSS class name
+///  @type String
+$topbar-toolbar-class: #{$topbar-class}__toolbar !default;
+
+/// Class for topbar icons
+/// @type String
+$topbar-icon-class: #{$class-prefix-o}-icon !default;
+
+///  Top position for topbar
+///  @type Number
+$topbar-top-position: 1.12rem !default;
+
+///  Toolbar padding around icon label
+///  @type Number
+$topbar-icon-text-padding: set-space(xxs) !default;
+$topbar-icon-padding: ($topbar-icon-clickarea - $topbar-icon-size) / 2;
+
+///  Space between toolbar icons
+///  @type Number
+$topbar-icons-spacing: set-space(m) !default;
+
+///  Text color of toolbar icons badge
+///  @type Color
+$topbar-icon-badge-color: $color-white !default;
+
+///  Background color of toolbar icons badge
+///  @type Color
+$topbar-icon-badge-background-color: $color-warning !default;
+
+///  Width of toolbar icons badge
+///  @type Number
+$topbar-icon-badge-width: 20px !default;
+
+///  Height of toolbar icons badge
+///  @type Number
+$topbar-icon-badge-height: 18px !default;
+
+///  Border radius of toolbar icons badge
+///  @type Number
+$topbar-icon-badge-border-radius: 3px !default;
+
+///  Top padding of toolbar icons badge
+///  @type Number
+$topbar-icon-badge-padding-top: 2px !default;
+
+///  Left padding of toolbar icons badge
+///  @type Number
+$topbar-icon-badge-padding-left: 2px !default;
+
+///  Top offset of toolbar icons badge
+///  @type Number
+$topbar-icon-badge-offset-top: 10px !default;
+
+///  Right offset of toolbar icons badge
+///  @type Number
+$topbar-icon-badge-offset-right: 7px !default;
+
+///  Font size of toolbar icons badge
+///  @type Number
+$topbar-icon-badge-font-size: px-to-rem(15px) !default;
+
+///  Extra spacing for toolbar search icon
+///  @type Number
+$topbar-search-extra-spacing: 2px !default;
+
+///  Topbar search input width for desktop/mobile
+///  @type Map
+$topbar-search-input-size: (
+	'desktop' 	:	400px,
+	'mobile'	:	25vw
+);
+
+///  Motion curve for topbar search
+///  @type String
+$topbar-search-motion-curve: smooth-elastic !default;
+
+///  Motion duration for topbar search (seconds)
+///  @type Number
+$topbar-search-motion-duration: .35s !default;
+
+///  Topbar search input height for condensed version
+///  @type Number
+$topbar-condensed-search-input-height: px-to-rem(19px) !default;
+
+// ***************** TopBar tabs *****************
+
+///  Topbar tab horizontal padding
+///  @type Number
+$topbar-tabs-tab-horizontal-padding: px-to-rem(set-space(m)) !default;
+
+///  Topbar tab bottom line color for active tabs (mobile)
+///  @type Color
+$topbar-tabs-tab-mobile-active-line-color: $color-scheme-u4darkgreen !default;
+
+
+// ***************** Condensed version *****************
+
+///  Condensed Topbar height
+///  @type Number
+$topbar-condensed-height: 36px !default;
+
+///  Condensed Topbar padding
+///  @type Number
+$topbar-condensed-padding: px-to-rem(10px) !default;
+
+///  Condensed Topbar logo size
+///  @type Number
+$topbar-condensed-logo-size: 16px !default;
+
+///  Condensed Topbar subtitle font size
+///  @type Number
+$topbar-condensed-subtitle-font-size: px-to-rem(16px) !default;
+
+///  Condensed Topbar icon click area
+///  @type Number
+$topbar-condensed-icon-clickarea: 36px !default;
+
+///  Condensed Topbar icons size
+///  @type Number
+$topbar-condensed-icon-size: 16px !default;
+
+///  Condensed Topbar icons padding
+///  @type Number
+$topbar-condensed-icon-padding: ($topbar-condensed-icon-clickarea - $topbar-condensed-icon-size) / 2 !default;
+
+///  Condensed Topbar Toolbar font size
+///  @type Number
+$topbar-condensed-toolbar-font-size: px-to-rem(16px) !default;
+
+///  Condensed Topbar Toolbar badge size
+///  @type Number
+$topbar-condensed-toolbar-badge-size: 18px !default;
+
+/// $topbar-tabs-condensed-padding-top
+/// @type Number
+$topbar-tabs-condensed-padding-top: 0 !default;
+
+/// $topbar-tabs-condensed-padding-top
+/// @type Number
+$topbar-tabs-condensed-padding-bottom: px-to-rem(10px) !default;
+
+///  Condensed Topbar integrated tabs padding
+///  @type Number
+$topbar-tabs-condensed-padding: $topbar-tabs-condensed-padding-top $topbar-tabs-tab-horizontal-padding $topbar-tabs-condensed-padding-bottom $topbar-tabs-tab-horizontal-padding !default;

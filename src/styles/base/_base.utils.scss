@@ -1,0 +1,4 @@
+﻿// Eliminates all borders
+.#{$class-prefix-l}-no-border {
+	@include border-color(transparent!important);
+}

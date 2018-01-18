@@ -1,0 +1,85 @@
+.#{$menu-class-name} {
+	position: absolute;
+	z-index: $menu-z-index;
+	top: 0;
+	left: 0;
+	min-width: $menu-min-width;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	transform: translateY(#{-$menu-motion-offset});
+	@include transition-with-curve ($menu-motion-curve, $menu-motion-duration, transform, opacity);
+	border: $menu-border;
+	opacity: 0;
+	background-color: $menu-background-color;
+	text-align: left;
+	@include shadow-for-elevation($menu-z-elevation);
+	pointer-events: none;
+
+	&.is--from-bottom {
+		transform: translateY($menu-motion-offset);
+	}
+
+	&.is--open {
+		transform: translateY(0);
+		opacity: 1;
+		pointer-events: inherit;
+	}
+
+	&__item a {
+		@include display-flex;
+		position: relative;
+		height: $menu-item-height;
+		padding: 0 $menu-item-padding;
+		@include transition-with-curve ($menu-motion-curve, $menu-motion-duration, background-color, box-shadow);
+		color: $menu-item-color;
+		@include align-items(center);
+
+		&:hover,
+		&:focus {
+			background-color: $menu-item-hover-color;
+			text-decoration: none;
+		}
+
+		&:active {
+			background-color: $menu-item-active-color;
+		}
+
+		&:focus {
+			outline: none;
+			box-shadow: $menu-item-focus-shadow;
+		}
+
+		.#{$icon-class-name} {
+			width: $menu-item-icon-size;
+			height: $menu-item-icon-size;
+			margin-right: $menu-item-icon-separation;
+			margin-bottom: $menu-item-icon-vertical-adjust;
+			fill: $menu-item-icon-color;
+		}
+	}
+
+	&__item.is--selected a {
+		background-color: $menu-item-active-color;
+	}
+
+	&__item__shorthand {
+		position: absolute;
+		top: 0;
+		right: $menu-item-padding;
+		color: $menu-item-shorthand-color;
+		line-height: $menu-item-height;
+	}
+
+	&__separator {
+		height: 0;
+		margin: $menu-separator-margin 0;
+		border-top: $menu-border;
+	}
+}
+
+
+.#{$menu-class-name}--limited {
+	max-height: $limited-menu-max-height;
+	overflow-y: auto;
+}

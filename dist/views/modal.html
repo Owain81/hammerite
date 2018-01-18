@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, user-scalable=no" />
+        <title>Unit 4 - UI Library - Modal</title>
+        <link rel="stylesheet" href="../css/design-system.css" />
+    </head>
+    <body>
+
+        <header class="c-topbar">
+            <div class="c-topbar__wrapper">
+                <a href="../index.html" class="c-topbar__link c-topbar__btn--back">
+                    <span class="c-topbar__link-icon">
+                        <svg class="o-icon">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#u4-icon-topbar--angle-left"></use>
+                        </svg>
+                    </span>
+                </a>
+
+                <h1 class="c-topbar__title">
+                    <a href="../index.html">
+                        <img src="../images/unit4-logo.svg" width="102" class="c-topbar__element--show-on-desktop" alt="unit4" />
+                        <img src="../images/unit4-logo-white.svg" width="102" class="c-topbar__element--show-on-mobile" alt="unit4" />
+                    </a>
+                </h1>
+
+                <h2 class="c-topbar__subtitle">UI Library - modal window</h2>
+            </div>
+        </header>
+
+        <div class="l-grid">
+            <a href="../index.html" target="_self" title="Homepage">Back</a>
+            <h1>UI Library</h1>
+            <h2>modal window</h2>
+
+            <div class="l-column-group">
+                <button class="o-btn o-btn--small o-btn--happy" onclick="openModal()">Open modal</button>
+            </div>
+
+            <div class="c-modal__wrap">
+                <div class="c-modal__overlay" onclick="javascript:closeModal();"></div>
+                <div class="c-modal">
+                    <h3 class="c-modal__title">Would you like to delete your debt?</h3>
+                    <a href="javascript:closeModal();" class="c-modal__close">
+                        <svg class="o-icon c-modal__close-icon">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#u4-icon--close"></use>
+                        </svg>
+                    </a>
+                    <span class="c-modal__message">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                        exercitation occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+                        accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+                        Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
+                    </span>
+                    <div class="c-modal__btn-group l-align-right">
+                        <button class="o-btn o-btn--small c-modal__btn-group-btn">Sounds like a scam</button>
+                        <button class="o-btn o-btn--small o-btn--happy c-modal__btn-group-btn">Please do it!</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script type="text/javascript" src="../js/DesignSystem-0.1.1.js"></script>
+        <script type="text/javascript">
+            function openModal () {
+                var modal = document.querySelector('.c-modal__wrap');
+                modal.classList.add('is--opened');
+            }
+
+            function closeModal () {
+                var modal = document.querySelector('.c-modal__wrap');
+                modal.classList.remove('is--opened');
+            }
+        </script>
+
+    </body>
+</html>

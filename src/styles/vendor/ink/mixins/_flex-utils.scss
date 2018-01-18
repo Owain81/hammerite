@@ -1,0 +1,60 @@
+
+// Removes margin
+.#{$class-prefix-l}-no-margin {
+    margin: 0 !important;
+}
+
+// Removes padding
+.#{$class-prefix-l}-no-padding {
+    padding: 0 !important;
+}
+
+// show hidden element
+.#{$class-prefix-l}-show-all {
+    display: inherit;
+}
+
+// hide visible element
+.#{$class-prefix-l}-hide-all {
+    display: none !important;
+}
+
+.#{$class-prefix-l}-push-left {
+    float: left;
+    justify-content: flex-start;
+	-ms-justify-content: center;
+}
+
+.#{$class-prefix-l}-push-center {
+    float: none !important;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+	-ms-justify-content: center;
+}
+
+.#{$class-prefix-l}-push-right {
+    float: right;
+	justify-content: flex-end;
+    -ms-justify-content: flex-end;
+}
+
+.#{$class-prefix-l}-align-left {
+    text-align: left;
+}
+
+.#{$class-prefix-l}-align-center {
+    text-align: center;
+}
+
+.#{$class-prefix-l}-align-right {
+    text-align: right;
+}
+
+.#{$class-prefix-l}-clearfix {
+    @include clearfix;
+}
+
+.#{$class-prefix-l}-grid-order {
+  flex: 100%;
+}

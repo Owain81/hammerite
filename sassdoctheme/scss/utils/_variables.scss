@@ -1,0 +1,110 @@
+/// White
+/// @type Color
+$color-white: #ffffff;
+
+/// Black
+/// @type Color
+$color-black: #000000;
+
+
+/// Grey-background
+/// @type Color
+$color-grey-blue-background: #e8eef2; 
+
+/// Darkgrey
+/// @type Color
+$color-grey-unit4: #4a5c69; 
+
+/// Darkergrey
+/// @type Color
+$color-darkergrey: #3f4f5a; 
+
+/// Grey-8
+/// @type Color
+$color-grey-8: #f5f5f6; 
+
+/// Grey-34
+/// @type Color
+$color-grey-34: #d2d6d9; 
+
+/// Grey
+/// @type Color
+$color-grey: #7c878e; 
+
+/// Grey-120
+/// @type Color
+$color-grey-120: #4c5358; 
+
+
+/// Darkgreen
+/// @type Color
+$color-schemeu4darkgreen: #afc836; 
+
+/// Blue-info
+/// @type Color
+$color-info: #0d78aa; 
+
+/// Purple
+/// @type Color
+$purple: #5c4863; 
+
+/// Yellow
+/// @type Color
+$color-scheme-darkyellow: #ebbf3b;
+
+/// Primary color
+/// @type Color
+$primary-color: $color-grey;
+
+/// Primary color
+/// @type Color
+$secondary-color: $color-scheme-darkyellow;
+
+/// Primary color
+/// @type Color
+$tertiary-color: $purple;
+
+
+/// Map of breakpoints for responsive design.
+/// @prop {Map} small [(max-width: 800px)] - small screens
+/// @prop {Map} medium [(min-width: 801px)] - regular screens
+/// @see {mixin} respond-to
+/// @type Map
+$breakpoints: (
+  'small':  (max-width: 800px),
+  'medium': (min-width: 801px)
+) !global;
+
+
+/// Z-indexes layers.
+/// @prop {Number} key   - aliases for specific z-indexes
+/// @see {function} z
+/// @type Map
+$z-indexes: (
+  'goku':       9001,
+  'modal':      5000,
+  'dropdown':   4000,
+  'social':     3000,
+  'default':       1,
+  'below':        -1
+) !global;
+
+
+/// Sidebar width
+/// @type Number
+$sidebar-width: 280px;
+
+
+/// Vertical rhythm
+/// @type Number
+$vertical-rhythm: 1.5rem;
+
+
+/// Text font stack
+/// @type List
+$text-font-stack: 'Dagny', 'Helvetica Neue', 'Arial', 'sans-serif';//'','Open Sans', 'Helvetica Neue Light', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+
+
+/// Code font stack
+/// @type List
+$code-font-stack: 'Courier New', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Monaco', monospace;

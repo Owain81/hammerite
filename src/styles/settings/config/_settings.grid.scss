@@ -1,0 +1,131 @@
+﻿////
+///	@group Grid
+////
+
+// Values are tabbed for readability reasons
+// scss-lint:disable SpaceAfterVariableName
+
+/// Sets the grids maximum width
+/// @type Number
+$grid-max-width: 100% !default;
+
+///
+/// Sets the grids breakpoint
+///
+/// To add a new break point you'll need to add an element to the list.
+///
+/// Here's an example: ( class-name-prefix, minimum-width, maximum-width, gutter-width, no-media-query).
+///
+/// media: media type.
+/// class-name-prefix: this is the prefix used in tons of inks classes i.e.: large-100, small-40, etc.
+/// minimum-width: (pixels|null) the minimum width for the breakpoint
+/// maximum-width: (pixels|null) the maximum width for the breakpoint
+/// gutter-width: (ems) the width for the gutters (space between grid columns) for the breakpoint
+/// no-media-query: (true|false) if you need to support IE8 set this to true on a single breakpoint.
+///                 Since IE8 does not support the @media statement leaving one of the breakpoints
+///                 outside a @media query let's you use the grid in IE8.
+///
+/// @type Map
+$grid-breakpoints: (
+	('screen', 'all', null, 320px, 1em, .97em, false),
+	('screen', 'tiny', null, 320px, 1em, .97em, false),
+	('screen', 'small', 321px, 640px, 1.25em, .98em, false),
+	('screen', 'medium', 641px, 960px, 1.5em, 1em, false),
+	('screen', 'large', 961px, 1260px, 1.75em, 1.05em, true),
+    ('screen', 'xlarge', 1261px, null, 2em, 1.08em, false)
+);
+
+// Grid class names
+
+
+/// Class name for horizontal grid
+/// @type String
+$horizontal: horizontal !default;
+
+/// Class name for Vertical grid
+/// @type String
+$vertical: vertical !default;
+
+/// Class name for Half grid
+/// @type String
+$half: half !default;
+
+/// Class name for Quarter grid
+/// @type String
+$quarter: quarter !default;
+
+/// Class name for Double grid
+/// @type String
+$double: double !default;
+
+/// Class name for No grid
+/// @type String
+$no: no !default;
+
+/// Class name for gutters
+/// @type String
+$class-gutters: gutters !default;
+
+/// Grid class name
+/// @type String
+$grid-class-name: #{$class-prefix-l}-grid !default;
+
+/// Flex class name
+/// @type String
+$flex-class-name: #{$class-prefix-l}-flex !default;
+
+/// Grid column group class name
+/// @type String
+$grid-column-group-class-name: #{$class-prefix-l}-column-group !default;
+
+/// Grid gutters class name
+/// @type String
+$grid-gutters-class-name: #{$class-gutters} !default;
+
+/// Grid half gutters class name
+/// @type String
+$grid-half-gutters-class-name: #{$half}-#{$grid-gutters-class-name} !default;
+
+/// Grid quarter gutters class name
+/// @type String
+$grid-quarter-gutters-class-name:#{$quarter}-#{$grid-gutters-class-name} !default;
+
+/// Grid double gutters class name
+/// @type String
+$grid-double-gutters-class-name: #{$double}-#{$grid-gutters-class-name} !default;
+
+/// Grid no gutters class name
+/// @type String
+$grid-no-gutters-class-name: #{$no}-#{$grid-gutters-class-name} !default;
+
+/// Grid horizontal gutters class name
+/// @type String
+$grid-horizontal-gutters-class-name: #{$horizontal}-#{$grid-gutters-class-name} !default;
+
+/// Grid half horizontal gutters class name
+/// @type String
+$grid-half-horizontal-gutters-class-name: #{$half}-#{$horizontal}-#{$grid-gutters-class-name} !default;
+
+/// Grid quarter horizontal gutters class name
+/// @type String
+$grid-quarter-horizontal-gutters-class-name: #{$quarter}-#{$horizontal}-#{$grid-gutters-class-name} !default;
+
+/// Grid double horizontal gutters class name
+/// @type String
+$grid-double-horizontal-gutters-class-name: #{$double}-#{$horizontal}-#{$grid-gutters-class-name} !default;
+
+/// Grid vertical gutters class name
+/// @type String
+$grid-vertical-gutters-class-name: #{$vertical}-#{$grid-gutters-class-name} !default;
+
+/// Grid half vertical gutters class name
+/// @type String
+$grid-half-vertical-gutters-class-name: #{$half}-#{$vertical}-#{$grid-gutters-class-name} !default;
+
+/// Grid quarter vertical gutters class name
+/// @type String
+$grid-quarter-vertical-gutters-class-name: #{$quarter}-#{$vertical}-#{$grid-gutters-class-name} !default;
+
+/// Grid double vertical gutters class name
+/// @type String
+$grid-double-vertical-gutters-class-name : #{$double}-#{$vertical}-#{$grid-gutters-class-name} !default;

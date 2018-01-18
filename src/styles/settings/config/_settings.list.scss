@@ -1,0 +1,126 @@
+﻿////
+/// @group List
+////
+
+/// List class name
+/// @type String
+$list-class-name: #{$class-prefix-c}-list !default;
+
+/// List lineheight
+/// @type Number
+
+$list-lineheight: 1.75 !default; // 28
+
+/// List margin top
+/// @type Number
+$list-margin-top: 0 !default;
+
+/// List margin bottom
+/// @type Number
+$list-margin-bottom: set-space(l) !default;
+
+/// List sub padding
+/// @type Number
+$list-sub-padding: px-to-rem(set-space(m)) !default;
+
+// List styles
+
+/// List style position
+/// @type String-$unrdlist-margin-negative
+$list-style-position: outside !default;
+
+// List ordered
+
+/// Ordered list margin left
+/// @type Number
+$ordrdlist-margin-left: set-space(l) !default;
+
+/// Ordered list style type
+/// @type String
+$ordrdlist-style-type: decimal !default;
+
+/// Ordered list font size
+/// @type Number
+$ordrdlist-font-size: px-to-rem(16px) !default;
+
+// List unordered
+
+/// Unordered listmargin top
+/// @type Number
+$unrdlist-margin-top: 0 !default;
+
+/// Unordered listmargin bottom
+/// @type Number
+$unrdlist-margin-bottom: 0 !default;
+
+/// Unordered listmargin negative
+/// @type Number
+$unrdlist-margin-negative: set-space(l) !default;
+
+/// Unordered negative top margin
+/// @type Number
+$unrdlist-top-negative: 14px !default;
+
+/// Unordered listside margin
+/// @type Number
+$unrdlist-side-margin: set-space(l) !default;
+
+/// Unordered liststyle type
+/// @type String
+$unrdlist-style-type: none !default;
+
+/// Unordered listfont size
+/// @type Number
+$unrdlist-font-size: px-to-rem(32px) !default;
+
+/// Unordered listtype color
+/// @type Color
+$unrdlist-type-color: #aec736 !default;
+
+// List definition styles
+
+/// List definition margin top
+/// @type Number
+$defnlist-margin-top: 0 !default;
+
+/// List definition margin bottom
+/// @type Number
+$defnlist-margin-bottom: set-space(s) !default;
+
+/// List definition term margin bottom
+/// @type Number
+$defnlist-term-margin-bottom: set-space(s) !default;
+
+/// List definition term weight
+/// @type String
+$defnlist-term-weight: bold !default;
+
+/// List definition padding left
+/// @type Number
+$defnlist-padding-left: px-to-rem(set-space(l)) !default;
+
+// List inline
+
+/// List inline margin top
+/// @type Number
+$inlnlist-margin-top: 0 !default;
+
+/// List inline margin bottom
+/// @type Number
+$inlnlist-margin-bottom: 0 !default;
+
+/// List inline padding
+/// @type Number
+$inlnlist-padding: 0 !default;
+
+/// List inline style type
+/// @type String
+$inlnlist-style-type: none !default;
+
+/// List inline default float margin
+/// @type Number
+$inlnlist-default-float-margin: -(set-space(l)) !default;
+
+/// List inline default float list margin
+/// @type Number
+$inlnlist-default-float-list-margin: set-space(l) !default;

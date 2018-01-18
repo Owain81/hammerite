@@ -1,0 +1,99 @@
+﻿////
+/// @group button
+////
+
+/// Define button size
+/// @param {string} size [default]
+/// @example scss - SCSS
+///		.foo {
+///			@include button-size();
+///		}
+/// @example css - CSS Output
+///		.foo {
+///			display: inline-block;
+///			padding: 0 0.8125rem;
+///			max-height: 2.75rem;
+///			line-height: 2.75rem;
+///			font-size: 16px;
+///		}
+
+@mixin button-size($size: default) {
+	display: inline-block; // This is needed
+	padding: map-get($button-padding, #{$size});
+	margin-right: $button-margin-default;
+	max-height: map-get($button-max-height, #{$size});
+	line-height: map-get($button-max-height, #{$size});
+	font-size: map-get($button-font-size, #{$size});
+}
+
+/// Define button styles
+/// @param {string} button-style [default]
+/// @example scss - SCSS
+///		@include button-style();
+/// @example css - CSS Output
+///		.btn {
+///			background-color: #f5f5f6;
+///			color: #000;
+///			border-width: 1px;
+///			border-style: solid;
+///			border-color: #aab1b6;
+///			border-radius: 3px;
+///			text-decoration: none;
+///		}
+
+@mixin button-style($style: default) {
+	background-color: map-get($button-background, #{$style});
+	color: map-get($button-font-color, #{$style});
+	@include border-radius($button-border-radius);
+	text-decoration: none;
+	@include transition-with-curve (smooth-fast, 'default', background-color, box-shadow);
+
+	@if $style == default {
+		@include border($button-border-style, $button-border-color, $button-border-width);
+	} @else {
+		border-color: transparent;
+	}
+
+
+	&:after,
+	&:before {
+		display: none;
+	}
+
+	&:hover,
+	&:active {
+		text-decoration: none;
+	}
+
+	&:not(.is-disabled):not([disabled]):not(:disabled) {
+		&:hover,
+		&.is-hover,
+		&:focus:hover {
+			background-color: map-get($button-background-hover, #{$style});
+			color: map-get($button-font-color, #{$style});
+		}
+
+		&:active,
+		&.is-selected,
+		&:focus:active {
+			background-color: map-get($button-background-active, #{$style});
+			color: map-get($button-font-color, #{$style});
+		}
+	}
+
+	&:focus,
+	&.is-focused {
+		outline: none;
+
+		&:not(.is-disabled):not([disabled]):not(:disabled) {
+			box-shadow: 0 0 3px $color-blue;
+		}
+	}
+
+	&[disabled="disabled"],
+	&:disabled,
+	&.is-disabled {
+		opacity: .3;
+		cursor: not-allowed;
+	}
+}

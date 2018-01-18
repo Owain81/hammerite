@@ -1,0 +1,451 @@
+// COLOR PREFIX
+$color-prefix: color !default;
+
+// SPECIFIC EXAMPLE STYLES
+.colors div > div {
+	@extend .#{$class-prefix-l}-column-group;
+	@extend .#{$class-prefix-l}-push-middle;
+	@extend .#{$class-prefix-l}-push-center;
+
+	height: 100px;
+	border-radius: 3px;
+	text-align: center;
+}
+
+// HELPERS
+.white {
+	background-color: $color-white;
+}
+
+.black {
+	color: $color-white;
+	background-color: $color-black;
+}
+
+// GREY RANGE
+.grey {
+	background-color: $color-grey;
+}
+
+.grey-8 {
+	background-color: $color-grey-8;
+}
+
+.grey-12 {
+	background-color: $color-grey-12;
+}
+
+.grey-18 {
+	background-color: $color-grey-18;
+}
+
+.grey-34 {
+	background-color: $color-grey-34;
+}
+
+.grey-65 {
+	background-color: $color-grey-65;
+}
+
+.grey-110 {
+	background-color: $color-grey-110;
+}
+
+.grey-120 {
+	background-color: $color-grey-120;
+}
+
+// BLUE RANGE
+.blue {
+	background-color: $color-blue;
+}
+
+.lightblueselect {
+	background-color: $color-lightblueselect;
+}
+
+.lightblue {
+	background-color: $color-lightblue;
+}
+
+.paleblue {
+	background-color: $color-paleblue;
+}
+
+// GREY BLUE
+.grey-blue-background {
+	background-color: $color-grey-blue-background;
+}
+
+// unit4 should be uppercase
+// scss-lint:disable NameFormat, SelectorFormat
+.grey-unit4 {
+	background-color: $color-grey-unit4;
+}
+
+.darkgrey-unit4 {
+	background-color: $color-darkgrey-unit4;
+}
+
+// NOTIFICATIONS
+.alert {
+	background-color: $color-alert;
+}
+
+.alert-light {
+	background-color: $color-alert-light;
+}
+
+.alert-pale {
+	background-color: $color-alert-pale;
+}
+
+.warning {
+	background-color: $color-warning;
+}
+
+.warning-light {
+	background-color: $color-warning-light;
+}
+
+.warning-pale {
+	background-color: $color-warning-pale;
+}
+
+.success {
+	background-color: $color-success;
+}
+
+.success-light {
+	background-color: $color-success-light;
+}
+
+.success-pale {
+	background-color: $color-success-pale;
+}
+
+.info {
+	background-color: $color-info;
+}
+
+.info-light {
+	background-color: $color-info-light;
+}
+
+.info-pale {
+	background-color: $color-info-pale;
+}
+
+.system {
+	background-color: $color-system;
+}
+
+.system-light {
+	background-color: $color-system-light;
+}
+
+.system-pale {
+	background-color: $color-system-pale;
+}
+
+// SCHEMES 1
+// U4 GREEN
+.scheme-u4green {
+	background-color: $color-scheme-u4green;
+}
+
+.scheme-u4darkgreen {
+	background-color: $color-scheme-u4darkgreen;
+}
+
+.scheme-u4green-10 {
+	background-color: $color-scheme-u4green-10;
+}
+
+.scheme-u4green-20 {
+	background-color: $color-scheme-u4green-20;
+}
+
+.scheme-u4green-40 {
+	background-color: $color-scheme-u4green-40;
+}
+
+.scheme-u4green-70 {
+	background-color: $color-scheme-u4green-70;
+}
+
+// U4 BLUE
+.scheme-u4blue {
+	background-color: $color-scheme-u4blue;
+}
+
+.scheme-u4darkblue {
+	background-color: $color-scheme-u4darkblue;
+}
+
+.scheme-u4blue-10 {
+	background-color: $color-scheme-u4blue-10;
+}
+
+.scheme-u4blue-20 {
+	background-color: $color-scheme-u4blue-20;
+}
+
+.scheme-u4blue-40 {
+	background-color: $color-scheme-u4blue-40;
+}
+
+.scheme-u4blue-70 {
+	background-color: $color-scheme-u4blue-70;
+}
+
+// ORANGE
+.scheme-u4orange {
+	background-color: $color-scheme-u4orange;
+}
+
+.scheme-u4darkorange {
+	background-color: $color-scheme-u4darkorange;
+}
+
+.scheme-u4orange-10 {
+	background-color: $color-scheme-u4orange-10;
+}
+
+.scheme-u4orange-20 {
+	background-color: $color-scheme-u4orange-20;
+}
+
+.scheme-u4orange-40 {
+	background-color: $color-scheme-u4orange-40;
+}
+
+.scheme-u4orange-70 {
+	background-color: $color-scheme-u4orange-70;
+}
+
+// BLUE
+.scheme-blue {
+	background-color: $color-scheme-blue;
+}
+
+.scheme-darkblue {
+	background-color: $color-scheme-darkblue;
+}
+
+.scheme-blue-10 {
+	background-color: $color-scheme-blue-10;
+}
+
+.scheme-blue-20 {
+	background-color: $color-scheme-blue-20;
+}
+
+.scheme-blue-40 {
+	background-color: $color-scheme-blue-40;
+}
+
+.scheme-blue-70 {
+	background-color: $color-scheme-blue-70;
+}
+
+// VIOLET
+.scheme-violet {
+	background-color: $color-scheme-violet;
+}
+
+.scheme-darkviolet {
+	background-color: $color-scheme-darkviolet;
+}
+
+.scheme-violet-10 {
+	background-color: $color-scheme-violet-10;
+}
+
+.scheme-violet-20 {
+	background-color: $color-scheme-violet-20;
+}
+
+.scheme-violet-40 {
+	background-color: $color-scheme-violet-40;
+}
+
+.scheme-violet-70 {
+	background-color: $color-scheme-violet-70;
+}
+
+// AQUA
+.scheme-aqua {
+	background-color: $color-scheme-aqua;
+}
+
+.scheme-darkaqua {
+	background-color: $color-scheme-darkaqua;
+}
+
+.scheme-aqua-10 {
+	background-color: $color-scheme-aqua-10;
+}
+
+.scheme-aqua-20 {
+	background-color: $color-scheme-aqua-20;
+}
+
+.scheme-aqua-40 {
+	background-color: $color-scheme-aqua-40;
+}
+
+.scheme-aqua-70 {
+	background-color: $color-scheme-aqua-70;
+}
+
+// SHADES 2
+// PINK
+.scheme-pink {
+	background-color: $color-scheme-pink;
+}
+
+.scheme-darkpink {
+	background-color: $color-scheme-darkpink;
+}
+
+.scheme-pink-10 {
+	background-color: $color-scheme-pink-10;
+}
+
+.scheme-pink-20 {
+	background-color: $color-scheme-pink-20;
+}
+
+.scheme-pink-40 {
+	background-color: $color-scheme-pink-40;
+}
+
+.scheme-pink-70 {
+	background-color: $color-scheme-pink-70;
+}
+
+// YELLOW
+.scheme-yellow {
+	background-color: $color-scheme-yellow;
+}
+
+.scheme-darkyellow {
+	background-color: $color-scheme-darkyellow;
+}
+
+.scheme-yellow-10 {
+	background-color: $color-scheme-yellow-10;
+}
+
+.scheme-yellow-20 {
+	background-color: $color-scheme-yellow-20;
+}
+
+.scheme-yellow-40 {
+	background-color: $color-scheme-yellow-40;
+}
+
+.scheme-yellow-70 {
+	background-color: $color-scheme-yellow-70;
+}
+
+// PURPLE
+.scheme-purple {
+	background-color: $color-scheme-purple;
+}
+
+.scheme-darkpurple {
+	background-color: $color-scheme-darkpurple;
+}
+
+.scheme-purple-10 {
+	background-color: $color-scheme-purple-10;
+}
+
+.scheme-purple-20 {
+	background-color: $color-scheme-purple-20;
+}
+
+.scheme-purple-40 {
+	background-color: $color-scheme-purple-40;
+}
+
+.scheme-purple-70 {
+	background-color: $color-scheme-purple-70;
+}
+
+// GREEN
+.scheme-green {
+	background-color: $color-scheme-green;
+}
+
+.scheme-darkgreen {
+	background-color: $color-scheme-darkgreen;
+}
+
+.scheme-green-10 {
+	background-color: $color-scheme-green-10;
+}
+
+.scheme-green-20 {
+	background-color: $color-scheme-green-20;
+}
+
+.scheme-green-40 {
+	background-color: $color-scheme-green-40;
+}
+
+.scheme-green-70 {
+	background-color: $color-scheme-green-70;
+}
+
+// RED
+.scheme-red {
+	background-color: $color-scheme-red;
+}
+
+.scheme-darkred {
+	background-color: $color-scheme-darkred;
+}
+
+.scheme-red-10 {
+	background-color: $color-scheme-red-10;
+}
+
+.scheme-red-20 {
+	background-color: $color-scheme-red-20;
+}
+
+.scheme-red-40 {
+	background-color: $color-scheme-red-40;
+}
+
+.scheme-red-70 {
+	background-color: $color-scheme-red-70;
+}
+
+// PURPLE2
+.scheme-purple2 {
+	background-color: $color-scheme-purple2;
+}
+
+.scheme-darkpurple2 {
+	background-color: $color-scheme-darkpurple2;
+}
+
+.scheme-purple2-10 {
+	background-color: $color-scheme-purple2-10;
+}
+
+.scheme-purple2-20 {
+	background-color: $color-scheme-purple2-20;
+}
+
+.scheme-purple2-40 {
+	background-color: $color-scheme-purple2-40;
+}
+
+.scheme-purple2-70 {
+	background-color: $color-scheme-purple2-70;
+}

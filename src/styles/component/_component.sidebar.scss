@@ -1,0 +1,355 @@
+﻿.#{$sidebar-class-name} {
+	position: relative;
+	top: 0;
+	left: 0;
+	width: $sidebar-normal-width;
+	height: 100vh;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: $sidebar-background-color;
+	@include transition-with-curve ($sidebar-motion-curve, $sidebar-motion-duration, width);
+
+	@media screen and (max-width: screen-size-breakpoint($sidebar-mobile-size, max)) {
+		@include transform(translate3d(-100%, 0, 0));
+		position: absolute;
+		z-index: 4;
+		width: 100vw;
+		height: 100%;
+	}
+
+	&__header {
+		@include flex-direction(column);
+		@include display-flex;
+		margin-bottom: set-space('s');
+	}
+
+	&__header-top {
+		width: 100%;
+		height: $sidebar-header-height;
+		background-color: $sidebar-header-background-color;
+	}
+
+	&__header-toggle {
+		position: absolute;
+		top: 17px;
+		right: 10px;
+		width: $sidebar-toggle-width;
+		height: $sidebar-toggle-height;
+		transform-origin: center center;
+		cursor: pointer;
+		@include transition-with-curve ($sidebar-motion-curve, $sidebar-motion-duration, transform);
+
+
+		@media screen and (max-width: screen-size-breakpoint($sidebar-mobile-size, max)) {
+			display: none;
+		}
+	}
+
+	&__header-toggle-icon {
+		width: 100%;
+		height: 100%;
+		fill: $color-grey-34;
+	}
+
+	&__avatar {
+		position: absolute;
+		top: 18px;
+		left: 36%;
+		width: $sidebar-avatar-size;
+		height: $sidebar-avatar-size;
+
+		img {
+			@include border-radius(50%);
+			@include border($sidebar-avatar-border-type, $sidebar-avatar-border-color, $sidebar-avatar-border-width);
+			max-width: 100%;
+			height: $sidebar-avatar-size;
+		}
+
+		@media screen and (max-width: screen-size-breakpoint($sidebar-mobile-size, max)) {
+			width: 28%;
+			height: $sidebar-avatar-size-mob;
+
+			img {
+				height: $sidebar-avatar-size-mob;
+			}
+		}
+	}
+
+	&__header-user {
+		width: 100%;
+		margin: $sidebar-user-margin 0 0;
+		clear: both;
+
+		@media screen and (max-width: screen-size-breakpoint($sidebar-mobile-size, max)) {
+			margin: $sidebar-user-margin-mob 0 0;
+		}
+	}
+
+	&__username,
+	&__function-title {
+		margin: 0;
+		padding: 0;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+
+	&__username {
+		color: $sidebar-username-color;
+
+		@media screen and (max-width: screen-size-breakpoint($sidebar-mobile-size, max)) {
+			font-size: $sidebar-user-font-size;
+		}
+	}
+
+	&__function-title {
+		color: $sidebar-function-color;
+		font-weight: normal;
+
+		@media screen and (max-width: screen-size-breakpoint($sidebar-mobile-size, max)) {
+			font-size: $sidebar-user-font-size-mob;
+		}
+	}
+
+	&__nav {
+		@include transition-with-curve ($sidebar-motion-curve, $sidebar-motion-duration, transform);
+		margin: $sidebar-nav-margin 0 0;
+		padding: 0;
+		list-style-type: none;
+
+		@media screen and (max-width: screen-size-breakpoint($sidebar-mobile-size, max)) {
+			margin: $sidebar-nav-margin-mob 0 0;
+		}
+	}
+
+	&__nav-item-link {
+		display: flex;
+		position: relative;
+		align-items: center;
+		height: $sidebar-nav-item-height;
+		padding: 0 $sidebar-nav-item-padding;
+		color: $sidebar-nav-item-link-color;
+		font-size: $sidebar-nav-item-font-size;
+		line-height: $sidebar-nav-item-line-height;
+		cursor: pointer;
+
+		&::before {
+			content: '';
+			display: block;
+			position: absolute;
+			z-index: 0;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			border-left: $sidebar-nav-item-border-width $sidebar-nav-item-border-type $sidebar-nav-item-hover-border;
+			opacity: 0;
+			background-color: $sidebar-nav-item-hover-background;
+			@include transition-with-curve ($sidebar-motion-curve, $sidebar-motion-duration, opacity);
+		}
+
+		&:hover,
+		&.is--active {
+			text-decoration: none;
+
+			&::before {
+				opacity: 1;
+			}
+
+			.#{$sidebar-class-name}__nav-item-link-label {
+				color: $sidebar-icon-hover-color;
+			}
+
+			.#{$sidebar-class-name}__nav-item-link-icon {
+				@include transform(scale(1.1));
+				fill: $sidebar-icon-hover-color;
+			}
+		}
+
+		&.is--active {
+			.#{$sidebar-class-name}__badge {
+				@include transform(scale(0));
+				opacity: 0;
+			}
+		}
+	}
+
+	&__badge {
+		display: block;
+		position: absolute;
+		z-index: 2;
+		top: 10px;
+		right: 16px;
+		width: $sidebar-badge-width;
+		height: $sidebar-badge-height;
+		padding: padding($sidebar-badge-padding-vertical $sidebar-badge-padding-horizontal);
+		border-radius: $sidebar-badge-border-radius;
+		background-color: $sidebar-badge-background-color;
+		color: $sidebar-badge-font-color;
+		font-size: $sidebar-badge-font-size;
+		line-height: $sidebar-badge-line-height;
+		@include transition-with-curve ($sidebar-motion-curve, $sidebar-motion-duration, transform, opacity);
+	}
+
+	&__nav-item-link-icon {
+		z-index: 1;
+		flex-shrink: 0;
+		width: $sidebar-nav-icon-width;
+		height: $sidebar-nav-icon-height;
+		fill: $sidebar-icon-color;
+		@include transform(scale(1));
+		@include transition-with-curve ($sidebar-motion-curve, $sidebar-motion-duration, transform, fill);
+	}
+
+	&__nav-item-link-label {
+		@include transition-with-curve ($sidebar-motion-curve, $sidebar-motion-duration, opacity, color);
+		z-index: 1;
+		padding-left: $sidebar-nav-label;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+
+	&__wrapper {
+		@media screen and (max-width: screen-size-breakpoint($sidebar-mobile-size, max)) {
+			&.#{$class-prefix-js}-overflow {
+				overflow: auto;
+			}
+		}
+	}
+
+	&__footer {
+		position: absolute;
+		z-index: 4;
+		bottom: 0;
+		width: 100%;
+		height: $sidebar-footer-height;
+		background-color: $sidebar-footer-background-color;
+
+		@media screen and (max-width: screen-size-breakpoint($sidebar-mobile-size, max)) {
+			position: fixed;
+		}
+	}
+
+	&__avatar,
+	&__avatar img,
+	&__header-user,
+	&__footer {
+		@include transition-with-curve ($sidebar-motion-curve, $sidebar-motion-duration, transform, opacity);
+	}
+}
+
+// Toggle button
+.menu-toggle__check {
+	position: absolute;
+	clip: rect(0, 0, 0, 0);
+
+	@media screen and (max-width: screen-size-breakpoint($sidebar-mobile-size, max)) {
+
+		&:checked ~ .#{$sidebar-class-name} {
+			@include transform(none);
+		}
+	}
+}
+
+.menu-toggle__label {
+	visibility: hidden;
+	position: fixed;
+	z-index: 6;
+	top: 17px;
+	left: 15px;
+	width: $sidebar-menu-toggle-width;
+	height: $sidebar-menu-toggle-height;
+	cursor: pointer;
+
+	svg {
+		width: 100%;
+		height: 100%;
+		fill: $sidebar-toggle-icon-color;
+	}
+
+	@media screen and (max-width: screen-size-breakpoint($sidebar-mobile-size, max)) {
+		visibility: visible;
+	}
+}
+
+// Closed version of sidebar
+.#{$class-prefix-js}-minified {
+	width: $sidebar-minified-width;
+
+	.#{$sidebar-class-name}__header-toggle {
+		@include transform(rotate(180deg));
+	}
+
+	.#{$sidebar-class-name}__header + .#{$sidebar-class-name}__wrapper {
+		.#{$sidebar-class-name}__nav {
+			transform: translateY(-#{$sidebar-motion-closed-menu-offset-up});
+		}
+	}
+
+	.#{$sidebar-class-name}__header-user,
+	.#{$sidebar-class-name}__avatar,
+	.#{$sidebar-class-name}__footer {
+		@include transform(translateY(-#{$sidebar-motion-menu-offset-up}) translateX(-#{$sidebar-normal-width / 2}));
+		opacity: 0;
+	}
+
+	.#{$sidebar-class-name}__avatar img {
+		@include transform(scale(0));
+	}
+
+	.#{$sidebar-class-name}__nav-item-link-label {
+		opacity: 0;
+	}
+
+	.#{$sidebar-class-name}__badge {
+		@include transform(translate($sidebar-badge-closed-offset, $sidebar-badge-closed-offset));
+	}
+
+	.#{$sidebar-class-name}__nav-item-link {
+		padding: padding(0 $sidebar-min-nav-item-padding);
+	}
+
+	@media screen and (max-width: screen-size-breakpoint($sidebar-mobile-size, max)) {
+		width: 100vw;
+
+		.#{$sidebar-class-name}__footer,
+		.#{$sidebar-class-name}__username,
+		.#{$sidebar-class-name}__function-title,
+		.#{$sidebar-class-name}__avatar,
+		.#{$sidebar-class-name}__nav-item-link-label {
+			display: block;
+		}
+
+		.#{$sidebar-class-name}__header-toggle {
+			display: none;
+		}
+
+		.#{$sidebar-class-name}__nav-item-link {
+			padding: padding(0 $sidebar-nav-item-padding);
+
+			&:hover {
+				padding-left: $sidebar-nav-item-hover-padding;
+			}
+		}
+	}
+}
+
+// Sidebar and Fixed TopBar
+@media screen and (min-width: #{screen-size-breakpoint($sidebar-mobile-size, max) + 1}) {
+	.#{$sidebar-class-name} ~ * > .#{$topbar-class}.#{$topbar-class}--fixed {
+		@include transition-with-curve ($sidebar-motion-curve, $sidebar-motion-duration, width);
+		width: calc(100% - #{$sidebar-normal-width});
+	}
+
+	.#{$class-prefix-js}-minified ~ * > .#{$topbar-class}.#{$topbar-class}--fixed {
+		width: calc(100% - #{$sidebar-minified-width});
+	}
+}
+
+@media screen and (max-width: screen-size-breakpoint($sidebar-mobile-size, max)) {
+	.#{$sidebar-class-name}--under-topbar {
+		margin-top: $topbar-height;
+	}
+}

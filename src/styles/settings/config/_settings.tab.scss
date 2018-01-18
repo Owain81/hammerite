@@ -1,0 +1,116 @@
+////
+/// Tabs settings
+/// @group Tab
+////
+
+// Default
+
+
+///  Tabs background color
+///  @type Color
+$tab-background-color: $color-white;
+
+/// Tab horizontal padding
+///  @type Number
+$tab-horizontal-padding: px-to-rem(set-space(m)) !default;
+
+/// Tab line-height
+$tab-line-height: 2.5 !default; // 40
+
+/// Tab font color
+///  @type Color
+$tab-color: $color-grey-120 !default;
+
+/// Tab font color
+///  @type Color
+$tab-hover-color: $color-blue !default;
+
+/// Tab active font color
+///  @type Color
+$tab-active-color: $color-black !default;
+
+/// Tab bottom line color for active tabs
+///  @type Color
+$tab-active-line-color: $color-blue !default;
+
+/// Tab active height
+/// @type Number
+$tab-active-height: 1.32% !default;
+
+/// Tab bottom line color for active tabs (mobile)
+///  @type Color
+$tab-mobile-active-line-color: $color-scheme-u4darkgreen !default;
+
+/// Tab bottom line color height
+///  @type Number
+$tab-active-line-size: 3px !default;
+
+/// Tab divider line color
+///  @type Color
+$tab-divider-color: $color-grey-34 !default;
+
+/// Tab divider line width
+///  @type Number
+$tab-divider-width: 1px !default;
+
+/// Tab divider line height
+///  @type Number
+$tab-divider-height: 13px !default;
+
+// ====== Fixed tabs ======
+
+/// Fixed tabs height
+///  @type Number
+$tab-fixed-height: 52px !default;
+
+/// Fixed tabs horizontal padding (right and left)
+///  @type Number
+$tab-fixed-horizontal-padding: px-to-rem(set-space(_3xl)) !default;
+
+/// Fixed tabs svg icons size
+///  @type Number
+$tab-fixed-icon-size: 24px !default;
+
+/// Fixed tabs padding around icons
+///  @type Number
+$tab-fixed-icon-padding: px-to-rem(set-space(xxs)) !default;
+
+/// Fixed tabs mobile height
+///  @type Number
+$tab-fixed-mobile-height: 70px !default;
+
+/// Fixed tabs mobile svg icons size
+///  @type Number
+$tab-fixed-mobile-icon-size: 28px !default;
+
+/// Fixed tabs swipe gradient inline SVG image
+/// @type String
+$tab-fixed-swipe-gradient-overlay: url('data:image/svg+xml;charset=utf-8,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22utf-8%22%3F%3E%0A%3Csvg%20width%3D%2296px%22%20height%3D%2296px%22%20viewbox%3D%220%200%2096%2096%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20%3E%0A%20%20%20%20%3Cdefs%3E%0A%20%20%20%20%20%20%20%20%3ClinearGradient%20id%3D%22alphaLinear%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%23FFFFFF%22%20%2F%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%23000000%22%20%2F%3E%0A%20%20%20%20%20%20%20%20%3C%2FlinearGradient%3E%0A%0A%20%20%20%20%20%20%20%20%3Cmask%20id%3D%22Mask%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%3Crect%20x%3D%220%22%20y%3D%220%22%20width%3D%2276%22%20height%3D%2296%22%20fill%3D%22url(%23alphaLinear)%22%20%20%2F%3E%0A%20%20%20%20%20%20%20%20%3C%2Fmask%3E%0A%0A%20%20%20%20%3C%2Fdefs%3E%0A%20%20%20%20%3Crect%20class%3D%22st0%22%20width%3D%2296%22%20height%3D%2296%22%20fill%3D%22%234a5c69%22%20mask%3D%22url(%23Mask)%22%2F%3E%0A%3C%2Fsvg%3E') !default;
+
+/// Fixed tabs swipe release transition time
+/// @type Number
+$tab-fixed-swipe-intertia-time: 1s !default;
+
+/// Fixed tabs swipe release transition timing function
+/// @type string
+$tab-fixed-swipe-intertia-timing-function: cubic-bezier(0, 0, .31, 1.07) !default;
+
+/// Fixed tabs swipe: width of overlay gradients
+/// @type Number
+$tab-fixed-swipe-gradients-width: 12% !default;
+
+/// Fixed tabs swipe: portion of the gradients out of the page margins (avoids 1px black space when moving)
+/// @type Number
+$tab-fixed-swipe-gradients-overflow-margin: 15px !default;
+
+/// Fixed tabs swipe: transition time for overlay gradients
+/// @type Number
+$tab-fixed-swipe-gradients-transition-time: .4s !default;
+
+/// Tab motion duration in seconds
+/// @type Number
+$tab-motion-duration: .26s;
+
+/// Tab motion curve type
+/// @type String
+$tab-motion-curve: elastic;

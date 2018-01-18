@@ -1,0 +1,218 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, user-scalable=no" />
+		<style type="text/css">
+
+            body {
+                margin: 0;
+            }
+
+            header {
+                border-bottom: 1px solid #cecece;
+                display: flex;
+            }
+
+		    .sub-title {
+		        display: inline-block;
+                margin-left: 1em;
+            }
+
+		  
+            .img {
+            	background-color: white;
+            	border-radius: 2px;
+            	box-shadow: 0 5px 7px rgba(0,0,0,.15);
+            	border: 1px solid #ededed;
+            	padding: 1em;
+            }
+
+            .img + p {
+            	margin-top: 1.5em;
+            }
+
+		    .logo {
+		        
+            }
+
+            .logo img {
+            	width: 150px;
+            }
+
+		    .subtitle {
+		        align-self: flex-end;
+		        margin-left: 1.1em;
+		        min-width: 128px;
+		    }
+
+		    .subtitle span {
+		        color: white;
+		    }
+
+            .header {
+                	height: 50px;
+            }
+
+            .note {
+                background-color: #cbe0fe;
+            }
+
+            .css {
+                background-color: #DDDDDD;
+                    padding: 1px 5px 1px 5px;
+                border: 1px solid #ccc;
+            }
+
+            .breakpoint-aware {
+                background-color: #d2e575;
+                padding: 3px 5px 3px 5px;
+                border: 1px solid #888;
+            }
+        </style>
+        <link rel="stylesheet" href="../css/design-system.css">
+        <title>Panels</title>
+    </head>
+
+    <body>
+
+        <header class="c-topbar">
+            <div class="c-topbar__wrapper">
+                <a href="../index.html" class="c-topbar__link c-topbar__btn--back">
+                    <span class="c-topbar__link-icon">
+                        <svg class="o-icon">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#u4-icon-topbar--angle-left"></use>
+                        </svg>
+                    </span>
+                </a>
+
+                <h1 class="c-topbar__title">
+                    <a href="../index.html">
+                        <img src="../images/unit4-logo.svg" width="102" class="c-topbar__element--show-on-desktop" alt="unit4" />
+                        <img src="../images/unit4-logo-white.svg" width="102" class="c-topbar__element--show-on-mobile" alt="unit4" />
+                    </a>
+                </h1>
+
+                <h2 class="c-topbar__subtitle">UI Library - Panels</h2>
+            </div>
+        </header>
+
+        <div class="l-grid">
+            <div class="l-column-group">
+                <div class="l-all-100 l-vertical-padding">
+                    <h3>Header panel</h3>
+                    <div class="c-panel">
+                        <div class="c-panel__header is-wrap">
+                            <h4 class="c-panel__title">Panel header with a longer than normal title</h4>
+                        </div>
+                        <div class="c-panel__body">
+                            <div class="c-panel c-panel--child">
+                                <div class="c-panel__header">
+                                    <h4 class="c-panel__title">Panel child</h4>
+                                </div>
+                                <div class="c-panel__body">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In euismod dictum diam id condimentum. Curabitur ac egestas nulla, ut congue enim. Phasellus ornare massa vel feugiat tristique. Vivamus efficitur porta lectus id luctus. Nullam quis gravida nunc, ornare bibendum ex. </p>
+                                </div>
+                            </div>
+                            <div class="c-panel">
+                                <div class="c-panel__header">
+                                    <h4 class="c-panel__title">Normal panel</h4>
+                                </div>
+                                <div class="c-panel__body">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In euismod dictum diam id condimentum. Curabitur ac egestas nulla, ut congue enim. Phasellus ornare massa vel feugiat tristique. Vivamus efficitur porta lectus id luctus. Nullam quis gravida nunc, ornare bibendum ex. </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="l-column-group">
+                <div class="l-all-10">
+                    <h3>Header panel with icon</h3>
+                    <div class="c-panel">
+                            <div class="c-panel__header">
+                            <h4 class="c-panel__title">Panel header</h4>
+                            <div class="c-panel__action">
+                                <svg class="c-icon o-icon--xxsmall">
+                                    <use xlink:href="#u4-icon--pencil"></use>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="c-panel__body">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In euismod dictum diam id condimentum. Curabitur ac egestas nulla, ut congue enim. Phasellus ornare massa vel feugiat tristique. Vivamus efficitur porta lectus id luctus. Nullam quis gravida nunc, ornare bibendum ex. </p>                                
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="l-column-group">
+                <div class="l-all-20 l-vertical-padding">
+                    <h3>Header panel with footer</h3>
+                    <div class="c-panel">
+                        <div class="c-panel__header">
+                            <h4 class="c-panel__title">Panel header</h4>
+                        </div>
+                        <div class="c-panel__body">
+                            <p>Proin suscipit luctus orci placerat fringilla. Donec hendrerit laoreet risus eget adipiscing. Suspendisse in urna ligula, a volutpat mauris. Sed enim mi, bibendum eu pulvinar vel, sodales vitae dui.</p>
+                        </div>
+                        <div class="c-panel__footer">
+                            <div class="c-panel__buttongroup l-align-right">
+                                <a href="#" role="button" class="o-btn">Cancel</a>
+                                <a href="#" role="button" class="o-btn o-btn--happy">OK</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="l-column-group">
+                <div class="l-all-20 l-vertical-padding">
+                    <h3>Header panel without header</h3>
+                    <div class="c-panel c-panel--noheader">
+                        <div class="c-panel__header">
+                            <h4 class="c-panel__title">Panel header</h4>
+                        </div>
+                        <div class="c-panel__body">
+                            <p>Proin suscipit luctus orci placerat fringilla. Donec hendrerit laoreet risus eget adipiscing. Suspendisse in urna ligula, a volutpat mauris. </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="l-column-group">
+                <div class="l-all-10 l-vertical-padding">
+                    <h3>Header panel with icon</h3>
+                    <div class="c-panel u4-panel--noheader">
+                        <div class="c-panel__header is-wrap">
+                            <h4 class="c-panel__title">Panel header with a longer than normal title</h4>
+                            <div class="c-panel__action">
+                                <svg class="o-icon o-icon--xxsmall">
+                                    <use xlink:href="#u4-icon--pencil"></use>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="c-panel__body">
+                            <p>Proin suscipit luctus orci placerat fringilla. Donec hendrerit laoreet risus eget adipiscing. Suspendisse in urna ligula, a volutpat mauris. Sed enim mi, bibendum eu pulvinar vel, sodales vitae dui. Pellentesque sed sapien lorem, at lacinia urna. In hac habitasse platea dictumst. </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="l-column-group">
+                <div class="l-all-20 l-vertical-padding">
+                    <h3>Header panel with footer</h3>
+                    <div class="c-panel c-panel--noheader">   
+                        <div class="c-panel__header">
+                            <h4 class="c-panel__title">Panel header</h4>
+                        </div>
+                        <div class="c-panel__body">
+                            <p>Proin suscipit luctus orci placerat fringilla. Donec hendrerit laoreet risus eget adipiscing. Suspendisse in urna ligula, a volutpat mauris. </p>
+                        </div>
+                        <div class="c-panel__footer">
+                            <div class="c-panel__buttongroup l-align-right">
+                                <a href="#" role="button" class="o-btn">Cancel</a>
+                                <a href="#" role="button" class="o-btn o-btn--happy">OK</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script type="text/javascript" src="../js/DesignSystem-0.1.1.js"></script>
+</html>

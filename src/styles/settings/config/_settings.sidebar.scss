@@ -1,0 +1,241 @@
+﻿////
+/// Sidebar
+////
+
+/// Class of sidebar component
+/// @type {string}
+$sidebar-class-name: #{$class-prefix-c}-sidebar !default;
+
+/// Sidebar - width of normal version
+/// @type {string}
+$sidebar-normal-width: 360px !default;
+
+/// Sidebar - width of minified version
+/// @type {string}
+$sidebar-minified-width: 58px !default;
+
+/// Sidebar - size of mobile version
+$sidebar-mobile-size: medium !default;
+
+// unit4 should be uppercase
+// scss-lint:disable NameFormat, SelectorFormat
+
+/// Background color of sidebar
+/// @type {string}
+$sidebar-background-color: $color-grey-unit4 !default;
+
+/// Color of username - h4
+/// @type {string}
+$sidebar-username-color: $color-scheme-u4green !default;
+
+/// Color of function title - h5
+/// @type {string}
+$sidebar-function-color: $color-white !default;
+
+/// Left & right padding of nav item
+/// @type {string}
+$sidebar-nav-item-padding: px-to-rem(set-space(m));
+
+/// Bottom padding of nav item
+/// @type {string}
+$sidebar-nav-item-bottom-padding: px-to-rem(set-space(xs));
+
+/// Padding of nav item in minified sidebar
+/// @type {string}
+$sidebar-min-nav-item-padding: px-to-rem(17px);
+
+/// Hover - Adjusted padding of active nav item on minified sidebar
+/// @type {string}
+$sidebar-minified-nav-item-hover-padding: px-to-rem(11px);
+
+/// Color of nav item
+/// @type {string}
+$sidebar-nav-item-link-color: $color-grey-34 !default;
+
+/// Font-size of nav item
+/// @type {string}
+$sidebar-nav-item-font-size: px-to-rem(16px);
+
+/// Line-height of nav item
+/// @type {number}
+$sidebar-nav-item-line-height: 2.6667;
+
+/// Hover - background-color of active nav item
+/// @type {string}
+$sidebar-nav-item-hover-background: $color-darkgrey-unit4 !default;
+
+/// Hover - border color of active nav item
+/// @type {string}
+$sidebar-nav-item-hover-border: $color-scheme-u4green !default;
+
+/// Hover - Adjusted padding of active nav item
+/// @type {string}
+$sidebar-nav-item-hover-padding: px-to-rem(set-space(s));
+
+/// Hover border width of active nav item
+/// @type {string}
+$sidebar-nav-item-border-width: 4px !default;
+
+/// Hover border type of active nav item
+/// @type {string}
+$sidebar-nav-item-border-type: solid !default;
+
+/// Color of icons within the sidebar
+/// @type {string}
+$sidebar-icon-color: $color-grey-34 !default;
+
+/// Hover color of icons
+/// @type {string}
+$sidebar-icon-hover-color: $color-white !default;
+
+/// Header - background-color
+/// @type {string}
+$sidebar-header-background-color: $color-darkgrey-unit4 !default;
+
+/// Header - height
+/// @type {string}
+$sidebar-header-height: 64px !default;
+
+/// Header - toggle icon width
+/// @type {string}
+$sidebar-toggle-width: 32px !default;
+
+/// Header - toggle icon height
+/// @type {string}
+$sidebar-toggle-height: 32px !default;
+
+/// Avatar - size
+/// @type {string}
+$sidebar-avatar-size: 90px !default;
+
+/// Avatar - size on smaller devices
+$sidebar-avatar-size-mob: 75px !default;
+
+/// Avatar - border color
+/// @type {string}
+$sidebar-avatar-border-color: $color-darkgrey-unit4 !default;
+
+/// Avatar - border width
+/// @type {string}
+$sidebar-avatar-border-width: 8px !default;
+
+/// Avatar - border type
+/// @type {string}
+$sidebar-avatar-border-type: solid !default;
+
+/// Title - user info margin
+/// @type {string}
+$sidebar-user-margin: 58px !default;
+
+/// Title - user info margin on small devices
+/// @type {string}
+$sidebar-user-margin-mob: 36px !default;
+
+/// Title - user info font-size
+/// @type {string}
+$sidebar-user-font-size: px-to-rem(16px) !default;
+
+/// Title - user info font-size on smaller devices
+/// @type {string}
+$sidebar-user-font-size-mob: px-to-rem(14px) !default;
+
+/// Badge - height
+/// @type {string}
+$sidebar-badge-height: 20px !default;
+
+/// Badge - width
+/// @type {string}
+$sidebar-badge-width: 20px !default;
+
+/// Badge - background-color
+/// @type {string}
+$sidebar-badge-background-color: $color-warning !default;
+
+/// Badge - border radius
+/// @type {string}
+$sidebar-badge-border-radius: 2px !default;
+
+/// Badge - line-height
+/// @type {string}
+$sidebar-badge-line-height: 1.4285 !default; // 20
+
+/// Badge - padding left/right
+/// @type {string}
+$sidebar-badge-padding-horizontal: px-to-rem(5px) !default;
+
+/// Badge - padding top/bottom
+/// @type {string}
+$sidebar-badge-padding-vertical: px-to-rem(1px) !default;
+
+/// Badge - offset when menu is closed
+/// @type {Number}
+$sidebar-badge-closed-offset: 10px !default;
+
+/// Badge - font-size
+/// @type {string}
+$sidebar-badge-font-size: px-to-rem(14px) !default;
+
+/// Badge - font-color
+/// @type {string}
+$sidebar-badge-font-color: $color-white !default;
+
+/// Toggle - icon color
+/// @type {string}
+$sidebar-toggle-icon-color: $color-white !default;
+
+/// Footer - background color
+/// @type {string}
+$sidebar-footer-background-color: $color-grey-unit4 !default;
+
+/// Footer - footer height
+/// @type {string}
+$sidebar-footer-height: 80px !default;
+
+/// Nav - margin top
+/// @type {string}
+$sidebar-nav-margin: set-space(4xl) !default;
+
+/// Nav - margin top on smaller devices
+/// @type {string}
+$sidebar-nav-margin-mob: 10px !default;
+
+/// Nav - item height
+/// @type {string}
+$sidebar-nav-item-height: 40px !default;
+
+/// Nav - icon height
+/// @type {string}
+$sidebar-nav-icon-height: 24px !default;
+
+/// Nav - icon width
+/// @type {string}
+$sidebar-nav-icon-width: 24px !default;
+
+/// Nav - item label
+/// @type {string}
+$sidebar-nav-label: px-to-rem(set-space(s)) !default;
+
+/// Menu toggle - width
+/// @type {string}
+$sidebar-menu-toggle-width: 30px !default;
+
+
+/// Menu toggle - height
+/// @type {string}
+$sidebar-menu-toggle-height: 30px !default;
+
+/// Motion curve type
+/// @type {string}
+$sidebar-motion-curve: smooth-out !default;
+
+/// Motion duration
+/// @type {Number}
+$sidebar-motion-duration: .21s !default;
+
+/// Motion offset for sidebar menu
+/// @type {Number}
+$sidebar-motion-menu-offset-up: 20px !default;
+
+/// Motion offset for closed sidebar menu
+/// @type {Number}
+$sidebar-motion-closed-menu-offset-up: 55px !default;

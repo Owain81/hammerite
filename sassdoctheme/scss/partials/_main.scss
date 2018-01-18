@@ -1,0 +1,73 @@
+/**
+ * Main wrapper
+ */
+.main {
+  background: $color-grey-blue-background;
+  position: relative;
+
+  @include respond-to('medium') {
+    transition: .2s cubic-bezier(0.215, 0.61, 0.355, 1);
+    padding-left: $sidebar-width;
+	padding-top: 4em;
+    min-height: 45em;
+  }
+}
+
+/**
+ * Main sections
+ */
+.main__section {
+  margin-top: 5em;
+  .header + & {
+    margin-top: 0;
+    border-top: none;
+  }
+}
+
+/**
+ * Main titles
+ */
+.main__heading,
+.main__heading--secondary {
+  padding: 1em 0;
+  margin-top: 0;
+
+  @include respond-to('medium') {
+    padding: 2em 0 0;
+  }
+}
+
+/**
+ * Primary headings
+ */
+.main__heading {
+  color: $color-white; 
+  font-size: 3.5em;
+  text-align: left;
+  padding-bottom: .5em;
+  margin-bottom: 1em;
+
+  background: $color-schemeu4darkgreen; 
+  @include card(1);
+ 
+  border:none;
+}
+
+/**
+ * Secondary headings
+ */
+.main__heading--secondary {
+  font-size: 3em;
+  color: $color-grey;
+  text-transform: uppercase;
+  font-weight: bold;
+  padding-top: 0;
+  margin-bottom: $vertical-rhythm * -2;
+  position: relative;
+
+  .container {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+}

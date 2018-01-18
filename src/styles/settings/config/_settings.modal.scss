@@ -1,0 +1,107 @@
+﻿////
+/// Modal
+////
+
+/// Modal - class name
+/// @type {string}
+$modal-class-name: #{$class-prefix-c}-modal !default;
+
+/// Modal - background-color
+/// @type {string}
+$modal-background-color: $color-white !default;
+
+/// Modal - padding
+/// @type {string}
+$modal-padding: px-to-rem(set-space(xl)) !default;
+
+/// Modal - border width
+/// @type {string}
+$modal-border-width: 1px !default;
+
+/// Modal - border type
+/// @type {string}
+$modal-border-type: solid !default;
+
+/// Modal - border color
+/// @type {string}
+$modal-border-color: $color-grey-34 !default;
+
+/// Modal - icon height
+/// @type {string}
+$modal-icon-height: 20px !default;
+
+/// Modal - icon width
+/// @type {string}
+$modal-icon-width: 20px !default;
+
+/// Modal - close icon top
+/// @type {string}
+$modal-close-top: 23px !default;
+
+/// Modal - close icon right
+/// @type {number}
+$modal-close-right: 23px !default;
+
+/// Modal - header color
+/// @type {string}
+$modal-header-color: $color-black !default;
+
+/// Modal - title bottom margin
+/// @type {Number}
+$modal-bottom-margin: set-space(xs) !default;
+
+/// Modal - panel min width
+/// @type {Number}
+$modal-min-width: 208px !default;
+
+/// Modal - panel max width
+/// @type {Number}
+$modal-max-width: 608px !default;
+
+/// Modal - Mobile max size
+/// @type {string}
+$modal-mobile-max-size: small !default;
+
+/// Modal - Desktop/tablet min size
+/// @type {string}
+$modal-desktop-min-size: medium !default;
+
+/// Modal - Mobile screen margins
+/// @type {Number}
+$modal-mobile-margin: 1rem;
+
+/// Modal - shadow parameters
+/// @type {string}
+$modal-shadow-parameters: 0 10px 30px 0 !default;
+
+/// Modal - shadow color
+/// @type {color}
+$modal-shadow-color: $color-black !default;
+
+/// Modal - Shadow opacity
+/// @type {number}
+$modal-shadow-opacity: .4 !default;
+
+/// Modal - motion initial scale
+/// @type {number}
+$modal-motion-scale: .9 !default;
+
+/// Modal - motion initial offset
+/// @type {number}
+$modal-motion-offset: 10px !default;
+
+/// Modal - motion curve
+/// @type {string}
+$modal-motion-curve: smooth-elastic !default;
+
+/// Modal - motion duration (seconds)
+/// @type {number}
+$modal-motion-duration: .21s !default;
+
+/// Modal - overlay background opacity
+/// @type {number}
+$modal-overlay-opacity: .8 !default;
+
+/// Modal - overlay background color
+/// @type {color}
+$modal-overlay-background-color: $color-grey-unit4 !default;

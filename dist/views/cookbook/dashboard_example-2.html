@@ -1,0 +1,203 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, user-scalable=no" />
+        <title>UI Library - Buttons</title>
+        <link rel="stylesheet" href="../../css/design-system.css"/>
+
+        <!-- Some quick angularjs for demo purposes -->
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.js"></script>
+    </head>
+    <body ng-app="demoTopBar" ng-controller="demoController">
+        <header class="c-topbar c-topbar-demo">
+            <div class="c-topbar__wrapper">
+                <a href="../index.html" class="c-topbar__link c-topbar__btn--back">
+                    <span class="c-topbar__link-icon">
+                        <svg class="o-icon">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#u4-icon-topbar--angle-left"></use>
+                        </svg>
+                    </span>
+                </a>
+
+                <h1 class="c-topbar__title" ng-show="showLogo">
+                    <a href="#">
+                        <img src="../../images/unit4-logo.svg" width="102" class="c-topbar__element--show-on-desktop" alt="unit4" />
+                        <img src="../../images/unit4-logo-white.svg" width="102" class="c-topbar__element--show-on-mobile" alt="unit4" />
+                    </a>
+                </h1>
+
+                <h2 class="c-topbar__subtitle">Layout example - grid</h2>
+
+
+                <nav class="c-topbar__toolbar">
+                    <a href="#" class="c-topbar__link c-topbar__expander">
+                        <span class="c-topbar__link-icon">
+                            <svg class="o-icon">
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#u4-icon-topbar--plus"></use>
+                            </svg>
+                        </span>
+                    </a>
+
+                    <ul>
+                        <li ng-repeat="item in toolBarItems" class="{{item.badge > 0 ? 'c-topbar__item--has-badge': '' }}">
+                            <a href="#" class="c-topbar__link">
+                                <span class="c-topbar__link-icon">
+                                    <svg class="o-icon">
+                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{{ '#u4-icon-topbar--' + item.icon }}"></use></svg>
+                                    <span class="c-topbar__badge" ng-show="item.badge > 0">{{ item.badge }}</span>
+                                </span>
+                                <span class="c-topbar__link-title">{{ item.title }}</span>
+                            </a>
+                        </li>
+
+                        <li class="c-topbar__search">
+                            <a href="#" class="c-topbar__link">
+                                <span class="c-topbar__link-icon">
+                                    <svg class="o-icon">
+                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#u4-icon-topbar--search"></use>
+                                    </svg>
+                                </span>
+                            </a>
+                            <input class="o-input" type="text"></input>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <main class="l-grid">
+            <div class="l-all-100 l-vertical-padding">
+                <div class="l-column-group l-gutters">
+                    <div class="l-xlarge-33 l-large-33 l-medium-33 l-all-100">
+                        <div class="c-panel">
+                            <div class="c-panel__body"></div>
+                        </div>
+                    </div>
+                    <div class="l-xlarge-33 l-large-33 l-medium-33 l-all-100">
+                        <div class="c-panel">
+                            <div class="c-panel__body"></div>
+                        </div>
+                    </div>
+                    <div class="l-xlarge-33 l-large-33 l-medium-33 l-all-100">
+                        <div class="c-panel">
+                            <div class="c-panel__body"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="l-column-group l-gutters">
+                    <div class="l-xlarge-20 l-large-20 l-medium-20 l-all-100">
+                        <div class="c-panel">
+                            <div class="c-panel__body"></div>
+                        </div>
+                    </div>
+                    <div class="l-xlarge-20 l-large-20 l-medium-20 l-all-100">
+                        <div class="c-panel">
+                            <div class="c-panel__body"></div>
+                        </div>
+                    </div>
+                    <div class="l-xlarge-20 l-large-20 l-medium-20 l-all-100">
+                        <div class="c-panel">
+                            <div class="c-panel__body"></div>
+                        </div>
+                    </div>
+                    <div class="l-xlarge-20 l-large-20 l-medium-20 l-all-100">
+                        <div class="c-panel">
+                            <div class="c-panel__body"></div>
+                        </div>
+                    </div>
+                    <div class="l-xlarge-20 l-large-20 l-medium-20 l-all-100">
+                        <div class="c-panel">
+                            <div class="c-panel__body"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="l-column-group l-gutters">
+                    <div class="l-all-33">
+                        <div class="c-panel">
+                            <div class="c-panel__body"></div>
+                        </div>
+                    </div>
+                    <div class="l-all-66">
+                        <div class="c-panel">
+                            <div class="c-panel__body"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="l-column-group l-gutters">
+                    <div class="l-all-66">
+                        <div class="c-panel">
+                            <div class="c-panel__body"></div>
+                        </div>
+                    </div>
+                    <div class="l-all-33">
+                        <div class="c-panel">
+                            <div class="c-panel__body"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="l-column-group l-gutters">
+                    <div class="l-xlarge-20 l-large-20 l-medium-20 l-all-33">
+                        <div class="c-panel">
+                            <div class="c-panel__body"></div>
+                        </div>
+                    </div>
+                    <div class="l-xlarge-80 l-large-80 l-medium-80 l-all-66">
+                        <div class="c-panel">
+                            <div class="c-panel__body"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="l-column-group l-gutters">
+                    <div class="l-xlarge-80 l-large-80 l-medium-80 l-all-66">
+                        <div class="c-panel">
+                            <div class="c-panel__body"></div>
+                        </div>
+                    </div>
+                    <div class="ul-xlarge-20 l-large-20 l-medium-20 l-all-33">
+                        <div class="c-panel">
+                            <div class="c-panel__body"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </body>
+
+    <script type="text/javascript">
+        var app = angular.module('demoTopBar', []);
+
+        app.controller('demoController', function ($scope, $http) {
+
+            $scope.showLogo = true;
+            $scope.title = '';
+
+            $scope.toolBarItems = [
+                {
+                    title: 'Messages',
+                    icon: 'comment',
+                    badge: 3
+                },
+                {
+                    title: 'Help',
+                    icon: 'info-circle',
+                    badge: 0
+                },
+                {
+                    title: 'Profile',
+                    icon: 'user',
+                    badge: 0
+                },
+            ];
+
+            $scope.addNew = function () {
+                $scope.toolBarItems.push({
+                    title: '',
+                    icon: 'info-circle',
+                    badge: 0
+                });
+            };
+        });
+    </script>
+    <script type="text/javascript" src="../../js/DesignSystem-0.1.1.js"></script>
+
+</html>

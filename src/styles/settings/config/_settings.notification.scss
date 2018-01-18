@@ -1,0 +1,29 @@
+// Notification settings
+
+.is-readonly {
+	font-style: italic;
+}
+
+.is-error {
+	background: $color-alert-pale;
+}
+
+.is-warning {
+	background: $color-warning-pale;
+}
+
+.is-success {
+	background: $color-success-pale;
+}
+
+.is-info {
+	background: $color-info-pale;
+}
+
+.is-selected {
+	background: $color-lightblueselect;
+}
+
+.is-focused {
+	background: $color-paleblue;
+}

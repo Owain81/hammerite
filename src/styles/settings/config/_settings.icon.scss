@@ -1,0 +1,37 @@
+﻿//// Copyright (c) 2016, unit4.com, inc. All rights reserved.
+///
+/// Spacing is set up in three different groups. Grid, component and element
+///
+///
+/// @group Icon
+////
+
+/// Icon class name
+/// @type String
+$icon-class-name: #{$class-prefix-o}-icon !default;
+
+/// Icon default color
+/// @type Color
+$icon-default-color: $color-grey-120 !default;
+
+/// Icon warning color
+/// @type Color
+$icon-warning-color: $color-warning !default;
+
+/// Icon alert color
+/// @type Color
+$icon-alert-color: $color-alert !default;
+
+$icon-base-size: 48px !default;
+
+/// Values of icon sizes
+/// @type Map
+$icon-size-values: (
+	'xxs': $icon-base-size / 3, // 16
+	'xs': $icon-base-size / 2, // 24
+	's': $icon-base-size / 1.5, // 32
+	'm': $icon-base-size,  // 48
+	'l': $icon-base-size * 1.33333, // 64
+	'xl': $icon-base-size * 1.6667, // 80
+	'xxl': $icon-base-size * 2 // 96
+);

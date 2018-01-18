@@ -1,0 +1,47 @@
+.#{$breadcrumb-class-name} {
+	margin: 0;
+	padding: 0;
+
+	&__item {
+		display: inline-block;
+		margin-right: $breadcrumb-icon-margin;
+	}
+
+	a {
+		position: relative;
+		color: $breadcrumb-link-color;
+		font-size: $breadcrumb-font-size;
+
+		&:after {
+			content: '';
+			position: absolute;
+			top: 3px;
+			right: -16px;
+			width: $breadcrumb-icon-width;
+			height: $breadcrumb-icon-height;
+			background: $breadcrumb-icon-arrow center no-repeat;
+			background-size: cover;
+		}
+
+		&:before {
+			@include transition-with-curve ($breadcrumb-transition-curve, $breadcrumb-transition-duration, width, opacity);
+			content: '';
+			position: absolute;
+			bottom: $breadcrumb-bottom-position;
+			left: 0;
+			width: 0;
+			height: $breadcrumb-underline-size;
+			opacity: 0;
+			background-color: $breadcrumb-link-color;
+		}
+
+		&:hover {
+			text-decoration: none;
+
+			&:before {
+				width: 100%;
+				opacity: 1;
+			}
+		}
+	}
+}

@@ -1,0 +1,52 @@
+//// Copyright (c) 2016, unit4.com, inc. All rights reserved.
+///
+/// UILibrary by unit4 UX Center
+/// v1.0
+///
+/// The variable system is meant to lighten the load of changing the library. It should enable
+/// users to easily change the appearance of the product they are trying to create. Changing the settings will influence the whole library.
+///
+/// @group Global
+////
+
+/// Class names prefix: Used only for helper classes
+/// @type String
+$class-prefix-h: h !default;
+
+/// Class names prefix: Used only for layout classes
+/// @type String
+$class-prefix-l: l !default;
+
+/// Class names prefix: Used only for object classes
+/// @type String
+$class-prefix-o: o !default;
+
+/// Class names prefix: Used only for component classes
+/// @type String
+$class-prefix-c: c !default;
+
+/// Class names prefix: Used only for theming
+/// @type String
+$class-prefix-t: t !default;
+
+/// Class name prefix: Used only for js hooks
+/// @type String
+$class-prefix-js: js-is !default;
+
+/// Navigation class name
+/// @type String
+$navigation-class-name: #{$class-prefix-c}-navigation !default;
+
+/// Border radius
+/// @type Number
+$border-radius: 2px !default;
+
+/// Screen size breakpoints (width)
+/// @type Map
+$screen-sizes-breakpoints: (
+	tiny:	(min: null,		max: 320px),
+	small:	(min: 321px,	max: 640px),
+	medium:	(min: 641px,	max: 960px),
+	large:	(min: 961px,	max: 1260px),
+	xlarge:	(min: 1261px,	max: null)
+);

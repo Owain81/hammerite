@@ -1,0 +1,32 @@
+////
+/// @group Motion
+////
+
+// Space after comma linter disabled for readability reasons
+// scss-lint:disable SpaceAfterComma
+
+/// Predefined motion curves
+/// @type String
+$motion-curve: (
+	elastic:		cubic-bezier(.45,0,0,1.35),
+	bounce:			cubic-bezier(.3,.4,0,1.6),
+	extra-bounce:	cubic-bezier(.3,.4,0,2),
+	smooth:			cubic-bezier(.3,.4,0,1),
+	smooth-fast:	cubic-bezier(.3,.4,0,1.2),
+	smooth-in:		cubic-bezier(.3,.4,0,1),
+	smooth-out:		cubic-bezier(.3,.4,0,1),
+	smooth-elastic:	cubic-bezier(.45,0,0,1.15)
+);
+
+/// Predefined motion duration for each curve
+/// @type Number
+$motion-default-duration: (
+	elastic:		.26s,
+	bounce:			.26s,
+	extra-bounce:	.25s,
+	smooth:			.35s,
+	smooth-fast:	.3s,
+	smooth-in:		.5s,
+	smooth-out:		.3s,
+	smooth-elastic:	.3s
+);

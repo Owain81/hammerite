@@ -1,0 +1,137 @@
+﻿////
+/// @group motion
+////
+
+// Disabled for readability reasons
+// scss-lint:disable SpaceAfterComma, VendorPrefix
+
+/// The transition CSS property is a shorthand property for transition-property, transition-duration, transition-timing-function, and transition-delay
+/// @param {string} properties
+/// @example scss - SCSS
+///		.foo {
+///			@include transition (all 2s ease-in-out);
+///		}
+/// @example css - CSS output
+///		.foo {
+///         webkit-transition: all 2s ease-in-out;
+///			-moz-transition: all 2s ease-in-out;
+///			-spec-transition: all 2s ease-in-out;
+///			transition: all 2s ease-in-out;
+///		}
+@mixin transition($properties...) {
+  // Fix for vendor-prefix transform property
+	$needs-prefixes: false;
+	$webkit: ();
+	$moz: ();
+	$spec: ();
+
+  // Create lists for vendor-prefixed transform
+	@each $list in $properties {
+		@if nth($list, 1) == 'transform' {
+			$needs-prefixes: true;
+			$list1: -webkit-transform;
+			$list2: -moz-transform;
+			$list3: ();
+
+			@each $var in $list {
+				$list3: join($list3, $var);
+
+				@if $var != 'transform' {
+					$list1: join($list1, $var);
+					$list2: join($list2, $var);
+				}
+			}
+
+			$webkit: append($webkit, $list1);
+			$moz:    append($moz,    $list2);
+			$spec:   append($spec,   $list3);
+		} @else {
+			$webkit: append($webkit, $list, comma);
+			$moz:    append($moz,    $list, comma);
+			$spec:   append($spec,   $list, comma);
+		}
+	}
+
+	@if $needs-prefixes {
+        -moz-transition: $moz;
+		-webkit-transition: $webkit;
+		transition: $spec;
+	} @else {
+		@if length($properties) >= 1 {
+			@include prefixer(transition, $properties, webkit moz spec);
+		} @else {
+			$properties: all .15s ease-out 0s;
+			@include prefixer(transition, $properties, webkit moz spec);
+		}
+	}
+}
+
+/// The transition-property CSS property is used to specify the names of CSS properties to which a transition effect should be applied.
+/// @param {string} properties
+/// @example scss - SCSS
+///		.foo {
+///         @include transition-property (transform, opacity);
+///		}
+/// @example css - CSS output
+///		.foo {
+///			-webkit-transition-property: transition-property-names(transform, opacity, "webkit");
+///			-moz-transition-property: transition-property-names(transform, opacity, "moz");
+///			transition-property: transition-property-names(transform, opacity, false);
+///		}
+@mixin transition-property($properties...) {
+	-webkit-transition-property: transition-property-names($properties, 'webkit');
+	-moz-transition-property: transition-property-names($properties, 'moz');
+	transition-property: transition-property-names($properties, false);
+}
+
+/// The transition-duration CSS property specifies the number of seconds or milliseconds a transition animation should take to complete
+/// @param {string} - times
+/// @example scss - SCSS
+///		.foo {
+///         @include transition-duration(2s);
+///		}
+/// @example css - CSS output
+///		.foo {
+///			-webkit-transition-duration: 2s;
+///		    -moz-transition-duration: 2s;
+///		    -spec-transition-duration: 2s;
+///		    transition-duration: 2s;
+///		}
+@mixin transition-duration($times...) {
+	@include prefixer(transition-duration, $times, webkit moz spec);
+}
+
+/// The transition-timing-function CSS property is used to describe how the intermediate values of the CSS properties being affected by a transition effect are calculated.
+/// @param {string} - motions
+/// @example scss - SCSS
+///		.foo {
+///         @include transition-timing-function(ease);
+///		}
+/// @example css - CSS output
+///		.foo {
+///			-webkit-transition-timing-function: ease;
+///			-moz-transition-timing-function: ease;
+///			-spec-transition-timing-function: ease;
+///			transition-timing-function: ease;
+///		}
+@mixin transition-timing-function($motions...) {
+  // ease | linear | ease-in | ease-out | ease-in-out | cubic-bezier()
+	@include prefixer(transition-timing-function, $motions, webkit moz spec);
+}
+
+/// Shorthand mixin. Supports multiple parentheses-deliminated values for each variable.
+/// @param {string} times
+/// @example scss - SCSS
+///		.foo {
+///			@include transition-delay(0.5s);
+///		}
+/// @example css - CSS output
+///		.foo {
+///			-webkit-transition-delay: 0.5s;
+///			-moz-transition-delay: 0.5s;
+///		    -spec-transition-delay: 0.5s;
+///			transition-delay: 0.5s;
+///		}
+@mixin transition-delay($times...) {
+	@include prefixer(transition-delay, $times, webkit moz spec);
+}

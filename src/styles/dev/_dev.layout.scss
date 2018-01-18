@@ -1,0 +1,6 @@
+// Dev related stuff. Shouldn't be in the final version of library
+*,
+:after,
+:before {
+	@include prefixer(box-sizing, border-box, 'webkit' 'moz');
+}

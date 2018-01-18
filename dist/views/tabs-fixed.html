@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, user-scalable=no" />
+        <title>UI Library - Fixed Tabs</title>
+        <link rel="stylesheet" href="../css/design-system.css" />
+        <style>
+            body {
+                background-color: #E7ECF0;
+            }
+
+            .css {
+                background-color: #DDDDDD;
+                padding: 1px 5px 1px 5px;
+                border: 1px solid #ccc;
+            }
+        </style>
+
+    </head>
+    <body>
+        <header class="c-topbar c-topbar--fixed">
+            <div class="c-topbar__wrapper">
+                <a href="../index.html" class="c-topbar__link c-topbar__btn--back">
+                    <span class="c-topbar__link-icon">
+                        <svg class="o-icon">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#u4-icon-topbar--angle-left"></use>
+                        </svg>
+                    </span>
+                </a>
+
+                <h1 class="c-topbar__title">
+                    <a href="../index.html">
+                        <img src="../images/unit4-logo.svg" width="102" class="c-topbar__element--show-on-desktop" alt="unit4" />
+                        <img src="../images/unit4-logo-white.svg" width="102" class="c-topbar__element--show-on-mobile" alt="unit4" />
+                    </a>
+                </h1>
+
+                <h2 class="c-topbar__subtitle">UI Library - Fixed Tabs</h2>
+            </div>
+        </header>
+
+        <nav class="c-tabs c-tabs--fixed c-tabs--with-icons" ng-controller="tabsDemoController">
+            <ul>
+                <li class="c-tabs__tab">
+                    <a href >
+                        <svg class="o-icon"><use xlink:href="#u4-icon--clock-o" /></svg>
+                        Item one
+                    </a>
+                </li>
+                <li class="c-tabs__tab">
+                    <a href ><svg class="o-icon"><use xlink:href="#u4-icon--undo" /></svg>Item two</a>
+                </li>
+                <li class="c-tabs__tab">
+                    <a href ><svg class="o-icon"><use xlink:href="#u4-icon--location-arrow" /></svg>Item three</a>
+                </li>
+                <li class="c-tabs__tab">
+                    <a href ><svg class="o-icon"><use xlink:href="#u4-icon--clock-o" /></svg>Item four</a>
+                </li>
+                <li class="c-tabs__tab">
+                    <a href ><svg class="o-icon"><use xlink:href="#u4-icon--undo" /></svg>Item five</a>
+                </li>
+                <li class="c-tabs__tab">
+                    <a href ><svg class="o-icon"><use xlink:href="#u4-icon--location-arrow" /></svg>Item six</a>
+                </li>
+                <li class="c-tabs__tab">
+                    <a href ><svg class="o-icon"><use xlink:href="#u4-icon--clock-o" /></svg>Item seven</a>
+                </li>
+                <li class="c-tabs__tab">
+                    <a href ><svg class="o-icon"><use xlink:href="#u4-icon--undo" /></svg>Item eight</a>
+                </li>
+            </ul>
+        </nav>
+
+
+        <nav class="l-horizontal-padding" style="padding-top: 130px;">
+            <ul class="c-breadcrumb">
+                <li class="c-breadcrumb__item">
+                    <a href="../index.html" title="Go to main page">Back</a>
+                </li>
+                <li class="c-breadcrumb__item">
+                    <label class="o-label">Fixed Tabs</label>
+                </li>
+            </ul>
+        </nav>
+
+        <nav class="c-tabs c-tabs--fixed c-tabs--with-icons c-tabs--bottom" ng-controller="tabsDemoController">
+            <ul>
+                <li class="c-tabs__tab">
+                    <a href ><svg class="o-icon"><use xlink:href="#u4-icon--clock-o" /></svg>Item one</a>
+                </li>
+                <li class="c-tabs__tab">
+                    <a href ><svg class="o-icon"><use xlink:href="#u4-icon--undo" /></svg>Item two</a>
+                </li>
+                <li class="c-tabs__tab">
+                    <a href ><svg class="o-icon"><use xlink:href="#u4-icon--location-arrow" /></svg>Item three</a>
+                </li>
+            </ul>
+        </nav>
+
+    </body>
+
+    <script type="text/javascript" src="../js/DesignSystem-0.1.1.min.js"></script>
+
+</html>

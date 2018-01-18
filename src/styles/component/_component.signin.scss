@@ -1,0 +1,124 @@
+﻿.#{$signin-class-name} {
+	position: relative;
+
+	&__image {
+		position: absolute;
+		height: 100vh;
+		background: url('../images/signin/SignIn_img1600_01.jpg');
+		background-size: cover;
+
+		&:before {
+			content: '';
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			width: 67vw;
+		}
+
+		// Other image on smaller devices
+		@media screen and (max-width: screen-size-breakpoint('small', max)) {
+			z-index: 999;
+			top: 4px;
+			height: 33vh;
+			background-image: url('../images/signin/SignIn_img640_01.jpg');
+
+			&:before {
+				display: none;
+			}
+		}
+
+		@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation:portrait) and (-webkit-min-device-pixel-ratio: 2) {
+			margin-left: -25%;
+		}
+
+		// Change appearance of image
+		@media screen and (orientation: landscape) and (max-width: screen-size-breakpoint('small', max)) {
+			top: 0;
+			height: 100vh;
+		}
+	}
+
+	&__image-wrapper {
+		position: relative;
+		width: 100%;
+		height: 34vh;
+	}
+
+	&__legal {
+		position: absolute;
+		bottom: 16px;
+		width: 100%;
+
+		@media screen and (orientation: landscape) and (max-width: screen-size-breakpoint('medium', max)) {
+			display: none;
+		}
+
+		@media screen and (max-width: screen-size-breakpoint('small', max)) {
+			display: none;
+		}
+	}
+
+	&__login {
+		position: fixed;
+		right: 0;
+		height: 100vh;
+		background-color: $signin-background-color;
+		box-shadow: 0 5px 26px $signin-shadow-color;
+		// Color strip
+		&::before {
+			content: ' ';
+			display: block;
+			position: absolute;
+			top: 0;
+			width: 100%;
+			height: $signin-color-bar-height;
+			background-image: linear-gradient(to right,
+				    map-get($signin-color-bar-gradient, blue-start),
+				    map-get($signin-color-bar-gradient, orange-start),
+				    map-get($signin-color-bar-gradient, orange-end),
+				    map-get($signin-color-bar-gradient, grey-start),
+				    map-get($signin-color-bar-gradient, grey-end),
+				    map-get($signin-color-bar-gradient, green-end)
+		    );
+		}
+
+		@media screen and (max-width: screen-size-breakpoint('small', max)) {
+			padding-top: $signin-mobile-padding;
+		}
+
+		@media screen and (orientation: landscape) and (max-width: screen-size-breakpoint('medium', max)) {
+			z-index: 1001;
+			width: 50%;
+			padding-top: 0;
+		}
+	}
+
+	&__login-title {
+		margin: $signin-login-margin 0;
+
+		@media screen and (orientation: landscape) and (max-width: screen-size-breakpoint('medium', max)) {
+			margin: 0;
+		}
+	}
+
+	&__logo {
+		position: absolute;
+		z-index: 1000;
+		bottom: 44px;
+		width: 100%;
+
+		@media screen and (orientation: landscape) and (max-width: screen-size-breakpoint('medium', max)) {
+			width: 50%;
+		}
+	}
+
+	&__button {
+		margin: $signin-button-margin 0;
+
+		@media screen and (orientation: landscape) and (max-width: screen-size-breakpoint('medium', max)) {
+			margin: ($signin-button-margin / 2) 0;
+		}
+	}
+}

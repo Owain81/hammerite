@@ -1,0 +1,28 @@
+////
+/// @group Motion
+////
+
+
+/// Set transition curve and duration
+/// @param {string} curve-type - Animation curve to be applied (check $motion-curve)
+/// @param {string} duration ['default'] - Animation duration in seconds. Use 'default' for default curve duration
+/// @param {string list} transition-for - CSS property/properties to be animated (color, background-color, transform...)
+/// @example scss - SCSS
+///		@include transition-with-curve(elastic, .5s, color, background-color);
+///
+@mixin transition-with-curve ($curve-type, $duration: 'default', $transition-for...) {
+	@include transition-timing-function (map-get($motion-curve, $curve-type));
+
+	@if ($duration == 'default') {
+		$duration: map-get($motion-default-duration, $curve-type);
+	}
+
+	@include transition-duration ($duration);
+
+	@if (index($transition-for, all) != null) {
+		@warn 'Avoid using transition-property: all due to performance issues. Please specify the property/properties to be animated.';
+	}
+
+	@include prefixer(transition-property, $transition-for, webkit moz);
+}
+

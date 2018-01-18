@@ -1,0 +1,216 @@
+
+.#{$class-prefix-c}-tabs {
+	@include display-flex;
+	position: relative;
+	height: auto;
+	margin: 0;
+	padding: 0;
+	background-color: $tab-background-color;
+
+	&__tab {
+		display: block;
+		position: relative;
+		border: 0;
+
+		a {
+			@include transition-with-curve ($tab-motion-curve, $tab-motion-duration, color);
+
+			display: block;
+			padding: 0 $tab-horizontal-padding;
+			color: $tab-color;
+
+			&:hover,
+			&:focus {
+				outline: none;
+				color: $tab-hover-color;
+				text-decoration: none;
+			}
+		}
+
+		&:not(:last-child)::after {
+			content: '';
+			display: block;
+			position: absolute;
+			top: 50%;
+			right: 0;
+			width: $tab-divider-width;
+			height: $tab-divider-height;
+			margin-top: #{-$tab-divider-height / 2};
+			background-color: $tab-divider-color;
+		}
+
+		&:active,
+		&.is--active {
+			a {
+				color: $tab-active-color;
+			}
+
+			a:hover,
+			a:focus {
+				color: $color-blue;
+			}
+		}
+	}
+}
+
+.#{$class-prefix-c}-tabs__tab-active-bar {
+	@include transition-with-curve ($tab-motion-curve, $tab-motion-duration, transform, width);
+	content: '';
+	display: block;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: $tab-active-line-size;
+	background-color: $tab-active-line-color;
+}
+
+.#{$class-prefix-c}-panel__menu .#{$class-prefix-c}-tabs {
+	background-color: $panel-header-background-color;
+}
+
+// Fixed tabs
+.#{$class-prefix-c}-tabs--fixed {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	padding-left: 0;
+
+	ul {
+		@include display-flex;
+		width: 100%;
+		margin: 0;
+		padding: 0;
+	}
+
+	// Mobile version
+	@media screen and (max-width: screen-size-breakpoint('medium', max)) {
+		@include display-flex;
+		@include justify-content(center);
+		padding: 0;
+		background-color: map-get($topbar-background, mobile);
+		$color: map-get($topbar-foreground-color, mobile);
+
+		.#{$class-prefix-c}-tabs__tab {
+			flex: 1;
+
+			a {
+				@include flex-direction(column);
+				width: 100%;
+				padding: 0;
+				color: $color;
+			}
+
+			svg {
+				width: $tab-fixed-mobile-icon-size;
+				height: $tab-fixed-mobile-icon-size;
+				fill: $color;
+			}
+
+			&:active,
+			&.is--active {
+				border-color: $tab-mobile-active-line-color;
+
+				a {
+					color: $color;
+				}
+			}
+		}
+
+		.#{$class-prefix-c}-tabs__tab-active-bar {
+			background-color: $tab-mobile-active-line-color;
+		}
+	}
+}
+
+// Top tabs
+.#{$class-prefix-c}-tabs__tab {
+	height: $tab-fixed-height;
+
+	svg {
+		flex-shrink: 0;
+		width: $tab-fixed-icon-size;
+		height: $tab-fixed-icon-size;
+		padding: $tab-fixed-icon-padding;
+	}
+
+	a {
+		@include display-flex;
+		@include align-items(center);
+		@include justify-content(center);
+		height: 100%;
+		padding: 0 $tab-fixed-horizontal-padding;
+		line-height: 1;
+	}
+
+	&::after {
+		content: none;
+	}
+}
+
+// Bottom tabs
+.#{$class-prefix-c}-tabs--bottom {
+	top: auto;
+	bottom: 0;
+
+	.#{$class-prefix-c}-tabs__tab:first-child::before {
+		top: 0;
+		bottom: auto;
+	}
+}
+
+// fixed tabs swipe
+.#{$class-prefix-c}-tabs--with-scroll {
+	box-sizing: content-box;
+	background-color: map-get($topbar-background, mobile);
+
+	.#{$class-prefix-c}-tabs__scroll-overlay {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100vw;
+		height: 100%;
+		pointer-events: none;
+
+		&__left,
+		&__right {
+			display: block;
+			position: absolute;
+			top: 0;
+			width: calc(#{$tab-fixed-swipe-gradients-width} + #{$tab-fixed-swipe-gradients-overflow-margin});
+			height: 100%;
+			transition: opacity $tab-fixed-swipe-gradients-transition-time;
+			opacity: 0;
+			background-image: $tab-fixed-swipe-gradient-overlay;
+
+			&.show {
+				opacity: 1;
+			}
+		}
+
+		&__left {
+			left: -$tab-fixed-swipe-gradients-overflow-margin;
+		}
+
+		&__right {
+			right: -$tab-fixed-swipe-gradients-overflow-margin;
+			transform: rotateZ(180deg);
+		}
+	}
+
+	&:not(.c-tabs--scrolling) {
+		&,
+		.#{$class-prefix-c}-tabs__scroll-overlay {
+			transition: transform $tab-fixed-swipe-intertia-time $tab-fixed-swipe-intertia-timing-function;
+		}
+	}
+}
+
+// Fixed tabs with icons
+.#{$class-prefix-c}-tabs--fixed.#{$class-prefix-c}-tabs--with-icons {
+	@media screen and (max-width: screen-size-breakpoint('medium', max)) {
+		.#{$class-prefix-c}-tabs__tab {
+			height: $tab-fixed-mobile-height;
+		}
+	}
+}

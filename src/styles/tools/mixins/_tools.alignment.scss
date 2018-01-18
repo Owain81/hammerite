@@ -1,0 +1,7 @@
+﻿// Assign text-alignment to the element
+// @argument (string) $align
+@each $align in start, left, center, justify, right, end {
+	.text-#{$align} {
+		text-align: #{$align};
+	}
+}

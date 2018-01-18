@@ -1,0 +1,50 @@
+////
+/// @group Breadcrumb
+////
+
+/// Breadcrumb class name
+$breadcrumb-class-name: #{$class-prefix-c}-breadcrumb !default;
+
+/// Breadcrumb line height
+/// @type Number
+$breadcrumb-line-height: 2.143 !default; // 30
+
+/// Breadcrumb font size
+/// @type Number
+$breadcrumb-font-size: px-to-rem(14px) !default;
+
+/// Breadcrumb font color
+/// @type Color
+$breadcrumb-link-color: $color-blue !default;
+
+/// Breadcrumb icon arrow (embed SVG icon)
+/// @type String
+$breadcrumb-icon-arrow: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiPjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0icmlnaHQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB2aWV3Qm94PSIwIDAgNDQuMiA3MS4xIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA0NC4yIDcxLjE7IiB4bWw6c3BhY2U9InByZXNlcnZlIj48c3R5bGUgdHlwZT0idGV4dC9jc3MiPi5zdDB7ZmlsbDojQTlCMUI1O308L3N0eWxlPjxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik00My4zLDMzLjRsLTUuNy01LjdjMCwwLDAsMCwwLDBMMjQuOSwxNWgwTDE1LDUuMWwwLDBsLTQuMi00LjJjLTEuMi0xLjItMy4xLTEuMi00LjIsMEwwLjksNi41Yy0xLjIsMS4yLTEuMiwzLjEsMCw0LjJsMSwxTDUuMSwxNWw5LjksOS45bDEwLjYsMTAuNmwtNi40LDYuNGgwTDAuOSw2MC4zYy0xLjIsMS4yLTEuMiwzLjEsMCw0LjJsNS43LDUuN2MxLjIsMS4yLDMuMSwxLjIsNC4yLDBsMTguNC0xOC40bDguNS04LjVjMCwwLDAsMCwwLDBsNS43LTUuN2MwLjYtMC42LDAuOS0xLjQsMC45LTIuMUM0NC4yLDM0LjgsNDMuOSwzNCw0My4zLDMzLjR6Ii8+PC9zdmc+);
+
+/// Breadcrumb arrow height
+/// @type string
+$breadcrumb-icon-height: 8px !default;
+
+/// Breadcrumb arrow width
+/// @type string
+$breadcrumb-icon-width: 5px !default;
+
+/// Breadcrumb margin right
+/// @type string
+$breadcrumb-icon-margin: 25px !default;
+
+/// Breadcrumb underline size
+/// @type Number
+$breadcrumb-underline-size: 2px;
+
+/// Breadcrumb bottom position
+/// @type Number
+$breadcrumb-bottom-position: -6px;
+
+/// Breadcrumb transition curve
+/// @type String
+$breadcrumb-transition-curve: smooth-elastic;
+
+/// Breadcrumb transition duration
+/// @type Number
+$breadcrumb-transition-duration: .3s;

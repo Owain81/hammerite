@@ -1,0 +1,34 @@
+{
+  "name": "DesignSystem",
+  "version": "0.1.1",
+  "description": "Front End UI Library for Unit4 Design System",
+  "author": "designsystem@unit4.com",
+  "private": true,
+  "devDependencies": {
+    "grunt": "~1.0.1",
+    "grunt-contrib-clean": "^1.0.0",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-cssmin": "*",
+    "grunt-contrib-jasmine": "^1.0.3",
+    "grunt-contrib-jshint": "^1.0.0",
+    "grunt-contrib-uglify": "^2.0.0",
+    "grunt-contrib-watch": "*",
+    "grunt-cssc": "*",
+    "grunt-express": "^1.4.1",
+    "grunt-htmlhint": "*",
+    "grunt-open": "^0.2.3",
+    "grunt-parallel": "^0.5.1",
+    "grunt-sass": "^2.0.0",
+    "grunt-sassdoc": "^2.0.2",
+    "grunt-scss-lint": "^0.5.0",
+    "grunt-svg-sprite": "^1.2.19",
+    "matchdep": "*",
+    "normalize-scss": "*",
+    "parker": "*"
+  },
+  "jshintConfig": {
+    "loopfunc": true,
+    "expr": true
+  }
+}

@@ -1,0 +1,56 @@
+﻿////
+/// Input type range (slider)
+/// @group Input Range
+////
+///
+
+// Values are tabbed for readability reasons
+// scss-lint:disable SpaceAfterVariableName
+
+/// Class name for range input file
+/// @type String
+$input-range-class: #{$class-prefix-o}-input--range !default;
+
+/// Sets the relative height of the input range.
+/// @type Number (Unit)
+$input-range-height: 80px !default;
+
+/// Sets the background color of the input range.
+/// @type Color
+$input-range-background: $color-grey-34 !default;
+
+/// Sets the background color of the input range fill part. This is the lower part of the track placed to the left of the thumb.
+/// @type Color
+$input-range-background-fill: $color-blue !default;
+
+/// Sets the track height of the input range.
+/// @type Number (Unit)
+$input-range-track-height: 5px !default;
+
+/// Sets the track height of the input range. This is just for 'Internet Explorer'.
+/// @type Number (Unit)
+$input-range-track-height--ms: 5px !default;
+
+/// Sets the thumb size of the input range.
+/// @type Number (Unit)
+$input-range-thumb-size: 24px !default;
+
+/// Sets the thumb size of the input range. This is just for 'Internet Explorer'.
+/// @type Number (Unit)
+$input-range-thumb-size--ms: 22px !default;
+
+/// Sets the thumb background color of the input range.
+/// @type Color
+$input-range-thumb-background: $color-grey-8 !default;
+
+/// Sets the thumb border radius of the input range.
+/// @type Number (Unit)
+$input-range-thumb-radius: 50% !default;
+
+/// Input range transition curve
+/// @type String
+$input-range-transition-curve: bounce !default;
+
+/// Input range transition duration
+/// @type Number
+$input-range-transition-duration: .26s !default;

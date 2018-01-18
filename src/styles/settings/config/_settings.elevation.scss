@@ -1,0 +1,30 @@
+﻿////
+/// @group elevation
+////
+
+/// Shadow color
+/// @type Color
+$shadow-color: $color-grey-120 !default;
+
+/// Shadow opacity
+/// @type Number
+$shadow-opacity: .4 !default;
+
+
+/// Shadow vertical offset
+/// @type Map
+$shadow-offset-y: (
+	1:	3px,
+	2:	3px,
+	3:	5px,
+	4:	10px
+);
+
+/// Shadow blur distance
+/// @type Map
+$shadow-blur: (
+	1:	6px,
+	2:	9px,
+	3:	18px,
+	4:	30px
+);

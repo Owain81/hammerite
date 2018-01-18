@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, user-scalable=no" />
+        <title>UI Library - Buttons</title>
+        <link rel="stylesheet" href="../css/design-system.css"/>
+        <style type="text/css">
+            .css {
+                background-color: #DDDDDD;
+                    padding: 1px 5px 1px 5px;
+                border: 1px solid #ccc;
+            }
+
+            .breakpoint-aware {
+                background-color: #d2e575;
+                padding: 3px 5px 3px 5px;
+                border: 1px solid #888;
+            }
+
+            .o-btn.is-floating.do-not-float {
+                position: relative;
+                right: auto;
+                bottom: auto;
+            }
+        </style>
+    </head>
+    <body>
+        <svg class="o-icon" xmlns="http://www.w3.org/2000/svg" style="display: none;" preserveAspectRatio="xMinYMid meet">
+		    <symbol id="fa-plane" viewBox="0 0 32 32">
+                <path d="M31.5 0.196q0.589 0.429 0.482 1.143l-4.571 27.429q-0.089 0.518-0.571 0.804-0.25 0.143-0.554 0.143-0.196 0-0.429-0.089l-8.089-3.304-4.321 5.268q-0.321 0.411-0.875 0.411-0.232 0-0.393-0.071-0.339-0.125-0.545-0.42t-0.205-0.652v-6.232l15.429-18.911-19.089 16.518-7.054-2.893q-0.661-0.25-0.714-0.982-0.036-0.714 0.571-1.054l29.714-17.143q0.268-0.161 0.571-0.161 0.357 0 0.643 0.196z"></path>
+            </symbol>
+            <symbol id="fa-camera-retro" viewBox="0 0 32 32">
+                <path d="M16.571 14.857q0-0.25-0.161-0.411t-0.411-0.161q-1.179 0-2.018 0.839t-0.839 2.018q0 0.25 0.161 0.411t0.411 0.161 0.411-0.161 0.161-0.411q0-0.714 0.5-1.214t1.214-0.5q0.25 0 0.411-0.161t0.161-0.411zM20.571 17.179q0 1.893-1.339 3.232t-3.232 1.339-3.232-1.339-1.339-3.232 1.339-3.232 3.232-1.339 3.232 1.339 1.339 3.232zM2.286 27.429h27.429v-2.286h-27.429v2.286zM22.857 17.179q0-2.839-2.009-4.848t-4.848-2.009-4.848 2.009-2.009 4.848 2.009 4.848 4.848 2.009 4.848-2.009 2.009-4.848zM4.571 5.714h6.857v-2.286h-6.857v2.286zM2.286 9.143h27.429v-4.571h-14.786l-1.143 2.286h-11.5v2.286zM32 4.571v22.857q0 0.946-0.67 1.616t-1.616 0.67h-27.429q-0.946 0-1.616-0.67t-0.67-1.616v-22.857q0-0.946 0.67-1.616t1.616-0.67h27.429q0.946 0 1.616 0.67t0.67 1.616z"></path>
+            </symbol>
+            <symbol id="fa-coffee" viewBox="0 0 32 32">
+                <path d="M29.714 11.429q0-1.429-1-2.429t-2.429-1h-1.143v6.857h1.143q1.429 0 2.429-1t1-2.429zM0 25.143h32q0 1.893-1.339 3.232t-3.232 1.339h-22.857q-1.893 0-3.232-1.339t-1.339-3.232zM33.143 11.429q0 2.839-2.009 4.848t-4.848 2.009h-1.143v0.571q0 1.643-1.179 2.821t-2.821 1.179h-12.571q-1.643 0-2.821-1.179t-1.179-2.821v-13.143q0-0.464 0.339-0.804t0.804-0.339h20.571q2.839 0 4.848 2.009t2.009 4.848z"></path>
+            </symbol>
+            <symbol id="Symbol1" viewBox="0 0 32 32">
+                <path d="M19.196 21.143q0 0.232-0.179 0.411l-0.893 0.893q-0.179 0.179-0.411 0.179t-0.411-0.179l-7.018-7.018-7.018 7.018q-0.179 0.179-0.411 0.179t-0.411-0.179l-0.893-0.893q-0.179-0.179-0.179-0.411t0.179-0.411l8.321-8.321q0.179-0.179 0.411-0.179t0.411 0.179l8.321 8.321q0.179 0.179 0.179 0.411z"></path>
+            </symbol>
+           <symbol id="fa-caret-down" viewBox="0 0 32 32">
+                <path d="M18.286 12.571q0 .464-.339.804l-8 8q-.339.339-.804.339t-.804-.339l-8-8Q0 13.036 0 12.571t.339-.804.804-.339h16q.464 0 .804.339t.339.804z"/>
+            </symbol>
+            <symbol id="fa-apple" viewBox="0 0 32 32">
+                <path d="M19.429 14.857q0-.464-.339-.804t-.804-.339h-4.571q-.464 0-.804.339t-.339.804.339.804.804.339h4.571q.464 0 .804-.339t.339-.804zm10.285-3.428v17.143q0 .464-.339.804t-.804.339H3.428q-.464 0-.804-.339t-.339-.804V11.429q0-.464.339-.804t.804-.339h25.143q.464 0 .804.339t.339.804zm1.143-8V8q0 .464-.339.804t-.804.339H2.285q-.464 0-.804-.339T1.142 8V3.429q0-.464.339-.804t.804-.339h27.429q.464 0 .804.339t.339.804z"/>
+            </symbol>
+        </svg>
+        <header class="c-topbar">
+            <div class="c-topbar__wrapper">
+                <a href="../index.html" class="c-topbar__link c-topbar__btn--back">
+                    <span class="c-topbar__link-icon">
+                        <svg class="o-icon">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#u4-icon-topbar--angle-left"></use>
+                        </svg>
+                    </span>
+                </a>
+
+                <h1 class="c-topbar__title">
+                    <a href="../index.html">
+                        <img src="../images/unit4-logo.svg" width="102" class="c-topbar__element--show-on-desktop" alt="unit4" />
+                        <img src="../images/unit4-logo-white.svg" width="102" class="c-topbar__element--show-on-mobile" alt="unit4" />
+                    </a>
+                </h1>
+
+                <h2 class="c-topbar__subtitle">UI Library - Button Special</h2>
+            </div>
+        </header>
+
+        <section class="l-grid l-padding">
+            <a href="../index.html" target="_self" title="Homepage">Back</a>
+            <h1>UI Library</h1>
+            <h2>Button icon</h2>
+
+            <div class="l-column-group l-vertical-padding">
+                <div class="c-flex-group">
+                    <button class="o-btn-icon o-btn-icon--small ">
+                        <svg class=""><use xlink:href="#fa-apple" /></svg>
+                    </button>
+                    <button class="o-btn-icon ">
+                        <svg class=""><use xlink:href="#fa-apple" /></svg>
+                    </button>
+                    <button class="o-btn-icon o-btn-icon--large ">
+                        <svg class=""><use xlink:href="#fa-apple" /></svg>
+                    </button>
+                    <button class="o-btn-icon o-btn-icon--large " disabled>
+                        <svg class=""><use xlink:href="#fa-apple" /></svg>
+                    </button>
+                </div>
+                <div class="c-flex-group double-border">
+                    <button class="o-btn-icon o-btn-icon--xl ">
+                        <svg class=""><use xlink:href="#fa-apple" /></svg>
+                    </button>
+                    <button class="o-btn-icon o-btn-icon--xxl ">
+                         <svg class=""><use xlink:href="#fa-apple" /></svg>
+                    </button>
+                </div>
+                <div class="c-flex-group">
+                    <button class="o-btn-icon o-btn-icon--3xl ">
+                        <svg class=""><use xlink:href="#fa-apple" /></svg>
+                    </button>
+                    <button class="o-btn-icon o-btn-icon--4xl ">
+                         <svg class=""><use xlink:href="#fa-apple" /></svg>
+                    </button>
+                </div>
+            </div>
+
+            <h3>Button icon no border</h3>
+            <p>To remove borders in any element, you just need to add the <span class="css">.l-no-border</span> class.</p>
+            <div class="l-column-group l-vertical-padding">
+                <div class="c-flex-group">
+                    <button class="o-btn-icon o-btn-icon--small l-no-border">
+                        <svg class=""><use xlink:href="#fa-plane" /></svg>
+                    </button>
+                    <button class="o-btn-icon l-no-border">
+                        <svg class=""><use xlink:href="#fa-apple" /></svg>
+                    </button>
+                    <button class="o-btn-icon o-btn-icon--large l-no-border">
+                        <svg class=""><use xlink:href="#fa-coffee" /></svg>
+                    </button>
+                    <button class="o-btn-icon o-btn-icon--large l-no-border" disabled>
+                        <svg class=""><use xlink:href="#fa-plane" /></svg>
+                    </button>
+                </div>
+                <div class="c-flex-group double-border">
+                    <button class="o-btn-icon o-btn-icon--xl l-no-border">
+                        <svg class=""><use xlink:href="#fa-plane" /></svg>
+                    </button>
+                    <button class="o-btn-icon o-btn-icon--xxl l-no-border">
+                         <svg class=""><use xlink:href="#fa-coffee" /></svg>
+                    </button>
+                </div>
+                <div class="c-flex-group">
+                    <button class="o-btn-icon o-btn-icon--3xl l-no-border">
+                        <svg class=""><use xlink:href="#fa-plane" /></svg>
+                    </button>
+                    <button class="o-btn-icon o-btn-icon--4xl l-no-border">
+                         <svg class=""><use xlink:href="#fa-coffee" /></svg>
+                    </button>
+                </div>
+            </div>
+
+            <h3>Icon buttons</h3>
+            <div class="l-column-group l-vertical-padding">
+                <div class="c-flex-group">
+                    <a href="/" class="o-btn-icon o-btn-icon--small o-btn-icon--transparent">
+                        <svg class=""><use xlink:href="#fa-apple" /></svg>
+                    </a>
+
+                    <a href="/" class="o-btn-icon o-btn-icon--transparent">
+                        <svg class=""><use xlink:href="#fa-plane" /></svg>
+                    </a>
+                                        
+                    <a href="/" class="o-btn-icon o-btn-icon--large o-btn-icon--transparent">
+                        <svg class=""><use xlink:href="#fa-plane" /></svg>
+                    </a>
+
+                    <a href="/" class="o-btn-icon o-btn-icon--3xl o-btn-icon--transparent">
+                        <svg class=""><use xlink:href="#fa-coffee" /></svg>
+                    </a>
+                    
+                    <a href="/" class="o-btn-icon o-btn-icon--4xl o-btn-icon--transparent">
+                        <svg class=""><use xlink:href="#fa-plane" /></svg>    
+                    </a>
+                </div>
+            </div>
+
+
+            <h2>Button group</h2>
+
+            <h3>(Single) toggle button</h3>
+            <div class="l-column-group l-vertical-padding">
+                <div class="l-all-100">
+                    <div class="c-btn-group is-grouped">
+                        <button class="o-btn-icon o-btn-icon--small" role="button">
+                            <svg class=""><use xlink:href="#fa-plane" /></svg>
+                        </button>
+                        <button class="o-btn-icon o-btn-icon--small" role="button">
+                            <svg class=""><use xlink:href="#fa-plane" /></svg>
+                        </button>
+                        <button class="o-btn-icon o-btn-icon--small" role="button">
+                            <svg class=""><use xlink:href="#fa-plane" /></svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="l-all-100">
+                    <div class="c-btn-group is-grouped">
+                        <button class="o-btn-icon" role="button" aria-pressed="false">
+                            <svg class=""><use xlink:href="#fa-coffee" /></svg>
+                        </button>
+                        <button class="o-btn-icon" role="button" aria-pressed="false">
+                            <svg class=""><use xlink:href="#fa-coffee" /></svg>
+                        </button>
+                        <button class="o-btn-icon" role="button" aria-pressed="false">
+                            <svg class=""><use xlink:href="#fa-coffee" /></svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="l-all-100">
+                    <div class="c-btn-group is-grouped">
+                        <button class="o-btn-icon o-btn-icon--large">
+                            <svg class=""><use xlink:href="#fa-plane" /></svg>
+                        </button>
+                        <button class="o-btn-icon o-btn-icon--large">
+                            <svg class=""><use xlink:href="#fa-coffee" /></svg>
+                        </button>
+                        <button class="o-btn-icon o-btn-icon--large">
+                            <svg class=""><use xlink:href="#fa-apple" /></svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <h3>(Multiple) toggle button (text)</h3>
+            <div class="l-column-group l-vertical-padding">
+                <div class="l-all-100">
+                    <div class="c-btn-group is-grouped">
+                        <input type="checkbox" id="Radio14" name="toggle4" />
+                        <label for="Radio14" class="o-btn-toggle">Yes</label>
+                        <input type="checkbox" id="Radio15" name="toggle4" />
+                        <label for="Radio15" class="o-btn-toggle">No</label>
+                        <input type="checkbox" id="Radio16" name="toggle4" />
+                        <label for="Radio16" class="o-btn-toggle">Maybe</label>
+                    </div>
+                </div>
+                <div class="l-all-100">
+                    <div class="c-btn-group is-grouped">
+                        <input type="checkbox" id="Radio17" name="toggle5" />
+                        <label for="Radio17" class="o-btn-toggle">Yes</label>
+                        <input type="checkbox" id="Radio18" name="toggle5" />
+                        <label for="Radio18" class="o-btn-toggle">No</label>
+                        <input type="checkbox" id="Radio19" name="toggle5" />
+                        <label for="Radio19" class="o-btn-toggle">Maybe</label>
+                    </div>
+                </div>
+                <div class="l-all-100">
+                    <div class="c-btn-group is-grouped">
+                        <input type="checkbox" id="Checkbox1" name="toggle4" />
+                        <label for="Checkbox1" class="o-btn-toggle">Maybe</label>
+
+                        <input type="checkbox" id="Checkbox2" name="toggle4" />
+                        <label for="Checkbox2" class="o-btn-toggle">Maybe</label>
+
+                        <input type="checkbox" id="Checkbox3" name="toggle4" />
+                        <label for="Checkbox3" class="o-btn-toggle">Maybe</label>
+
+                        <input type="checkbox" id="Checkbox4" name="toggle4" />
+                        <label for="Checkbox4" class="o-btn-toggle">Maybe</label>
+                    </div>
+                </div>
+            </div>
+
+            <h3>(Multiple) toggle button (icon)</h3>
+            <div class="l-column-group l-vertical-padding">
+                <div class="l-all-100">
+                    <div class="c-btn-group is-grouped is-toggle">
+                        <input type="checkbox" id="Radio11" name="toggle3" />
+                        <label for="Radio11" class="o-btn-icon o-btn-icon--large">
+                             <svg class=""><use xlink:href="#fa-plane" /></svg>
+                        </label>
+                        <input type="checkbox" id="Radio12" name="toggle3" />
+                        <label for="Radio12" class="o-btn-icon o-btn-icon--large">
+                             <svg class=""><use xlink:href="#fa-plane" /></svg>
+                        </label>
+                        <input type="checkbox" id="Radio13" name="toggle3" />
+                        <label for="Radio13" class="o-btn-icon o-btn-icon--large">
+                             <svg class=""><use xlink:href="#fa-plane" /></svg>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <h3>Button special</h3>
+            <h4>Floating button</h4>
+            <div class="l-column-group l-vertical-padding">
+                <p>These sample buttons below have their position properties overriden.
+                    The original floating button is like the one at the right of the screen.</p>
+                <p>Just add <span class="css">.is-floating</span> class to a standard button.</p>
+
+                <div class="l-all-100">
+                    <button class="o-btn o-btn--happy is-floating" title="Floating button">+</button>
+
+                    <button class="o-btn is-floating do-not-float">+</button>
+
+                    <button class="o-btn o-btn--happy is-floating do-not-float">+</button>
+
+                    <button class="o-btn is-floating do-not-float" disabled>+</button>
+                </div>
+
+                <p>A floating button could also contains extra options. Use <span class="css">.has-options</span> and enclose a checkbox with a label</p>
+
+                <div class="l-all-100">
+                    <a class="o-btn o-btn--happy is-floating has-options do-not-float">
+                        <input type="checkbox" id="floatingWithOptions" name="floatingWithOptions"></input>
+                        <label for="floatingWithOptions">+</label>
+                    </a>
+                </div>
+
+            </div>
+
+
+            <h4>Split buttons</h4>
+            <div class="l-column-group l-vertical-padding">
+                <div class="l-all-100">
+                    <div class="c-btn-group c-btn-group--split">
+                        <button class="o-btn o-btn--small l-no-border l-push-left">14pt button</button>
+                        <button class="o-btn o-btn--small l-no-border l-push-left l-no-padding" data-handler-for-menu="sample_split_menu_1">
+                            <span class="o-btn-split-icon"></span>
+                        </button>
+                        <ul class="c-menu" id="sample_split_menu_1">
+                            <li class="c-menu__item">
+                                <a href="">Option 1</a>
+                            </li>
+                            <li class="c-menu__item">
+                                <a href="">Option 2</a>
+                            </li>
+                            <li class="c-menu__item">
+                                <a href="">Option 3</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="l-all-100">
+                    <div class="c-btn-group c-btn-group--split">
+                        <button class="o-btn l-no-border l-push-left">16pt button</button>
+                        <button class="o-btn l-no-border l-push-left l-no-padding" data-handler-for-menu="sample_split_menu_2">
+                            <span class="o-btn-split-icon"></span>
+                        </button>
+                        <ul class="c-menu" id="sample_split_menu_2">
+                            <li class="c-menu__item">
+                                <a href="">Option 1</a>
+                            </li>
+                            <li class="c-menu__item">
+                                <a href="">Option 2</a>
+                            </li>
+                            <li class="c-menu__item">
+                                <a href="">Option 3</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="l-all-100">
+                    <div class="c-btn-group c-btn-group--split">
+                        <button class="o-btn o-btn--large l-no-border l-push-left">18pt button</button>
+                        <button class="o-btn o-btn--large l-no-border l-push-left l-no-padding" data-handler-for-menu="sample_split_menu_3">
+                            <span class="o-btn-split-icon"></span>
+                        </button>
+                        <ul class="c-menu" id="sample_split_menu_3">
+                            <li class="c-menu__item">
+                                <a href="">Option 1</a>
+                            </li>
+                            <li class="c-menu__item">
+                                <a href="">Option 2</a>
+                            </li>
+                            <li class="c-menu__item">
+                                <a href="">Option 3</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <h4>Dropdown</h4>
+            <div class="l-column-group l-vertical-padding">
+                <div class="l-all-100">
+                    <a href="" class="o-btn o-btn--small o-btn--dropdown" data-handler-for-menu="sample_dropdown_menu_1">.btn--dropdown</a>
+                     <ul class="c-menu" id="sample_dropdown_menu_1">
+                        <li class="c-menu__item">
+                            <a href="">Option 1</a>
+                        </li>
+                        <li class="c-menu__item">
+                            <a href="">Option 2</a>
+                        </li>
+                        <li class="c-menu__item">
+                            <a href="">Option 3</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="l-all-100">
+                    <a href="" class="o-btn o-btn--dropdown" data-handler-for-menu="sample_dropdown_menu_2">.btn-dropdown</a>
+                    <ul class="c-menu" id="sample_dropdown_menu_2">
+                        <li class="c-menu__item">
+                            <a href="">Option 1</a>
+                        </li>
+                        <li class="c-menu__item">
+                            <a href="">Option 2</a>
+                        </li>
+                        <li class="c-menu__item">
+                            <a href="">Option 3</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="l-all-100">
+                    <a href="" class="o-btn o-btn--large o-btn--dropdown" data-handler-for-menu="sample_dropdown_menu_3">.btn--dropdown</a>
+                    <ul class="c-menu" id="sample_dropdown_menu_3">
+                        <li class="c-menu__item">
+                            <a href="">Option 1</a>
+                        </li>
+                        <li class="c-menu__item">
+                            <a href="">Option 2</a>
+                        </li>
+                        <li class="c-menu__item">
+                            <a href="">Option 3</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <h4>Switch</h4>
+            <div class="c-btn-switch">
+                <input type="checkbox" id="check1" class="c-btn-group--switch__check" />
+                <label for="check1" class="c-btn-group--switch__label"></label>
+            </div>
+
+            <label class="o-label">Disabled switch</label>
+            <div class="c-btn-switch">
+                <input type="checkbox" id="check2" class="c-btn-group--switch__check" disabled="" />
+                <label for="check2" class="c-btn-group--switch__label"></label>
+            </div>
+
+            <label class="o-label">Disabled on switch</label>
+            <div class="c-btn-switch">
+                <input type="checkbox" id="Checkbox5" class="c-btn-group--switch__check" checked disabled="" />
+                <label for="check2" class="c-btn-group--switch__label"></label>
+            </div>
+
+           <!-- <h2>Todo?</h2>
+            <h3>Grouped rounded toggles</h3>
+            <div class="l-column-group l-vertical-padding">
+                <div class="c-btn-group c-btn-group--toggle">
+                    <input type="radio" id="Radio27" name="toggle8" class="o-btn-toggle-group-rounded__input" />
+                    <label for="Radio27" class="o-btn-toggle-rounded">Going to work</label>
+                    <input type="radio" id="Radio28" name="toggle8" class="o-btn-toggle-group-rounded__input" />
+                    <label for="Radio28" class="o-btn-toggle-rounded">At work</label>
+                    <input type="radio" id="Radio29" name="toggle8" class="o-btn-toggle-group-rounded__input" />
+                    <label for="Radio29" class="o-btn-toggle-rounded">Out of work</label>
+                </div>
+            </div>-->
+        </section>
+    </body>
+    <script type="text/javascript" src="../js/DesignSystem-0.1.1.js"></script>
+
+</html>

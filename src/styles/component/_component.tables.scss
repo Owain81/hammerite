@@ -1,0 +1,210 @@
+.#{$table-class-name} {
+	width: 100%;
+	border-radius: $border-radius;
+	border-color: $table-border-color;
+	background-color: $table-background-color;
+	color: $table-font-color;
+	line-height: normal;
+	text-align: left;
+
+	tr {
+		@include border($table-border-style, $table-border-color, $table-border-width);
+
+		@each $align in left, center, right {
+			.text-align-#{$align} {
+				text-align: #{$align};
+			}
+		}
+
+		&:active {
+			background-color: $table-row-active-background-color;
+		}
+
+		&:focus {
+			background-color: $table-row-focus-background-color;
+
+			td {
+				text-decoration: underline;
+			}
+		}
+
+		&:hover {
+			@include transition(all .15s linear);
+			// !important used to allow showing the hover status over the nth-type specification
+			// scss-lint:disable ImportantRule
+			background-color: $table-row-focus-background-color !important;
+			cursor: pointer;
+
+			td {
+				color: $table-header-font-color;
+			}
+		}
+	}
+
+	th {
+		padding: padding($table-header-padding-vertical, $table-padding-right, $table-header-padding-vertical, $table-padding-left);
+		background-color: $table-row-header-background-color;
+		color: $table-header-font-color;
+		font-family: 'Dagny-bold';
+		font-weight: normal;
+		white-space: nowrap;
+	}
+
+	td {
+		padding: padding($table-padding-top, $table-padding-right);
+		line-height: $table-line-height;
+	}
+}
+
+// Bordered table
+.#{$table-class-name}--bordered {
+	tr {
+		border: 0;
+	}
+
+	th,
+	td {
+		@include border($table-border-style, $table-border-color, $table-border-width);
+	}
+}
+
+// Condensed table
+.#{$table-class-name}--condensed {
+	th,
+	td {
+		padding: padding($table-condensed-padding-top, $table-condensed-padding-right);
+	}
+}
+
+// Striped table
+.#{$table-class-name}--striped {
+	tr:nth-of-type(even) {
+		background: $color-grey-8;
+	}
+}
+
+// Editable table
+.#{$table-class-name}--editable {
+
+	.#{$table-class-name}--editable-column.text-align-right:not(:last-of-type) {
+		padding-right: px-to-rem($table-editable-padding-horizontal * 2);
+	}
+
+	// Column and row highlight for active editing cell
+	th {
+		@include table-cell-active-indicator($position: top);
+		@include transition-with-curve ($table-editable-motion-curve, $table-editable-motion-duration, background-color);
+
+		&::before {
+			transform: scaleX(0);
+			opacity: 0;
+		}
+
+		&.is--edition-active {
+			background-color: $table-editable-highlight-header-background-color;
+
+			&::before {
+				transform: scaleX(1);
+				opacity: 1;
+			}
+		}
+	}
+
+	td:first-child {
+		@include table-cell-active-indicator($position: left);
+
+		&::before {
+			transform: scaleY(0);
+			opacity: 0;
+		}
+	}
+
+	.is--edition-active td:first-child {
+		min-height: px-to-rem($table-editable-input-min-height + ($table-editable-input-focused-border-width * 2));
+
+		&::before {
+			transform: scaleY(1);
+			opacity: 1;
+		}
+	}
+
+	tr:not(:hover).is--edition-active td:first-child {
+		background-color: $table-editable-highlight-header-background-color;
+	}
+
+	th.is--edition-active,
+	.is-edition-active td:first-child {
+		color: $table-editable-highlight-header-color;
+	}
+
+	& &__cell {
+		padding: 0;
+	}
+
+	&__input {
+		@include border($table-border-style, transparent , px-to-rem($table-editable-input-focused-border-width));
+		box-sizing: content-box; // If not, ghost padding appears on top and botton
+		width: calc(#{$table-editable-input-width} - #{$remove-from-width});
+		min-height: px-to-rem($table-editable-input-min-height); // IE and Firefox won't render 100% height inside a TD
+		padding: padding(0, $table-padding-horizontal);
+		background-color: transparent;
+
+		&:focus {
+			@include border($table-border-style, $table-editable-input-focused-border-color , px-to-rem($table-editable-input-focused-border-width));
+			outline: none;
+			background-color: $table-editable-input-background-color;
+			color: $table-editable-input-color;
+		}
+
+		// Remove "x" from IE
+		&::-ms-clear {
+			display: none;
+		}
+	}
+
+	td:not(.#{$table-class-name}--editable__cell) {
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+}
+
+// Dark table
+.#{$table-class-name}--dark {
+	th {
+		border-color: $table-dark-row-header-background-color;
+		background-color: $table-dark-row-header-background-color;
+		color: $table-dark-header-font-color;
+		font-weight: normal;
+
+		&.is--edition-active {
+			background-color: $table-dark-editable-highlight-header-background-color;
+		}
+	}
+}
+
+// Dark table - Editable
+.#{$table-class-name}--editable.#{$table-class-name}--dark {
+
+	th.is--edition-active {
+		@include table-cell-active-indicator($position: top,
+		$border-color: $table-dark-editable-highlight-header-border-color,
+		$border-width: $table-dark-editable-highlight-header-border-width,
+		$background-color: $table-dark-editable-highlight-header-background-color);
+
+		color: $table-dark-editable-highlight-header-color;
+	}
+
+	.is--edition-active td:first-child {
+		@include table-cell-active-indicator($position: left,
+		$border-color: $table-dark-editable-highlight-header-border-color,
+		$border-width: $table-dark-editable-highlight-header-border-width);
+	}
+
+	.is--edition-active:hover td:first-child {
+		@include table-cell-active-indicator($position: left,
+		$border-color: $table-dark-editable-highlight-header-border-color,
+		$border-width: $table-dark-editable-highlight-header-border-width,
+		$background-color: $table-row-focus-background-color);
+	}
+}

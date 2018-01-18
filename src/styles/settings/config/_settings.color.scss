@@ -1,0 +1,457 @@
+////
+/// Colors
+/// @group Colors
+////
+
+// Values are tabbed for readability reasons
+// scss-lint:disable SpaceAfterVariableName
+
+// HELPERS
+/// Color White
+/// @type Color
+$color-white: #fff;
+
+/// Color Black
+/// @type Color
+$color-black: #000;
+
+// GREY RANGE
+/// Color Grey
+/// @type Color
+$color-grey: #7c878e;
+
+/// Color Grey 8
+/// @type Color
+$color-grey-8: mix($color-grey, $color-white, 8);  // #f5f6f6
+
+/// Color Grey 12
+/// @type Color
+$color-grey-12: mix($color-grey, $color-white, 12); // #eff0f1
+
+/// Color Grey 18
+/// @type Color
+$color-grey-18: mix($color-grey, $color-white, 18); // #e7e9ea
+
+/// Color Grey 34
+/// @type Color
+$color-grey-34: mix($color-grey, $color-white, 34); // #d2d6d8
+
+/// Color Grey 65
+/// @type Color
+$color-grey-65: mix($color-grey, $color-white, 65); // #a9b1b5
+
+/// Color Grey 110
+/// @type Color
+$color-grey-110: #6c777c;
+
+/// Color Grey 120
+/// @type Color
+$color-grey-120: #4c5358;
+
+// BLUE RANGE
+/// Color blue
+/// @type Color
+$color-blue: #0d78aa;
+
+/// Color light blue select
+/// @type Color
+$color-lightblueselect: #b7e9f8;
+
+/// Color light blue
+/// @type Color
+$color-lightblue: #dbf4fb;
+
+/// Color Pale blue
+/// @type Color
+$color-paleblue: #edf9fd;
+
+// GREY BLUE
+/// Color Grey blue
+/// @type Color
+$color-grey-blue-background: #e8eef2;
+
+// unit4 should be capitals
+// scss-lint:disable NameFormat
+
+/// Color Grey unit4
+/// @type Color
+$color-grey-unit4: #4a5c69;
+
+/// Darkgrey unit4
+/// @type color
+$color-darkgrey-unit4: #3f4f5a;
+
+// NOTIFICATIONS
+/// Color Alert
+/// @type Color
+$color-alert: #c10606;
+
+/// Color Alert light
+/// @type Color
+$color-alert-light: #f69390;
+
+/// Color Alert pale
+/// @type Color
+$color-alert-pale: #fcd0cc;
+
+/// Color Alert 20%
+/// @type Color
+$color-alert-20: #9a0505;
+
+/// Color Alert 40%
+/// @type Color
+$color-alert-40: #740404;
+
+/// Color Warning
+/// @type Color
+$color-warning: #ed6f19 !default;
+
+/// Color Warning light
+/// @type Color
+$color-warning-light: #ffbe64 !default;
+
+/// Color Warning pale
+/// @type Color
+$color-warning-pale: #feeab4 !default;
+
+/// Color Success
+/// @type Color
+$color-success: #5d9834 !default;
+
+/// Color Success light
+/// @type Color
+$color-success-light: #afd189 !default;
+
+/// Color Success pale
+/// @type Color
+$color-success-pale: #dbefb9 !default;
+
+/// Color Success 20%
+/// @type Color
+$color-success-20: #4a7a2a !default;
+
+/// Color Success 40%
+/// @type Color
+$color-success-40: #385b1f !default;
+
+/// Color Info
+/// @type Color
+$color-info	: $color-blue !default;
+
+/// Color Info light
+/// @type Color
+$color-info-light: #90cdea !default;
+
+/// Color Info pale
+/// @type Color
+$color-info-pale: #d9edf7 !default;
+
+/// Color System
+/// @type Color
+$color-system: $color-grey-120 !default;
+
+/// Color System light
+/// @type Color
+$color-system-light: $color-grey-34 !default;
+
+/// Color System pale
+/// @type Color
+$color-system-pale: $color-grey-18 !default;
+
+// SHADES 1
+/// Color Scheme u4 green
+/// @type Color
+$color-scheme-u4green: #bfda3a !default;
+
+/// Color Scheme u4 dark green
+/// @type Color
+$color-scheme-u4darkgreen: #afc836 !default;
+
+/// Color Scheme u4 green 10
+/// @type Color
+$color-scheme-u4green-10: mix($color-scheme-u4green, $color-white, 10%) !default; // #f9fbeb
+
+/// Color Scheme u4 green 20
+/// @type Color
+$color-scheme-u4green-20: mix($color-scheme-u4green, $color-white, 20%) !default; // #f2f8d8;
+
+/// Color Scheme u4 green 40
+/// @type Color
+$color-scheme-u4green-40: mix($color-scheme-u4green, $color-white, 40%) !default; // #e5f0b0;
+
+/// Color Scheme u4 green 70
+/// @type Color
+$color-scheme-u4green-70: mix($color-scheme-u4green, $color-white, 70%) !default; // #d2e575;
+
+/// Color Scheme u4 blue
+/// @type Color
+$color-scheme-u4blue: #4ac7ed !default;
+
+/// Color Scheme u4 dark blue
+/// @type Color
+$color-scheme-u4darkblue: #38add1 !default;
+
+/// Color Scheme u4 blue 10
+/// @type Color
+$color-scheme-u4blue-10: mix($color-scheme-u4blue, $color-white, 10%) !default; // #edf9fd
+
+/// Color Scheme u4 blue 20
+/// @type Color
+$color-scheme-u4blue-20: mix($color-scheme-u4blue, $color-white, 20%) !default; // #dbf4fb
+
+/// Color Scheme u4 blue 40
+/// @type Color
+$color-scheme-u4blue-40: mix($color-scheme-u4blue, $color-white, 40%) !default; // #b7e9f8
+
+/// Color Scheme u4 blue 70
+/// @type Color
+$color-scheme-u4blue-70: mix($color-scheme-u4blue, $color-white, 70%) !default; // #80d8f2
+
+/// Color Scheme u4 orange
+/// @type Color
+$color-scheme-u4orange: #f68d2e !default;
+
+/// Color Scheme u4 dark orange
+/// @type Color
+$color-scheme-u4darkorange: #e87d19 !default;
+
+/// Color Scheme u4 orange 10
+/// @type Color
+$color-scheme-u4orange-10: mix($color-scheme-u4orange, $color-white, 10%) !default; // #fef4ea
+
+/// Color Scheme u4 orange 20
+/// @type Color
+$color-scheme-u4orange-20: mix($color-scheme-u4orange, $color-white, 20%) !default; // #fde8d5
+
+/// Color Scheme u4 orange 40
+/// @type Color
+$color-scheme-u4orange-40: mix($color-scheme-u4orange, $color-white, 40%) !default; // #fbd1ab
+
+/// Color Scheme u4 orange 70
+/// @type Color
+$color-scheme-u4orange-70: mix($color-scheme-u4orange, $color-white, 70%) !default; // #f9af6d
+
+/// Color Scheme blue
+/// @type Color
+$color-scheme-blue: #4296f5 !default;
+
+/// Color Scheme dark blue
+/// @type Color
+$color-scheme-darkblue: #3a83d6 !default;
+
+/// Color Scheme blue 10
+/// @type Color
+$color-scheme-blue-10: mix($color-scheme-blue, $color-white, 10%) !default; // #ecf5fe
+
+/// Color Scheme blue 20
+/// @type Color
+$color-scheme-blue-20: mix($color-scheme-blue, $color-white, 20%) !default; // #d9eafd
+
+/// Color Scheme blue 40
+/// @type Color
+$color-scheme-blue-40: mix($color-scheme-blue, $color-white, 40%) !default; // #b3d5fb
+
+/// Color Scheme blue 70
+/// @type Color
+$color-scheme-blue-70: mix($color-scheme-blue, $color-white, 70%) !default; // #7bb6f8
+
+/// Color Scheme violet
+/// @type Color
+$color-scheme-violet: #d742f5 !default;
+
+/// Color Scheme dark violet
+/// @type Color
+$color-scheme-darkviolet: #c13bdb !default;
+
+/// Color Scheme violet 10
+/// @type Color
+$color-scheme-violet-10: mix($color-scheme-violet, $color-white, 10%) !default; // #fbecfe;
+
+/// Color Scheme violet 20
+/// @type Color
+$color-scheme-violet-20: mix($color-scheme-violet, $color-white, 20%) !default; // #f7d9fd;
+
+/// Color Scheme violet 40
+/// @type Color
+$color-scheme-violet-40: mix($color-scheme-violet, $color-white, 40%) !default; // #efb3fb;
+
+/// Color Scheme violet 70
+/// @type Color
+$color-scheme-violet-70: mix($color-scheme-violet, $color-white, 70%) !default; // #e37bf8;
+
+/// Color Scheme aqua
+/// @type Color
+$color-scheme-aqua: #19e2a2 !default;
+
+/// Color Scheme dark aqua
+/// @type Color
+$color-scheme-darkaqua: #17d196 !default;
+
+/// Color Scheme aqua 10
+/// @type Color
+$color-scheme-aqua-10: mix($color-scheme-aqua, $color-white, 10%) !default; // #e8fcf6;
+
+/// Color Scheme aqua 20
+/// @type Color
+$color-scheme-aqua-20: mix($color-scheme-aqua, $color-white, 20%) !default; // #d1f9ec;
+
+/// Color Scheme aqua 40
+/// @type Color
+$color-scheme-aqua-40: mix($color-scheme-aqua, $color-white, 40%) !default; // #a3f3da;
+
+/// Color Scheme aqua 70
+/// @type Color
+$color-scheme-aqua-70: mix($color-scheme-aqua, $color-white, 70%) !default; // #5eebbe;
+
+// SHADES 2
+/// Color Scheme pink
+/// @type Color
+$color-scheme-pink: #ed51b4 !default;
+
+/// Color Scheme dark pink
+/// @type Color
+$color-scheme-darkpink: #db4ba6 !default;
+
+/// Color Scheme pink 10
+/// @type Color
+$color-scheme-pink-10: mix($color-scheme-pink, $color-white, 10%) !default; // #fdeef8;
+
+/// Color Scheme pink 20
+/// @type Color
+$color-scheme-pink-20: mix($color-scheme-pink, $color-white, 20%) !default; // #fbdcf0;
+
+/// Color Scheme pink 40
+/// @type Color
+$color-scheme-pink-40: mix($color-scheme-pink, $color-white, 40%) !default; // #f8b9e1;
+
+/// Color Scheme pink 70
+/// @type Color
+$color-scheme-pink-70: mix($color-scheme-pink, $color-white, 70%) !default; // #f285cb;
+
+/// Color Scheme yellow
+/// @type Color
+$color-scheme-yellow: #facf4b !default;
+
+/// Color Scheme dark yellow
+/// @type Color
+$color-scheme-darkyellow: #ebbf3b !default;
+
+/// Color Scheme yellow 10
+/// @type Color
+$color-scheme-yellow-10: mix($color-scheme-yellow, $color-white, 10%) !default; // #fffaed;
+
+/// Color Scheme yellow 20
+/// @type Color
+$color-scheme-yellow-20: mix($color-scheme-yellow, $color-white, 20%) !default; // #fef5db;
+
+/// Color Scheme yellow 40
+/// @type Color
+$color-scheme-yellow-40: mix($color-scheme-yellow, $color-white, 40%) !default; // #fdecb7;
+
+/// Color Scheme yellow 70
+/// @type Color
+$color-scheme-yellow-70: mix($color-scheme-yellow, $color-white, 70%) !default; // #fcdd81;
+
+/// Color Scheme purple
+/// @type Color
+$color-scheme-purple: #a04bfa !default;
+
+/// Color Scheme dark purple
+/// @type Color
+$color-scheme-darkpurple: #8a3cde !default;
+
+/// Color Scheme purple 10
+/// @type Color
+$color-scheme-purple-10: mix($color-scheme-purple, $color-white, 10%) !default; // #f6edff;
+
+/// Color Scheme purple 20
+/// @type Color
+$color-scheme-purple-20: mix($color-scheme-purple, $color-white, 20%) !default; // #ecdbfe;
+
+/// Color Scheme purple 40
+/// @type Color
+$color-scheme-purple-40: mix($color-scheme-purple, $color-white, 40%) !default; // #d9b7fd;
+
+/// Color Scheme purple 70
+/// @type Color
+$color-scheme-purple-70: mix($color-scheme-purple, $color-white, 70%) !default; // #bc81fc;
+
+/// Color Scheme green
+/// @type Color
+$color-scheme-green: #75e05a !default;
+
+/// Color Scheme dark green
+/// @type Color
+$color-scheme-darkgreen: #6acc52 !default;
+
+/// Color Scheme green 10
+/// @type Color
+$color-scheme-green-10: mix($color-scheme-green, $color-white, 10%) !default; // #f1fcef;
+
+/// Color Scheme green 20
+/// @type Color
+$color-scheme-green-20: mix($color-scheme-green, $color-white, 20%) !default; // #e3f9de;
+
+/// Color Scheme green 40
+/// @type Color
+$color-scheme-green-40: mix($color-scheme-green, $color-white, 40%) !default; // #c8f3bd;
+
+/// Color Scheme green 70
+/// @type Color
+$color-scheme-green-70: mix($color-scheme-green, $color-white, 70%) !default; // #9ee98c;
+
+/// Color Scheme red
+/// @type Color
+$color-scheme-red: #fa4e4b !default;
+
+/// Color Scheme dark red
+/// @type Color
+$color-scheme-darkred: #e03f3d !default;
+
+/// Color Scheme red 10
+/// @type Color
+$color-scheme-red-10: mix($color-scheme-red, $color-white, 10%) !default; // #ffeded;
+
+/// Color Scheme red 20
+/// @type Color
+$color-scheme-red-20: mix($color-scheme-red, $color-white, 20%) !default; // #fedcdb;
+
+/// Color Scheme red 40
+/// @type Color
+$color-scheme-red-40: mix($color-scheme-red, $color-white, 40%) !default; // #fdb8b7;
+
+/// Color Scheme red 70
+/// @type Color
+$color-scheme-red-70: mix($color-scheme-red, $color-white, 70%) !default; // #fc8381;
+
+/// Color Scheme purple 2
+/// @type Color
+$color-scheme-purple2: #704dfa !default;
+
+/// Color Scheme dark purple 2
+/// @type Color
+$color-scheme-darkpurple2: #5c3cde !default;
+
+/// Color Scheme purple 2 - 10
+/// @type Color
+$color-scheme-purple2-10: mix($color-scheme-purple2, $color-white, 10%) !default; // #f1edff;
+
+/// Color Scheme purple 2 - 20
+/// @type Color
+$color-scheme-purple2-20: mix($color-scheme-purple2, $color-white, 20%) !default; // #e2dbfe;
+
+/// Color Scheme purple 2 - 40
+/// @type Color
+$color-scheme-purple2-40: mix($color-scheme-purple2, $color-white, 40%) !default; // #c6b8fd;
+
+/// Color Scheme purple 2 - 70
+/// @type Color
+$color-scheme-purple2-70: mix($color-scheme-purple2, $color-white, 70%) !default; // #9b82fc;
+
+/// Color Buttons happy status hover
+/// @type Color
+$color-btn-happy-hover: #00648e !default;
+
+/// Color Buttons happy status pressed
+/// @type Color
+$color-btn-happy-press: #00436a !default;

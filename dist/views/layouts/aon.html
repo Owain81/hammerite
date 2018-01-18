@@ -1,0 +1,201 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta name="viewport" content="width=device-width, user-scalable=no" />
+        <title>UI Library - LayOut BW</title>
+
+        <!-- Some quick angularjs for demo purposes -->
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.js"></script>
+        
+
+        <link rel="stylesheet" href="../../css/design-system.css" />
+        <style>
+            body {
+                background-color: #E7ECF0;
+            }
+             input:not([type="checkbox"]) {
+                width: 100%;
+            }
+
+            .textLayOut{
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                float: none;
+            }
+
+        </style>
+    </head>
+
+    <body ng-app="demoTopBar" ng-controller="demoController">
+
+        <header>
+            <section class="c-topbar c-topbar-demo">
+                <div class="c-topbar__wrapper">
+                    <a href="../index.html" class="c-topbar__link c-topbar__btn--back">
+                        <span class="c-topbar__link-icon">
+                            <svg class="o-icon">
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#u4-icon-topbar--angle-left"></use>
+                            </svg>
+                        </span>
+                    </a>
+
+                    <h1 class="c-topbar__title" ng-show="showLogo">
+                        <a href="#">
+                            <img src="../../images/unit4-logo.svg" width="102" class="c-topbar__element--show-on-desktop" alt="unit4" />
+                            <img src="../../images/unit4-logo-white.svg" width="102" class="c-topbar__element--show-on-mobile" alt="unit4" />
+                        </a>
+                    </h1>
+
+                    <h2 class="c-topbar__subtitle">{{ title }}</h2>
+
+
+                    <nav class="c-topbar__toolbar">
+
+                        <a href="#" class="c-topbar__toolbar__expander">
+                            <span class="c-topbar__link-icon">
+                                <svg class="o-icon">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#u4-icon-topbar--plus"></use>
+                                </svg>
+                            </span>
+                        </a>
+
+                        <ul>
+                            <li ng-repeat="item in toolBarItems" class="{{item.badge > 0 ? 'c-topbar__toolbar__item--has-badge': '' }}">
+                                <a href="#" class="c-topbar__link">
+                                    <span class="c-topbar__link-icon">
+                                        <svg class="o-icon">
+                                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{{ '#u4-icon-topbar--' + item.icon }}"></use></svg>
+                                        <span class="c-topbar__toolbar__badge" ng-show="item.badge > 0">{{ item.badge }}</span>
+                                    </span>
+                                    <span>{{ item.title }}</span>
+                                </a>
+                            </li>
+
+                            <li class="c-topbar__toolbar__search">
+                                <a href="#" class="c-topbar__link">
+                                    <span class="c-topbar__link-icon">
+                                        <svg class="o-icon">
+                                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#u4-icon-topbar--search"></use>
+                                        </svg>
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </section>
+        </header>
+
+        <section class="l-grid">
+        <div class="l-column-group l-all-100 l-push-middle">
+            <div class="l-xlarge-50 l-large-50 l-medium-50 l-small-100 l-tiny-100 l-push-left">
+	            <div>
+                    <h3 class="l-push-left textLayOut">New request</h3>        
+	            </div>  
+            </div>
+            <!--<div class="l-xlarge-50 l-large-50 l-medium-50 l-all-50 l-tiny-100 l-hide-tiny l-hide-small ">
+                <div class="c-btn-group l-push-right">
+                    <button class="o-btn-icon ui-is-grouped ">
+                        <svg class=""><use xlink:href="#u4-icon--wrench" /></svg>
+                    </button>
+                    <button class="o-btn-icon ui-is-grouped ">
+                        <svg class=""><use xlink:href="#u4-icon--lightbulb-o" /></svg>
+                    </button>
+                    <button class="o-btn-icon ui-is-grouped ">
+                        <svg class=""><use xlink:href="#u4-icon--heart" /></svg>
+                    </button>
+                    <button class="o-btn-icon ui-is-grouped ">
+                        <svg class=""><use xlink:href="#u4-icon--wrench"/></svg>
+                    </button>
+                    <button class="o-btn-icon ui-is-grouped ">
+                        <svg class=""><use xlink:href="#u4-icon--question" /></svg>
+                    </button>
+                </div>
+            </div>-->
+	    </div>
+        <div class="l-column-group l-all-100 l-gutters">
+            <div class="c-wizard">
+                <ul class="c-wizard__list">
+                    <li class="c-wizard__list-item">Draft</li>
+                    <li class="c-wizard__list-item">Sent</li>
+                    <li class="c-wizard__list-item">Checking</li>
+                    <li class="c-wizard__list-item">Approved</li>
+                    <li class="c-wizard__list-item">Refunded</li>
+                </ul>
+            </div>
+        </div>
+           
+        <div class="c-panel all-80">
+            <div class="c-panel__header">
+                <h4 class="c-panel__title">Basic information about your absence</h4>
+            </div>
+            <div class="c-panel__body ">
+                <form class="c-form">
+                    <div class="l-column-group l-gutters l-push-distribute">
+                        <div class="l-all-33 l-tiny-100">
+                            <label class="o-label">Absence:</label>
+                            <input type="date" />
+                        </div>
+                        <div class="l-all-33 l-tiny-100">
+                            <label class="o-label">Absence:</label>
+                            <input type="date" />
+                        </div>
+                        <div class="l-all-33 l-tiny-100">
+                            <label class="o-label">Absence:</label>
+                            <input type="date" />
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+        
+   
+    <script type="text/javascript" src="../../js/DesignSystem-0.1.1.js"></script>
+    <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+    
+    <script type="text/javascript">
+        var app = angular.module('demoTopBar', []);
+
+        app.controller('demoController', function ($scope, $http) {
+
+            $scope.showLogo = true;
+            $scope.title = '';
+
+            $scope.toolBarItems = [
+                {
+                    title: 'Messages',
+                    icon: 'comment',
+                    badge: 3
+                },
+                {
+                    title: 'Help',
+                    icon: 'info-circle',
+                    badge: 0
+                },
+                {
+                    title: 'Profile',
+                    icon: 'user',
+                    badge: 0
+                },
+            ];
+
+            $scope.addNew = function () {
+                $scope.toolBarItems.push({
+                    title: '',
+                    icon: 'info-circle',
+                    badge: 0
+                });
+            };
+
+            $scope.activeTab = 'tab2';
+            $scope.makeActive = function (tabName) {
+                $scope.activeTab = tabName;
+            };
+
+        });
+
+        </script>
+    </body>
+</html>

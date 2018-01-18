@@ -1,0 +1,237 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, user-scalable=no" />
+        <title>Unit 4 - UI Library - Modal</title>
+        <link rel="stylesheet" href="../css/design-system.css" />
+
+        <style type="text/css">
+            .css {
+                background-color: #DDDDDD;
+                padding: 1px 5px 1px 5px;
+                border: 1px solid #ccc;
+            }
+
+             pre {
+                margin-left: 2rem;
+                border-left: solid 3px #AFC836;
+                background-color: #FDFDFD;
+                color: #0D78AA;
+                font-size: .85rem;
+                line-height: 1.5rem;
+            }
+
+            pre strong {
+                color: #00648e;
+            }
+
+            pre em {
+                font-family: monospace, monospace;
+                font-style: normal;
+                color: #878C90;
+            }
+
+        </style>
+    </head>
+    <body>
+
+        <header class="c-topbar">
+            <div class="c-topbar__wrapper">
+                <a href="../index.html" class="c-topbar__link c-topbar__btn--back">
+                    <span class="c-topbar__link-icon">
+                        <svg class="o-icon">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#u4-icon-topbar--angle-left"></use>
+                        </svg>
+                    </span>
+                </a>
+
+                <h1 class="c-topbar__title">
+                    <a href="../index.html">
+                        <img src="../images/unit4-logo.svg" width="102" class="c-topbar__element--show-on-desktop" alt="unit4" />
+                        <img src="../images/unit4-logo-white.svg" width="102" class="c-topbar__element--show-on-mobile" alt="unit4" />
+                    </a>
+                </h1>
+
+                <h2 class="c-topbar__subtitle">UI Library - Overlay Menus</h2>
+
+                <nav class="c-topbar__toolbar">
+
+                    <a href="#" class="c-topbar__link c-topbar__expander">
+                        <span class="c-topbar__link-icon">
+                            <svg class="o-icon">
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#u4-icon-topbar--plus"></use>
+                            </svg>
+                        </span>
+                    </a>
+
+                    <ul>
+                        <li>
+                            <a href="#" class="c-topbar__link" data-handler-for-menu="top_menu">
+                                <span class="c-topbar__link-icon">
+                                    <svg class="o-icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#u4-icon-topbar--info-circle"></use></svg>
+                                </span>
+                                <span class="c-topbar__link-title">Menu</span>
+                            </a>
+                            <ul class="c-menu" id="top_menu">
+                                <li class="c-menu__item"><a href="">New item</a></li>
+                                <li class="c-menu__item"><a href="">Open <span class="c-menu__item__shorthand">Ctrl + O</span></a></li>
+                                <li class="c-menu__item"><a href="">Save</a></li>
+                                <li class="c-menu__item"><a href="">Save as</a></li>
+                                <li class="c-menu__item"><a href="">Export</a></li>
+
+                                <li class="c-menu__item">
+                                    <a href="">
+                                        <svg class="o-icon"><use xlink:href="#u4-icon--star"></use></svg>
+                                        Favorites
+                                    </a>
+                                </li>
+                                <li class="c-menu__item">
+                                    <a href="">
+                                        <svg class="o-icon"><use xlink:href="#u4-icon--trash"></use></svg>
+                                        Delete item
+                                    </a>
+                                </li>
+                                <li class="c-menu__item">
+                                    <a href="">
+                                        <svg class="o-icon"><use xlink:href="#u4-icon--folder"></use></svg>
+                                        Move to folder
+                                    </a>
+                                </li>
+                                <li class="c-menu__separator"></li>
+                                <li class="c-menu__item"><a href="">Recent items</a></li>
+                                <li class="c-menu__item"><a href="">Logout</a></li>
+                            </ul>
+                        </li>
+                        <li class="c-topbar__item--has-badge">
+                            <a href="#" class="c-topbar__link" data-handler-for-menu="top_messages_menu">
+                                <span class="c-topbar__link-icon">
+                                    <svg class="o-icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#u4-icon-topbar--comment"></use></svg>
+                                    <span class="c-topbar__badge">8</span>
+                                </span>
+                                <span class="c-topbar__link-title">Messages</span>
+                            </a>
+                            <ul class="c-menu" id="top_messages_menu">
+                                <li class="c-menu__item">
+                                    <a href="">
+                                        <svg class="o-icon"><use xlink:href="#u4-icon--edit"></use></svg>
+                                        Create
+                                    </a>
+                                </li>
+                                <li class="c-menu__item">
+                                    <a href="">
+                                        <svg class="o-icon"><use xlink:href="#u4-icon--comment"></use></svg>
+                                        Read messages
+                                    </a>
+                                </li>
+                                <li class="c-menu__item">
+                                    <a href="">
+                                        <svg class="o-icon"><use xlink:href="#u4-icon--trash"></use></svg>
+                                        Empty tray
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" class="c-topbar__link" data-handler-for-menu="top_user_menu">
+                                <span class="c-topbar__link-icon">
+                                    <svg class="o-icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#u4-icon-topbar--user"></use></svg>
+                                </span>
+                                <span class="c-topbar__link-title">Profile</span>
+                            </a>
+                            <ul class="c-menu" id="top_user_menu">
+                                <li class="c-menu__item">
+                                    <a href="">
+                                        Edit
+                                    </a>
+                                </li>
+                                <li class="c-menu__item">
+                                    <a href="">
+                                        Log out
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="c-topbar__search">
+                            <a href="#" class="c-topbar__link">
+                                <span class="c-topbar__link-icon">
+                                    <svg class="o-icon">
+                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#u4-icon-topbar--search"></use>
+                                    </svg>
+                                </span>
+                            </a>
+                            <input class="o-input" type="text"></input>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <section class="l-grid l-padding">
+            <ul class="c-breadcrumb">
+                <li class="c-breadcrumb__item"><a href="../index.html">UI Library home</a></li>
+                <li class="c-breadcrumb__item"><label class="o-label">Overlay menus</label></li>
+            </ul>
+
+            <p>
+                Use class <span class="css">c-menu</span> in order to create an overlay menu.
+            </p>
+            <p>
+                To assign a trigger for the menu, add the attribute <span class="css">data-handler-for-menu</span> to any anchor or button.
+            </p>
+
+        <p>
+            <pre>
+
+        &lt;button <strong>data-handler-for-menu=&quot;my_menu&quot;</strong>&gt;Open menu&lt;/button&gt;
+        &lt;ul class=&quot;<strong>c-menu</strong>&quot; id=&quot;my_menu&quot;&gt;
+            &lt;li class=&quot;<strong>c-menu__item</strong>&quot;&gt;&lt;a href=&quot;&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+            &lt;li class=&quot;<strong>c-menu__item</strong>&quot;&gt;&lt;a href=&quot;&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+            ...
+        &lt;/ul&gt;
+            </pre>
+        </p>
+
+
+
+            <a href="" class="o-btn o-btn--small o-btn--dropdown" data-handler-for-menu="button_menu">
+                Menu
+            </a>
+            <ul class="c-menu" id="button_menu">
+                <li class="c-menu__item"><a href="">New item</a></li>
+                <li class="c-menu__item"><a href="">Open <span class="c-menu__item__shorthand">Ctrl + O</span></a></li>
+                <li class="c-menu__item"><a href="">Save</a></li>
+                <li class="c-menu__item"><a href="">Save as</a></li>
+                <li class="c-menu__item"><a href="">Export</a></li>
+
+                <li class="c-menu__item">
+                    <a href="">
+                        <svg class="o-icon"><use xlink:href="#u4-icon--star"></use></svg>
+                        Favorites
+                    </a>
+                </li>
+                <li class="c-menu__item">
+                    <a href="">
+                        <svg class="o-icon"><use xlink:href="#u4-icon--trash"></use></svg>
+                        Delete item
+                    </a>
+                </li>
+                <li class="c-menu__item">
+                    <a href="">
+                        <svg class="o-icon"><use xlink:href="#u4-icon--folder"></use></svg>
+                        Move to folder
+                    </a>
+                </li>
+                <li class="c-menu__separator"></li>
+                <li class="c-menu__item"><a href="">Recent items</a></li>
+                <li class="c-menu__item"><a href="">Logout</a></li>
+            </ul>
+
+
+            <p>(You can check some other samples by clicking on the topbar toolbar items).</p>
+        </section>
+
+        <script type="text/javascript" src="../js/DesignSystem-0.1.1.js"></script>
+
+    </body>
+</html>

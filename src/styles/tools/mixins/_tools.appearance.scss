@@ -1,0 +1,24 @@
+﻿////
+/// @group Utilities
+////
+
+/// Generates `appearance` for a given element. The `appearance` property allows you to make an element look like a standard user interface element.
+/// @link https://developer.mozilla.org/en-US/docs/Web/CSS/-moz-appearance
+/// @link http://css-tricks.com/almanac/properties/a/appearance/
+/// @link http://www.w3.org/TR/2004/CR-css3-ui-20040511/#appearance/
+/// @param {String} Value - Any CSS valid property for appearance.
+/// @example scss - SCSS
+///		.foo {
+///			@include x-appearance(button);
+///		}
+/// @example css - CSS Output
+///		.foo {
+///			-webkit-appearance: button;
+///			-moz-appearance: button;
+///         appearance: button;
+///		}
+@mixin x-appearance($value) {
+	-webkit-appearance: $value;
+	-moz-appearance: $value;
+	appearance: $value;
+}

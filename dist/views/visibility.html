@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, user-scalable=no" />
+		<style type="text/css">
+		    .sub-title {
+		        display: inline-block;
+                margin-left: 1em;
+            }
+
+		  
+            .img {
+            	background-color: white;
+            	border-radius: 2px;
+            	box-shadow: 0 5px 7px rgba(0,0,0,.15);
+            	border: 1px solid #ededed;
+            	padding: 1em;
+            }
+
+            .img + p {
+            	margin-top: 1.5em;
+            }
+
+		    .logo {
+		        
+            }
+
+            .logo img {
+            	width: 150px;
+            }
+
+		    .subtitle {
+		        align-self: flex-end;
+		        margin-left: 1.1em;
+		        min-width: 128px;
+		    }
+
+		    .subtitle span {
+		        color: white;
+		    }
+
+            .header {
+                	height: 50px;
+            }
+
+            .note {
+                background-color: #cbe0fe;
+            }
+
+            .css {
+                background-color: #DDDDDD;
+                    padding: 1px 5px 1px 5px;
+                border: 1px solid #ccc;
+            }
+
+            .breakpoint-aware {
+                background-color: #d2e575;
+                padding: 3px 5px 3px 5px;
+                border: 1px solid #888;
+            }
+        </style>
+        <link rel="stylesheet" href="../css/design-system.css">
+        <title>Visibility classes</title>
+    </head>
+
+    <body>
+
+        <header class="c-topbar">
+            <div class="c-topbar__wrapper">
+                <a href="../index.html" class="c-topbar__link c-topbar__btn--back">
+                    <span class="c-topbar__link-icon">
+                        <svg class="o-icon">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#u4-icon-topbar--angle-left"></use>
+                        </svg>
+                    </span>
+                </a>
+
+                <h1 class="c-topbar__title">
+                    <a href="../index.html">
+                        <img src="../images/unit4-logo.svg" width="102" class="c-topbar__element--show-on-desktop" alt="unit4" />
+                        <img src="../images/unit4-logo-white.svg" width="102" class="c-topbar__element--show-on-mobile" alt="unit4" />
+                    </a>
+                </h1>
+
+                <h2 class="c-topbar__subtitle">UI Library - Visibility</h2>
+            </div>
+        </header>
+
+        <div class="l-grid l-no-padding">
+            <div class="body l-horizontal-padding">
+	            <h2>Visibility Classes</h2>
+                <h4>Visibility classes let you show or hide elements based on screen size or device orientation. You can also use visibility classes to control which elements users see depending on their browsing environment.</h4>
+                <div class="note l-tiny-100 l-medium-30 l-half-padding">Visibility classes use <strong>!important</strong> to ensure they aren't overriden by more specific selectors. This is the only component in the framework that uses <strong>!important</strong>.</div>
+	            <br />
+                <h3>Generic Hide Classes</h3>
+                <div><span class="css">.l-hide-all</span> and <span class="css">.l-show-all</span> classes are breakpoint independent. You can use them wherever you need.</div>
+                <br />
+                <h3>Hide by Screen Size</h3>
+                <div><span class="css">.l-hide-tiny</span>, <span class="css">.l-hide-small</span>, <span class="css">.l-hide-medium</span>, <span class="css">.l-hide-large</span>, <span class="css">.l-hide-xlarge</span> classes are <span class="breakpoint-aware">breakpoint aware</span>. They will hide an element for a specific screen size.</div>
+                <br />
+                <h4>Example</h4>
+                <div class="l-column-group l-gutters l-align-center">
+	               <div class="l-tiny-100 l-medium-25 l-hide-tiny">
+	                	<div class="img">
+	                		<p class="l-half-space">This block will be hidden on <span class="breakpoint-aware">tiny</span> screen sizes.</p>
+	                	</div>
+                    </div>
+	                <div class="l-tiny-100 l-medium-25 l-hide-small">
+	                	<div class="img">
+	                		<p class="l-half-space">This block will be hidden on <span class="breakpoint-aware">small</span> screen sizes.</p>
+	                	</div>
+	                </div>
+	                <div class="l-tiny-100 l-medium-25 l-hide-medium">
+	                	<div class="img">
+	                		<p class="l-half-space">This block will be hidden on <span class="breakpoint-aware">medium</span> screen sizes.</p>
+	                	</div>
+	                </div>
+	                <div class="l-tiny-100 l-medium-25 l-hide-large">
+	                	<div class="img">
+	                		<p class="l-half-space">This block will be hidden on <span class="breakpoint-aware">large</span> screen sizes.</p>
+	                	</div>
+	                </div>
+                    <div class="l-tiny-100 l-medium-25 l-hide-xlarge">
+	                	<div class="img">
+	                		<p class="l-half-space">This block will be hidden on <span class="breakpoint-aware">xlarge</span> screen sizes.</p>
+	                	</div>
+	                </div>
+	            </div>
+
+                <h3>Show by Screen Size</h3>
+                <div><span class="css">.l-show-tiny</span>, <span class="css">.l-show-small</span>, <span class="css">.l-show-medium</span>, <span class="css">.l-show-large</span>, <span class="css">.l-show-xlarge</span> classes are <span class="breakpoint-aware">breakpoint aware</span>. They will show an element for a specific screen size.</div>
+                <br />
+                <h4>Example</h4>
+                <div class="l-column-group l-gutters l-align-center">
+                    <div class="l-all-100">
+	                    <div class="img">
+                            The screen SIZE is: 
+	                	    <p class="l-half-space l-hide-all l-show-tiny"><span class="breakpoint-aware">TINY</span></p>
+                            <p class="l-half-space l-hide-all l-show-small"><span class="breakpoint-aware">SMALL</span></p>
+                            <p class="l-half-space l-hide-all l-show-medium"><span class="breakpoint-aware">MEDIUM</span></p>
+                            <p class="l-half-space l-hide-all l-show-large"><span class="breakpoint-aware">LARGE</span></p>
+                            <p class="l-half-space l-hide-all l-show-xlarge"><span class="breakpoint-aware">XLARGE</span></p>
+	                    </div>
+                    </div>
+	            </div>
+
+                <h3>Orientation Detection</h3>
+                <div><span class="css">.h-show-for-landscape</span>, <span class="css">.h-show-for-portrait</span> classes are <span class="breakpoint-aware">breakpoint aware</span>. They will show an element for a specific screen orientation.</div>
+                <br />
+                <h4>Example</h4>
+                <div class="l-column-group l-gutters l-align-center">
+                    <div class="l-all-100">
+	                    <div class="img">
+                            The screen ORIENTATION is: 
+	                	        <p class="l-half-space l-hide-all h-show-for-landscape"><span class="breakpoint-aware">LANDSCAPE</span></p>
+                            <p class="l-half-space l-hide-all h-show-for-portrait"h-show-for-sr><span class="breakpoint-aware">PORTRAIT</span></p>
+	                    </div>
+                    </div>
+	            </div>
+
+                <h3>Accessibility</h3>
+                <div>Adding one of the <span class="css">.h-hide-xxx</span> classes to an element will prevent screen readers from reading it. However, there are techniques to hide content while still making it readable by screen readers. Class <span class="css">.show-for-sr</span> will be visually hidden but still allowing assistive technology to read it.</div>
+                <br />
+                <h4>Example</h4>
+                <div class="l-column-group l-gutters l-align-center">
+                    <div class="l-all-100">
+	                    <div class="img">
+                            Press TAB to see how a hidden block is shown when it gets focused.<br />
+	                	        <p class="l-half-space h-show-for-sr"><span class="breakpoint-aware">YOU HAVE AN SCREEN READER</span></p>
+                            <a href="#" class="l-half-space h-show-on-focus"><span class="breakpoint-aware">THIS IS HIDDEN UNTIL FOCUS</span></a>
+	                    </div>
+                    </div>
+	            </div>
+
+                <h3>Hide for Screen Readers Only</h3>
+                <div>To hide text from assistive technology, while still keeping it visible, add the attribute <span class="css">aria-hidden="true"</span>. This doesn't affect how the element looks, but screen readers will skip over it.</div>
+                <p aria-hidden="true">This text can be seen, but won't be read by a screen reader.</p>
+            </div>
+        </div>
+    </body>
+    <script type="text/javascript" src="../js/DesignSystem-0.1.1.js"></script>
+</html>

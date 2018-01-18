@@ -1,0 +1,70 @@
+﻿/// Generates vendor prefixes.
+///
+/// @argument {string} $property
+///   Property to prefix.
+///
+/// @argument {string} $value
+///   Value to use.
+///
+/// @argument {list} $prefixes
+///   Vendor prefixes to output.
+///
+/// @example scss - SCSS
+///   .foo {
+///     @include prefixer(appearance, none, webkit moz);
+///   }
+///
+@mixin prefixer(
+    $property,
+    $value,
+    $prefixes: ()
+  ) {
+
+	@each $prefix in $prefixes {
+		#{'-' + $prefix + '-' + $property}: $value;
+	}
+	#{$property}: $value;
+}
+
+// Flex crossbrowser mixins
+
+/// Set display: flex property for all browsers
+@mixin display-flex {
+	// This mixin is just about vendor prefixes, so
+	// VendorPrefix linter should be disabled.
+	// scss-lint:disable VendorPrefix
+	display: -webkit-box;
+	display: -moz-box;
+	-moz-display: flex;
+	-ms-display: flexbox;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+}
+
+// Set align-items property for all browsers
+@mixin align-items($value) {
+	@include prefixer(align-items, $value, webkit ms moz);
+}
+
+// Set align-self property for all browsers
+@mixin align-self($value) {
+	@include prefixer(align-self, $value, webkit);
+}
+
+// Set justify-content property for all browsers
+@mixin justify-content($value) {
+	@include prefixer(justify-content, $value, webkit ms moz);
+}
+
+// Set flex property for all browsers
+@mixin flex($value) {
+	-webkit-box-flex: $value;
+	-moz-box-flex: $value;
+	@include prefixer(flex, $value, webkit ms);
+}
+
+// Set flex-direction property for all browsers
+@mixin flex-direction($value) {
+	@include prefixer(flex-direction, $value, webkit ms);
+}

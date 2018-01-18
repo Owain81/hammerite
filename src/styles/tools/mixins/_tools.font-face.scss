@@ -1,0 +1,29 @@
+﻿// Taken from: https://github.com/thoughtbot/bourbon/blob/master/app/assets/stylesheets/css3/_font-face.scss
+// Order of the includes matters, and it is: normal, bold, italic, bold+italic.
+
+/// Font-face - Mixin that includes .woff and .ttf sources automatically.
+/// @group Typography
+/// @param {String} $font-family Font family name to use as font-face.
+/// @param {String} $file-path File path where the font files are stored (without extension).
+/// @param {String} $weight [normal] Weight of the font.
+/// @param {String} style [normal] Style of the font.
+///
+/// @example scss - SCSS usage example:
+///		@include font-face('Dagny-bold', '../fonts/Dagny/DagnyCompPro-Bold', bold);
+///
+/// @example css - CSS output:
+///		@font-face {
+///			font-family: "Dagny-bold";
+///			font-weight: bold;
+///			font-style: normal;
+///			src: url("../fonts/Dagny/DagnyCompPro-Bold.woff") format("woff"), url("../fonts/Dagny/DagnyCompPro-Bold.ttf") format("truetype");
+///		}
+@mixin font-face($font-family, $file-path, $weight: normal, $style: normal) {
+	@font-face {
+		font-family: $font-family;
+		font-weight: $weight;
+		font-style: $style;
+		src: url('#{$file-path}.woff') format('woff'),
+			 url('#{$file-path}.ttf') format('truetype');
+	}
+}

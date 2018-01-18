@@ -1,0 +1,44 @@
+// !important is needed for some visibility classes
+// scss-lint:disable ImportantRule
+
+// Show for screen readers only. Firstly we should set everthing as invisible.
+.#{$class-prefix-h}-show-for-sr,
+.#{$class-prefix-h}-show-on-focus {
+	@include element-invisible;
+}
+
+// Only display the element when it's focused.
+.#{$class-prefix-h}-show-on-focus {
+	&:active,
+	&:focus {
+		@include element-invisible-off;
+	}
+}
+
+// Show elements in landscape mode.
+.#{$class-prefix-h}-show-for-landscape,
+.#{$class-prefix-h}-hide-for-portrait {
+	display: block !important;
+
+	@media screen and (orientation: landscape) {
+		display: block !important;
+	}
+
+	@media screen and (orientation: portrait) {
+		display: none !important;
+	}
+}
+
+// Show elements in portrait mode.
+.#{$class-prefix-h}-hide-for-landscape,
+.#{$class-prefix-h}-show-for-portrait {
+	display: none !important;
+
+	@media screen and (orientation: landscape) {
+		display: none !important;
+	}
+
+	@media screen and (orientation: portrait) {
+		display: block !important;
+	}
+}

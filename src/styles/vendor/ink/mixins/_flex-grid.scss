@@ -1,0 +1,902 @@
+////
+/// @group Grid
+////
+
+/// Generates the grid main container
+/// @param {object} $grid-container-class-name
+/// @param {object} $gutter-width
+
+@mixin generate-grid-container ($grid-container-class-name, $gutter-width) {
+
+    .#{$grid-container-class-name} {
+        padding: 0 $gutter-width;
+    }
+}
+
+/// Generates the grid column grouping container
+/// @param {object} $class-name
+@mixin generate-flex-column-group($class-name) {
+
+  .#{$flex-class-name},
+  .#{$grid-column-group-class-name} {
+		display: flex;
+		display: -ms-flexbox;
+		flex-wrap: wrap;
+		-ms-flexbox-wrap: wrap;
+		flex-direction: row;
+        list-style: none;
+
+
+        &.#{$class-prefix-l}-#{$class-name}-reverse {
+			flex-direction: row-reverse;	
+		}
+
+        &.#{$class-prefix-l}-#{$class-name}-vertical { 
+			flex-direction: column;
+		 }
+
+        &.#{$class-prefix-l}-#{$class-name}-vertical.#{$class-prefix-l}-#{$class-name}-reverse { 
+			flex-direction: column-reverse;
+		 }
+    }
+}
+
+/// Generates utilities for flex grid. The classes enables users to align the content in a certain way
+/// @param {object} $class-name
+/// @example html
+///
+///	<div class="\l-column-group l-push-center l-push-middle\">
+///		<div class="l-all-50">
+///			50%
+///		</div>
+///	</div>
+
+@mixin generate-flex-grid-utils ($class-name) {
+    .#{$grid-column-group-class-name} {
+        .#{$class-prefix-l}-#{$class-name}-auto {
+			//flex-basis: auto;
+			-ms-flex-basis: auto;
+			flex-grow: 1;
+        }
+    }
+
+    // Vertical align
+    .#{$class-prefix-l}-push-top,
+    .#{$class-prefix-l}-#{$class-name}-push-top {
+        -webkit-box-align: start;
+        -webkit-align-items: flex-start;
+        -moz-box-align: start;
+        -ms-flex-align: start;
+        align-items: flex-start;
+        -webkit-align-self: flex-start;
+        -ms-flex-item-align: start;
+        align-self: flex-start;
+    }
+
+    .#{$class-prefix-l}-push-bottom,
+    .#{$class-prefix-l}-#{$class-name}-push-bottom {
+        -webkit-box-align: end;
+        -webkit-align-items: flex-end;
+        -moz-box-align: end;
+        -ms-flex-align: end;
+        align-items: flex-end;
+        -webkit-align-self: flex-end;
+        -ms-flex-item-align: end;
+        align-self: flex-end;
+    }
+
+    .#{$class-prefix-l}-push-middle,
+    .#{$class-prefix-l}-#{$class-name}-push-middle {
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+        -moz-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-align-self: center;
+        -ms-flex-item-align: center;
+        align-self: center;
+    }
+
+    .#{$class-prefix-l}-push-stretch,
+    .#{$class-prefix-l}-#{$class-name}-push-stretch {
+        display: flex;
+		align-items: stretch;
+		flex-align: stretch;
+		-ms-flex-align: stretch;
+
+    }
+
+    .#{$class-prefix-l}-push-left,
+    .#{$class-prefix-l}-#{$class-name}-push-left {
+        justify-content: flex-start;
+		flex-pack: start;
+		-ms-flex-pack: start;
+
+        float: left;
+    }
+
+    .#{$class-prefix-l}-push-center,
+    .#{$class-prefix-l}-#{$class-name}-push-center {
+        float: none !important;
+
+		justify-content: center;
+		flex-pack: center;
+		-ms-flex-pack: center;
+
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .#{$class-prefix-l}-push-right,
+    .#{$class-prefix-l}-#{$class-name}-push-right {
+
+		justify-content: flex-end;
+		flex-pack: end;
+		-ms-flex-pack: end;
+        float: right;
+    }
+
+    //.push-justify,
+    //.#{$class-name}-push-justify {
+	//	justify-content: space-between;
+	//	flex-pack: justify;
+	//	-ms-flex-pack: justify;
+    //}
+
+    .#{$class-prefix-l}-push-distribute,
+    .#{$class-prefix-l}-#{$class-name}-push-distribute {
+		justify-content: space-around;
+		flex-pack: distribute;
+		-ms-flex-pack: distribute;
+    }
+}
+
+/// Generates classes which enables users to order the content
+/// @param {object} $class-name
+/// @example
+///
+///	<div class="l-column-group l-horizontal-gutters">
+///		<div class="l-all-33 l-order-3">
+///			column 1
+///		</div>
+///		<div class="l-all-33 l-order-1">
+///			column 2
+///		</div>
+///		<div class="l-all-33 l-order-2">
+///			column 3
+///		</div>
+///	</div>
+
+@mixin grid-flex-order($class-name: null) {
+  @if $class-name != null {
+      $i: 1;
+      @while $i <= 10 {
+        .#{$class-prefix-l}-order-#{$i} {
+          order: #{$i};
+          -ms-flex-order: #{$i};
+          $i: $i + 1;
+        }
+      }
+  }
+  @if $class-name == null {
+     $i: 1;
+      @while $i <= 10 {
+        .#{$class-prefix-l}-order-#{$i} {
+          order: #{$i};
+          -ms-flex-order: #{$i};
+          $i: $i + 1;
+        }
+      }
+  }
+}
+
+
+/// Generates flex colum gutters
+/// @param {object} $class-name
+/// @param {object} $gutter-width
+
+@mixin generate-flex-column-group-gutters($class-name,$gutter-width) {
+
+	// Generates full gutters
+    .#{$grid-column-group-class-name}.#{$class-prefix-l}-#{$grid-gutters-class-name} {
+        margin-left: $gutter-width * -1;
+        & > [class*=#{$class-name}-],
+		& > [class*=#{$class-prefix-l}-],
+        & > [class*=#{$class-prefix-l}-all-],
+        & > .#{$class-prefix-l}-all-auto {
+            padding-left: $gutter-width;
+            margin-bottom: $gutter-width;
+        }
+    }
+
+	// Horizontal gutters
+    .#{$grid-column-group-class-name}.#{$class-prefix-l}-#{$grid-horizontal-gutters-class-name} {
+        margin-left: $gutter-width * -1;
+        & > [class*=#{$class-name}-],
+		& > [class*=#{$class-prefix-l}-],
+        & > [class*=#{$class-prefix-l}-all-],
+        & > .#{$class-prefix-l}-all-auto {
+            padding-left: $gutter-width;
+        }
+    }
+
+	// Vertical gutters
+    .#{$grid-column-group-class-name}.#{$class-prefix-l}-#{$grid-vertical-gutters-class-name} {
+        & > [class*=#{$class-name}-],
+		& > [class*=#{$class-prefix-l}-],
+        & > [class*=#{$class-prefix-l}-all-],
+        & > .#{$class-prefix-l}-all-auto {
+            margin-bottom: $gutter-width;
+        }
+    }
+
+	// Double gutters
+    .#{$grid-column-group-class-name}.#{$class-prefix-l}-#{$grid-double-gutters-class-name} {
+        margin-left: ($gutter-width * 2) * -1;
+        & > [class*=#{$class-name}-],
+        & > [class*=#{$class-prefix-l}-all-],
+        & > .#{$class-prefix-l}-all-auto {
+            padding-left: ($gutter-width * 2);
+            margin-bottom: ($gutter-width * 2);
+        }
+    }
+
+	// Double horizontal gutters
+    .#{$grid-column-group-class-name}.#{$class-prefix-l}-#{$grid-double-horizontal-gutters-class-name} {
+        margin-left: ($gutter-width * 2) * -1;
+        & > [class*=#{$class-name}-],
+		& > [class*=#{$class-prefix-l}-],
+        & > [class*=#{$class-prefix-l}-all-],
+        & > .#{$class-prefix-l}-all-auto {
+            padding-left: ($gutter-width * 2);
+        }
+    }
+
+	// Double vertical gutters
+    .#{$grid-column-group-class-name}.#{$class-prefix-l}-#{$grid-double-vertical-gutters-class-name} {
+        & > [class*=#{$class-name}-],
+		& > [class*=#{$class-prefix-l}-],
+        & > [class*=#{$class-prefix-l}-all-],
+        & > .#{$class-prefix-l}-all-auto {
+            margin-bottom: ($gutter-width * 2);
+        }
+    }
+
+	// Half gutters
+    .#{$grid-column-group-class-name}.#{$class-prefix-l}-#{$grid-half-gutters-class-name} {
+        margin-left: ( $gutter-width / 2 ) * -1;
+        & > [class*=#{$class-name}-],
+		& > [class*=#{$class-prefix-l}-],
+        & > [class*=#{$class-prefix-l}-all-],
+        & > .#{$class-prefix-l}-all-auto {
+            padding-left: ( $gutter-width / 2);
+            margin-bottom: ( $gutter-width / 2);
+        }
+    }
+
+	// Half horizontal gutters
+    .#{$grid-column-group-class-name}.#{$class-prefix-l}-#{$grid-half-horizontal-gutters-class-name} {
+        margin-left: ( $gutter-width / 2 ) * -1;
+        & > [class*=#{$class-name}-],
+		& > [class*=#{$class-prefix-l}-],
+        & > [class*=#{$class-prefix-l}-all-],
+        & > .#{$class-prefix-l}-all-auto {
+            padding-left: ( $gutter-width / 2);
+        }
+    }
+
+	// Half vertical gutters
+    .#{$grid-column-group-class-name}.#{$class-prefix-l}-#{$grid-half-vertical-gutters-class-name} {
+        & > [class*=#{$class-name}-],
+		& > [class*=#{$class-prefix-l}-],
+        & > [class*=#{$class-prefix-l}-all-],
+        & > .#{$class-prefix-l}-all-auto {
+            margin-bottom: ( $gutter-width / 2);
+        }
+    }
+
+	// Quarter gutters
+    .#{$grid-column-group-class-name}.#{$class-prefix-l}-#{$grid-quarter-gutters-class-name} {
+        margin-left: ( $gutter-width / 4 ) * -1;
+        & > [class*=#{$class-name}-],
+		& > [class*=#{$class-prefix-l}-],
+        & > [class*=#{$class-prefix-l}-all-],
+        & > .#{$class-prefix-l}-all-auto {
+            padding-left: ( $gutter-width / 4);
+            margin-bottom: ( $gutter-width / 4);
+        }
+    }
+
+	// Quarter horizontal gutters
+    .#{$grid-column-group-class-name}.#{$class-prefix-l}-#{$grid-quarter-horizontal-gutters-class-name} {
+        margin-left: ( $gutter-width / 4 ) * -1;
+        & > [class*=#{$class-name}-],
+		& > [class*=#{$class-prefix-l}-],
+        & > [class*=#{$class-prefix-l}-all-],
+        & > .#{$class-prefix-l}-all-auto {
+            padding-left: ( $gutter-width / 4);
+        }
+    }
+
+	// Quarter vertical gutters
+    .#{$grid-column-group-class-name}.#{$class-prefix-l}-#{$grid-quarter-vertical-gutters-class-name} {
+        & > [class*=#{$class-name}-],
+		& > [class*=#{$class-prefix-l}-],
+        & > [class*=#{$class-prefix-l}-all-],
+        & > .#{$class-prefix-l}-all-auto {
+            margin-bottom: ( $gutter-width / 4);
+        }
+    }
+	
+    .#{$grid-column-group-class-name}.#{$class-prefix-l}-#{$class-name}-#{$grid-gutters-class-name} {
+        margin-left: $gutter-width * -1;
+        & > [class*=#{$class-name}-],
+		& > [class*=#{$class-prefix-l}-],
+        & > [class*=#{$class-prefix-l}-all-],
+        & > .#{$class-prefix-l}-all-auto {
+            padding-left: ( $gutter-width );
+            margin-bottom: ( $gutter-width );
+        }
+    }
+
+    .#{$grid-column-group-class-name}.#{$class-prefix-l}-#{$class-name}-#{$grid-horizontal-gutters-class-name} {
+        margin-left: $gutter-width * -1;
+        & > [class*=#{$class-name}-],
+		& > [class*=#{$class-prefix-l}-],
+        & > [class*=#{$class-prefix-l}-all-],
+        & > .#{$class-prefix-l}-all-auto {
+            padding-left: $gutter-width ;
+        }
+    }
+
+    .#{$grid-column-group-class-name}.#{$class-prefix-l}-#{$class-name}-#{$grid-vertical-gutters-class-name} {
+        & > [class*=#{$class-name}-],
+		& > [class*=#{$class-prefix-l}-],
+        & > [class*=#{$class-prefix-l}-all-],
+        & > .#{$class-prefix-l}-all-auto {
+            margin-bottom: $gutter-width;
+        }
+    }
+
+    .#{$grid-column-group-class-name}.#{$class-prefix-l}-#{$class-name}-#{$grid-double-gutters-class-name} {
+        margin-left: ($gutter-width * 2) * -1;
+        & > [class*=#{$class-name}-],
+		& > [class*=#{$class-prefix-l}-],
+        & > [class*=#{$class-prefix-l}-all-],
+        & > .#{$class-prefix-l}-all-auto {
+            padding-left: ( $gutter-width * 2);
+            margin-bottom: ( $gutter-width * 2);
+        }
+    }
+
+    .#{$grid-column-group-class-name}.#{$class-prefix-l}-#{$class-name}-#{$grid-double-horizontal-gutters-class-name} {
+        margin-left: ($gutter-width * 2) * -1;
+        & > [class*=#{$class-name}-],
+		& > [class*=#{$class-prefix-l}-],
+        & > [class*=#{$class-prefix-l}-all-],
+        & > .#{$class-prefix-l}-all-auto {
+            padding-left: ( $gutter-width * 2);
+        }
+    }
+
+    .#{$grid-column-group-class-name}.#{$class-prefix-l}-#{$class-name}-#{$grid-double-vertical-gutters-class-name} {
+        & > [class*=#{$class-name}-],
+		& > [class*=#{$class-prefix-l}-],
+        & > [class*=#{$class-prefix-l}-all-],
+        & > .#{$class-prefix-l}-all-auto {
+            margin-bottom: ( $gutter-width * 2);
+        }
+    }
+
+    .#{$grid-column-group-class-name}.#{$class-prefix-l}-#{$class-name}-#{$grid-half-gutters-class-name} {
+        margin-left: ( $gutter-width / 2 ) * -1;
+        & > [class*=#{$class-name}-],
+		& > [class*=#{$class-prefix-l}-],
+        & > [class*=#{$class-prefix-l}-all-],
+        & > .#{$class-prefix-l}-all-auto {
+            padding-left: ( $gutter-width / 2);
+            margin-bottom: ( $gutter-width / 2);
+        }
+    }
+
+    .#{$grid-column-group-class-name}.#{$class-prefix-l}-#{$class-name}-#{$grid-half-horizontal-gutters-class-name} {
+        margin-left: ( $gutter-width / 2 ) * -1;
+        & > [class*=#{$class-name}-],
+		& > [class*=#{$class-prefix-l}-],
+        & > [class*=#{$class-prefix-l}-all-],
+        & > .#{$class-prefix-l}-all-auto {
+            padding-left: ( $gutter-width / 2);
+        }
+    }
+
+    .#{$grid-column-group-class-name}.#{$class-prefix-l}-#{$class-name}-#{$grid-half-vertical-gutters-class-name} {
+        & > [class*=#{$class-name}-],
+		& > [class*=#{$class-prefix-l}-],
+        & > [class*=#{$class-prefix-l}-all-],
+        & > .#{$class-prefix-l}-all-auto {
+            margin-bottom: ( $gutter-width / 2);
+        }
+    }
+
+    .#{$grid-column-group-class-name}.#{$class-prefix-l}-#{$class-name}-#{$grid-quarter-gutters-class-name} {
+        margin-left: ( $gutter-width / 4 ) * -1;
+        & > [class*=#{$class-name}-],
+		& > [class*=#{$class-prefix-l}-],
+        & > [class*=#{$class-prefix-l}-all-],
+        & > .#{$class-prefix-l}-all-auto {
+            padding-left: ( $gutter-width / 4);
+            margin-bottom: ( $gutter-width / 4);
+        }
+    }
+
+    .#{$grid-column-group-class-name}.#{$class-prefix-l}-#{$class-name}-#{$grid-quarter-horizontal-gutters-class-name} {
+        margin-left: ( $gutter-width / 4 ) * -1;
+        & > [class*=#{$class-name}-],
+		& > [class*=#{$class-prefix-l}-],
+        & > [class*=#{$class-prefix-l}-all-],
+        & > .#{$class-prefix-l}-all-auto {
+            padding-left: ( $gutter-width / 4);
+        }
+    }
+
+    .#{$grid-column-group-class-name}.#{$class-prefix-l}-#{$class-name}-#{$grid-quarter-vertical-gutters-class-name} {
+        & > [class*=#{$class-name}-],
+		& > [class*=#{$class-prefix-l}-],
+        & > [class*=#{$class-prefix-l}-all-],
+        & > .#{$class-prefix-l}-all-auto {
+            margin-bottom: ( $gutter-width / 4);
+        }
+    }
+
+    .#{$grid-column-group-class-name}.#{$class-prefix-l}-#{$class-name}-#{$grid-no-gutters-class-name} {
+        margin-left: 0;
+        & > [class*=#{$class-name}-],
+		& > [class*=#{$class-prefix-l}-],
+        & > [class*=#{$class-prefix-l}-all-],
+        & > .#{$class-prefix-l}-all-auto {
+            padding-left: 0;
+            margin-bottom: 0;
+        }
+    }
+}
+
+/// Generates helper classes
+/// @param {object} $class-name
+/// @param {object} $gutter-width
+
+@mixin generate-grid-helper-classes($class-name,$gutter-width) {
+
+	.#{$class-prefix-l}-align-left,
+    .#{$class-prefix-l}-#{$class-name}-align-left {
+        text-align: left;
+    }
+
+	.#{$class-prefix-l}-align-center,
+    .#{$class-prefix-l}-#{$class-name}-align-center {
+        text-align: center;
+    }
+
+	.#{$class-prefix-l}-align-right,
+    .#{$class-prefix-l}-#{$class-name}-align-right {
+        text-align: right;
+    }
+
+    $space-placements: (
+
+        (null,
+            (
+                (double,2),
+                (half,0.5),
+                ('quarter',0.25)
+            )
+        ),
+        ('vertical',
+            (
+                (double,2),
+                (half,0.5),
+                ('quarter',0.25)
+            )
+        ),
+        ('horizontal',
+            (
+                (double,2),
+                (half,0.5),
+                ('quarter',0.25)
+            )
+        ),
+        ('top',
+            (
+                (double,2),
+                (half,0.5),
+                ('quarter',0.25)
+            )
+        ),
+        ('right',
+            (
+                (double,2),
+                (half,0.5),
+                ('quarter',0.25)
+            )
+        ),
+        ('bottom',
+            (
+                (double,2),
+                (half,0.5),
+                ('quarter',0.25)
+            )
+        ),
+        ('left',
+            (
+                (double,2),
+                (half,0.5),
+                ('quarter',0.25)
+            )
+        )
+    );
+
+    @each $placement in $space-placements {
+
+        $position: nth($placement,1);
+
+        @if $position == horizontal {
+
+            .#{$class-prefix-l}-#{$position}-space {
+                margin-left: $gutter-width;
+                margin-right: $gutter-width;
+            }
+
+            .#{$class-prefix-l}-#{$class-name}-#{$position}-space {
+                margin-left: $gutter-width;
+                margin-right: $gutter-width;
+            }
+
+            .#{$class-prefix-l}-#{$position}-padding {
+                padding-left: $gutter-width;
+                padding-right: $gutter-width;
+            }
+
+            .#{$class-prefix-l}-#{$class-name}-#{$position}-padding {
+                padding-left: $gutter-width;
+                padding-right: $gutter-width;
+            }
+
+            @each $sub-division in nth($placement,2) {
+                $sub-division-class-name: nth($sub-division,1);
+                $sub-division-unit: nth($sub-division,2);
+
+                .#{$class-prefix-l}-#{$sub-division-class-name}-#{$position}-space {
+                    margin-left: $gutter-width * $sub-division-unit;
+                    margin-right: $gutter-width * $sub-division-unit;
+                }
+
+                .#{$class-prefix-l}-#{$class-name}-#{$sub-division-class-name}-#{$position}-space {
+                    margin-left: $gutter-width * $sub-division-unit;
+                    margin-right: $gutter-width * $sub-division-unit;
+                }
+
+                .#{$class-prefix-l}-#{$sub-division-class-name}-#{$position}-padding {
+                    padding-left: $gutter-width * $sub-division-unit;
+                    padding-right: $gutter-width * $sub-division-unit;
+                }
+
+                .#{$class-prefix-l}-#{$class-name}-#{$sub-division-class-name}-#{$position}-padding {
+                    padding-left: $gutter-width * $sub-division-unit;
+                    padding-right: $gutter-width * $sub-division-unit;
+                }
+            }
+
+        }
+
+        @if $position == vertical {
+
+            .#{$class-prefix-l}-#{$position}-space {
+                margin-top: $gutter-width;
+                margin-bottom: $gutter-width;
+            }
+
+            .#{$class-prefix-l}-#{$class-name}-#{$position}-space {
+                margin-top: $gutter-width;
+                margin-bottom: $gutter-width;
+            }
+
+            .#{$class-prefix-l}-#{$position}-padding {
+                padding-top: $gutter-width;
+                padding-bottom: $gutter-width;
+            }
+
+            .#{$class-prefix-l}-#{$class-name}-#{$position}-padding {
+                padding-top: $gutter-width;
+                padding-bottom: $gutter-width;
+            }
+
+            @each $sub-division in nth($placement,2) {
+                $sub-division-class-name: nth($sub-division,1);
+                $sub-division-unit: nth($sub-division,2);
+
+                .#{$class-prefix-l}-#{$sub-division-class-name}-#{$position}-space {
+                    margin-top: $gutter-width * $sub-division-unit;
+                    margin-bottom: $gutter-width * $sub-division-unit;
+                }
+
+                .#{$class-prefix-l}-#{$class-name}-#{$sub-division-class-name}-#{$position}-space {
+                    margin-top: $gutter-width * $sub-division-unit;
+                    margin-bottom: $gutter-width * $sub-division-unit;
+                }
+
+                .#{$class-prefix-l}-#{$sub-division-class-name}-#{$position}-padding {
+                    padding-top: $gutter-width * $sub-division-unit;
+                    padding-bottom: $gutter-width * $sub-division-unit;
+                }
+
+                .#{$class-prefix-l}-#{$class-name}-#{$sub-division-class-name}-#{$position}-padding {
+                    padding-top: $gutter-width * $sub-division-unit;
+                    padding-bottom: $gutter-width * $sub-division-unit;
+                }
+            }
+
+        }
+
+        @if $position != horizontal and $position != vertical and $position != null {
+
+            .#{$class-prefix-l}-#{$position}-space {
+                margin-#{$position}: $gutter-width;
+            }
+
+            .#{$class-prefix-l}-#{$class-name}-#{$position}-space {
+                margin-#{$position}: $gutter-width;
+            }
+
+            .#{$class-prefix-l}-#{$position}-padding {
+                padding-#{$position}: $gutter-width;
+            }
+
+            .#{$class-prefix-l}-#{$class-name}-#{$position}-padding {
+                padding-#{$position}: $gutter-width;
+            }
+
+            @each $sub-division in nth($placement,2) {
+                $sub-division-class-name: nth($sub-division,1);
+                $sub-division-unit: nth($sub-division,2);
+
+                .#{$class-prefix-l}-#{$sub-division-class-name}-#{$position}-space {
+                    margin-#{$position}: $gutter-width * $sub-division-unit;
+                }
+
+                .#{$class-prefix-l}-#{$class-name}-#{$sub-division-class-name}-#{$position}-space {
+                    margin-#{$position}: $gutter-width * $sub-division-unit;
+                }
+
+                .#{$class-prefix-l}-#{$sub-division-class-name}-#{$position}-padding {
+                    padding-#{$position}: $gutter-width * $sub-division-unit;
+                }
+
+                .#{$class-prefix-l}-#{$class-name}-#{$sub-division-class-name}-#{$position}-padding {
+                    padding-#{$position}: $gutter-width * $sub-division-unit;
+                }
+            }
+        }
+
+        @if $position == null {
+
+            .#{$class-prefix-l}-space {
+                margin: $gutter-width;
+            }
+
+            .#{$class-prefix-l}-#{$class-name}-space {
+                margin: $gutter-width;
+            }
+
+            .#{$class-prefix-l}-padding {
+                padding: $gutter-width;
+            }
+
+            .#{$class-prefix-l}-#{$class-name}-padding {
+                padding: $gutter-width;
+            }
+
+            @each $sub-division in nth($placement,2) {
+                $sub-division-class-name: nth($sub-division,1);
+                $sub-division-unit: nth($sub-division,2);
+
+                .#{$class-prefix-l}-#{$sub-division-class-name}-space {
+                    margin: $gutter-width * $sub-division-unit;
+                }
+
+                .#{$class-prefix-l}-#{$class-name}-#{$sub-division-class-name}-space {
+                    margin: $gutter-width * $sub-division-unit;
+                }
+
+                .#{$class-prefix-l}-#{$sub-division-class-name}-padding {
+                    padding: $gutter-width * $sub-division-unit;
+                }
+
+                .#{$class-prefix-l}-#{$class-name}-#{$sub-division-class-name}-padding {
+                    padding: $gutter-width * $sub-division-unit;
+                }
+            }
+        }
+    }
+}
+
+/// Generates visibility classes
+/// @param {object} $breakpoint
+
+@mixin generate-visibility-classes ($breakpoint) {
+
+    .#{$class-prefix-l}-hide-#{$breakpoint} {
+        display: none !important;
+    }
+    .#{$class-prefix-l}-show-#{$breakpoint} {
+        display: inherit !important;
+    }
+
+    table.#{$class-prefix-l}-show-#{$breakpoint} {
+        display: table;
+    }
+    thead.#{$class-prefix-l}-show-#{$breakpoint} {
+        display: table-header-group;
+    }
+    tbody.#{$class-prefix-l}-show-#{$breakpoint} {
+        display: table-row-group;
+    }
+    tfoot.#{$class-prefix-l}-show-#{$breakpoint} {
+        display: table-footer-group;
+    }
+    tr.#{$class-prefix-l}-show-#{$breakpoint} {
+        display: table-row;
+    }
+    th.#{$class-prefix-l}-show-#{$breakpoint},
+    td.#{$class-prefix-l}-show-#{$breakpoint} {
+        display: table-cell;
+    }
+}
+
+/// Generates the different classes
+/// @param {object} $class-name
+
+@mixin generate-flex-grid-divisions ($class-name) {
+
+    // iteration counter
+    $i: 5;
+
+    // define the step size (this is the minimum column width percentage)
+    $step-size: 5;
+
+    // iterate to generate the width classes
+    @while $i <= 100 {
+
+        // generate the 33% width
+        @if $i > 30 and $i <= 35 {
+            .#{$class-prefix-l}-#{$class-name}-33 {
+                width: 33.33333%;
+				flex-grow: 0;
+
+            }
+        }
+
+        // generate the 66% width
+        @if $i > 65 and $i <= 70 {
+            .#{$class-prefix-l}-#{$class-name}-66 {
+                width: 66.66666%;
+                flex-grow: 0;
+            }
+        }
+
+        // generate the 16% width
+        @if $i > 15 and $i <= 20 {
+            .#{$class-prefix-l}-#{$class-name}-16 {
+                width: 16.66666%;
+                flex-grow: 0;
+            }
+        }
+
+        // generate the 5% step widths
+        .#{$class-prefix-l}-#{$class-name}-#{$i} {
+            width: $i * 1%;
+        
+            flex-grow: 0;
+        }
+
+        // increment the counter
+        $i: $i + $step-size;
+    }
+
+    .#{$class-prefix-l}-#{$class-name}-auto {
+        //width: auto;
+        -webkit-box-flex: 1;
+        -webkit-flex: 1;
+        -moz-box-flex: 1;
+        -ms-flex: 1;
+        flex: 1;
+        
+    }
+}
+
+/// Generates the flex grid
+/// @param {object} $breakpoints
+
+@mixin generate-flex-grid ($breakpoints) {
+
+    // html.flexbox {
+
+        .#{$grid-class-name} {
+          width: auto;
+          max-width: $grid-max-width;
+          margin: 0 auto;
+        }
+
+        @include grid-flex-order();
+
+        $all-class-names: '';
+
+        @each $breakpoint in $breakpoints {
+
+            $media: nth($breakpoint,1);
+            $class-name: nth($breakpoint,2);
+            $minimum-width: nth($breakpoint,3);
+            $maximum-width: nth($breakpoint,4);
+            $gutter-width: nth($breakpoint,5);
+            $base-font-size: nth($breakpoint,6);
+            $no-media-query: nth($breakpoint,7);
+            $all-class-names: ".#{$class-name}, #{$all-class-names}";
+
+            @if $minimum-width and not $maximum-width {
+                @media #{$media} and (min-width: $minimum-width) {
+                    @include generate-grid-container($grid-class-name, $gutter-width);
+                    @include generate-flex-column-group-gutters($class-name,$gutter-width);
+                    @include generate-flex-grid-divisions($class-name);
+                    @include generate-flex-column-group($class-name);
+                    @include grid-flex-order($class-name);
+                    @include generate-flex-grid-utils($class-name);
+                    @include generate-grid-helper-classes($class-name,$gutter-width);
+                    @include generate-visibility-classes($class-name);
+                }
+            }
+
+            @if $minimum-width and $maximum-width {
+				@media #{$media} and (min-width: $minimum-width) {
+					@include generate-grid-container($grid-class-name, $gutter-width);
+                    @include generate-flex-column-group-gutters($class-name,$gutter-width);
+                    @include generate-flex-grid-divisions($class-name);
+                    @include generate-flex-column-group($class-name);
+                    @include grid-flex-order($class-name);
+                    @include generate-flex-grid-utils($class-name);
+                    @include generate-grid-helper-classes($class-name,$gutter-width);
+				}
+
+                @media #{$media} and (min-width: $minimum-width) and (max-width: $maximum-width) {
+                    @include generate-visibility-classes($class-name);
+                }
+            }
+
+            @if not $minimum-width and $maximum-width {
+                @media #{$media} and (min-width: 0) {
+                    @include generate-grid-container($grid-class-name, $gutter-width);
+                    @include generate-flex-column-group-gutters($class-name,$gutter-width);
+                    @include generate-flex-grid-divisions($class-name);
+                    @include generate-flex-column-group($class-name);
+                    @include grid-flex-order($class-name);
+                    @include generate-flex-grid-utils($class-name); 
+                    @include generate-grid-helper-classes($class-name,$gutter-width);
+                }
+
+				@media #{$media} and (max-width: $maximum-width) {
+                    @include generate-visibility-classes($class-name);
+                }
+            }
+
+            @if not $minimum-width and not $maximum-width {
+                @media #{$media} {
+                    @include generate-grid-container($grid-class-name, $gutter-width);
+                    @include generate-flex-column-group-gutters($class-name,$gutter-width);
+                    @include generate-flex-grid-divisions($class-name);
+                    @include generate-flex-column-group($class-name);
+                    @include grid-flex-order($class-name);
+                    @include generate-flex-grid-utils($class-name);
+                    @include generate-grid-helper-classes($class-name,$gutter-width);
+                    @include generate-visibility-classes($class-name);
+                }
+            }
+        }
+    // }
+}

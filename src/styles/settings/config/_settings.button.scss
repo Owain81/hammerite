@@ -1,0 +1,199 @@
+////
+/// @group Button
+////
+
+/// Button padding default
+/// @type Number
+$button-padding-default: px-to-rem(set-space(m)) !default;
+
+/// Button margin default
+/// @type Number
+$button-margin-default: set-space(s) !default;
+
+/// Button max height default
+/// @type Number
+$button-max-height-default: 44px !default;
+
+/// Button font size default
+/// @type Number
+$button-font-size-default: $font-base-size !default;
+
+/// Button font color default
+/// @type Color
+$button-font-color-default: $color-black;
+
+/// Button background default
+/// @type String
+$button-background-default: $color-grey-8 !default;
+
+/// Button background default hover
+/// @type String
+$button-background-default-hover: $color-grey-18 !default;
+
+/// Button background default active
+/// @type String
+$button-background-default-active: $color-grey-34 !default;
+
+/// Button border radius
+/// @type Number
+$button-border-radius: 3px !default;
+
+/// Button border style
+/// @type String
+$button-border-style: solid !default;
+
+/// Button border width
+/// @type Number
+$button-border-width: 1px !default;
+
+/// Button border color
+/// @type Color
+$button-border-color: $color-grey-65 !default;
+
+/// Button shadow color
+/// @type Color
+$button-shadow-color: $color-blue !default;
+
+// Happy
+
+/// Button background happy
+/// @type Color
+$button-background-happy: $color-blue !default;
+
+/// Button background happy hover
+/// @type Color
+$button-background-happy-hover: $color-btn-happy-hover !default;
+
+/// Button background happy active
+/// @type Color
+$button-background-happy-active: $color-btn-happy-press !default;
+
+/// Button font color happy
+/// @type Color
+$button-font-color-happy: $color-white !default;
+
+// Positive
+
+/// Button background positive
+/// @type Color
+$button-background-positive: $color-success !default;
+
+/// Button background positive hover
+/// @type Color
+$button-background-positive-hover: $color-success-20 !default;
+
+/// Button background positive active
+/// @type Color
+$button-background-positive-active: $color-success-40 !default;
+
+/// Button font color positive
+/// @type Color
+$button-font-color-positive: $color-white !default;
+
+// Negative
+
+/// Button background negative
+/// @type Color
+$button-background-negative: $color-alert !default;
+
+/// Button background negative hover
+/// @type Color
+$button-background-negative-hover: $color-alert-20 !default;
+
+/// Button background negative active
+/// @type Color
+$button-background-negative-active: $color-alert-40 !default;
+
+/// Button font color positive
+/// @type Color
+$button-font-color-negative: $color-white !default;
+
+//Small
+
+/// Button padding small
+/// @type Number
+$button-padding-small: px-to-rem(set-space(s)) !default;
+
+/// Button max height small
+/// @type Number
+$button-max-height-small: 36px !default;
+
+/// Button font size small
+/// @type Number
+$button-font-size-small: px-to-rem(14px) !default;
+
+// Large
+
+/// Button padding large
+/// @type Number
+$button-padding-large: px-to-rem(set-space(m)) !default;
+
+/// Button max height large
+/// @type Number
+$button-max-height-large: 52px !default;
+
+/// Button font size large
+/// @type Number
+$button-font-size-large: px-to-rem(18px) !default;
+
+// Maps
+
+/// Button padding
+/// @type Map
+$button-padding: (
+	default: 0 $button-padding-default,
+	small: 0 $button-padding-small,
+	large: 0 $button-padding-large
+);
+
+/// Button max height
+/// @type Map
+$button-max-height: (
+	default: $button-max-height-default,
+	small: $button-max-height-small,
+	large: $button-max-height-large
+);
+
+/// Button font size
+/// @type Map
+$button-font-size: (
+	default: $button-font-size-default,
+	small: $button-font-size-small,
+	large: $button-font-size-large
+);
+
+/// Button background color
+/// @type Map
+$button-background: (
+	default: $button-background-default,
+	happy: $button-background-happy,
+	positive: $button-background-positive,
+	negative: $button-background-negative
+);
+
+/// Button background color (hover state)
+/// @type Map
+$button-background-hover: (
+	default: $button-background-default-hover,
+	happy: $button-background-happy-hover,
+	positive: $button-background-positive-hover,
+	negative: $button-background-negative-hover
+);
+
+/// Button background color (active state)
+/// @type Map
+$button-background-active: (
+	default: $button-background-default-active,
+	happy: $button-background-happy-active,
+	positive: $button-background-positive-active,
+	negative: $button-background-negative-active
+);
+
+/// Button font color
+/// @type Map
+$button-font-color: (
+	default: $button-font-color-default,
+	happy: $button-font-color-happy,
+	positive: $button-font-color-positive,
+	negative: $button-font-color-negative
+);

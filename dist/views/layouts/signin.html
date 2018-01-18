@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta name="viewport" content="width=device-width, user-scalable=no" />
+        <title>UI Library - LayOut BW</title>
+        
+
+        <link rel="stylesheet" href="../../css/design-system.css" />
+        <style>
+            body {
+                background-color: #E7ECF0;
+            }
+             input:not([type="checkbox"]) {
+                width: 100%;
+            }
+
+            .textLayOut{
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                float: none;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="l-column-group c-signin">
+            <div class="c-signin__image-wrapper">
+                <a href="../../index.html" class="l-align-center l-hide-all l-show-tiny l-show-small c-signin__logo">
+                    <img src="../../images/unit4_Logo_login.svg" width="140" alt="unit4" />
+                </a>
+                <div class="l-tiny-100 c-signin__image"></div>
+            </div>
+            <div class="l-tiny-100 l-medium-33 c-signin__login">
+                <div class="l-double-padding">
+                    <h1 class="l-hide-tiny l-hide-small l-show-all c-signin__login-title">
+                        <a href="../../index.html">
+                            <img src="../../images/unit4_Logo_RGB.svg" width="140" alt="unit4" />
+                        </a>
+                    </h1>
+                    <div class="c-signin__login-form">
+                        <div class="l-tiny-100 l-half-vertical-padding">
+                            <label class="o-label">Username</label>
+                            <input type="text" class="o-input" tabindex="1" autofocus="autofocus"/>
+                        </div>
+                        <div class="l-tiny-100 l-half-vertical-padding">
+                            <label class="o-label">Password</label>
+                            <input type="password" class="o-input" tabindex="2" />
+                        </div>
+                        <div class="l-tiny-100 l-half-vertical-padding">
+                            <input id="checkbox" type="checkbox" class="o-input--checkbox" tabindex="3"  />
+                            <label for="checkbox" class="o-input--label">Remember me</label>
+                        </div>
+
+                        <button class="l-tiny-100 o-btn o-btn--happy o-btn--large c-signin__button" tabindex="4">
+                            Login
+                        </button>
+                        <div class="l-align-center l-half-padding c-signin__forgot">
+                            <a href="../../index.html">Forgot password?</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="l-align-center l-double-horizontal-padding c-signin__legal">
+                    <small>This program is protected by international copyright laws © 1987-2016 unit4 R&D  <a href="">Privacy policy</a></small>
+                </div>
+            </div>
+        </div>
+
+        <script type="text/javascript" src="../../js/DesignSystem-0.1.1.js"></script>       
+    </body>
+</html>

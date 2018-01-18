@@ -1,0 +1,187 @@
+﻿ <!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, user-scalable=no" />
+        <title>Unit 4 - UI Library - Sidebar</title>
+        <link rel="stylesheet" href="../css/design-system.css" />
+    </head>
+    <body>
+        <div class="l-column-group">
+            <input type="checkbox" id="navtrigger" class="menu-toggle__check" />
+            <label for="navtrigger" class="menu-toggle__label" role="button" aria-labelledby="menu">
+                <svg class="o-icon">
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#u4-icon--navicon"></use>
+                </svg>
+            </label>
+            <nav class="c-sidebar">
+                <div class="c-sidebar__header">
+                    <div class="c-sidebar__header-top l-align-center">
+                        <div class="c-sidebar__avatar">
+                            <img src="../images/demo/person.png" />
+                        </div>
+                        <a class="c-sidebar__header-toggle">
+                            <svg class="o-icon c-sidebar__header-toggle-icon">
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#u4-icon--angle-left"></use>
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="c-sidebar__header-user l-align-center">
+                        <h4 class="c-sidebar__username">Karl Andersson</h4>
+                        <h5 class="c-sidebar__function-title">Product manager unit4</h5>
+                    </div>
+                </div>
+                <div class="c-sidebar__wrapper" id="wrapper">
+                    <ul class="c-sidebar__nav" id="nav">
+                        <li class="c-sidebar__nav-item">
+                            <a class="c-sidebar__nav-item-link">
+                                <svg class="o-icon c-sidebar__nav-item-link-icon">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#u4-icon--group"></use>
+                                </svg>
+                                <span class="c-sidebar__nav-item-link-label">Project management</span>
+                            </a>
+                        </li>
+                        <li class="c-sidebar__nav-item">
+                            <a class="c-sidebar__nav-item-link">
+                                <svg class="o-icon c-sidebar__nav-item-link-icon">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#u4-icon--cubes"></use>
+                                </svg>
+                    
+                                <span class="c-sidebar__nav-item-link-label">Experience pack</span>
+                            </a>
+                        </li>
+                        <li class="c-sidebar__nav-item">
+                            <a class="c-sidebar__nav-item-link">
+                                <svg class="o-icon c-sidebar__nav-item-link-icon">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#u4-icon--university"></use>
+                                </svg>
+                    
+                                <span class="c-sidebar__nav-item-link-label">Educational and research</span>
+                            </a>
+                        </li>
+                        <li class="c-sidebar__nav-item">
+                            <a class="c-sidebar__nav-item-link">
+                                <svg class="o-icon c-sidebar__nav-item-link-icon">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#u4-icon--male"></use>
+                                </svg>
+
+                                    <span class="c-sidebar__nav-item-link-label">Accounting</span>
+                            </a>
+                        </li>
+                        <li class="c-sidebar__nav-item">
+                            <a class="c-sidebar__nav-item-link">
+                                <svg class="o-icon c-sidebar__nav-item-link-icon">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#u4-icon--info"></use>
+                                </svg>
+                    
+                                    <span class="c-sidebar__nav-item-link-label">Information pages</span>
+                            </a>
+                        </li>
+                        <li class="c-sidebar__nav-item">
+                            <a class="c-sidebar__nav-item-link">
+                                <svg class="o-icon c-sidebar__nav-item-link-icon">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#u4-icon--calendar"></use>
+                                </svg>
+                    
+                                    <span class="c-sidebar__nav-item-link-label">Planner</span>
+                            </a>
+                        </li>
+                        <li class="c-sidebar__nav-item">
+                            <a class="c-sidebar__nav-item-link">
+                                <svg class="o-icon c-sidebar__nav-item-link-icon">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#u4-icon--tag"></use>
+                                </svg>
+
+                                    <span class="c-sidebar__nav-item-link-label">Customer and sales</span>
+                            </a>
+                        </li>
+                        <li class="c-sidebar__nav-item">
+                            <a class="c-sidebar__nav-item-link">
+                                <svg class="o-icon c-sidebar__nav-item-link-icon">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#u4-icon--shopping-bag"></use>
+                                </svg>
+                        
+                                <span class="c-sidebar__nav-item-link-label">Procurement</span>
+                                <span class="c-sidebar__badge l-push-right">2</span>
+                            </a>
+                        </li>
+                        <li class="c-sidebar__nav-item">
+                            <a class="c-sidebar__nav-item-link">
+                                <svg class="o-icon c-sidebar__nav-item-link-icon">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#u4-icon--money"></use>
+                                </svg>
+
+                                    <span class="c-sidebar__nav-item-link-label">Payroll</span>
+                            </a>
+                        </li>
+                        <li class="c-sidebar__nav-item">
+                            <a class="c-sidebar__nav-item-link">
+                                <svg class="o-icon c-sidebar__nav-item-link-icon">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#u4-icon--user"></use>
+                                </svg>
+
+                                <span class="c-sidebar__nav-item-link-label"> Personal</span>
+                            </a>
+                        </li>
+                        <li class="c-sidebar__nav-item">
+                            <a class="c-sidebar__nav-item-link">
+                                <svg class="o-icon c-sidebar__nav-item-link-icon">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#u4-icon--pie-chart"></use>
+                                </svg>
+
+                                <span class="c-sidebar__nav-item-link-label">Time and expenses</span>
+                            </a>
+                        </li>
+                        <li class="c-sidebar__nav-item">
+                            <a class="c-sidebar__nav-item-link">
+                                <svg class="o-icon c-sidebar__nav-item-link-icon">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#u4-icon--puzzle-piece"></use>
+                                </svg>
+
+                                <span class="c-sidebar__nav-item-link-label">Field force</span>
+                            </a>
+                        </li>
+                        <li class="c-sidebar__nav-item">
+                            <a class="c-sidebar__nav-item-link">
+                                <svg class="o-icon c-sidebar__nav-item-link-icon">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#u4-icon--pencil"></use>
+                                </svg>
+
+                                <span class="c-sidebar__nav-item-link-label">Forms</span>
+                            </a>
+                        </li>
+                        <li class="c-sidebar__nav-item">
+                            <a class="c-sidebar__nav-item-link">
+                                <svg class="o-icon c-sidebar__nav-item-link-icon">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#u4-icon--archive"></use>
+                                </svg>
+
+                                <span class="c-sidebar__nav-item-link-label">Your employment</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="c-sidebar__footer l-align-center l-all-padding l-tiny-100">
+                    <button class="o-btn o-btn--happy l-all-100 c-sidebar__btn">Sign out</button>
+                </div>
+            </nav>
+            <main role="main" class="l-all-auto">
+                <header class="c-topbar">
+                    <div class="c-topbar__wrapper">
+                        <div class="c-topbar__menu-toggle-placeholder"></div>                      
+
+                        <h1 class="c-topbar__title">
+                            <a href="../index.html">
+                                <img src="../images/unit4-logo.svg" width="102" class="c-topbar__element--show-on-desktop" alt="unit4" />
+                                <img src="../images/unit4-logo-white.svg" width="102" class="c-topbar__element--show-on-mobile" alt="unit4" />
+                            </a>
+                        </h1>
+
+                        <h2 class="c-topbar__subtitle">UI Library - Sidebar</h2>
+                    </div>
+                </header>
+            </main>
+        </div>
+    </body>
+    <script src="../js/DesignSystem-0.1.1.js"></script>
+</html>

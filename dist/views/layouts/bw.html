@@ -1,0 +1,400 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta name="viewport" content="width=device-width, user-scalable=no" />
+        <title>UI Library - LayOut BW</title>
+        <link rel="stylesheet" href="../../css/design-system.css" />
+        <style>
+            body {
+                background-color: #E7ECF0;
+            }
+             input:not([type="checkbox"]) {
+                width: 100%;
+            }
+            
+        </style>
+    </head>
+
+    <body>
+        <div class="l-column-group">
+            <input type="checkbox" id="navtrigger" class="menu-toggle__check" />
+            <label for="navtrigger" class="menu-toggle__label" role="button" aria-labelledby="menu">
+                <svg class="o-icon">
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#u4-icon--navicon"></use>
+                </svg>
+            </label>
+            <menu class="c-sidebar">
+                <div class="c-sidebar__header">
+                    <div class="c-sidebar__header-top l-align-center">
+                        <div class="c-sidebar__avatar">
+                            <img src="../../images/demo/person.png" />
+                        </div>
+                        <a class="c-sidebar__header-toggle">
+                            <svg class="o-icon c-sidebar__header-toggle-icon">
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#u4-icon--angle-left"></use>
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="c-sidebar__header-user l-align-center">
+                        <h4 class="c-sidebar__username">Karl Andersson</h4>
+                        <h5 class="c-sidebar__function-title">Product manager unit4</h5>
+                    </div>
+                </div>                
+                <div class="c-sidebar__wrapper" id="wrapper">
+                    <ul class="c-sidebar__nav" id="nav">
+                        <li class="c-sidebar__nav-item">
+                            <a class="c-sidebar__nav-item-link">
+                                <svg class="o-icon c-sidebar__nav-item-link-icon">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#u4-icon--group"></use>
+                                </svg>
+                                <span class="c-sidebar__nav-item-link-label">Project management</span>
+                            </a>
+                        </li>
+                        <li class="c-sidebar__nav-item">
+                            <a class="c-sidebar__nav-item-link">
+                                <svg class="o-icon c-sidebar__nav-item-link-icon">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#u4-icon--cubes"></use>
+                                </svg>
+                    
+                                <span class="c-sidebar__nav-item-link-label">Experience pack</span>
+                            </a>
+                        </li>
+                        <li class="c-sidebar__nav-item">
+                            <a class="c-sidebar__nav-item-link">
+                                <svg class="o-icon c-sidebar__nav-item-link-icon">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#u4-icon--university"></use>
+                                </svg>
+                    
+                                <span class="c-sidebar__nav-item-link-label">Educational and research</span>
+                            </a>
+                        </li>
+                        <li class="c-sidebar__nav-item">
+                            <a class="c-sidebar__nav-item-link">
+                                <svg class="o-icon c-sidebar__nav-item-link-icon">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#u4-icon--male"></use>
+                                </svg>
+
+                                    <span class="c-sidebar__nav-item-link-label">Accounting</span>
+                            </a>
+                        </li>
+                        <li class="c-sidebar__nav-item">
+                            <a class="c-sidebar__nav-item-link">
+                                <svg class="o-icon c-sidebar__nav-item-link-icon">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#u4-icon--info"></use>
+                                </svg>
+                    
+                                    <span class="c-sidebar__nav-item-link-label">Information pages</span>
+                            </a>
+                        </li>
+                        <li class="c-sidebar__nav-item">
+                            <a class="c-sidebar__nav-item-link">
+                                <svg class="o-icon c-sidebar__nav-item-link-icon">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#u4-icon--calendar"></use>
+                                </svg>
+                    
+                                    <span class="c-sidebar__nav-item-link-label">Planner</span>
+                            </a>
+                        </li>
+                        <li class="c-sidebar__nav-item">
+                            <a class="c-sidebar__nav-item-link">
+                                <svg class="o-icon c-sidebar__nav-item-link-icon">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#u4-icon--tag"></use>
+                                </svg>
+
+                                    <span class="c-sidebar__nav-item-link-label">Customer and sales</span>
+                            </a>
+                        </li>
+                        <li class="c-sidebar__nav-item">
+                            <a class="c-sidebar__nav-item-link">
+                                <svg class="o-icon c-sidebar__nav-item-link-icon">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#u4-icon--shopping-bag"></use>
+                                </svg>
+                        
+                                <span class="c-sidebar__nav-item-link-label">Procurement</span>
+                                <span class="c-sidebar__badge l-push-right">2</span>
+                            </a>
+                        </li>
+                        <li class="c-sidebar__nav-item">
+                            <a class="c-sidebar__nav-item-link">
+                                <svg class="o-icon c-sidebar__nav-item-link-icon">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#u4-icon--money"></use>
+                                </svg>
+
+                                    <span class="c-sidebar__nav-item-link-label">Payroll</span>
+                            </a>
+                        </li>
+                        <li class="c-sidebar__nav-item">
+                            <a class="c-sidebar__nav-item-link">
+                                <svg class="o-icon c-sidebar__nav-item-link-icon">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#u4-icon--user"></use>
+                                </svg>
+
+                                <span class="c-sidebar__nav-item-link-label"> Personal</span>
+                            </a>
+                        </li>
+                        <li class="c-sidebar__nav-item">
+                            <a class="c-sidebar__nav-item-link">
+                                <svg class="o-icon c-sidebar__nav-item-link-icon">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#u4-icon--pie-chart"></use>
+                                </svg>
+
+                                <span class="c-sidebar__nav-item-link-label">Time and expenses</span>
+                            </a>
+                        </li>
+                        <li class="c-sidebar__nav-item">
+                            <a class="c-sidebar__nav-item-link">
+                                <svg class="o-icon c-sidebar__nav-item-link-icon">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#u4-icon--puzzle-piece"></use>
+                                </svg>
+
+                                <span class="c-sidebar__nav-item-link-label">Field force</span>
+                            </a>
+                        </li>
+                        <li class="c-sidebar__nav-item">
+                            <a class="c-sidebar__nav-item-link">
+                                <svg class="o-icon c-sidebar__nav-item-link-icon">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#u4-icon--pencil"></use>
+                                </svg>
+
+                                <span class="c-sidebar__nav-item-link-label">Forms</span>
+                            </a>
+                        </li>
+                        <li class="c-sidebar__nav-item">
+                            <a class="c-sidebar__nav-item-link">
+                                <svg class="o-icon c-sidebar__nav-item-link-icon">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#u4-icon--archive"></use>
+                                </svg>
+
+                                <span class="c-sidebar__nav-item-link-label">Your employment</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="c-sidebar__footer l-align-center l-all-padding l-tiny-100">
+                    <button class="o-btn o-btn--happy l-all-100 c-sidebar__btn">Sign out</button>
+                </div>
+            </menu>
+            <main class="l-all-auto">
+                 <header class="c-topbar c-topbar--fixed">
+                    <div class="c-topbar__wrapper">
+                        <div class="c-topbar__menu-toggle-placeholder"></div>                      
+
+                        <h1 class="c-topbar__title">
+                            <a href="#">
+                                <img src="../../images/unit4-logo.svg" width="102" class="c-topbar__element--show-on-desktop" alt="unit4" />
+                                <img src="../../images/unit4-logo-white.svg" width="102" class="c-topbar__element--show-on-mobile" alt="unit4" />
+                            </a>
+                        </h1>
+
+                        <h2 class="c-topbar__subtitle">BW</h2>
+
+
+                        <nav class="c-topbar__toolbar">
+                            <a href="#" class="c-topbar__link c-topbar__expander">
+                                <span class="c-topbar__link-icon">
+                                    <svg class="o-icon">
+                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#u4-icon-topbar--plus"></use>
+                                    </svg>
+                                </span>
+                            </a>
+
+                            <ul>
+                                <li class="c-topbar__item--has-badge">
+                                    <a href="#" class="c-topbar__link">
+                                         <span class="c-topbar__link-icon">
+                                            <svg class="o-icon">
+                                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#u4-icon-topbar--comment"></use>
+                                            </svg>
+                                            <span class="c-topbar__badge">3</span>
+                                        </span>
+                                        <span class="c-topbar__link-title">Messages</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="c-topbar__link">
+                                         <span class="c-topbar__link-icon">
+                                            <svg class="o-icon">
+                                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#u4-icon-topbar--info-circle"></use>
+                                            </svg>
+                                        </span>
+                                        <span class="c-topbar__link-title">Help</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="c-topbar__link">
+                                         <span class="c-topbar__link-icon">
+                                            <svg class="o-icon">
+                                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#u4-icon-topbar--user"></use>
+                                            </svg>
+                                        </span>
+                                        <span class="c-topbar__link-title">Profile</span>
+                                    </a>
+                                </li>
+
+                                <li class="c-topbar__search">
+                                    <a href="#" class="c-topbar__link">
+                                        <span class="c-topbar__link-icon">
+                                            <svg class="o-icon">
+                                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#u4-icon-topbar--search"></use>
+                                            </svg>
+                                        </span>
+                                    </a>
+                                    <input class="o-input" type="text"></input>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </header>
+
+                <section class="l-grid">
+                    <div class="l-column-group">
+                        <div class="l-xlarge-50 l-large-50 l-medium-50 l-small-100 l-tiny-100 l-push-left l-vertical-padding">
+	                        <div>
+                                <h3 class="l-push-left">Transfer to payroll and absence</h3>        
+	                        </div>  
+                        </div>
+                        <div class="l-xlarge-50 l-large-50 l-medium-50 l-all-50 l-tiny-100 l-hide-tiny l-hide-small l-vertical-padding">
+                            <div class="c-btn-group l-push-right is-grouped">
+                                <button class="o-btn-icon">
+                                    <svg class=""><use xlink:href="#u4-icon--wrench" /></svg>
+                                </button>
+                                <button class="o-btn-icon">
+                                    <svg class=""><use xlink:href="#u4-icon--lightbulb-o" /></svg>
+                                </button>
+                                <button class="o-btn-icon">
+                                    <svg class=""><use xlink:href="#u4-icon--heart" /></svg>
+                                </button>
+                                <button class="o-btn-icon">
+                                    <svg class=""><use xlink:href="#u4-icon--wrench"/></svg>
+                                </button>
+                                <button class="o-btn-icon">
+                                    <svg class=""><use xlink:href="#u4-icon--question" /></svg>
+                                </button>
+                            </div>
+                        </div>
+           
+                        <div class="c-panel l-all-100">
+                            <div class="c-panel__header">
+                                <h4 class="c-panel__title">Open parameters</h4>
+                            </div>
+                            <div class="c-panel__body ">
+                                <form class="c-form">
+                                    <div class="l-column-group l-gutters l-push-distribute"> 
+                                        <div class="l-tiny-100 l-small-100 l-medium-50 l-large-33 l-xlarge-25">
+                                            <label for="select" class="o-label">Period Time</label>
+                                            <select id="select" class="o-input--select ">
+                                                <option value=""></option>
+                                                <option value="">Banana</option>
+                                                <option value="">Apple</option>
+                                            </select>
+                                        </div>
+                        
+                                        <div class="l-tiny-100 l-small-100 l-medium-50 l-large-33 l-xlarge-25">
+                                            <label for="select" class="o-label">Time pedriod from</label>
+                                            <select id="select1" class="o-input--select ">
+                                                <option value=""></option>
+                                                <option value="">Banana</option>
+                                                <option value="">Apple</option>
+                                            </select>
+                                        </div>
+                       
+                                        <div class="l-tiny-100 l-small-100 l-medium-50 l-large-33 l-xlarge-25">
+                                            <label for="select" class="o-label">Time period to</label>
+                                            <select id="select2" class="o-input--select ">
+                                                <option value=""></option>
+                                                <option value="">Banana</option>
+                                                <option value="">Apple</option>
+                                            </select>
+                                        </div>
+                    
+                                        <div class="l-tiny-100 l-small-100 l-medium-50 l-large-33 l-xlarge-25 l-hide-tiny">
+                                            <label for="select" class="o-label">Payroll period</label>
+                                            <select id="select3" class="o-input--select">
+                                                <option value=""></option>
+                                                <option value="">Banana</option>
+                                                <option value="">Apple</option>
+                                            </select>
+                                        </div>
+                        
+                                        <div class="l-tiny-100 l-small-100 l-medium-50 l-large-33 l-xlarge-25 l-hide-tiny">
+                                            <label for="text1" class="o-label">Resource</label>
+                                            <input id="text1" class="o-input" type="text" placeholder="" aria-required="true" />
+                                        </div>
+                    
+                                        <div class="l-tiny-100 l-small-100 l-medium-50 l-large-33 l-xlarge-25 l-hide-tiny">
+                                            <label for="select" class="o-label">Relation</label>
+                                            <select id="select4" class="o-input--select">
+                                                <option value=""></option>
+                                                <option value="">Banana</option>
+                                                <option value="">Apple</option>
+                                            </select>
+                                        </div>
+                     
+                                        <div class="l-tiny-100 l-small-100 l-medium-50 l-large-33 l-xlarge-50 l-hide-tiny">
+                                            <div>
+                                                <label for="text1" class="o-label">Relation value</label>
+                                                <input id="text2" class="o-input" type="text" placeholder=""  aria-required="true" /><!---->
+                                            </div>
+                                            <div class="l-hide-all l-show-xlarge l-xlarge-25"></div>
+                                        </div>
+                        
+                                        <div class="l-tiny-100 l-small-100 l-medium-50 l-large-33 l-xlarge-25 l-hide-tiny">
+                                            <label for="text1" class="o-label">Transaction text</label>
+                                            <input id="text3" class="o-input" type="text" placeholder="" aria-required="true"/>
+                                        </div>
+                    
+                                        <div class="l-tiny-100 l-small-100 l-medium-50 l-large-33 l-xlarge-25 l-hide-tiny">
+                                            <label for="select" class="o-label">Transaction type</label>
+                                            <select id="select5" class="o-input--select max-width">
+                                                <option value=""></option>
+                                                <option value="">Banana</option>
+                                                <option value="">Apple</option>
+                                            </select>
+                                        </div>
+           
+                                        <div class="l-tiny-100 l-small-100 l-medium-50 l-large-33 l-xlarge-50 l-hide-tiny l-push-bottom">
+                                            <div>
+                                                <input id="checkbox" type="checkbox" class="o-input--checkbox" />
+                                                <label for="checkbox" class="o-label ">Execute updating</label>
+                                            </div>
+                                            <div class="l-hide-all l-show-xlarge l-xlarge-25"></div>  
+                                        </div>
+                        
+                                        <div class="l-tiny-100 l-small-100 l-medium-50 l-large-33 l-xlarge-25 l-hide-tiny">
+                                            <label for="select" class="o-label">Aggregate</label>
+                                            <select id="select6" class="o-input--select">
+                                                <option value="">Time period(0)</option>
+                                                <option value="">Banana</option>
+                                                <option value="">Apple</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="l-tiny-100 l-small-100 l-medium-50 l-large-33 l-xlarge-25 l-hide-tiny">
+                                            <label for="select" class="o-label">Unit</label>
+                                            <select id="select7" class="o-input--select">
+                                                <option value="">Hours (1)</option>
+                                                <option value="">Banana</option>
+                                                <option value="">Apple</option>
+                                            </select>
+                                        </div>
+                                        <div class="l-hide-all l-show-xlarge l-xlarge-25"></div>  
+                                        <div class="l-hide-all l-show-xlarge l-xlarge-25"></div>  
+                                    </div>
+
+                                    <div class="c-panel__buttongroup l-align-right">
+                                        <a href="#" class="o-btn l-quarter-space l-hide-tiny l-hide-small" role="button">Your ordered reports</a>
+                                        <a href="#" class="o-btn l-quarter-space l-hide-tiny l-hide-small" role="button">Reports variants </a>
+                                        <a href="#" class="o-btn l-quarter-space l-hide-tiny l-hide-small" role="button">Export</a>
+                                        <a href="#" class="o-btn o-btn--happy l-quarter-space" role="button">Save</a>
+                                    </div> 
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>       
+   
+    <script type="text/javascript" src="../../js/DesignSystem-0.1.1.js"></script>  
+    </body>
+</html>

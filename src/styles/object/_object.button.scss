@@ -1,0 +1,24 @@
+.#{$class-prefix-o}-btn {
+	@include button-size();
+	@include button-style();
+}
+
+.#{$class-prefix-o}-btn--small {
+	@include button-size(small);
+}
+
+.#{$class-prefix-o}-btn--large {
+	@include button-size(large);
+}
+
+.#{$class-prefix-o}-btn--happy {
+	@include button-style(happy);
+}
+
+.#{$class-prefix-o}-btn--positive {
+	@include button-style(positive);
+}
+
+.#{$class-prefix-o}-btn--negative {
+	@include button-style(negative);
+}

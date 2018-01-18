@@ -1,0 +1,53 @@
+// Indentations and spaces changed to improve readability
+// scss-lint:disable Indentation, SpaceBetweenParens
+
+/// Keep images from scaling beyond the width of their parents.
+///	@group Image
+/// @param {string} display [block]
+/// @example scss - SCSS
+///		.foo {
+///			@include img-responsive();
+///		}
+///	@example css - CSS Output
+///		.foo {
+///			display: block;
+///			max-width: 100%;
+///			height: auto;
+///		}
+@mixin img-responsive($display: block) {
+	display: $display;
+	max-width: 100%; // Part 1: Set a maximum relative to the parent
+	height: auto; // Part 2: Scale the height according to the width, otherwise you get stretching
+}
+
+
+/// Short retina mixin for setting background-image and -size. Note that the spelling of `min--moz-device-pixel-ratio` is intentional.
+/// @group Image
+/// @param {string} filex-1x;
+/// @param {string} filex-2x;
+/// @param {string} width-1x;
+/// @param {string} height-1x;
+///	@example scss - SCSS
+///		.foo {
+///			@include img-retina("../images/demo/1x.png", "../images/demo/2x.png", 200px, 200px);
+///		}
+///	@example css - CSS Output
+///		@media only screen and (-webkit-min-device-pixel-ratio: 2), not all, not all, not all, only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx)
+///			.foo {
+///				background-image: url("../images/demo/2x.png");
+///				background-size: 200px 200px;
+///			}
+@mixin img-retina($file-1x, $file-2x, $width-1x, $height-1x) {
+	background-image: url("#{$file-1x}");
+
+	@media
+		only screen and (-webkit-min-device-pixel-ratio: 2),
+		only screen and (   min--moz-device-pixel-ratio: 2),
+		only screen and (     -o-min-device-pixel-ratio: 2/1),
+		only screen and (        min-device-pixel-ratio: 2),
+		only screen and (                min-resolution: 192dpi),
+		only screen and (                min-resolution: 2dppx) {
+			background-image: url("#{$file-2x}");
+			background-size: $width-1x $height-1x;
+	}
+}

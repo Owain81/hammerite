@@ -1,0 +1,194 @@
+﻿// http://www.w3.org/TR/css3-animations/#the-animation-name-property-
+// Each of these mixins support comma separated lists of values, which allows different transitions for individual properties to be described in a single style rule. Each value in the list corresponds to the value at that same position in the other properties.
+
+/// Bulletproof and crossbrowser animation mixin to add all vendor specific prefixers. The animation mixin supports comma separated lists of values, which allows different transitions for individual properties to be described in a single style rule. Each value in the list corresponds to the value at that same position in the other properties.
+/// @group Motion
+/// @param {String} $animations - Comma separated lists of values. Animation shorthand works the same as the CSS3 animation shorthand
+///
+/// @example scss - SCSS
+///		.foo:hover {
+///			// Animation shorthand works the same as the CSS3 animation shorthand
+///			@include animation(scale 1.0s ease-in, slide 2.0s ease);
+///
+///			// The above outputs the same CSS as using independent, granular mixins.
+///			@include animation-name(scale, slide);
+///			@include animation-duration(2s);
+///			@include animation-timing-function(ease);
+///			@include animation-iteration-count(infinite);
+///		}
+///
+/// @example css - CSS Output
+///		.foo:hover {
+///			-webkit-animation: scale 1s ease-in, slide 2s ease;
+///			-moz-animation: scale 1s ease-in, slide 2s ease;
+///			-spec-animation: scale 1s ease-in, slide 2s ease;
+///			animation: scale 1s ease-in, slide 2s ease;
+///		}
+@mixin animation($animations...) {
+	@include prefixer(animation, $animations, webkit moz spec);
+}
+
+/// Granular mixin to add vendor prefixes for animation-name.
+/// @group Motion
+/// @param {String} $names - Specifies a comma separated list of animations that should be applied to the selected element.
+///
+/// @example scss - SCSS
+///		.foo:hover {
+///			@include animation-name(scale, slide);
+///		}
+///
+/// @example css - CSS Output
+///		.foo:hover {
+///			-webkit-animation-name: scale, slide;
+///			-moz-animation-name: scale, slide;
+///			-spec-animation-name: scale, slide;
+///			animation-name: scale, slide;
+///		}
+@mixin animation-name($names...) {
+	@include prefixer(animation-name, $names, webkit moz spec);
+}
+
+/// Granular mixin to add vendor prefixes for animation-duration.
+/// @group Motion
+/// @param {String} $times - Comma separated list that specifies the length of time that an animation should take to complete one cycle.
+///
+/// @example scss - SCSS
+///		.foo:hover {
+///			@include animation-duration(2s);
+///		}
+///
+/// @example css - CSS Output
+///		.foo:hover {
+///			-webkit-animation-duration: 2s;
+///			-moz-animation-duration: 2s;
+///			-spec-animation-duration: 2s;
+///			animation-duration: 2s;
+///		}
+@mixin animation-duration($times...) {
+	@include prefixer(animation-duration, $times, webkit moz spec);
+}
+
+/// Granular mixin to add vendor prefixes for animation-timing-function.
+/// @group Motion
+/// @param {String} $motions - Comma separated list that specifies how a CSS animation should progress over the duration of each cycle.
+///
+/// @example scss - SCSS
+///		.foo:hover {
+///			@include animation-timing-function(ease);
+///		}
+///
+/// @example css - CSS Output
+///		.foo:hover {
+///			-webkit-animation-timing-function: ease;
+///			-moz-animation-timing-function: ease;
+///			-spec-animation-timing-function: ease;
+///			animation-timing-function: ease;
+///		}
+@mixin animation-timing-function($motions...) {
+	// ease | linear | ease-in | ease-out | ease-in-out
+	@include prefixer(animation-timing-function, $motions, webkit moz spec);
+}
+
+/// Granular mixin to add vendor prefixes for animation-iteration-count.
+/// @group Motion
+/// @param {String} $values - Comma separated list that specifies defines the number of times an animation cycle should be played before stopping.
+///
+/// @example scss - SCSS
+///		.foo:hover {
+///			@include animation-iteration-count(infinite);
+///		}
+///
+/// @example css - CSS Output
+///		.foo:hover {
+///			-webkit-animation-iteration-count: infinite;
+///			-moz-animation-iteration-count: infinite;
+///			-spec-animation-iteration-count: infinite;
+///			animation-iteration-count: infinite;
+///		}
+@mixin animation-iteration-count($values...) {
+	// infinite | <number>
+	@include prefixer(animation-iteration-count, $values, webkit moz spec);
+}
+
+/// Granular mixin to add vendor prefixes for animation-direction.
+/// @group Motion
+/// @param {String} $directions - Comma separated list that indicates whether the animation should play in reverse on alternate cycles.
+///
+/// @example scss - SCSS
+///		.foo:hover {
+///			@include animation-direction(alternate-reverse);
+///		}
+///
+/// @example css - CSS Output
+///		.foo:hover {
+///			-webkit-animation-direction: alternate-reverse;
+///			-moz-animation-direction: alternate-reverse;
+///			-spec-animation-direction: alternate-reverse;
+///			animation-directiont: alternate-reverse;
+///		}
+@mixin animation-direction($directions...) {
+	// normal | alternate
+	@include prefixer(animation-direction, $directions, webkit moz spec);
+}
+
+/// Granular mixin to add vendor prefixes for animation-play-state.
+/// @group Motion
+/// @param {String} states - Comma separated list that determines whether an animation is running or paused.
+///
+/// @example scss - SCSS
+///		.foo:hover {
+///			@include animation-play-state(paused);
+///		}
+///
+/// @example css - CSS Output
+///		.foo:hover {
+///			-webkit-animation-play-state: paused;
+///			-moz-animation-play-state: paused;
+///			-spec-animation-play-state: paused;
+///			animation-play-state: paused;
+///		}
+@mixin animation-play-state($states...) {
+	// running | paused
+	@include prefixer(animation-play-state, $states, webkit moz spec);
+}
+
+/// Granular mixin to add vendor prefixes for animation-delay.
+/// @group Motion
+/// @param {String} times - Comma separated list that specifies when an animation should start.
+///
+/// @example scss - SCSS
+///		.foo:hover {
+///			@include animation-delay(2s);
+///		}
+///
+/// @example css - CSS Output
+///		.foo:hover {
+///			-webkit-animation-delay: 2s;
+///			-moz-animation-delay: 2s;
+///			-spec-animation-delay: 2s;
+///			animation-delay: 2s;
+///		}
+@mixin animation-delay($times...) {
+	@include prefixer(animation-delay, $times, webkit moz spec);
+}
+
+/// Granular mixin to add vendor prefixes for animation-fill-mode.
+/// @group Motion
+/// @param {String} modes - Comma separated list that specifies how a CSS animation should apply styles to its target before and after it is executing.
+///
+/// @example scss - SCSS
+///		.foo:hover {
+///			@include animation-fill-mode(backwards);
+///		}
+///
+/// @example css - CSS Output
+///		.foo:hover {
+///			-webkit-animation-fill-mode: backwards;
+///			-moz-animation-fill-mode: backwards;
+///			-spec-animation-fill-mode: backwards;
+///			animation-fill-mode: backwards;
+///		}
+@mixin animation-fill-mode($modes...) {
+	// none | forwards | backwards | both
+	@include prefixer(animation-fill-mode, $modes, webkit moz spec);
+}

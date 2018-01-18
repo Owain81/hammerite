@@ -1,0 +1,75 @@
+// Lists
+.#{$list-class-name} {
+	margin: margin(0);
+	padding: padding(0);
+	list-style-position: $list-style-position;
+	list-style-type: $unrdlist-style-type;
+	line-height: $list-lineheight;
+
+	& & {
+		margin-bottom: 0;
+		margin-left: $ordrdlist-margin-left;
+	}
+
+	ol,
+	ul {
+		padding-left: $list-sub-padding;
+		list-style-type: $unrdlist-style-type;
+	}
+}
+
+// Unordered lists
+.#{$list-class-name}--unordered {
+	margin-left: $unrdlist-side-margin;
+
+	li {
+		position: relative;
+
+		&:before {
+			content: '\2022';
+			position: absolute;
+			top: -$unrdlist-top-negative;
+			margin-left: -$unrdlist-margin-negative;
+			color: $unrdlist-type-color;
+			font-size: $unrdlist-font-size;
+		}
+	}
+}
+
+// Ordered lists
+.#{$list-class-name}--ordered {
+	margin: margin(0 0 0 $ordrdlist-margin-left);
+	padding: padding(0);
+	list-style-type: $ordrdlist-style-type;
+	font-size: $ordrdlist-font-size;
+
+	ol,
+	ul {
+		list-style-type: $ordrdlist-style-type;
+	}
+}
+
+// Inline lists
+.#{$list-class-name}--inline {
+	@include display-flex;
+	list-style-type: $inlnlist-style-type;
+
+	li {
+		margin-left: $inlnlist-default-float-list-margin;
+	}
+}
+
+// Definition lists
+.#{$list-class-name}--definition {
+	margin: margin(0 0 $defnlist-margin-bottom);
+
+	dt {
+		margin-bottom: $defnlist-term-margin-bottom;
+		font-weight: $defnlist-term-weight;
+	}
+
+	dd {
+		margin: 0;
+		padding-left: 0;
+	}
+}

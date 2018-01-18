@@ -1,0 +1,64 @@
+.#{$select-class-name} {
+	position: relative;
+	min-width: $input-select-min-width;
+
+	&__field {
+		width: 100%;
+		height: $input-height;
+		padding-bottom: $input-select-padding-bottom;
+		border-width: 0 0 1px;
+		border-style: solid;
+		border-radius: 0;
+		border-bottom-color: transparent;
+		background-color: $input-select-background-color;
+		@include prefixer (user-select, none, webkit ms moz);
+
+		&:focus {
+			outline: none;
+		}
+
+		&:focus + .#{$select-class-name}__trigger {
+			background-image: $input-select-arrow-icon-hover;
+		}
+	}
+
+	&__field-border {
+		position: relative;
+		top: -1px;
+		width: 100%;
+		height: 1px;
+		background-color: $input-select-border-color;
+		@include transition-with-curve (smooth, $input-transition-time, background-color, transform);
+
+	}
+
+	&__field:focus + &__field-border {
+		transform: scaleY($input-border-scale-on-focus);
+		background-color: $input-active-color;
+	}
+
+	&__trigger {
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: $input-select-arrow-icon-size;
+		height: 100%;
+		border: none;
+		background: $input-select-background-color no-repeat;
+		background-image: $input-select-arrow-icon;
+		background-position: $input-select-arrow-icon-position;
+		background-size: $input-select-arrow-icon-size;
+
+		&:active {
+			outline: none;
+		}
+	}
+
+	&:hover &__trigger {
+		background-image: $input-select-arrow-icon-hover;
+	}
+}
+
+.#{$select-class-name} + .#{$menu-class-name} {
+	border-top: none;
+}

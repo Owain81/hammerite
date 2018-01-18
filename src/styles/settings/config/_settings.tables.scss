@@ -1,0 +1,202 @@
+////
+/// @group Tables
+////
+
+
+// scss-lint:disable NameFormat
+
+// Default
+
+/// Table class name
+/// @type String
+$table-class-name: #{$class-prefix-c}-table !default;
+
+/// Table padding top
+/// @type Number
+$table-padding-top: px-to-rem(set-space(xs)) !default;
+
+/// Table padding left
+/// @type Number
+$table-padding-left: px-to-rem(set-space(s)) !default;
+
+/// Table padding right
+/// @type Number
+$table-padding-right: px-to-rem(set-space(xs)) !default;
+
+/// Table padding bottom
+/// @type Number
+$table-padding-bottom: $table-padding-top !default;
+
+/// Table padding left
+/// @type Number
+$table-padding-left: $table-padding-right !default;
+
+/// Table padding horizontal
+/// @type Number
+$table-padding-horizontal: $table-padding-right !default;
+
+/// Table padding vertical
+/// @type Number
+$table-padding-vertical: $table-padding-top !default;
+
+/// Table cell line-height
+/// @type Number
+$table-line-height: px-to-rem(22px) !default;
+
+/// Table header padding top
+/// @type Number
+$table-header-padding-top: px-to-rem(set-space(s)) !default;
+
+/// Table header padding bottom
+/// @type Number
+$table-header-padding-bottom: $table-header-padding-top !default;
+
+/// Table header padding vertical
+/// @type Number
+$table-header-padding-vertical: $table-header-padding-top !default;
+
+/// Table font color
+/// @type Color
+$table-font-color: $color-grey-120 !default;
+
+/// Table header font color
+/// @type Color
+$table-header-font-color: $color-black !default;
+
+/// Table background color
+/// @type Color
+$table-background-color: $color-white !default;
+
+/// Table row active background color
+/// @type Color
+$table-row-active-background-color: $color-scheme-u4blue-40 !default;
+
+/// Table row focus background color
+/// @type Color
+$table-row-focus-background-color: $color-paleblue !default;
+
+/// Table row header background color
+/// @type Color
+$table-row-header-background-color: $color-grey-8 !default;
+
+/// Table border style
+/// @type String
+$table-border-style: solid !default;
+
+/// Table border width
+/// @type Number
+$table-border-width: 1px !default;
+
+/// Table border color
+/// @type Color
+$table-border-color: $color-grey-34 !default;
+
+// Condensed
+
+/// Table condensed padding top
+/// @type Number
+$table-condensed-padding-top: px-to-rem(set-space(xs)) !default;
+
+/// Table condensed padding right
+/// @type Number
+$table-condensed-padding-right: px-to-rem(set-space(xs)) !default;
+
+/// Table condensed padding bottom
+/// @type Number
+$table-condensed-padding-bottom: $table-padding-top !default;
+
+/// Table condensed padding left
+/// @type Number
+$table-condensed-padding-left: $table-padding-right !default;
+
+// Editable
+
+///  Horizontal padding for editable tables header cells
+///  @type number
+$table-editable-padding-horizontal: set-space(xs) !default;
+
+///  Vertical padding for editable tables header cells
+///  @type number
+$table-editable-padding-vertical: px-to-rem(set-space(xxs)) !default;
+
+///  Editable tables input width
+///  @type number
+$table-editable-input-width: 100% !default;
+
+///  Editable tables input min height
+///  @type number
+$table-editable-input-min-height: 38px !default;
+
+///  Editable tables input text color
+///  @type Color
+$table-editable-input-color: $color-black !default;
+
+///  Editable tables input background color
+///  @type Color
+$table-editable-input-background-color: $color-white !default;
+
+///  Editable tables cell border color
+///  @type Color
+$table-editable-cell-border-color: $color-grey-34 !default;
+
+///  Editable tables focused input border color
+///  @type Color
+$table-editable-input-focused-border-color: $color-blue !default;
+
+///  Editable tables focused input border width
+///  @type number
+$table-editable-input-focused-border-width: 2px !default;
+
+///  Editable tables header text color for active column
+///  @type Color
+$table-editable-highlight-header-color: $color-black !default;
+
+///  Editable tables header background color for active column
+///  @type Color
+$table-editable-highlight-header-background-color: $color-grey-18 !default;
+
+///  Editable tables header border width for active column
+///  @type number
+$table-editable-highlight-header-border-width: 2px !default;
+
+///  Editable tables header border color for active column
+///  @type Color
+$table-editable-highlight-header-border-color: $color-blue !default;
+
+///  Editable tables motion curve
+///  @type String
+$table-editable-motion-curve: smooth-elastic !default;
+
+///  Editable tables motion duration (seconds)
+///  @type Number
+$table-editable-motion-duration: .3s !default;
+
+// Dark version
+
+///  Editable dark tables header background color
+///  @type Color
+$table-dark-row-header-background-color: $color-grey-unit4 !default;
+
+///  Editable dark tables header font color
+///  @type Color
+$table-dark-header-font-color: $color-grey-34 !default;
+
+///  Editable dark tables active header font color
+///  @type Color
+$table-dark-editable-highlight-header-color: $color-white !default;
+
+///  Editable dark tables active header background color
+///  @type Color
+$table-dark-editable-highlight-header-background-color: lighten($table-dark-row-header-background-color, 5%) !default;
+
+///  Editable dark tables active header border color
+///  @type Color
+$table-dark-editable-highlight-header-border-color: $color-scheme-u4darkgreen !default;
+
+///  Editable dark tables active header border width
+///  @type number
+$table-dark-editable-highlight-header-border-width: 3px !default;
+
+/// Removes width
+/// @type Number
+$remove-from-width: ($table-editable-padding-horizontal + $table-editable-input-focused-border-width) * 2 !default;

@@ -1,0 +1,150 @@
+////
+/// @group Button-special
+////
+
+/// Add button icon properties to the object
+/// @param {String} $size [normal] - icon button size
+///
+/// @example scss - SCSS
+///		.foo {
+///			@include btn-icon($size: normal);
+///		}
+///
+/// @example css - CSS Output
+///		.foo {
+///			padding: 0.625rem;
+///		    height: 44px;
+///    		width: 44px;
+///		}
+///
+///		.foo svg {
+///			height: 24px;
+///    		width: 24px;
+///   		top: 10px;
+///		    left: 10px;
+///		}
+///
+@mixin btn-icon($size: normal) {
+	padding: px-to-rem(map-get($icon-button-padding, #{$size}));
+	height: px-to-rem(map-get($icon-button-size, #{$size}));
+	width: px-to-rem(map-get($icon-button-size, #{$size}));
+
+	svg {
+		top: map-get($icon-button-padding, #{$size});
+		left: map-get($icon-button-padding, #{$size});
+		width: map-get($icon-button-size, #{$size}) - 2 * map-get($icon-button-padding, #{$size});
+		height: map-get($icon-button-size, #{$size}) - 2 * map-get($icon-button-padding, #{$size});
+	}
+}
+
+/// Calculates the size/padding increment for grouped rounded buttons
+/// @param {String} $size [normal] - icon button size
+/// @param {Map} $map-size-or-padding [$icon-button-size] - map to use (sizes or padding)
+/// @example scss - SCSS
+///		.foo {
+///			width: $button-width + btn-icon-rounded-increment($size: normal);
+///		}
+@function btn-icon-rounded-increment($size: normal, $map-size-or-padding: $icon-button-size) {
+	@return px-to-rem(map-get($map-size-or-padding, $size) + map-get($btn-special-grouped-rounded-width-increment, $size));
+}
+
+
+/// Add toggle button properties to the object
+/// @param {String} $size [normal] - toggle button size
+/// @example scss - SCSS
+///		.foo {
+///			@include btn-toggle();
+///		}
+@mixin btn-toggle($size: normal) {
+	//padding rounded vs square
+	@if $size == rounded {
+		min-width: $btn-special-text-width;
+		height: $btn-special-text-height;
+		padding: padding(10px 20px, px-to-rem(12px));
+		font-size: $btn-special-text-font-size;
+		line-height: $btn-special-text-line-height;
+	} @else {
+		padding: padding(0, px-to-rem(12px));
+	}
+
+	@if $size == normal {
+		min-width: $btn-special-text-width;
+		height: $btn-special-text-height;
+		font-size: $btn-special-text-font-size;
+		line-height: $btn-special-text-line-height;
+	} @else if $size == small {
+		min-width: $btn-special-text-width-small;
+		height: $btn-special-text-height-small;
+		font-size: $btn-special-text-font-size-small;
+		line-height: $btn-special-text-line-height-small;
+	} @else if $size == large  {
+		min-width: $btn-special-text-width-large;
+		height: $btn-special-text-height-large;
+		font-size: $btn-special-text-font-size-large;
+		line-height: $btn-special-text-line-height-large;
+	}
+
+	text-align: center;
+}
+
+/// Add special button properties to the object
+/// @param {String} $style [default] - special button style (default/rounded)
+/// @example scss - SCSS
+///		.foo {
+///			@include btn-toggle();
+///		}
+@mixin btn-special-style($style: default) {
+	@include border($btn-special-border-style, $btn-special-border-color, $btn-special-border-width);
+	//for the rounded especial buttons
+	@if $style == rounded {
+		background-color: $btn-special-background-color-rounded;
+	} @else {
+		background-color: $btn-special-background-color;
+	}
+	background-position: center;
+	background-repeat: no-repeat;
+	cursor: pointer;
+
+	&:hover,
+	&.is-hover,
+	&:focus:hover {
+		background-color: $btn-special-background-color-hover;
+	}
+
+	&:active,
+	&.is-selected,
+	&:focus:active,
+	&.is-focused:active {
+		z-index: 2;
+		background-color: $btn-special-background-color-selected;
+		@include border-color($btn-special-border-color);
+	}
+
+	&:focus,
+	&.is-focused {
+		outline: none;
+		background-color: $btn-special-background-color-selected;
+		box-shadow: 0 0 px-to-rem(6px) $button-shadow-color;
+	}
+
+	&:disabled,
+	&.is-disabled {
+		border-color: $color-grey-18;
+		background-color: $btn-special-background-color-disabled;
+		cursor: not-allowed;
+	}
+
+}
+
+/// Add floating button properties to the object
+/// @param {String} $size [normal] - floating button size
+/// @example scss - SCSS
+///		.foo {
+///			@include btn-special-floating();
+///		}
+@mixin btn-special-floating($size: normal) {
+	width: map-get($btn-floating-size, $size);
+	height: map-get($btn-floating-size, $size);
+	font-size: map-get($btn-floating-font-size, $size);
+	line-height: map-get($btn-floating-font-size, $size);
+}

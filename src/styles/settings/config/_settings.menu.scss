@@ -1,0 +1,91 @@
+////
+/// @group Menu
+////
+
+/// Menu class name
+/// @type String
+$menu-class-name: #{$class-prefix-c}-menu !default;
+
+/// Menu minimum width
+/// @type Number
+$menu-min-width: 180px !default;
+
+/// Menu background color
+/// @type Color
+$menu-background-color: $color-white !default;
+
+/// Menu border
+/// @type String
+$menu-border: 1px solid $color-grey-34 !default;
+
+/// Menu z index
+/// @type Number
+$menu-z-index: 400;
+
+/// Menu item height
+/// @type Number
+$menu-item-height: 36px !default;
+
+/// Menu item padding
+/// @type Number
+$menu-item-padding: 1rem !default;
+
+/// Menu item color
+/// @type Color
+$menu-item-color: $color-black !default;
+
+/// Menu item background color on hover
+/// @type Color
+$menu-item-hover-color: $color-lightblue !default;
+
+/// Menu item background color on active
+/// @type Color
+$menu-item-active-color: $color-lightblueselect !default;
+
+/// Menu item shadow on focus
+/// @type String
+$menu-item-focus-shadow: 0 0 3px $color-blue !default;
+
+/// Menu item icon size
+/// @type Number
+$menu-item-icon-size: 1rem !default;
+
+/// Menu item icon color
+/// @type Color
+$menu-item-icon-color: $color-grey-120 !default;
+
+/// Menu item icon-text separation
+/// @type Number
+$menu-item-icon-separation: 8px !default;
+
+/// Menu item icon vertical adjustment
+/// @type Number
+$menu-item-icon-vertical-adjust: 2px !default;
+
+/// Menu item shorthand text color
+/// @type Color
+$menu-item-shorthand-color: $color-grey-110;
+
+/// Menu motion curve
+/// @type String
+$menu-motion-curve: smooth-elastic !default;
+
+/// Menu motion duration (seconds)
+/// @type Number
+$menu-motion-duration: .26s !default;
+
+/// Menu motion vertical offset
+/// @type Number
+$menu-motion-offset: 10px !default;
+
+/// Menu z elevation (for shadow)
+/// @type Number
+$menu-z-elevation: 2 !default;
+
+/// Menu separator margin
+/// @type Number
+$menu-separator-margin: 8px !default;
+
+/// Max height for limited menu
+/// @type Number
+$limited-menu-max-height: 400px !default;

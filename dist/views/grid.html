@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+	<meta charset="ISO-8859-1">
+    <head>
+        <meta name="viewport" content="width=device-width, user-scalable=no" />
+		<style type="text/css">
+            footer {
+            	margin-top: 2em;
+                background: #ccc;
+                padding: 2em 2em;
+                border-top: 1px solid #e5e5e5;
+            }
+
+		    footer nav.menu {
+		        width: 350px;
+                display: inline-block;
+            }
+
+		    footer nav.menu ul {
+		        padding: 0;
+            }
+
+		    .sub-title {
+		        display: inline-block;
+                margin-left: 1em;
+            }
+
+		    nav.menu {
+		        width: 100%;
+            }
+
+		    nav.menu > ul {
+		        margin: 0;
+		        padding: 0;
+		    }
+
+            nav.menu > ul li { 
+                display: inline-block;
+                margin-left: .4em;
+            }
+
+            nav.menu > ul li a {
+		        background-color: #f5f6f6;
+		        border-radius: 2px;
+		        box-shadow: 0 5px 7px rgba(0,0,0,.15);
+		        padding: .75em;
+		        text-align: center;
+                text-decoration: none;
+                color: #000;
+		    }
+
+		    nav.menu ul li a:hover {
+		        
+            }
+
+            .img {
+            	background-color: white;
+            	border-radius: 2px;
+            	border: 1px solid #ededed;
+            	padding: 1em;
+            }
+
+            .img + p {
+            	margin-top: 1.5em;
+            }
+
+		    .logo {
+		        
+            }
+
+            .logo img {
+            	width: 150px;
+            }
+
+		    .subtitle {
+		        align-self: flex-end;
+		        margin-left: 1.1em;
+		        min-width: 128px;
+		    }
+
+		    .subtitle span {
+		        color: white;
+		    }
+
+            .header {
+            	height: 50px;
+            }
+
+            div {
+            	box-sizing: border-box;
+            }
+
+            .centered {
+            	text-align: center;
+            }
+
+            .centermiddle {
+            	border-radius: 2px;
+            	box-shadow: 0 5px 7px #4a5c69;
+            	border: 1px solid #bbb;
+            	background-color: #ccc;
+            	margin-bottom: 3em;
+            }
+
+            .middle-height {
+            	
+            }
+
+            .stretch {
+            	padding: 1em;
+            	border-radius: 2px;
+            	box-shadow: 0 5px 7px #4a5c69;
+            	border: 1px solid #bbb;
+            	background-color: #ccc;
+            }
+
+            input#input-hamburger {
+                display: none;
+            }
+
+		    .icon-hamburger-wrap {
+		        margin: 0;
+		        vertical-align: top;
+		        display: block;
+		        width: 28px;
+                height: 23px;
+		        -webkit-transform: translate3d(0, 0, 0);
+                cursor: pointer;
+		    }
+
+		    .icon-hamburger-wrap .icon-bar {
+		        opacity: 1;
+		        -webkit-transition: -webkit-transform 0.1s ease-in;
+		        -o-transition: -o-transform 0.1s ease;
+		        -ms-transition: -ms-transform 0.1s ease;
+		        -moz-transition: -moz-transform 0.1s ease;
+		        transition: all 0.1s ease-in;
+		        -webkit-transform-origin: 50% 50%;
+		        -o-transform-origin: 50% 50%;
+		        -ms-transform-origin: 50% 50%;
+		        -moz-transform-origin: 50% 50%;
+		        transform-origin: 50% 50%;
+		        background: #fff;
+		        display: block;
+		        height: 3px;
+		        margin: 0;
+		    }
+
+            .icon-hamburger-wrap .icon-bar:nth-child(2) {
+                margin-bottom: 4px;
+                margin-top: 4px;
+                margin: 7px 0;
+            }
+
+		    input#input-hamburger:checked + .icon-hamburger-wrap .icon-bar:nth-child(1) {
+		        -webkit-transform: translate3d(0, 10px, 0) rotate(45deg);
+		        -moz-transform: translate3d(0, 10px, 0) rotate(45deg);
+		        -o-transform: translate3d(0, 10px, 0) rotate(45deg);
+		        -ms-transform: translate3d(0, 10px, 0) rotate(45deg);
+		        transform: translate3d(0, 10px, 0) rotate(45deg);
+		    }
+		    input#input-hamburger:checked + .icon-hamburger-wrap .icon-bar:nth-child(2) {
+		        transform: scaleX(0);
+		    }
+		    input#input-hamburger:checked + .icon-hamburger-wrap .icon-bar:nth-child(3) {
+		        -webkit-transform: translate3d(0, -10px, 0) rotate(-45deg);
+		        -moz-transform: translate3d(0, -10px, 0) rotate(-45deg);
+		        -o-transform: translate3d(0, -10px, 0) rotate(-45deg);
+		        -ms-transform: translate3d(0, -10px, 0) rotate(-45deg);
+		        transform: translate3d(0, -10px, 0) rotate(-45deg);
+		    }
+
+		    @media screen and (min-width: 713px) {
+		        .hamburger {
+		            display: none;
+		        }
+		    }
+
+		    @media screen and (max-width: 712px) {
+		        nav.menu ul.bar {
+		            display: none;
+		        }
+		        header.vertical-padding {
+		            padding: 1.25em;
+                } 
+            }
+
+
+        </style>
+        <link rel="stylesheet" href="../css/design-system.css">
+    </head>
+
+    <body>
+        <header class="c-topbar">
+            <div class="c-topbar__wrapper">
+                <a href="../index.html" class="c-topbar__link c-topbar__btn--back">
+                    <span class="c-topbar__link-icon">
+                        <svg class="o-icon">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#u4-icon-topbar--angle-left"></use>
+                        </svg>
+                    </span>
+                </a>
+
+                <h1 class="c-topbar__title">
+                    <a href="../index.html">
+                        <img src="../images/unit4-logo.svg" width="102" class="c-topbar__element--show-on-desktop" alt="unit4" />
+                        <img src="../images/unit4-logo-white.svg" width="102" class="c-topbar__element--show-on-mobile" alt="unit4" />
+                    </a>
+                </h1>
+
+                <h2  class="c-topbar__subtitle">UI Library - Grid</h2>
+            </div>
+        </header>
+        <div class="l-grid">
+            <div class="body">
+
+	            <div class="l-column-group l-vertical-padding l-gutters">
+	                <div class="l-xlarge-50 l-large-50 l-all-100">
+	                	<div class="img big-left">
+	                		<p class="l-quarter-top-space">"Sit down," Edwin counselled soothingly. "Granser's all right. He's just  gettin' to the Scarlet Death, ain't you, Granser? He's just goin' to  tell us about it right now. Sit down, Hare-Lip. Go ahead, Granser."</p>
+	                    </div>
+	                </div>
+	                <div class="l-xlarge-25 l-large-25 l-all-50">
+	                	<div class="img">
+	                		<p class="l-quarter-top-space">"Sit down," Edwin counselled soothingly. "Granser's all right. He's just  gettin' to the Scarlet Death, ain't you, Granser? He's just goin' to  tell us about it right now. Sit down, Hare-Lip. Go ahead, Granser."</p>
+	                	</div>
+	                </div>
+	                <div class="l-xlarge-25 l-large-25 l-all-50">
+	                	<div class="img">
+	                		<p class="l-quarter-top-space">"Sit down," Edwin counselled soothingly. "Granser's all right. He's just  gettin' to the Scarlet Death, ain't you, Granser? He's just goin' to  tell us about it right now. Sit down, Hare-Lip. Go ahead, Granser."</p>
+	                	</div>
+	                </div>
+	            </div>
+
+	            <!--	4 x 1	-->
+	            <h2>4x1</h2>
+	            <div class="l-column-group l-gutters">
+	               <div class="l-xlarge-25 l-large-25 l-all-50">
+	                	<div class="img">
+	                		<p class="l-quarter-top-space">"Sit down," Edwin counselled soothingly. "Granser's all right. He's just  gettin' to the Scarlet Death, ain't you, Granser? He's just goin' to  tell us about it right now. Sit down, Hare-Lip. Go ahead, Granser."</p>
+	                	</div>
+                    </div>
+	                <div class="l-xlarge-25 l-large-25 l-all-50">
+	                	<div class="img">
+	                		<p class="l-quarter-top-space">"Sit down," Edwin counselled soothingly. "Granser's all right. He's just  gettin' to the Scarlet Death, ain't you, Granser? He's just goin' to  tell us about it right now. Sit down, Hare-Lip. Go ahead, Granser."</p>
+	                	</div>
+	                </div>
+	                <div class="l-xlarge-25 l-large-25 l-all-50">
+	                	<div class="img">
+	                		<p class="l-quarter-top-space">"Sit down," Edwin counselled soothingly. "Granser's all right. He's just  gettin' to the Scarlet Death, ain't you, Granser? He's just goin' to  tell us about it right now. Sit down, Hare-Lip. Go ahead, Granser."</p>
+	                	</div>
+	                </div>
+	                <div class="l-xlarge-25 l-large-25 l-all-50">
+	                	<div class="img">
+	                		<p class="l-quarter-top-space">"Sit down," Edwin counselled soothingly. "Granser's all right. He's just  gettin' to the Scarlet Death, ain't you, Granser? He's just goin' to  tell us about it right now. Sit down, Hare-Lip. Go ahead, Granser."</p>
+	                	</div>
+	                </div>
+	            </div>
+	            <h2 class="centered">push-center</h2>
+	            <div class="l-column-group l-gutters">
+	               	<div class="l-xlarge-25 l-large-25 l-all-50 l-push-center">
+	                	<div class="img">
+	                		<p class="l-quarter-top-space">"Sit down," Edwin counselled soothingly. "Granser's all right. He's just  gettin' to the Scarlet Death, ain't you, Granser? He's just goin' to  tell us about it right now. Sit down, Hare-Lip. Go ahead, Granser."</p>
+	                	</div>
+	                    
+	                </div>
+	            </div>
+
+	            <!--	3 x 1	-->
+	            <h2>3x1</h2>
+	            <div class="l-column-group l-gutters">
+	            	<div class="l-xlarge-33 l-large-33 l-small-100 l-tiny-100">
+	                	<div class="img">
+	                		<p class="l-quarter-top-space">"Sit down," Edwin counselled soothingly. "Granser's all right. He's just  gettin' to the Scarlet Death, ain't you, Granser? He's just goin' to  tell us about it right now. Sit down, Hare-Lip. Go ahead, Granser."</p>
+	                	</div>
+	                </div>
+	                <div class="l-xlarge-33 l-large-33 l-small-100 l-tiny-100">
+	                	<div class="img">
+	                		<p class="l-quarter-top-space">"Sit down," Edwin counselled soothingly. "Granser's all right. He's just  gettin' to the Scarlet Death, ain't you, Granser? He's just goin' to  tell us about it right now. Sit down, Hare-Lip. Go ahead, Granser."</p>
+	                	</div>
+	                </div>
+	                <div class="l-xlarge-33 l-large-33 l-small-100 l-tiny-100">
+	                	<div class="img">
+	                		<p class="l-quarter-top-space">"Sit down," Edwin counselled soothingly. "Granser's all right. He's just  gettin' to the Scarlet Death, ain't you, Granser? He's just goin' to  tell us about it right now. Sit down, Hare-Lip. Go ahead, Granser."</p>
+	                	</div>
+	                </div>
+	            </div>
+
+	            <!--	5 x 1	-->
+	            <h2>5x1</h2>
+	            <div class="l-column-group l-gutters">
+	            	<div class="l-xlarge-20 l-large-20 l-medium-25 l-all-50 l-tiny-100">
+	                	<div class="img">
+	                		<p class="l-quarter-top-space">"Sit down," Edwin counselled soothingly. "Granser's all right. He's just  gettin' to the Scarlet Death, ain't you, Granser? He's just goin' to  tell us about it right now. Sit down, Hare-Lip. Go ahead, Granser."</p>
+	                	</div>
+	                    
+	                </div>
+	                <div class="l-xlarge-20 l-large-20 l-medium-25 l-all-50 l-tiny-100">
+	                	<div class="img">
+	                		<p class="l-quarter-top-space">"Sit down," Edwin counselled soothingly. "Granser's all right. He's just  gettin' to the Scarlet Death, ain't you, Granser? He's just goin' to  tell us about it right now. Sit down, Hare-Lip. Go ahead, Granser."</p>
+	                	</div>
+	                    
+	                </div>
+	                <div class="l-xlarge-20 l-large-20 l-medium-25 l-all-50 l-tiny-100">
+	                	<div class="img">
+	                		<p class="l-quarter-top-space">"Sit down," Edwin counselled soothingly. "Granser's all right. He's just  gettin' to the Scarlet Death, ain't you, Granser? He's just goin' to  tell us about it right now. Sit down, Hare-Lip. Go ahead, Granser."</p>
+	                	</div>
+	                    
+	                </div>
+	                <div class="l-xlarge-20 l-large-20 l-medium-25 l-all-50 l-tiny-100">
+	                	<div class="img">
+	                		<p class="l-quarter-top-space">"Sit down," Edwin counselled soothingly. "Granser's all right. He's just  gettin' to the Scarlet Death, ain't you, Granser? He's just goin' to  tell us about it right now. Sit down, Hare-Lip. Go ahead, Granser."</p>
+	                	</div>
+	                    
+	                </div>
+	                <div class="l-xlarge-20 l-large-20 l-medium-25 l-all-50 l-tiny-100">
+	                	<div class="img">
+	                		<p class="l-quarter-top-space">"Sit down," Edwin counselled soothingly. "Granser's all right. He's just  gettin' to the Scarlet Death, ain't you, Granser? He's just goin' to  tell us about it right now. Sit down, Hare-Lip. Go ahead, Granser."</p>
+	                	</div>
+	                    
+	                </div>
+	            </div>
+
+	            <!--	PUSH LEFT & CENTER	-->
+	            <h2>push left and center (on children)</h2>
+	            <div class="l-column-group l-gutters">
+	            	<div class="l-xlarge-20 l-large-20 l-medium-25 l-all-50 l-tiny-100 l-push-left">
+	                	<div class="img">
+	                		<p class="l-quarter-top-space">"Sit down," Edwin counselled soothingly. "Granser's all right. He's just  gettin' to the Scarlet Death, ain't you, Granser? He's just goin' to  tell us about it right now. Sit down, Hare-Lip. Go ahead, Granser."</p>
+	                	</div>
+	                    
+	                </div>
+	                <div class="l-xlarge-20 l-large-20 l-medium-25 l-all-50 l-tiny-100 l-push-left">
+	                	<div class="img">
+	                		<p class="l-quarter-top-space">"Sit down," Edwin counselled soothingly. "Granser's all right. He's just  gettin' to the Scarlet Death, ain't you, Granser? He's just goin' to  tell us about it right now. Sit down, Hare-Lip. Go ahead, Granser."</p>
+	                	</div>
+	                    
+	                </div>
+	               	<div class="l-xlarge-33 l-large-33 l-medium-25 l-all-50 l-tiny-100 l-push-center">
+	                	<div class="img">
+	                		<p class="l-quarter-top-space">"Sit down," Edwin counselled soothingly. "Granser's all right. He's just  gettin' to the Scarlet Death, ain't you, Granser? He's just goin' to  tell us about it right now. Sit down, Hare-Lip. Go ahead, Granser."</p>
+	                	</div>
+	                    
+					</div>
+				</div>
+
+				<!--	PUSH RIGHT	-->
+				<h2>push-right</h2>
+	            <div class="l-column-group l-gutters l-push-right">
+	            	
+	                <div class="l-xlarge-20 l-large-20 l-medium-25 l-all-50 l-tiny-100">
+	                	<div class="img">
+	                		<p class="l-quarter-top-space">"Sit down," Edwin counselled soothingly. "Granser's all right. He's just  gettin' to the Scarlet Death, ain't you, Granser? He's just goin' to  tell us about it right now. Sit down, Hare-Lip. Go ahead, Granser."</p>
+	                	</div>
+	                    
+	                </div>
+	                <div class="l-xlarge-20 l-large-20 l-medium-25 l-all-50 l-tiny-100">
+	                	<div class="img">
+	                		<p class="l-quarter-top-space">"Sit down," Edwin counselled soothingly. "Granser's all right. He's just  gettin' to the Scarlet Death, ain't you, Granser? He's just goin' to  tell us about it right now. Sit down, Hare-Lip. Go ahead, Granser."</p>
+	                	</div>
+	                    
+	                </div>
+	                <div class="l-xlarge-20 l-large-20 l-medium-25 l-all-50 l-tiny-100">
+	                	<div class="img">
+	                		<p class="l-quarter-top-space">"Sit down," Edwin counselled soothingly. "Granser's all right. He's just  gettin' to the Scarlet Death, ain't you, Granser? He's just goin' to  tell us about it right now. Sit down, Hare-Lip. Go ahead, Granser."</p>
+	                	</div>
+	                    
+	                </div>
+	            </div>
+
+	            <!--	AUTO SPACE	-->
+	            <h2>all-auto</h2>
+	            <div class="l-column-group l-gutters">
+	            	<div class="l-all-auto just">
+	                	<div class="img">
+	                		<p class="l-quarter-top-space">"Sit down," Edwin counselled soothingly. "Granser's all right. He's just  gettin' to the Scarlet Death, ain't you, Granser? He's just goin' to  tell us about it right now. Sit down, Hare-Lip. Go ahead, Granser."</p>
+	                	</div>
+	                    
+	                </div>
+	                <div class="l-all-auto just">
+	                	<div class="img">
+	                		<p class="l-quarter-top-space">"Sit down," Edwin counselled soothingly. "Granser's all right. He's just  gettin' to the Scarlet Death, ain't you, Granser? He's just goin' to  tell us about it right now. Sit down, Hare-Lip. Go ahead, Granser."</p>
+	                	</div>
+	                    
+	                </div>
+	               	<div class="l-all-auto just">
+	                	<div class="img">
+	                		<p class="l-quarter-top-space">"Sit down," Edwin counselled soothingly. "Granser's all right. He's just  gettin' to the Scarlet Death, ain't you, Granser? He's just goin' to  tell us about it right now. Sit down, Hare-Lip. Go ahead, Granser."</p>
+	                	</div>
+	                    
+					</div>
+				</div>
+
+				<!--	PUSH CENTER & MIDDLE 	-->
+				<h2>push-center &amp; push-middle</h2>
+				<div class="centermiddle">
+		            <div class="l-column-group l-horizontal-gutters l-push-center l-push-middle l-middle-height l-horizontal-padding l-vertical-padding">
+		            	
+		                <div class="l-xlarge-20 l-large-20 l-medium-25 l-all-50 l-tiny-100">
+		                	<div class="img">
+		                		<p class="l-quarter-top-space">"Sit down," Edwin counselled soothingly. "Granser's all right. He's just  gettin' to the Scarlet Death, ain't you, Granser? He's just goin' to  tell us about it right now. Sit down, Hare-Lip. Go ahead, Granser."</p>
+		                	</div>
+		                    
+		                </div>
+		                <div class="l-xlarge-20 l-large-20 l-medium-25 l-all-50 l-tiny-100">
+		                	<div class="img">
+		                		<p class="l-quarter-top-space">"Sit down," Edwin counselled soothingly. "Granser's all right. He's just  gettin' to the Scarlet Death, ain't you, Granser? He's just goin' to  tell us about it right now. Sit down, Hare-Lip. Go ahead, Granser."</p>
+		                	</div>
+		                    
+		                </div>
+		                <div class="l-xlarge-20 l-large-20 l-medium-25 l-all-50 l-tiny-100">
+		                	<div class="img">
+		                		<p class="l-quarter-top-space">"Sit down," Edwin counselled soothingly. "Granser's all right. He's just  gettin' to the Scarlet Death, ain't you, Granser? He's just goin' to  tell us about it right now. Sit down, Hare-Lip. Go ahead, Granser."</p>
+		                	</div>
+		                    
+		                </div>
+		            </div>
+		        </div>
+                
+                <!--	PUSH DISTRIBUTE 	-->
+		        <h2>[custom] push-distribute</h2>
+	            <div class="l-column-group l-gutters l-push-distribute">
+	            	
+	                <div class="l-xlarge-25 l-large-25 l-medium-25 l-small-100 l-tiny-100">
+	                	<div class="img">
+	                		<p class="l-quarter-top-space">"Sit down," Edwin counselled soothingly. "Granser's all right. He's just  gettin' to the Scarlet Death, ain't you, Granser? He's just goin' to  tell us about it right now. Sit down, Hare-Lip. Go ahead, Granser."</p>
+	                	</div>
+	                    
+	                </div>
+	                <div class="l-xlarge-25 l-large-25 l-medium-25 l-small-100 l-tiny-100">
+	                	<div class="img">
+	                		<p class="l-quarter-top-space">"Sit down," Edwin counselled soothingly. "Granser's all right. He's just  gettin' to the Scarlet Death, ain't you, Granser? He's just goin' to  tell us about it right now. Sit down, Hare-Lip. Go ahead, Granser."</p>
+	                	</div>
+	                    
+	                </div>
+	                <div class="l-xlarge-25 l-large-25 l-medium-25 l-small-100 l-tiny-100">
+	                	<div class="img">
+	                		<p class="l-quarter-top-space">"Sit down," Edwin counselled soothingly. "Granser's all right. He's just  gettin' to the Scarlet Death, ain't you, Granser? He's just goin' to  tell us about it right now. Sit down, Hare-Lip. Go ahead, Granser."</p>
+	                	</div>
+	                    
+	                </div>
+	            </div>
+
+	            <!--	PUSH STRETCH 	-->
+				<h2>[custom] push-stretch</h2>
+                <div class="l-column-group l-horizontal-gutters l-push-center">
+                    <div class="l-xlarge-25 l-large-25 l-medium-25 l-all-50 l-tiny-100 l-push-stretch">
+                        <div class="img">
+                            <p class="l-quarter-top-space">"In a village of La Mancha, the name of which I have no desire to call to mind..."</p>
+                        </div>
+                    </div>
+                    <div class="l-xlarge-25 l-large-25 l-medium-25 l-all-50 l-tiny-100 l-push-stretch">
+                        <div class="img">
+                            <p class="l-quarter-top-space">
+                                "... there lived not long since one of those gentlemen that keep a lance in the lance-rack, an old buckler, a lean hack, and a greyhound for coursing. 
+                            </p>
+                            <p class="l-quarter-top-space">An olla of rather more beef than mutton, a salad on most nights, scraps on Saturdays, lentils on Fridays, and a pigeon or so extra on Sundays, made away with three-quarters of his income. The rest of it went in a doublet of fine cloth and velvet breeches and shoes to match for holidays, while on week-days he made a brave figure in his best homespun. 
+		                    </p>
+                            <p class="l-quarter-top-space">He had in his house a housekeeper past forty, a niece under twenty, and a lad for the field and market-place, who used to saddle the hack as well as handle the bill-hook. 
+		                    </p>
+                            <p class="l-quarter-top-space">The age of this gentleman of ours was bordering on fifty; he was of a hardy habit, spare, gaunt-featured, a very early riser and a great sportsman."
+                            </p>
+                        </div>
+                    </div>
+                    <div class="l-xlarge-25 l-large-25 l-medium-25 l-all-50 l-tiny-100 l-push-stretch">
+                        <div class="img">
+                            <p class="l-quarter-top-space">"They will have it his surname was Quixada or Quesada (for here there is some difference of opinion among the authors who write on the subject), although from reasonable conjectures it seems plain that he was called Quexana. 
+                            </p>
+                            <p class="l-quarter-top-space">This, however, is of but little importance to our tale; it will be enough not to stray a hair's breadth from the truth in the telling of it."</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <div>
+                <nav class="menu">
+                    <ul class="">
+                        <li class="active"><a href="#">Welcome</a></li>
+                        <li><a href="#">Portfolio</a></li>
+                        <li><a href="#">About</a></li>
+                    </ul>
+                </nav>
+                <span class="note l-push-right">copyright unit4</span>
+            </div>
+        </footer>
+    </body>
+    <script type="text/javascript" src="../js/DesignSystem-0.1.1.js"></script>
+</html>

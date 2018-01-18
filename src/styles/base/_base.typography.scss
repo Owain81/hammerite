@@ -1,0 +1,51 @@
+// Font face declarations
+@include font-face('Dagny', '../fonts/Dagny/DagnyCompPro');
+@include font-face('Dagny-bold', '../fonts/Dagny/DagnyCompPro-Bold', bold);
+@include font-face('Dagny-light', '../fonts/Dagny/DagnyCompPro-Light', light, normal);
+
+// Text transform
+.#{$class-name-typography}-lowercase { text-transform: lowercase; }
+.#{$class-name-typography}-uppercase { text-transform: uppercase; }
+// Text styles
+
+.#{$class-name-typography}-italic {
+	font-family: 'Dagny';
+	font-style: italic;
+}
+
+.#{$class-name-typography}-bold {
+	font-family: 'Dagny';
+	font-weight: bold;
+}
+
+em {
+	font-family: 'Dagny';
+}
+
+// Body styles
+body {
+	background-color: $color-white;
+	font-family: "Dagny", $font-family-sans-serif;
+	font-size: 100%;
+	line-height: $base-line-height;
+}
+
+// Typography
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin: 0;
+}
+
+// Hyperlink
+a {
+	color: $color-blue;
+	text-decoration: none;
+
+	&:hover {
+		text-decoration: underline;
+	}
+}

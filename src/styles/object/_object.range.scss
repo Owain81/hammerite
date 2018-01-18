@@ -1,0 +1,88 @@
+﻿// Input type range - slider
+// Change to #{$input-class-
+
+.#{$input-range-class} {
+	height: $input-range-height;
+	border: none;
+	background: transparent;
+	cursor: pointer;
+	-webkit-appearance: none;
+
+	// Slider components
+	&::-webkit-slider-runnable-track {
+		@include input-range-track();
+		position: relative;
+		-webkit-appearance: none;
+	}
+
+	&::-moz-range-track {
+		@include input-range-track();
+	}
+
+	&::-ms-track {
+		height: $input-range-track-height--ms;
+		border: 0;
+		color: transparent;
+	}
+
+	&::-ms-fill-lower {
+		background: $input-range-background-fill;
+	}
+
+	&::-ms-fill-upper {
+		background: $input-range-background;
+	}
+
+	&::-webkit-slider-thumb {
+		@include input-range-thumb();
+		margin-top: ($input-range-track-height - $input-range-thumb-size) / 2;
+		-webkit-appearance: none;
+	}
+
+	&::-moz-range-thumb {
+		@include input-range-thumb();
+		cursor: pointer;
+	}
+
+	&::-ms-thumb {
+		@include input-range-thumb();
+		width: $input-range-thumb-size--ms;
+		height: $input-range-thumb-size--ms;
+	}
+
+	&::-ms-tooltip {
+		display: none;
+	}
+
+	&:active {
+		&::-webkit-slider-thumb {
+			@include input-range-thumb-active();
+		}
+
+		&::-moz-range-thumb {
+			@include input-range-thumb-active();
+		}
+
+		&::-ms-thumb {
+			@include input-range-thumb-active();
+		}
+	}
+
+	&:focus {
+		outline: none;
+
+		&:not(:active) {
+			&::-webkit-slider-thumb {
+				@include input-range-thumb-focus();
+			}
+
+			&::-moz-range-thumb {
+				@include input-range-thumb-focus();
+			}
+
+			&::-ms-thumb {
+				@include input-range-thumb-focus();
+			}
+		}
+	}
+}

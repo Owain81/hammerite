@@ -1,0 +1,52 @@
+
+/// Creates an indicator line as background gradient
+///
+/// @argument {string} $position [$table-editable-highlight-header-border-color]
+///   Position of indicator (top / left)
+///
+/// @argument {color} $border-color [$table-editable-highlight-header-border-color]
+///   Line color
+///
+/// @argument {number} $border-width [$table-editable-highlight-header-border-width]
+///   Line width
+///
+/// @argument {color} $background-color [$table-editable-highlight-header-background-color]
+///   Cell background color
+///
+/// @group Tables
+@mixin table-cell-active-indicator(
+    $position,
+    $border-color: $table-editable-highlight-header-border-color,
+    $border-width: $table-editable-highlight-header-border-width,
+    $background-color: $table-editable-highlight-header-background-color
+    ) {
+	position: relative;
+
+	&::before {
+		@include transition-with-curve ($table-editable-motion-curve, $table-editable-motion-duration, opacity, transform, background-color);
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		background-color: $border-color;
+	}
+
+	@if $position == top {
+		$padding: calc(#{$table-header-padding-vertical} + #{px-to-rem($table-border-width)});
+		padding-top: $padding;
+
+		&::before {
+			width: 100%;
+			height: $border-width;
+
+		}
+	} @else {
+		$padding: calc(#{$table-padding-right} + #{px-to-rem($table-border-width)});
+		padding-left: $padding;
+
+		&::before {
+			width: $border-width;
+			height: 100%;
+		}
+	}
+}

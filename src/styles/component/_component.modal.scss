@@ -1,0 +1,79 @@
+﻿.#{$modal-class-name}__wrap {
+	@include display-flex;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	@include transition-with-curve($modal-motion-curve, $modal-motion-duration, opacity);
+	opacity: 0;
+	@include justify-content(center);
+	@include align-items(center);
+	pointer-events: none;
+
+	&.is--opened {
+		opacity: 1;
+		pointer-events: initial;
+
+		.#{$modal-class-name} {
+			transform: scale(1) translateY(0);
+			pointer-events: all;
+		}
+
+		.#{$modal-class-name}__overlay {
+			pointer-events: all;
+    }
+	}
+}
+
+.#{$modal-class-name} {
+	padding: $modal-padding;
+	transform: scale($modal-motion-scale) translateY($modal-motion-offset);
+	@include transition-with-curve ($modal-motion-curve, $modal-motion-duration, transform);
+	border: $modal-border-width $modal-border-type $modal-border-color;
+	background-color: $modal-background-color;
+	box-shadow: $modal-shadow-parameters rgba($modal-shadow-color, $modal-shadow-opacity);
+
+	@media screen and (max-width: screen-size-breakpoint($modal-mobile-max-size, max)) {
+		width: calc(100% - #{$modal-mobile-margin * 2});
+		padding: $modal-padding - 8;
+	}
+
+	@media screen and (min-width: screen-size-breakpoint($modal-desktop-min-size, min)) {
+		min-width: $modal-min-width;
+		max-width: $modal-max-width;
+	}
+
+	&__btn-group {
+		padding: $modal-padding 0 0;
+	}
+
+	&__close {
+		position: absolute;
+		top: $modal-close-top;
+		right: $modal-close-right;
+
+		.o-icon {
+			width: $modal-icon-width;
+			height: $modal-icon-height;
+		}
+	}
+
+	&__title {
+		width: 90%;
+		margin-bottom: $modal-bottom-margin;
+		padding: 0;
+		color: $modal-header-color;
+	}
+
+	&__overlay {
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		background-color: rgba($modal-overlay-background-color, $modal-overlay-opacity);
+		cursor: pointer;
+	}
+}
+

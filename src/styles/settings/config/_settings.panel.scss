@@ -1,0 +1,47 @@
+﻿////
+/// @group Panel
+////
+
+/// Panel class name
+/// @type String
+$panel-class-name: #{$class-prefix-c}-panel !default;
+
+/// Panel background color
+/// @type Color
+$panel-background-color: $color-white !default;
+
+/// Panel header background color
+/// @type Color
+$panel-header-background-color: $color-grey-8;
+
+/// Panel padding
+/// @type Number
+$panel-padding: px-to-rem(set-space(m)) !default;
+
+/// Panel border color
+/// @type Color
+$panel-border-color: $color-grey-34 !default;
+
+/// Panel border style
+/// @type String
+$panel-border-style: solid !default;
+
+/// Panel border width
+/// @type Number
+$panel-border-width: 1px !default !default;
+
+/// Panel icon left
+/// @type String
+$panel-icon-left: 10px !default;
+
+/// Panel icon right
+/// @type String
+$panel-icon-right: 10px !default;
+
+/// Header title color of panel
+/// @type String
+$panel-title-color: $color-black !default;
+
+/// Header line-height
+/// @type String
+$panel-title-line-height: 2.223 !default;

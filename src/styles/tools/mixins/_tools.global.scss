@@ -1,0 +1,318 @@
+////
+/// @group Global
+////
+
+// suitable inside mixins
+// scss-lint:disable VendorPrefix
+
+/// Margin. Set margin on an element by using this function
+/// @param {string} top []
+/// @param {string} right [top]
+/// @param {string} bottom [top]
+/// @param {string} left [right]
+/// @example scss - SCSS
+///		.foo {
+///			margin: padding(10px, 10px, 0);
+///		}
+/// @example css - CSS output:
+///		.foo {
+///			margin: 10px 10px 0 10px;
+///		}
+@function margin($top, $right:$top, $bottom:$top, $left:$right) {
+	@if $top == $right and $top == $bottom and $top == $left {
+		@return $top;
+	} @else if $top == $bottom and $right == $left {
+		@return $top $right;
+	} @else {
+		@return $top $right $bottom $left;
+	}
+}
+
+/// Padding. Set padding on an element by using this function
+/// @param {string} top []
+/// @param {string} right [top]
+/// @param {string} bottom [top]
+/// @param {string} left [right]
+/// @example scss - SCSS
+///		.foo {
+///			padding: padding(10px, 10px, 0);
+///		}
+/// @example css - CSS output:
+///		.foo {
+///			padding: 10px 10px 0 10px;
+///		}
+@function padding($top, $right:$top, $bottom:$top, $left:$right) {
+	@if $top == $right and $top == $bottom and $top == $left {
+		@return $top;
+	} @else if $top == $bottom and $right == $left {
+		@return $top $right;
+	} @else {
+		@return $top $right $bottom $left;
+	}
+}
+
+// scss-lint:disable Shorthand
+/// Border-radius easily set with the use of this mixin
+/// @param {string} top-left []
+/// @param {string} top-right [top-left]
+/// @param {string} bottom-right [top-left]
+/// @param {string} bottom-left [top-right]
+/// @example scss - SCSS:
+///		.foo {
+///			@include border-radius(10px, 10px, 0);
+///		}
+/// @example css - CSS output:
+///		.foo {
+///			border-radius: 10px 10px 0 10px;
+///		}
+@mixin border-radius($top-left, $top-right:$top-left, $bottom-right:$top-left, $bottom-left:$top-right) {
+	@if $top-left == $top-right and $top-left == $bottom-right and $top-left == $bottom-left {
+		border-radius: $top-left;
+	} @else if $top-left == $bottom-right and $top-right == $bottom-left {
+		border-radius: $top-left $top-right;
+	} @else {
+		border-radius: $top-left $top-right $bottom-right $bottom-left;
+	}
+}
+
+/// The border shorthand property sets all the border properties in one declaration.
+/// @param {String} $style [solid]- Specifies the style of the border.
+/// @param {String} $color [$color-black]- Specifies the color of the border.
+/// @param {String} $top [1px]- Specifies the width of the top border.
+/// @param {String} $right [$top]- Specifies the width of the right border.
+/// @param {String} $bottom [$top]- Specifies the width of the bottom border.
+/// @param {String} $left [$right]- Specifies the width of the left border.
+/// @example scss - SCSS
+///		.foo {
+///			@include border(solid, $color-black, 1px);
+///		}
+/// @example css - CSS output:
+///		.foo {
+///			border: solid black 1px;
+///		}
+@mixin border($style:solid, $color:$color-black, $top:1px, $right:$top, $bottom:$top, $left:$right) {
+	@if $top == $right and $top == $bottom and $top == $left {
+		border-width: $top;
+	} @else if $top == $bottom and $right == $left {
+		border-width: $top $right;
+	} @else {
+		border-width: $top $right $bottom $left;
+	}
+
+	border-style: $style;
+	border-color: $color;
+}
+
+/// Border-Color Mixin
+/// @param {string} color [$color-black]
+/// @param {string} top [true]
+/// @param {string} right [true]
+/// @param {string} bottom [true]
+/// @param {string} left [true]
+/// @example scss - SCSS
+///		.foo {
+///			@include border-color($color-grey);
+///		}
+/// @example css - CSS output:
+///		.foo {
+///			border-color: #7c878e;
+///		}
+@mixin border-color($color:$color-black, $top:true, $right:true, $bottom:true, $left:true) {
+	@if $top == $right and $top == $bottom and $top == $left {
+		border-color: $color;
+	}  @else {
+		@if $top != true {
+			border-top-color: transparent;
+		} @else {
+			border-top-color: $color;
+		}
+
+		@if $right != true {
+			border-right-color: transparent;
+		} @else {
+			border-right-color: $color;
+		}
+
+		@if $bottom != true {
+			border-bottom-color: transparent;
+		} @else {
+			border-bottom-color: $color;
+		}
+
+		@if $left != true {
+			border-left-color: transparent;
+		} @else  {
+			border-left-color: $color;
+		}
+	}
+}
+
+/// The CSS transform property lets you modify the coordinate space of the CSS visual formatting model.
+/// @param {string} transforms
+/// @example scss - SCSS
+///		.foo {
+///			@include transform(unset);
+///		}
+/// @example css - CSS output:
+///		.foo {
+///			-moz-transform: unset;
+///			-o-transform: unset;
+///			-ms-transform: unset;
+///			-webkit-transform: unset;
+///			transform: unset;
+///		}
+@mixin transform($transforms) {
+	-moz-transform: $transforms;
+	-o-transform: $transforms;
+	-ms-transform: $transforms;
+	-webkit-transform: $transforms;
+	transform: $transforms;
+}
+
+/// The rotate() CSS function defines a transformation that moves the element around a fixed point (as specified by the transform-origin property) without deforming it.
+/// @param {string} deg
+/// @example scss - SCSS
+///		.foo {
+///			@include transform(rotate(180deg));
+///		}
+/// @example css - CSS output:
+///		.foo {
+///			-moz-transform: rotate(180deg);
+///			-o-transform: rotate(180deg);
+///			-ms-transform: rotate(180deg);
+///			-webkit-transform: rotate(180deg);
+///			transform: rotate(180deg);
+///		}
+@mixin rotate ($deg) {
+	@include transform(rotate(#{$deg}deg));
+}
+
+/// The scale() CSS function modifies the size of the element
+/// @param {string} scale
+/// @example scss - SCSS
+///		@include transform(scale(10px));
+///
+/// @example css - CSS output:
+///		.foo {
+///			-moz-transform: scale(10px);
+///			-o-transform: scale(10px);
+///			-ms-transform: scale(10px);
+///			-webkit-transform: scale(10px);
+///			transform: scale(10px);
+///		}
+@mixin scale($scale) {
+	@include transform(scale($scale));
+}
+/// The translate() CSS function moves the position of the element on the plane.
+/// @param {string} x
+/// @param {string} y
+/// @example scss - SCSS
+///		.foo {
+///			@include transform(translate(10px, 10px));
+///		}
+/// @example css - CSS output:
+///		.foo {
+///			-moz-transform: translate(10px, 10px);
+///			-o-transform: translate(10px, 10px);
+///			-ms-transform: translate(10px, 10px);
+///			-webkit-transform: translate(10px, 10px);
+///			transform: translate(10px, 10px);
+///		}
+@mixin translate ($x, $y) {
+	@include transform(translate($x, $y));
+}
+
+/// The skew() CSS function is a shear mapping, or transvection, distorting each point of an element by a certain angle in each direction.
+/// @param {string} x
+/// @param {string} y
+/// @example scss - SCSS
+///		.foo {
+///			@include transform(skew(180deg, 180deg));
+///		}
+/// @example css - CSS output:
+///		.foo {
+///			-moz-transform: skew(180deg, 180deg);
+///			-o-transform: skew(180deg, 180deg);
+///			-ms-transform: skew(180deg, 180deg);
+///			-webkit-transform: skew(180deg, 180deg);
+///			transform: skew(180deg, 180deg);
+///		}
+@mixin skew ($x, $y) {
+	@include transform(skew(#{$x}deg, #{$y}deg));
+}
+
+/// The transform-origin property lets you modify the origin for transformations of an element.
+/// @param {string} origin
+/// @example scss - SCSS
+///		.foo {
+///			@include transform-origin(bottom);
+///		}
+/// @example css - CSS output:
+///		.foo {
+///		    moz-transform-origin: bottom;
+///		     -o-transform-origin: bottom;
+///		    -ms-transform-origin: bottom;
+///			-webkit-transform-origin: bottom;
+///		      transform-origin: bottom;
+///		}
+@mixin transform-origin ($origin) {
+	-moz-transform-origin: $origin;
+	-o-transform-origin: $origin;
+	-ms-transform-origin: $origin;
+	-webkit-transform-origin: $origin;
+	transform-origin: $origin;
+}
+
+/// Controls the actual selection operation. This doesn't have any effect on content loaded as chrome, except in textboxes.
+/// @param {string} select [none]
+/// @example scss - SCSS
+///		.foo {
+///			@include user-select(none);
+///		}
+/// @example css - CSS output:
+///		.foo {
+///			-webkit-touch-callout: $select;
+///			-webkit-user-select: $select;
+///			-khtml-user-select: $select;
+///			-moz-user-select: $select;
+///			-ms-user-select: $select;
+///			user-select: $select;
+///		}
+@mixin user-select($select) {
+	-webkit-touch-callout: $select;
+	-webkit-user-select: $select;
+	-khtml-user-select: $select;
+	-moz-user-select: $select;
+	-ms-user-select: $select;
+	user-select: $select;
+}
+
+/// Get breakpoint for screen size
+/// @param {string} screen-size
+/// @param {string} breakpoint-limit
+@function screen-size-breakpoint($screen-size, $breakpoint-limit: min) {
+	@return map-get(map-get($screen-sizes-breakpoints, $screen-size), $breakpoint-limit);
+}
+
+/// Media query for screen size breakpoint
+///
+/// @param {string} screen-size
+///
+@mixin only-for-screen-type ($screen-size) {
+	$min: 'and (min-width: #{screen-size-breakpoint($screen-size, min)})';
+	$max: 'and (max-width: #{screen-size-breakpoint($screen-size, max)})';
+
+	@if ($screen-size == 'tiny') {
+		$min: '';
+	}
+
+	@if ($screen-size == 'xlarge') {
+		$max: '';
+	}
+
+	$media-content: "screen #{$min} #{$max}";
+
+	@media #{$media-content} {
+		@content;
+	}
+}

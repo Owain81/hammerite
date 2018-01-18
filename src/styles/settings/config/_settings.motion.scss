@@ -1,0 +1,11 @@
+// MOTION SETTINGS
+
+/// Motion duration
+/// @type Number
+/// @group Motion
+$motion-duration: .3s !default;
+
+/// Motion bounce curve
+/// @type String
+/// @group Motion
+$motion-curve-bounce: cubic-bezier(.26, .96, .22, 1.12) !default;

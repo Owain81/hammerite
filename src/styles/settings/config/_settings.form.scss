@@ -1,0 +1,407 @@
+﻿////
+/// @group Form
+////
+
+/// Wrapper class for radio and checkboxes
+/// @type String
+$input-wrapper-bottom-margin: set-space(l);
+
+/// CSS class prefix for form input
+/// @type String
+$input-class-prefix: #{$class-prefix-o}-input !default;
+
+/// Form input active color
+/// @type Color
+$input-active-color: $color-blue !default;
+
+/// Form input active border width
+/// @type Number
+$input-active-border-width: 2px !default;
+
+// Units needed for calculation
+// scss-lint:disable ZeroUnit
+
+/// Form input padding bottom
+/// @type Number
+$input-padding-bottom: px-to-rem(1px) !default;
+
+/// Form input focus outer glow color
+/// @type Color
+$input-focus-outerglow-color: $color-blue !default;
+
+/// Form input focus outer glow distance
+/// @type Number
+$input-focus-outerglow-distance: 3px !default;
+
+/// Form input: opacity for disabled fields
+/// @type Number
+$input-disabled-opacity: .7 !default;
+
+/// Form input background color
+/// @type Color
+$input-background-color: transparent !default;
+
+/// Form input bottom margin
+/// @type String
+$input-bottom-margin: set-space(xxl) !default;
+
+/// Motion transition time for input component
+/// @type Number
+$input-transition-time: .26s !default;
+
+// Input border scale on focus
+// @type Number
+$input-border-scale-on-focus: 1.6 !default;
+
+/// Input placeholder offset on show/hide
+/// @type Number
+$input-placeholder-offset-on-hide: -5px !default;
+
+/// Label class name
+/// @type String
+$label-class-name: #{$class-prefix-o}-label !default;
+
+/// Label focus class name
+/// @type String
+$label-focus-class-name: #{$label-class-name}--focus !default;
+
+/// Label color
+/// @type Color
+$label-color: $color-grey-120 !default;
+
+/// Label focus color
+/// @type Color
+$label-focus-color: $color-blue !default;
+
+/// Label placeholder color
+/// @type Color
+$label-placeholder-color: $color-grey-110 !default;
+
+/// Label size
+/// @type Number
+$label-size: px-to-rem(14px) !default;
+
+/// Label line height
+/// @type Number
+$label-line-height: 2.07 !default; // 29
+
+/// Label scale on focus
+/// @type Number
+$label-scale-on-focus: 1.01 !default;
+
+/// Input height
+/// @type Number
+$input-height: 29px !default;
+
+/// Input font size
+/// @type Number
+$input-font-size: $font-base-size !default;
+
+/// Input color
+/// @type Color
+$input-color: $color-black !default;
+
+/// Input border style
+/// @type String
+$input-border-style: solid !default;
+
+/// Input border color
+/// @type Color
+$input-border-color: $color-grey-110 !default;
+
+/// Input border width
+/// @type Number
+$input-border-width: 1px !default;
+
+/// Input description font-size
+/// @type Number
+$input-description-font: px-to-rem(14px) !default;
+
+/// Input select color
+/// @type String
+$input-select-color: $input-color !default;
+
+/// Input select class name
+/// @type String
+$input-select-class-name: #{$input-class-prefix}--select !default;
+
+/// Input select min width
+/// @type Number
+$input-select-min-width: 183px !default; // 183
+
+/// Input select padding bottom
+/// @type Number
+$input-select-padding-bottom: px-to-rem(3px) !default;
+
+/// Input select border style
+/// @type String
+$input-select-border-style: $input-border-style !default;
+
+/// Input select border color
+/// @type Color
+$input-select-border-color: $input-border-color !default;
+
+/// Input select border width
+/// @type Number
+$input-select-border-width: $input-border-width !default;
+
+/// Input select background color
+/// @type Color
+$input-select-background-color: $input-background-color !default;
+
+/// Input select arrow icon (embed SVG)
+/// @type String
+$input-select-arrow-icon: url('data:image/svg+xml;charset=utf-8,%3Csvg%20fill%3D%22%234c5358%22%20version%3D%221.1%22%20%0D%0A%09%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20%20x%3D%220px%22%20y%3D%220px%22%20width%3D%2296px%22%20height%3D%2296px%22%0D%0A%09%20viewBox%3D%220%200%2096%2096%22%20%20%3E%0D%0A%3Cpath%20d%3D%22M82%2C32c2.2%2C0%2C2.729%2C1.273%2C1.172%2C2.829L50.829%2C67.172c-1.556%2C1.557-4.102%2C1.557-5.657%2C0L12.829%2C34.829%0D%0A%09C11.273%2C33.273%2C11.8%2C32%2C14%2C32H82z%22%2F%3E%0D%0A%3C%2Fsvg%3E%0D%0A') !default;
+
+/// Input select arrow icon size
+/// @type Number
+$input-select-arrow-icon-size: 12px !default;
+
+/// Input select arrow icon position
+/// @type String
+$input-select-arrow-icon-position: right 8px !default;
+
+/// Input select arrow icon hover (embed SVG)
+/// @type String
+$input-select-arrow-icon-hover: url('data:image/svg+xml;charset=utf-8,%3Csvg%20fill%3D%22%2300648e%22%20version%3D%221.1%22%20%0D%0A%09%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20%20x%3D%220px%22%20y%3D%220px%22%20width%3D%2296px%22%20height%3D%2296px%22%0D%0A%09%20viewBox%3D%220%200%2096%2096%22%20%20%3E%0D%0A%3Cpath%20d%3D%22M82%2C32c2.2%2C0%2C2.729%2C1.273%2C1.172%2C2.829L50.829%2C67.172c-1.556%2C1.557-4.102%2C1.557-5.657%2C0L12.829%2C34.829%0D%0A%09C11.273%2C33.273%2C11.8%2C32%2C14%2C32H82z%22%2F%3E%0D%0A%3C%2Fsvg%3E%0D%0A') !default;
+
+/// Input multiple height
+/// @type Number
+$input-multiple-height: 65px !default;
+
+/// Input radio class name
+/// @type String
+$input-radio-class-name: #{$input-class-prefix}--radio !default;
+
+/// Input radio click area size
+/// @type Number
+$input-radio-click-area-size: 33px !default;
+
+/// Input radio background color
+/// @type String
+$input-radio-background: $color-white !default;
+
+/// Input radio size
+/// @type Number
+$input-radio-size: 24px !default;
+
+/// Input radio text line-height
+/// @type Number
+$input-radio-text-line-height: 2.25; // 36
+$input-radio-text-top-padding: px-to-rem(3px) !default;
+
+/// Input radio text padding
+/// @type Number
+$input-radio-text-padding: px-to-rem(6px) !default;
+
+/// Input radio text left padding
+/// @type Number
+$input-radio-text-left-padding: px-to-rem(35px) !default;
+
+/// Input radio margin right
+/// @type Number
+$input-radio-margin-right: set-space(m) !default;
+
+/// Input radio border size
+/// @type Number
+$input-radio-border-size: 1px !default;
+
+/// Input radio border style
+/// @type String
+$input-radio-border-style: solid !default;
+
+/// Input radio border color
+/// @type Color
+$input-radio-border-color: $color-grey-34 !default;
+
+/// Input radio hover color
+/// @type Color
+$input-radio-hover-color: $color-btn-happy-hover !default;
+
+/// Input radio focus color
+/// @type Color
+$input-radio-focus-color: $color-blue !default;
+
+/// Input radio active color
+/// @type Color
+$input-radio-active-color: $color-blue !default;
+
+/// Input radio active circle size
+/// @type Number
+$input-radio-active-circle-size: 8px !default;
+
+/// Input radio active circle color
+/// @type Color
+$input-radio-active-circle-color: $color-white !default;
+
+/// Input radio checked background color
+/// @type Color
+$input-radio-checked-background-color: $color-blue !default;
+
+/// Input radio transition curve
+/// @type String
+$input-radio-transition-curve: smooth-out !default;
+
+/// Input radio transition duration
+/// @type Number
+$input-radio-transition-duration: .35s !default;
+
+/// Input checkbox class name
+/// @type String
+$input-checkbox-class-name: #{$input-class-prefix}--checkbox !default;
+
+/// Input checkbox click area size
+/// @type Number
+$input-checkbox-click-area-size: 28px !default;
+
+/// Input checkbox size
+/// @type Number
+$input-checkbox-size: 24px !default;
+
+/// Input checkbox text line-height
+/// @type Number
+$input-check-text-line-height: 2 !default; // 34
+$input-checkbox-text-top-padding: px-to-rem(3px) !default;
+
+/// Input checkbox text right padding
+/// @type Number
+$input-checkbox-text-right-padding: px-to-rem(6px) !default;
+
+// Input checkbox text left padding
+/// @type Number
+$input-checkbox-text-left-padding: px-to-rem(35px) !default;
+
+/// Input checkbox margin right
+/// @type Number
+$input-checkbox-margin-right: set-space(m) !default;
+
+/// Input checkbox background
+/// @type Color
+$input-checkbox-background: $color-white !default;
+
+/// Input checkbox border size
+/// @type Number
+$input-checkbox-border-size: 1px !default;
+
+/// Input checkbox border style
+/// @type String
+$input-checkbox-border-style: solid !default;
+
+/// Input checkbox border color
+/// @type Color
+$input-checkbox-border-color: $color-grey-34 !default;
+
+/// Input checkbox hover color
+/// @type Color
+$input-checkbox-hover-color: $color-btn-happy-hover !default;
+
+/// Input checkbox focus color
+/// @type Color
+$input-checkbox-focus-color: $color-blue !default;
+
+/// Input checkbox active color
+/// @type Color
+$input-checkbox-active-color: $color-blue !default;
+
+/// Input checkbox checked background color
+/// @type Color
+$input-checkbox-checked-background-color: $color-blue !default;
+
+/// Input file class
+/// @type String
+$input-file-class: #{$input-class-prefix}--file !default;
+
+/// Input file label class
+/// @type String
+$input-file-label-class: #{$input-file-class}__label !default;
+
+/// Input file name class
+/// @type String
+$input-file-name-class: #{$input-file-class}__name !default;
+
+$input-file-name-padding: px-to-rem(8px) !default;
+
+/// Input validation icon size
+/// @type Number
+$input-validation-icon-size: 20px !default;
+
+/// Input validation icon position
+/// @type Number
+$input-validation-icon-position: right 1px !default;
+
+/// Input validation error icon (embed SVG icon)
+/// @type String
+$input-validation-error-icon: url('data:image/svg+xml;charset=utf-8,%3Csvg%20fill%3D%22%23c10606%22%20version%3D%221.1%22%20%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20%0D%0A%09%20x%3D%220px%22%20y%3D%220px%22%20width%3D%2296px%22%20height%3D%2296px%22%20viewBox%3D%220%200%2096%2096%22%20%20%3E%0D%0A%3Cpath%20d%3D%22M47.125%2C0C21.096%2C0%2C0%2C21.096%2C0%2C47.125C0%2C73.152%2C21.096%2C94.25%2C47.125%2C94.25c26.028%2C0%2C47.125-21.098%2C47.125-47.125%0D%0A%09C94.25%2C21.096%2C73.153%2C0%2C47.125%2C0z%20M42.669%2C15.708h8.496c2.353%2C0%2C4.174%2C1.521%2C4.05%2C3.868l-1.676%2C31.271%0D%0A%09c-0.127%2C2.354-2.149%2C3.527-4.506%2C3.527h-4.14c-2.352%2C0-4.381-1.164-4.512-3.507l-1.751-30.919%0D%0A%09C38.504%2C17.599%2C40.318%2C15.708%2C42.669%2C15.708z%20M47.011%2C78.466c-4.724%2C0-8.709-3.983-8.709-8.713c0-4.635%2C3.984-8.61%2C8.709-8.61%0D%0A%09c4.726%2C0%2C8.617%2C3.977%2C8.617%2C8.61C55.628%2C74.482%2C51.736%2C78.466%2C47.011%2C78.466z%22%2F%3E%0D%0A%3C%2Fsvg%3E%0D%0A') !default;
+
+/// Input validation warning icon (embed SVG icon)
+/// @type String
+$input-validation-warning-icon: url('data:image/svg+xml;charset=utf-8,%3Csvg%20fill%3D%22%23ed6f19%22%20version%3D%221.1%22%20%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20%0D%0A%09%20x%3D%220px%22%20y%3D%220px%22%20width%3D%2296px%22%20height%3D%2296px%22%20viewBox%3D%220%200%2096%2096%22%20%20%3E%0D%0A%3Cpath%20d%3D%22M95.505%2C86.017L50.414%2C6.1c-0.579-1.03-1.699-1.6-2.872-1.414c-0.866%2C0.139-1.603%2C0.67-2.022%2C1.414L0.429%2C86.017%0D%0A%09c-0.496%2C0.877-0.496%2C2.295%2C0%2C3.168c0.503%2C0.888%2C1.432%2C1.755%2C2.445%2C1.755h90.188c1.009%2C0%2C1.943-0.867%2C2.443-1.755%0D%0A%09C95.999%2C88.309%2C95.999%2C86.893%2C95.505%2C86.017z%20M44.479%2C31.624h6.799c1.882%2C0%2C3.34%2C1.316%2C3.239%2C3.196l-1.343%2C25.322%0D%0A%09c-0.1%2C1.88-1.72%2C3.422-3.603%2C3.422h-3.313c-1.882%2C0-3.508-1.578-3.612-3.457l-1.402-25.191%0D%0A%09C41.143%2C33.035%2C42.597%2C31.624%2C44.479%2C31.624z%20M47.953%2C81.514c-3.782%2C0-6.97-3.188-6.97-6.971c0-3.708%2C3.188-6.895%2C6.97-6.895%0D%0A%09c3.779%2C0%2C6.895%2C3.187%2C6.895%2C6.895C54.848%2C78.325%2C51.733%2C81.514%2C47.953%2C81.514z%22%2F%3E%0D%0A%3C%2Fsvg%3E%0D%0A%0D%0A') !default;
+
+/// Input validation success icon (embed SVG icon)
+/// @type String
+$input-validation-success-icon: url('data:image/svg+xml;charset=utf-8,%3Csvg%20fill%3D%22%235d9834%22%20version%3D%221.1%22%20%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20%20x%3D%220px%22%20y%3D%220px%22%0D%0A%09%20width%3D%2296px%22%20height%3D%2296px%22%20viewBox%3D%220%200%2096%2096%22%20%20%3E%0D%0A%3Cg%20id%3D%22approved_filter%22%3E%0D%0A%09%3Cpath%20d%3D%22M75.672%2C33.32L40.445%2C76.382l-17.67-19.969c-1.826-2.046-1.439-5.049%2C0.872-6.655%0D%0A%09%09c2.325-1.633%2C5.673-1.288%2C7.5%2C0.774l8.967%2C10.129L67.067%2C27.73c1.729-2.117%2C5.062-2.601%2C7.442-1.053%0D%0A%09%09C76.891%2C28.228%2C77.416%2C31.203%2C75.672%2C33.32z%20M47.736%2C0.43C21.378%2C0.43%2C0%2C21.821%2C0%2C48.208C0%2C74.608%2C21.378%2C96%2C47.736%2C96%0D%0A%09%09c26.36%2C0%2C47.736-21.392%2C47.736-47.792C95.473%2C21.821%2C74.097%2C0.43%2C47.736%2C0.43z%22%2F%3E%20%0D%0A%3C%2Fg%3E%0D%0A%3C%2Fsvg%3E%0D%0A') !default;
+
+/// Input validation info icon (embed SVG icon)
+/// @type String
+$input-validation-info-icon: url('data:image/svg+xml;charset=utf-8,%3Csvg%20fill%3D%22%230d78aa%22%20version%3D%221.1%22%20%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20%20x%3D%220px%22%0D%0A%09%20y%3D%220px%22%20width%3D%2296px%22%20height%3D%2296px%22%20viewBox%3D%220%200%2096%2096%22%20%20%3E%0D%0A%3Cpath%20d%3D%22M90.894%2C0H4.981C2.229%2C0%2C0%2C2.35%2C0%2C5.25v85.375c0%2C2.899%2C2.229%2C5.25%2C4.981%2C5.25h85.914c2.75%2C0%2C4.98-2.351%2C4.98-5.25V5.25%0D%0A%09C95.875%2C2.35%2C93.645%2C0%2C90.894%2C0z%20M56.542%2C81.125c0%2C2.037-1.652%2C3.688-3.688%2C3.688h-9.833c-2.037%2C0-3.688-1.65-3.688-3.688V39.333%0D%0A%09c0-2.037%2C1.65-3.688%2C3.688-3.688h9.833c2.035%2C0%2C3.688%2C1.65%2C3.688%2C3.688V81.125z%20M47.938%2C30.729c-5.431%2C0-9.833-4.403-9.833-9.833%0D%0A%09c0-5.431%2C4.403-9.833%2C9.833-9.833s9.833%2C4.403%2C9.833%2C9.833C57.771%2C26.326%2C53.368%2C30.729%2C47.938%2C30.729z%22%2F%3E%0D%0A%3C%2Fsvg%3E%0D%0A') !default;
+
+/// Input validation border scale
+/// @type Number
+$input-validation-border-scale: 1.6 !default;
+
+/// Input validation colors for each state
+/// @type Map
+$input-validation-colors: (
+	error: $color-alert,
+	warning: $color-warning,
+	success: $color-success,
+	info: $color-info
+);
+
+/// Input validation icons for each state
+/// @type Map
+$input-validation-icons: (
+	error: $input-validation-error-icon,
+	warning: $input-validation-warning-icon,
+	success: $input-validation-success-icon,
+	info: $input-validation-info-icon
+);
+
+/// Input validation icon offset on hide
+/// @type Number
+$input-validation-icon-offset-on-hide: 15px !default;
+
+/// Input validation icon rotate on hide
+/// @type Number
+$input-validation-icon-rotate-on-hide: 45deg !default;
+
+/// Textarea class
+/// @type String
+$input-textarea-class: #{$input-class-prefix}--textarea !default;
+
+/// Textarea min height
+/// @type Number
+$textarea-min-height: 75px !default;
+
+/// Text counter color
+/// @type Color
+$text-counter-color: $color-grey-110 !default;
+
+/// Text counter size
+/// @type Number
+$text-counter-size: 14px;
+
+/// E-mail class
+$input-email-class: #{$input-class-prefix}--email !default;
+
+/// Number class
+$input-number-class: #{$input-class-prefix}--number !default;
+
+/// Password class
+$input-password-class: #{$input-class-prefix}--password !default;
+
+$input-time-class: #{$input-class-prefix}--time !default;
+
+/// Form group margin bottom
+/// @type Number
+$group-margin-bottom: set-space(l) !default;

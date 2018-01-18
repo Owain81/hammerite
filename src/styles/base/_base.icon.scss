@@ -1,0 +1,70 @@
+﻿// Icon container
+.#{$icon-class-name}-container {
+	display: inline-block;
+	padding: .5rem;
+	background-color: $color-grey-120;
+}
+
+// Multiple icon sizes are available. Default, xxsmall, xsmall, small, large, xlarge and xxlarge
+// 48
+.#{$icon-class-name} {
+	display: inline-block;
+	width: map-get($icon-size-values, m);
+	height: map-get($icon-size-values, m);
+	fill: $icon-default-color;
+}
+
+// 16
+.#{$icon-class-name}--xxsmall {
+	width: map-get($icon-size-values, xxs);
+	height: map-get($icon-size-values, xxs);
+}
+
+// 24
+.#{$icon-class-name}--xsmall {
+	width: map-get($icon-size-values, xs);
+	height: map-get($icon-size-values, xs);
+}
+
+// 32
+.#{$icon-class-name}--small {
+	width: map-get($icon-size-values, s);
+	height: map-get($icon-size-values, s);
+}
+
+// 64
+.#{$icon-class-name}--large {
+	width: map-get($icon-size-values, l);
+	height: map-get($icon-size-values, l);
+}
+
+// 80
+.#{$icon-class-name}--xlarge {
+	width: map-get($icon-size-values, xl);
+	height: map-get($icon-size-values, xl);
+}
+
+// 96
+.#{$icon-class-name}--xxlarge {
+	width: map-get($icon-size-values, xxl);
+	height: map-get($icon-size-values, xxl);
+}
+
+// Text fill
+.#{$icon-class-name}--text {
+	fill: $icon-default-color;
+}
+
+// Color fills
+.#{$icon-class-name}--white {
+	fill: $color-white;
+}
+
+// Notifications
+.#{$icon-class-name}--error {
+	fill: $icon-alert-color;
+}
+
+.#{$icon-class-name}--warning {
+	fill: $icon-warning-color;
+}
